@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compensation Calculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/CxN_clan_icon.jpg" alt="CxN Clan Icon" class="header-logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../wiki/index.html" class="nav-link">Wiki</a></li>
+                <li class="nav-item"><a href="../strategy/index.html" class="nav-link">Strategy</a></li>
+                <li class="nav-item"><a href="../faq/index.html" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="../announcements/index.html" class="nav-link">Announcements</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Compensation Calculator</h1>
+            <p class="calculator-subtitle">Calculate fines for ROE violations based on troops killed</p>
+        </div>
+
+        <div class="calculator-wrapper">
+            <!-- Guardsman Units Section -->
+            <div class="calculator-section">
+                <h2 class="section-title">Guardsman Units</h2>
+                <div class="unit-grid" id="guardsman-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Guardsman Total:</span>
+                    <span class="total-value" id="guardsman-total">0</span>
+                </div>
+            </div>
+
+            <!-- Engineering Units Section -->
+            <div class="calculator-section">
+                <h2 class="section-title">Engineering Units</h2>
+                <div class="unit-grid" id="engineering-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Engineering Total:</span>
+                    <span class="total-value" id="engineering-total">0</span>
+                </div>
+            </div>
+
+            <!-- Monsters Section -->
+            <div class="calculator-section">
+                <h2 class="section-title">Monsters</h2>
+                <div class="unit-grid" id="monster-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Monster Total:</span>
+                    <span class="total-value" id="monster-total">0</span>
+                </div>
+            </div>
+
+            <!-- Mercenaries Section -->
+            <div class="calculator-section">
+                <h2 class="section-title">Mercenaries</h2>
+                <div class="unit-grid" id="mercenary-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Mercenary Total:</span>
+                    <span class="total-value" id="mercenary-total">0</span>
+                </div>
+            </div>
+
+            <!-- Clan Buildings/Portals Section -->
+            <div class="calculator-section">
+                <h2 class="section-title">Clan Buildings/Portals</h2>
+                <div class="unit-grid" id="building-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Building Total:</span>
+                    <span class="total-value" id="building-total">0</span>
+                </div>
+            </div>
+
+            <!-- Grand Total -->
+            <div class="grand-total-section">
+                <div class="grand-total-box">
+                    <span class="grand-total-label">Total Compensation:</span>
+                    <span class="grand-total-value" id="grand-total">0</span>
+                </div>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="calculator-actions">
+                <button type="button" class="reset-button" id="reset-button">Reset All</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">CxN Clan Wiki &copy; 2026 | Total Battle Strategy Resource</p>
+    </footer>
+
+    <script src="../js/compensation-calculator.js"></script>
+</body>
+</html>
