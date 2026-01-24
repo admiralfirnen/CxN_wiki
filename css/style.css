@@ -737,6 +737,9 @@ body::before {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .strategy-tile {
@@ -753,6 +756,7 @@ body::before {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     background: var(--gradient-stone);
+    max-width: 400px;
 }
 
 .strategy-tile:hover {
@@ -818,6 +822,42 @@ body::before {
     text-shadow: 
         2px 2px 4px rgba(0, 0, 0, 0.9),
         0 0 30px rgba(212, 165, 116, 0.8);
+}
+
+.handcuff-icon {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin-left: 15px;
+    filter: drop-shadow(0 0 8px rgba(255, 192, 203, 0.8));
+    animation: handcuff-bounce 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes handcuff-bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        filter: drop-shadow(0 0 8px rgba(255, 192, 203, 0.8));
+    }
+    25% {
+        transform: translateY(-5px) rotate(-5deg);
+        filter: drop-shadow(0 0 12px rgba(255, 192, 203, 1));
+    }
+    75% {
+        transform: translateY(-5px) rotate(5deg);
+        filter: drop-shadow(0 0 12px rgba(255, 192, 203, 1));
+    }
+}
+
+.billy-irish-tile .tile-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.billy-irish-tile .tile-title {
+    margin: 0;
 }
 
 @media (max-width: 768px) {

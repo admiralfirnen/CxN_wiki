@@ -1,0 +1,209 @@
+{
+  "troop_data": [
+    {
+      "category": "Guardsmen",
+      "tier": "I",
+      "units": [
+        {
+          "type": "Guardsman_Unit_1",
+          "base_strength": 50,
+          "base_health": 150,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_2",
+          "base_strength": 50,
+          "base_health": 150,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_3",
+          "base_strength": 100,
+          "base_health": 300,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Guardsmen",
+      "tier": "II",
+      "units": [
+        {
+          "type": "Guardsman_Unit_1",
+          "base_strength": 90,
+          "base_health": 270,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_2",
+          "base_strength": 90,
+          "base_health": 270,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_3",
+          "base_strength": 180,
+          "base_health": 540,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Guardsmen",
+      "tier": "III",
+      "units": [
+        {
+          "type": "Guardsman_Unit_1",
+          "base_strength": 160,
+          "base_health": 480,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_2",
+          "base_strength": 160,
+          "base_health": 480,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Guardsman_Unit_3",
+          "base_strength": 320,
+          "base_health": 960,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Specialists",
+      "tier": "I",
+      "units": [
+        {
+          "type": "Specialist_Unit_1",
+          "base_strength": 25,
+          "base_health": 75,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Specialist_Unit_2",
+          "base_strength": 50,
+          "base_health": 150,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Specialists",
+      "tier": "II",
+      "units": [
+        {
+          "type": "Specialist_Unit_1",
+          "base_strength": 45,
+          "base_health": 135,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Specialist_Unit_2",
+          "base_strength": 90,
+          "base_health": 270,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Specialists",
+      "tier": "III",
+      "units": [
+        {
+          "type": "Specialist_Unit_1",
+          "base_strength": 80,
+          "base_health": 240,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Specialist_Unit_2",
+          "base_strength": 160,
+          "base_health": 480,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Engineer Corps",
+      "tier": "I",
+      "units": [
+        {
+          "type": "Engineer_Unit_1",
+          "base_strength": 250,
+          "base_health": 450,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Engineer_Unit_2",
+          "base_strength": 1000,
+          "base_health": 3000,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Engineer Corps",
+      "tier": "II",
+      "units": [
+        {
+          "type": "Engineer_Unit_1",
+          "base_strength": 450,
+          "base_health": 2700,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Engineer Corps",
+      "tier": "III",
+      "units": [
+        {
+          "type": "Engineer_Unit_1",
+          "base_strength": 810,
+          "base_health": 4860,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Engineer_Unit_2",
+          "base_strength": 3200,
+          "base_health": 9600,
+          "base_carrying_capacity": null
+        }
+      ]
+    },
+    {
+      "category": "Monsters",
+      "tier": "III",
+      "units": [
+        {
+          "type": "Dragon",
+          "base_strength": 4500,
+          "base_health": 13500,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Elemental",
+          "base_strength": 1900,
+          "base_health": 5700,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Giant",
+          "base_strength": 5200,
+          "base_health": 15600,
+          "base_carrying_capacity": null
+        },
+        {
+          "type": "Beast",
+          "base_strength": 3900,
+          "base_health": 117000,
+          "base_carrying_capacity": null,
+          "note": "Health value is 117000 in source, but likely a typo for 11700 based on standard 1:3 Strength/Health ratio."
+        }
+      ]
+    }
+  ]
+}
