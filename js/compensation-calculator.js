@@ -42,7 +42,7 @@ const calculatorData = {
 function createUnitInput(unitName, compRate, sectionId) {
     const inputId = `${sectionId}-${unitName.replace(/[^a-zA-Z0-9]/g, '-')}`;
     // Slider max for visual control, but text input has no max for flexibility
-    const sliderMax = sectionId === 'building' ? 10 : 20000;
+    const sliderMax = sectionId === 'building' ? 10 : 5000;
     
     const unitDiv = document.createElement('div');
     unitDiv.className = 'unit-row';
@@ -68,7 +68,7 @@ function createUnitInput(unitName, compRate, sectionId) {
                        data-comp="${compRate}"
                        tabindex="1"
                        placeholder="0">
-                <span class="comp-rate">/${compRate.toLocaleString()}</span>
+                <span class="comp-rate">x${compRate.toLocaleString()}</span>
             </div>
         </div>
         <div class="subtotal" id="${inputId}-subtotal">0</div>
@@ -130,6 +130,11 @@ function setupEventListeners() {
 
     // Text input to slider sync
     document.querySelectorAll('.number-input').forEach(input => {
+        // Auto-select value on focus for easy replacement
+        input.addEventListener('focus', function() {
+            this.select();
+        });
+
         input.addEventListener('input', function() {
             const sliderId = this.getAttribute('data-slider-id');
             const slider = document.getElementById(sliderId);
