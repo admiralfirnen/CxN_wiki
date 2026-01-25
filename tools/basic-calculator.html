@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/CxN_clan_icon.jpg" alt="CxN Clan Icon" class="header-logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../about/index.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../wiki/index.html" class="nav-link">Wiki</a></li>
+                <li class="nav-item"><a href="../strategy/index.html" class="nav-link">Strategy</a></li>
+                <li class="nav-item"><a href="../faq/index.html" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="../announcements/index.html" class="nav-link">Announcements</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Tools</a></li>
+                <li class="nav-item"><a href="../roe/index.html" class="nav-link">ROE</a></li>
+                <li class="nav-item"><a href="../trophy-room/index.html" class="nav-link">Trophy Room</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Basic Calculator</h1>
+            <p class="calculator-subtitle">Simple calculator for quick calculations</p>
+        </div>
+
+        <div class="basic-calculator-wrapper">
+            <div class="calculator-display">
+                <input type="text" id="calculator-display" class="calc-display-input" readonly value="0">
+            </div>
+            
+            <div class="calculator-buttons">
+                <button class="calc-btn calc-btn-clear" onclick="clearAll()">C</button>
+                <button class="calc-btn calc-btn-clear" onclick="clearEntry()">CE</button>
+                <button class="calc-btn calc-btn-operator" onclick="deleteLast()">⌫</button>
+                <button class="calc-btn calc-btn-operator" onclick="appendOperator('/')">÷</button>
+                
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('7')">7</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('8')">8</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('9')">9</button>
+                <button class="calc-btn calc-btn-operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('4')">4</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('5')">5</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('6')">6</button>
+                <button class="calc-btn calc-btn-operator" onclick="appendOperator('-')">−</button>
+                
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('1')">1</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('2')">2</button>
+                <button class="calc-btn calc-btn-number" onclick="appendNumber('3')">3</button>
+                <button class="calc-btn calc-btn-operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="calc-btn calc-btn-number calc-btn-zero" onclick="appendNumber('0')">0</button>
+                <button class="calc-btn calc-btn-number" onclick="appendDecimal()">.</button>
+                <button class="calc-btn calc-btn-equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">CxN Clan Wiki &copy; 2026 | Total Battle Strategy Resource</p>
+    </footer>
+
+    <script src="../js/basic-calculator.js"></script>
+</body>
+</html>
