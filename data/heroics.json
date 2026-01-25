@@ -1,0 +1,1435 @@
+{
+  "heroics": [
+    {
+      "level": 16,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 5400000,
+        "valor_points": 2700000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Mounted",
+          "subtype": "Undead",
+          "tier": 6,
+          "strength": 57000,
+          "health": 171000,
+          "count_per_wave": 96,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "subtype": "Undead",
+          "tier": 4,
+          "strength": 5800,
+          "health": 17400,
+          "count_per_wave": 440,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Undead",
+          "tier": 2,
+          "strength": 720,
+          "health": 2160,
+          "count_per_wave": 2200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Undead",
+          "tier": 1,
+          "strength": 100,
+          "health": 300,
+          "count_per_wave": 10400,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 8600000,
+        "valor_points": 4300000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "tier": 6,
+          "strength": 73000,
+          "health": 219000,
+          "count_per_wave": 130,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 45 },
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "tier": 5,
+          "strength": 27000,
+          "health": 81000,
+          "count_per_wave": 114,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "tier": 4,
+          "strength": 8200,
+          "health": 24600,
+          "count_per_wave": 170,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 50 },
+            { "vs": "Melee", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "tier": 2,
+          "strength": 900,
+          "health": 2700,
+          "count_per_wave": 1720,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 25 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 13400000,
+        "valor_points": 6700000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "tier": 6,
+          "strength": 110000,
+          "health": 330000,
+          "count_per_wave": 130,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 50 },
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "tier": 4,
+          "strength": 9900,
+          "health": 29700,
+          "count_per_wave": 540,
+          "bonuses": [
+            { "vs": "Elementals", "bonus": 40 },
+            { "vs": "Melee", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "tier": 2,
+          "strength": 360,
+          "health": 1080,
+          "count_per_wave": 6400,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count_per_wave": 7600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 25 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 20000000,
+        "valor_points": 10000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 130000,
+          "health": 390000,
+          "count_per_wave": 130,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 37000,
+          "health": 111000,
+          "count_per_wave": 220,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count_per_wave": 14200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count_per_wave": 22000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 32000000,
+        "valor_points": 16000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 180000,
+          "health": 540000,
+          "count_per_wave": 146,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 17000,
+          "health": 51000,
+          "count_per_wave": 680,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count_per_wave": 1840,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count_per_wave": 100000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 54000000,
+        "valor_points": 27000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 70000,
+          "health": 210000,
+          "count_per_wave": 540,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 40 },
+            { "special": "Double damage chance +20%" }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count_per_wave": 340,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 19000,
+          "health": 57000,
+          "count_per_wave": 620,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 5800,
+          "health": 17400,
+          "count_per_wave": 1480,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 86000000,
+        "valor_points": 43000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count_per_wave": 800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count_per_wave": 1100,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 22000,
+          "health": 66000,
+          "count_per_wave": 820,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 8200,
+          "health": 24600,
+          "count_per_wave": 1600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 140000000,
+        "valor_points": 70000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count_per_wave": 800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 29000,
+          "health": 87000,
+          "count_per_wave": 1580,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 9900,
+          "health": 29700,
+          "count_per_wave": 3200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Elementals", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count_per_wave": 5800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "recommended_attack": "Ranged or Mounted",
+      "rewards": {
+        "experience": 220000000,
+        "valor_points": 110000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 130000,
+          "health": 390000,
+          "count_per_wave": 1080,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 13000,
+          "health": 39000,
+          "count_per_wave": 5400,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 55 },
+            { "vs": "Elementals", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count_per_wave": 13200,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count_per_wave": 78000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "recommended_attack": "Ranged",
+      "rewards": {
+        "experience": 360000000,
+        "valor_points": 180000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 180000,
+          "health": 540000,
+          "count_per_wave": 1200,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 17000,
+          "health": 51000,
+          "count_per_wave": 6400,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count_per_wave": 10000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count_per_wave": 60000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 560000000,
+        "valor_points": 280000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count_per_wave": 1580,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count_per_wave": 2800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 19000,
+          "health": 57000,
+          "count_per_wave": 5000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 5800,
+          "health": 17400,
+          "count_per_wave": 10800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "recommended_attack": "Melee or Mounted",
+      "rewards": {
+        "experience": 860000000,
+        "valor_points": 430000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 240000,
+          "health": 720000,
+          "count_per_wave": 1900,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count_per_wave": 3200,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 82000,
+          "count_per_wave": 5000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 8200,
+          "health": 24600,
+          "count_per_wave": 11200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 1320000000,
+        "valor_points": 660000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 320000,
+          "health": 960000,
+          "count_per_wave": 2000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count_per_wave": 3000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 29000,
+          "health": 87000,
+          "count_per_wave": 6800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 33000,
+          "health": 99000,
+          "count_per_wave": 4000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Beasts", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 2000000000,
+        "valor_points": 1000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 430000,
+          "health": 1290000,
+          "count_per_wave": 2200,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 75 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 130000,
+          "health": 390000,
+          "count_per_wave": 3800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 45000,
+          "health": 135000,
+          "count_per_wave": 6400,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count_per_wave": 60000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "recommended_attack": "Ranged",
+      "rewards": {
+        "experience": 3000000000,
+        "valor_points": 1500000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 180000,
+          "health": 540000,
+          "count_per_wave": 7800,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 50000,
+          "health": 150000,
+          "count_per_wave": 14000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count_per_wave": 9600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count_per_wave": 44000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "recommended_attack": "Ranged or Melee",
+      "rewards": {
+        "experience": 4200000000,
+        "valor_points": 2100000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count_per_wave": 9200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count_per_wave": 13000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 70000,
+          "health": 210000,
+          "count_per_wave": 10600,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 40 },
+            { "special": "Double dmg chance +20%" }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 19000,
+          "health": 57000,
+          "count_per_wave": 19400,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 6000000000,
+        "valor_points": 3000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 240000,
+          "health": 720000,
+          "count_per_wave": 10200,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count_per_wave": 13400,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count_per_wave": 44000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 22000,
+          "health": 66000,
+          "count_per_wave": 11000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 8200000000,
+        "valor_points": 4100000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 320000,
+          "health": 960000,
+          "count_per_wave": 10000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count_per_wave": 11600,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 29000,
+          "health": 87000,
+          "count_per_wave": 56000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 33000,
+          "health": 99000,
+          "count_per_wave": 9600,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Beasts", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "recommended_attack": "Melee",
+      "rewards": {
+        "experience": 11400000000,
+        "valor_points": 5700000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 430000,
+          "health": 1290000,
+          "count_per_wave": 9800,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 130000,
+          "health": 390000,
+          "count_per_wave": 13000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 37000,
+          "health": 111000,
+          "count_per_wave": 46000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 45000,
+          "health": 135000,
+          "count_per_wave": 18600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "recommended_attack": "Ranged",
+      "rewards": {
+        "experience": 15500000000,
+        "valor_points": 7900000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count_per_wave": 9800,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Giant",
+          "strength": 180000,
+          "health": 540000,
+          "count_per_wave": 12200,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 40 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 50000,
+          "health": 150000,
+          "count_per_wave": 56000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count_per_wave": 12600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "recommended_attack": "Ranged",
+      "rewards": {
+        "experience": 17400000000,
+        "valor_points": 8700000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 1980000,
+          "health": 5940000,
+          "count_per_wave": 3000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count_per_wave": 6800,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 550000,
+          "health": 1650000,
+          "count_per_wave": 4400,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count_per_wave": 5000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 19400000000,
+        "valor_points": 9700000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 2180000,
+          "health": 6550000,
+          "count_per_wave": 3000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 85 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 470000,
+          "health": 1410000,
+          "count_per_wave": 7000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 720000,
+          "health": 2150000,
+          "count_per_wave": 3800,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count_per_wave": 4800,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 22000000000,
+        "valor_points": 11000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2480000,
+          "health": 7440000,
+          "count_per_wave": 3000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 80 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 500000,
+          "health": 1490000,
+          "count_per_wave": 7400,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 690000,
+          "health": 2070000,
+          "count_per_wave": 4200,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count_per_wave": 6800,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 26000000000,
+        "valor_points": 13000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 2280000,
+          "health": 6840000,
+          "count_per_wave": 4000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 410000,
+          "health": 1240000,
+          "count_per_wave": 10800,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 630000,
+          "health": 1900000,
+          "count_per_wave": 5600,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 170000,
+          "health": 510000,
+          "count_per_wave": 5400,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "recommended_attack": "Melee or Ranged",
+      "rewards": {
+        "experience": 30000000000,
+        "valor_points": 15000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 1980000,
+          "health": 5940000,
+          "count_per_wave": 4800,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count_per_wave": 10800,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 550000,
+          "health": 1650000,
+          "count_per_wave": 7000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count_per_wave": 7800,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 32000000000,
+        "valor_points": 16000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 2180000,
+          "health": 6550000,
+          "count_per_wave": 4800,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 85 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 470000,
+          "health": 1410000,
+          "count_per_wave": 11200,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 720000,
+          "health": 2150000,
+          "count_per_wave": 5800,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count_per_wave": 7600,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "experience": 36000000000,
+        "valor_points": 18000000000,
+        "resources": "Boards, Steel, Cement, Religious or Scientific Tractates for the Clan",
+        "clan_chests": 1
+      },
+      "waves": 5,
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2480000,
+          "health": 7440000,
+          "count_per_wave": 4600,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 80 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 500000,
+          "health": 1490000,
+          "count_per_wave": 11600,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 690000,
+          "health": 2070000,
+          "count_per_wave": 6600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count_per_wave": 10800,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        }
+      ]
+    }
+  ]
+}

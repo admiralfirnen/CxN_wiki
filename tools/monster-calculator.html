@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Battle Calculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/monster-calculator.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Monster Battle Calculator</h1>
+            <p class="calculator-subtitle">Find the right troops to defeat any enemy</p>
+        </div>
+
+        <div class="monster-calculator-wrapper">
+            <!-- Selection Panel -->
+            <div class="calculator-section selection-panel">
+                <h2 class="section-title">Select Your Target</h2>
+                
+                <div class="selection-grid">
+                    <div class="selection-group">
+                        <label class="selection-label">Enemy Type</label>
+                        <select id="enemy-type" class="monster-select">
+                            <option value="">-- Select Enemy Type --</option>
+                            <option value="normal_monsters">👹 Normal Monsters</option>
+                            <option value="rare_monsters">🐉 Rare Monsters</option>
+                            <option value="strongholds">🏰 Strongholds</option>
+                            <option value="cursed_strongholds">💀 Cursed Strongholds</option>
+                            <option value="heroics">⚔️ Heroics</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selection-group">
+                        <label class="selection-label">Level</label>
+                        <select id="enemy-level" class="monster-select" disabled>
+                            <option value="">-- Select Level --</option>
+                        </select>
+                    </div>
+                    
+                    <div class="selection-group monster-name-group" id="monster-name-group" style="display: none;">
+                        <label class="selection-label">Monster Type</label>
+                        <select id="monster-name" class="monster-select">
+                            <option value="">-- Select Monster --</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="lookup-actions">
+                    <button id="lookup-btn" class="lookup-button" disabled>
+                        <span class="btn-icon">🔍</span> Look Up Battle Info
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="calculator-section results-panel" id="results-panel" style="display: none;">
+                <h2 class="section-title" id="results-title">Battle Information</h2>
+                
+                <!-- Quick Recommendation -->
+                <div class="recommendation-box" id="recommendation-box">
+                    <div class="recommendation-header">
+                        <span class="recommendation-icon">⚔️</span>
+                        <span class="recommendation-label">Recommended Attack</span>
+                    </div>
+                    <div class="recommendation-value" id="recommended-attack">-</div>
+                    <div class="recommendation-reason" id="attack-reason"></div>
+                </div>
+
+                <!-- Rewards (for strongholds/heroics) -->
+                <div class="rewards-box" id="rewards-box" style="display: none;">
+                    <h3 class="subsection-title">Rewards</h3>
+                    <div class="rewards-grid" id="rewards-grid"></div>
+                </div>
+
+                <!-- Enemy Composition -->
+                <div class="enemy-composition" id="enemy-composition">
+                    <h3 class="subsection-title">Enemy Composition</h3>
+                    <div class="troop-cards" id="troop-cards"></div>
+                </div>
+
+                <!-- Strategy Tips -->
+                <div class="strategy-box" id="strategy-box" style="display: none;">
+                    <h3 class="subsection-title">Strategy Tips</h3>
+                    <div class="strategy-content" id="strategy-content"></div>
+                </div>
+
+                <!-- Troop Estimator -->
+                <div class="troop-estimator" id="troop-estimator">
+                    <h3 class="subsection-title">🧮 Troop Estimator</h3>
+                    <p class="estimator-description">Calculate approximately how many troops you need to defeat this enemy.</p>
+                    
+                    <div class="estimator-controls">
+                        <div class="estimator-row">
+                            <div class="estimator-group">
+                                <label class="estimator-label">Your Troop Type</label>
+                                <select id="your-troop-type" class="monster-select">
+                                    <option value="Melee">⚔️ Melee (Spearmen)</option>
+                                    <option value="Ranged">🏹 Ranged (Archers)</option>
+                                    <option value="Mounted">🐴 Mounted (Riders)</option>
+                                    <option value="Flying">🦅 Flying</option>
+                                </select>
+                            </div>
+                            
+                            <div class="estimator-group">
+                                <label class="estimator-label">Your Troop Tier</label>
+                                <select id="your-troop-tier" class="monster-select">
+                                    <option value="1">Tier 1</option>
+                                    <option value="2">Tier 2</option>
+                                    <option value="3">Tier 3</option>
+                                    <option value="4">Tier 4</option>
+                                    <option value="5">Tier 5</option>
+                                    <option value="6" selected>Tier 6</option>
+                                    <option value="7">Tier 7</option>
+                                </select>
+                            </div>
+                            
+                            <div class="estimator-group">
+                                <label class="estimator-label">Strength Bonus %</label>
+                                <input type="number" id="strength-bonus" class="number-input" value="0" min="0" max="2000" step="10">
+                            </div>
+                        </div>
+                        
+                        <button id="calculate-troops-btn" class="calculate-button">
+                            <span class="btn-icon">🧮</span> Calculate Troops Needed
+                        </button>
+                    </div>
+                    
+                    <div class="estimation-results" id="estimation-results" style="display: none;">
+                        <div class="estimation-summary">
+                            <div class="estimation-header">
+                                <span class="estimation-icon" id="estimation-icon">⚔️</span>
+                                <div class="estimation-title">
+                                    <span class="estimation-troop-name" id="estimation-troop-name">Spearmen</span>
+                                    <span class="estimation-tier" id="estimation-tier">Tier 6</span>
+                                </div>
+                            </div>
+                            
+                            <div class="estimation-stats">
+                                <div class="estimation-stat">
+                                    <span class="est-stat-label">Base Strength</span>
+                                    <span class="est-stat-value" id="est-base-strength">940</span>
+                                </div>
+                                <div class="estimation-stat">
+                                    <span class="est-stat-label">With Bonus</span>
+                                    <span class="est-stat-value highlight" id="est-bonus-strength">940</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="estimation-result-box">
+                            <div class="result-label">Estimated Troops Needed</div>
+                            <div class="result-value" id="troops-needed">0</div>
+                            <div class="result-note" id="result-note"></div>
+                        </div>
+                        
+                        <div class="estimation-breakdown" id="estimation-breakdown"></div>
+                        
+                        <div class="estimation-disclaimer">
+                            <strong>⚠️ Note:</strong> This is a rough estimate based on total enemy health divided by your troop strength. 
+                            Actual battle results depend on many factors including enemy bonuses, captain abilities, 
+                            combat mechanics, and march composition. Always send more troops than estimated for safety.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Troop Counter Guide -->
+                <div class="counter-guide">
+                    <h3 class="subsection-title">Troop Counter Guide</h3>
+                    <div class="counter-grid">
+                        <div class="counter-item">
+                            <span class="counter-icon">⚔️</span>
+                            <span class="counter-type">Melee</span>
+                            <span class="counter-strong">→ Strong vs Mounted</span>
+                            <span class="counter-weak">← Weak vs Ranged</span>
+                        </div>
+                        <div class="counter-item">
+                            <span class="counter-icon">🏹</span>
+                            <span class="counter-type">Ranged</span>
+                            <span class="counter-strong">→ Strong vs Melee</span>
+                            <span class="counter-weak">← Weak vs Mounted</span>
+                        </div>
+                        <div class="counter-item">
+                            <span class="counter-icon">🐴</span>
+                            <span class="counter-type">Mounted</span>
+                            <span class="counter-strong">→ Strong vs Ranged</span>
+                            <span class="counter-weak">← Weak vs Melee</span>
+                        </div>
+                        <div class="counter-item">
+                            <span class="counter-icon">🦅</span>
+                            <span class="counter-type">Flying</span>
+                            <span class="counter-strong">→ Strong vs Melee</span>
+                            <span class="counter-weak">← Weak vs Ranged</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Data Panel -->
+            <div class="calculator-section no-data-panel" id="no-data-panel" style="display: none;">
+                <div class="no-data-message">
+                    <span class="no-data-icon">📜</span>
+                    <p>No data available for this selection.</p>
+                    <p class="no-data-hint">Try selecting a different enemy type or level.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+
+    <script src="../js/monster-calculator.js"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>

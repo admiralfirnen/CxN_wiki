@@ -1,0 +1,487 @@
+{
+  "strongholds": [
+    {
+      "level": 10,
+      "type": "Stronghold",
+      "recommended_attack": "Ranged",
+      "rewards": {
+        "valor_points": 25200,
+        "experience": 50400
+      },
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 2200,
+          "lead": 1,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 10 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "tier": 1,
+          "strength": 100,
+          "health": 300,
+          "count": 1200,
+          "lead": 2,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 35 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "tier": 2,
+          "strength": 900,
+          "health": 2700,
+          "count": 100,
+          "lead": 10,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 25 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "tier": 4,
+          "strength": 8200,
+          "health": 24600,
+          "count": 19,
+          "lead": 28,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 50 },
+            { "vs": "Melee", "bonus": 60 }
+          ]
+        },
+        {
+          "type": "Beast",
+          "subtype": "Melee",
+          "tier": 5,
+          "strength": 22000,
+          "health": 66000,
+          "count": 8,
+          "lead": 41,
+          "bonuses": [
+            { "vs": "Elementals", "bonus": 50 },
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        }
+      ],
+      "walls": {
+        "type": "Engineer Corps",
+        "strength": 10000,
+        "health": 30000,
+        "count": 90,
+        "tier": 5,
+        "initiative": 11,
+        "bonuses": [
+          { "vs": "Melee", "bonus": 100 },
+          { "vs": "Mounted", "bonus": 100 },
+          { "vs": "Ranged", "bonus": 100 }
+        ]
+      },
+      "recommended_strategy": {
+        "description": "Send ONLY Archers and Catapults",
+        "options": [
+          { "tier": 1, "catapults": 600, "ranged": 38000 },
+          { "tier": 2, "catapults": 200, "ranged": 20000 },
+          { "tier": 3, "catapults": 70, "giants": 70, "ranged": 4500, "notes": "Optimal" },
+          { "tier": 4, "catapults": 250, "ranged": 3000, "giants_t3": 70, "beasts_t4": 40 },
+          { "tier": 5, "catapults": 55, "ranged": 3700 },
+          { "tier": 6, "catapults": 30, "ranged": 1500, "notes": "Optimal" },
+          { "tier": 7, "catapults": 16, "ranged": 1120 }
+        ],
+        "warregals": 1,
+        "notes": "Can be done with 1 Warregals (No casualties)"
+      }
+    },
+    {
+      "level": 15,
+      "type": "Stronghold",
+      "recommended_attack": "Mounted",
+      "rewards": {
+        "valor_points": 290000,
+        "experience": 580000
+      },
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 5000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 35 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 1100,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 25 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 290,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count": 47,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count": 21,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 45 },
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        }
+      ],
+      "walls": {
+        "type": "Engineer Corps",
+        "strength": 10000,
+        "health": 30000,
+        "count": 700,
+        "bonuses": [
+          { "vs": "Melee", "bonus": 100 },
+          { "vs": "Mounted", "bonus": 100 },
+          { "vs": "Ranged", "bonus": 100 }
+        ]
+      },
+      "recommended_strategy": {
+        "description": "Send ONLY Riders and Catapults",
+        "options": [
+          { "tier": 2, "catapults": 2500, "mounted": 90000 },
+          { "tier": 3, "catapults": 1500, "mounted": 50000 },
+          { "tier": 4, "catapults": 1000, "mounted": 30000 },
+          { "tier": 5, "catapults": 500, "mounted": 15000 },
+          { "tier": 6, "catapults": 200, "mounted": 10000 },
+          { "tier": 7, "catapults": 125, "mounted": 5000 }
+        ],
+        "warregals": "3-5"
+      }
+    },
+    {
+      "level": 20,
+      "type": "Stronghold",
+      "recommended_attack": "Melee",
+      "rewards": {
+        "valor_points": 2500000,
+        "experience": 5000000
+      },
+      "total_monster_health": 94010000,
+      "total_wall_health": 109500000,
+      "troops": [
+        {
+          "count": 41,
+          "health_each": 720000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 }
+          ]
+        },
+        {
+          "count": 230,
+          "health_each": 66000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "count": 110,
+          "health_each": 219000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "count": 2500,
+          "health_each": 7800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 3600,
+          "health_each": 2700,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 25 }
+          ]
+        }
+      ],
+      "recommended_strategy": {
+        "description": "Spearmen or Flying for minimum Casualties",
+        "options": [
+          { "tier": 3, "catapults": 6800, "spearmen_notes": "587,600 + 80k" },
+          { "tier": 4, "catapults": 3800, "spearmen_notes": "324,200 + 70k", "optimal": "2150 Cats, 30K Spear" },
+          { "tier": 5, "catapults": 2100, "spearmen_notes": "180,800 + 60k", "optimal": "1347 Cats, 31.8K Spear" },
+          { "tier": 6, "catapults": 1200, "spearmen_notes": "100,010 + 50k", "optimal": "300 Cats, 18K Spear VI" },
+          { "tier": 7, "catapults": 650, "spearmen_notes": "55,300 + 40k" }
+        ],
+        "warregals": 300,
+        "warregals_notes": "Can be done with 300 Warregal - and 1 Cpt. wo. equipment"
+      }
+    },
+    {
+      "level": 25,
+      "type": "Stronghold",
+      "recommended_attack": "Melee",
+      "rewards": {
+        "valor_points": 29000000,
+        "experience": 58000000
+      },
+      "total_monster_health": 880500000,
+      "total_wall_health": 957000000,
+      "troops": [
+        {
+          "count": 480,
+          "health_each": 720000,
+          "total_health": 345600000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 880,
+          "health_each": 219000,
+          "total_health": 192720000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "count": 2400,
+          "health_each": 66000,
+          "total_health": 158400000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 4300,
+          "health_each": 24600,
+          "total_health": 105780000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 10000,
+          "health_each": 7800,
+          "total_health": 78000000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        }
+      ],
+      "recommended_strategy": {
+        "options": [
+          { "tier": 5, "catapults": 4200, "spearmen_tier": 6, "spearmen": 76000 }
+        ],
+        "warregals": 530,
+        "warregals_notes": "Can be done with 530 Warregal - and 1 Captain without Equipment"
+      }
+    },
+    {
+      "level": 30,
+      "type": "Stronghold",
+      "recommended_attack": "Melee",
+      "rewards": {
+        "valor_points": 156000000,
+        "experience": 312000000
+      },
+      "total_wall_health": 4050000000,
+      "troops": [
+        {
+          "count": 2300,
+          "health_each": 720000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 4300,
+          "health_each": 219000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "count": 12000,
+          "health_each": 66000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 21000,
+          "health_each": 24600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 49000,
+          "health_each": 7800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        }
+      ],
+      "recommended_strategy": {
+        "warregals_tier": 2,
+        "warregals": 1120,
+        "warregals_notes": "Can be done with 1120 lvl 2 Warregal - and 1 Captain without Equipment"
+      }
+    }
+  ],
+  "cursed_strongholds": [
+    {
+      "level": 20,
+      "type": "Cursed Stronghold",
+      "recommended_attack": "Catapults and Melee",
+      "rewards": {
+        "valor_points": 680000,
+        "experience": 1360000,
+        "master_coins": 150000,
+        "clan_chests": 1
+      },
+      "total_wall_health": 276000000,
+      "walls": {
+        "count": 9200,
+        "health_each": 30000
+      },
+      "troops": [
+        {
+          "count": 10,
+          "health_each": 960000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 80,
+          "health_each": 99000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Beasts", "bonus": 45 }
+          ]
+        },
+        {
+          "count": 2900,
+          "health_each": 1080,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 45 }
+          ]
+        },
+        {
+          "count": 54,
+          "health_each": 87000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "count": 650,
+          "health_each": 9600,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        }
+      ],
+      "recommended_strategy": {
+        "options": [
+          { "tier": 4, "catapults": 2150, "spearmen": 30000, "captains": "Aydae 73, Brann 76" }
+        ]
+      }
+    },
+    {
+      "level": 25,
+      "type": "Cursed Stronghold",
+      "recommended_attack": "Catapults and Melee",
+      "rewards": {
+        "valor_points": 8400000,
+        "experience": 16800000,
+        "master_coins": 1700000,
+        "clan_chests": 1
+      },
+      "total_wall_health": 2325000000,
+      "walls": {
+        "count": 77500,
+        "health_each": 30000
+      },
+      "troops": [
+        {
+          "count": 120,
+          "health_each": 960000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 540,
+          "health_each": 99000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Beasts", "bonus": 45 }
+          ]
+        },
+        {
+          "count": 205,
+          "health_each": 330000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        },
+        {
+          "count": 400,
+          "health_each": 87000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        },
+        {
+          "count": 2750,
+          "health_each": 9600,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 }
+          ]
+        }
+      ],
+      "recommended_strategy": {
+        "options": [
+          { "tier": 6, "catapults": 3000, "spearmen_t5": 15000, "spearmen_t6": 26000 }
+        ],
+        "notes": "Spearmen STR-bonus: 927%. Cost to revive: 1.5 - 2.62k Gold. If you send 1500 Warregal with them: Cost to revive: 400-610 Gold"
+      }
+    }
+  ]
+}

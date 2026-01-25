@@ -1,0 +1,820 @@
+{
+  "rare_monsters": [
+    {
+      "level": 41,
+      "name": "Rare Elf Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 500000,
+          "health": 1490000,
+          "count": 18000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 63000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "name": "Rare Inferno Squad",
+      "recommended_attack": "Ranged or Monsters",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count": 17000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 100000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "name": "Rare Undead Squad",
+      "recommended_attack": "Ranged or Monsters",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count": 17000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 100000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Rare Barbarian Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 690000,
+          "health": 2070000,
+          "count": 19000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 91000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 91000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Rare Cursed Squad",
+      "recommended_attack": "Monsters (not Melee)",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 720000,
+          "health": 2150000,
+          "count": 13000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count": 66000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count": 340000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Rare Elf Squad",
+      "recommended_attack": "Melee or Monsters (not Beasts)",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 150000,
+          "health": 1650000,
+          "count": 21000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 70000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 42000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Rare Inferno Squad",
+      "recommended_attack": "Melee or Monsters (not Beasts)",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 150000,
+          "health": 1650000,
+          "count": 21000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 70000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 42000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Rare Undead Squad",
+      "recommended_attack": "Melee or Monsters (not Beasts)",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 150000,
+          "health": 1650000,
+          "count": 21000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 70000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 42000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Rare Barbarian Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 470000,
+          "health": 1410000,
+          "count": 27000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 63000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Rare Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 470000,
+          "health": 1410000,
+          "count": 27000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 63000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Rare Elf Squad",
+      "recommended_attack": "Ranged or Monsters",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 77000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 210000,
+          "count": 100000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Rare Inferno Squad",
+      "recommended_attack": "Ranged or Monsters",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 77000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 210000,
+          "count": 100000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Rare Undead Squad",
+      "recommended_attack": "Ranged or Monsters",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 440000,
+          "health": 1320000,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 77000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 210000,
+          "count": 100000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Rare Barbarian Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 500000,
+          "health": 1490000,
+          "count": 36000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 120000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 72000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Rare Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 500000,
+          "health": 1490000,
+          "count": 36000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 120000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 72000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Rare Elf Squad",
+      "recommended_attack": "Ranged or Flying (not Dragons)",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 410000,
+          "health": 1240000,
+          "count": 48000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 27000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 50000,
+          "health": 150000,
+          "count": 300000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Rare Inferno Squad",
+      "recommended_attack": "Ranged or Flying (not Dragons)",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 410000,
+          "health": 1240000,
+          "count": 48000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 27000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 50000,
+          "health": 150000,
+          "count": 300000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Rare Undead Squad",
+      "recommended_attack": "Melee or Monsters (not Beasts)",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 150000,
+          "health": 1650000,
+          "count": 39000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 130000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 79000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Rare Barbarian Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 690000,
+          "health": 1070000,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 65 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Rare Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 690000,
+          "health": 1070000,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 70 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 65 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Rare Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 630000,
+          "health": 1900000,
+          "count": 43000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 470000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Rare Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 630000,
+          "health": 1900000,
+          "count": 43000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 470000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Rare Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 630000,
+          "health": 1900000,
+          "count": 43000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 75 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 37000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 470000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    }
+  ]
+}

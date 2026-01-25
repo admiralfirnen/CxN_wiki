@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Combined monster, rare monster, stronghold, and heroic data for CxN Wiki lookup tool",
+    "last_updated": "2026-01-25",
+    "troop_types": ["Melee", "Ranged", "Mounted", "Flying"],
+    "subtypes": ["Beast", "Elemental", "Giant", "Dragon", "Undead"]
+  },
+  "categories": [
+    {
+      "id": "normal_monsters",
+      "name": "Normal Monsters",
+      "description": "Normal monster squads that appear on the map (Captains only)",
+      "available_levels": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+      "monster_types": [
+        "Undead Squad",
+        "Elf Squad",
+        "Cursed Squad",
+        "Barbarian Squad",
+        "Inferno Squad"
+      ]
+    },
+    {
+      "id": "rare_monsters",
+      "name": "Rare Monsters",
+      "description": "Rare monster squads that appear on the map (Hero only)",
+      "available_levels": [41, 42, 43, 44, 45],
+      "monster_types": [
+        "Rare Elf Squad",
+        "Rare Inferno Squad", 
+        "Rare Undead Squad",
+        "Rare Barbarian Squad",
+        "Rare Cursed Squad"
+      ]
+    },
+    {
+      "id": "strongholds",
+      "name": "Strongholds",
+      "description": "Regular strongholds that can be attacked for resources and valor points",
+      "available_levels": [10, 15, 20, 25, 30]
+    },
+    {
+      "id": "cursed_strongholds",
+      "name": "Cursed Strongholds",
+      "description": "Cursed strongholds with Master Coins rewards",
+      "available_levels": [20, 25]
+    },
+    {
+      "id": "heroics",
+      "name": "Heroics",
+      "description": "Heroic battles with wave-based encounters",
+      "available_levels": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43]
+    }
+  ],
+  "troop_counter_guide": {
+    "description": "Use these troops to counter enemy types",
+    "counters": {
+      "Melee": {
+        "strong_against": "Mounted",
+        "weak_against": "Ranged",
+        "icon": "⚔️"
+      },
+      "Ranged": {
+        "strong_against": "Melee",
+        "weak_against": "Mounted",
+        "icon": "🏹"
+      },
+      "Mounted": {
+        "strong_against": "Ranged",
+        "weak_against": "Melee",
+        "icon": "🐴"
+      },
+      "Flying": {
+        "strong_against": "Melee",
+        "weak_against": "Ranged",
+        "icon": "🦅"
+      }
+    }
+  },
+  "quick_lookup": {
+    "rare_monsters": {
+      "41": {
+        "Rare Elf Squad": {
+          "attack_with": "Melee",
+          "reason": "Heavy Mounted troops with high vs. Ranged bonus"
+        },
+        "Rare Inferno Squad": {
+          "attack_with": "Ranged or Monsters",
+          "reason": "Ranged troops with high vs. Melee bonus"
+        },
+        "Rare Undead Squad": {
+          "attack_with": "Ranged or Monsters",
+          "reason": "Ranged troops with high vs. Melee bonus"
+        }
+      },
+      "42": {
+        "Rare Barbarian Squad": {
+          "attack_with": "Mounted",
+          "reason": "Flying troops with high vs. Melee bonus"
+        },
+        "Rare Cursed Squad": {
+          "attack_with": "Monsters (not Melee)",
+          "reason": "Flying troops strong vs. Melee"
+        },
+        "Rare Elf Squad": {
+          "attack_with": "Melee or Monsters (not Beasts)",
+          "reason": "Mounted troops with vs. Ranged bonus, Giants vs. Beasts"
+        },
+        "Rare Inferno Squad": {
+          "attack_with": "Melee or Monsters (not Beasts)",
+          "reason": "Mounted troops with vs. Ranged bonus, Giants vs. Beasts"
+        },
+        "Rare Undead Squad": {
+          "attack_with": "Melee or Monsters (not Beasts)",
+          "reason": "Mounted troops with vs. Ranged bonus, Giants vs. Beasts"
+        }
+      },
+      "43": {
+        "Rare Barbarian Squad": {
+          "attack_with": "Melee or Mounted",
+          "reason": "Mounted and Ranged composition"
+        },
+        "Rare Cursed Squad": {
+          "attack_with": "Melee or Mounted",
+          "reason": "Mounted and Ranged composition"
+        },
+        "Rare Elf Squad": {
+          "attack_with": "Ranged or Monsters",
+          "reason": "Ranged troops with high vs. Melee bonus"
+        },
+        "Rare Inferno Squad": {
+          "attack_with": "Ranged or Monsters",
+          "reason": "Ranged troops with high vs. Melee bonus"
+        },
+        "Rare Undead Squad": {
+          "attack_with": "Ranged or Monsters",
+          "reason": "Ranged troops with high vs. Melee bonus"
+        }
+      },
+      "44": {
+        "Rare Barbarian Squad": {
+          "attack_with": "Melee",
+          "reason": "Heavy Melee troops with vs. Mounted bonus"
+        },
+        "Rare Cursed Squad": {
+          "attack_with": "Melee",
+          "reason": "Heavy Melee troops with vs. Mounted bonus"
+        },
+        "Rare Elf Squad": {
+          "attack_with": "Ranged or Flying (not Dragons)",
+          "reason": "Elemental Ranged with vs. Dragons bonus"
+        },
+        "Rare Inferno Squad": {
+          "attack_with": "Ranged or Flying (not Dragons)",
+          "reason": "Elemental Ranged with vs. Dragons bonus"
+        },
+        "Rare Undead Squad": {
+          "attack_with": "Melee or Monsters (not Beasts)",
+          "reason": "Mounted troops with Giants vs. Beasts"
+        }
+      },
+      "45": {
+        "Rare Barbarian Squad": {
+          "attack_with": "Mounted",
+          "reason": "Flying troops with high vs. Melee bonus"
+        },
+        "Rare Cursed Squad": {
+          "attack_with": "Mounted",
+          "reason": "Flying troops with high vs. Melee bonus"
+        },
+        "Rare Elf Squad": {
+          "attack_with": "Mounted",
+          "reason": "High vs. Ranged composition"
+        },
+        "Rare Inferno Squad": {
+          "attack_with": "Mounted",
+          "reason": "High vs. Ranged composition"
+        },
+        "Rare Undead Squad": {
+          "attack_with": "Mounted",
+          "reason": "High vs. Ranged composition"
+        }
+      }
+    },
+    "strongholds": {
+      "10": {
+        "attack_with": "Ranged",
+        "strategy": "Send ONLY Archers and Catapults. Can be done with 1 Warregals (No casualties)"
+      },
+      "15": {
+        "attack_with": "Mounted",
+        "strategy": "Send ONLY Riders and Catapults. Can be done with 3-5 Warregals"
+      },
+      "20": {
+        "attack_with": "Melee",
+        "strategy": "Spearmen or Flying for minimum casualties. Can be done with 300 Warregals and 1 Captain without equipment"
+      },
+      "25": {
+        "attack_with": "Melee",
+        "strategy": "Can be done with 4,200 lvl 5 Cats and 76k lvl 6 Spearmen or 530 Warregals"
+      },
+      "30": {
+        "attack_with": "Melee",
+        "strategy": "Can be done with 1120 lvl 2 Warregals and 1 Captain without equipment"
+      }
+    },
+    "cursed_strongholds": {
+      "20": {
+        "attack_with": "Catapults and Melee",
+        "strategy": "2150 Cats IV and 30K Spearmen IV with Aydae 73, Brann 76"
+      },
+      "25": {
+        "attack_with": "Catapults and Melee",
+        "strategy": "3k Cats VI, 15k Spearmen V and 26k Spearmen VI. Cost to revive: 1.5-2.62k Gold"
+      }
+    },
+    "heroics": {
+      "16": { "attack_with": "Mounted", "reason": "Heavy Ranged and Mounted enemy composition" },
+      "17": { "attack_with": "Mounted", "reason": "Elemental Melee with vs. Ranged bonus" },
+      "18": { "attack_with": "Mounted", "reason": "Elemental Melee with vs. Ranged bonus" },
+      "19": { "attack_with": "Mounted", "reason": "Beast Melee with vs. Ranged bonus" },
+      "20": { "attack_with": "Melee", "reason": "Giant Melee with vs. Mounted bonus" },
+      "21": { "attack_with": "Melee", "reason": "Elemental and Mounted enemy composition" },
+      "22": { "attack_with": "Melee", "reason": "Elemental Melee and Mounted composition" },
+      "23": { "attack_with": "Mounted", "reason": "Elemental and Beast composition" },
+      "24": { "attack_with": "Ranged or Mounted", "reason": "Beast Melee and Flying composition" },
+      "25": { "attack_with": "Ranged", "reason": "Giant Melee with vs. Mounted bonus" },
+      "26": { "attack_with": "Melee", "reason": "Giant Ranged with vs. Melee bonus" },
+      "27": { "attack_with": "Melee or Mounted", "reason": "Dragon Flying composition" },
+      "28": { "attack_with": "Melee", "reason": "Dragon Flying composition" },
+      "29": { "attack_with": "Melee", "reason": "Elemental Melee with high vs. Mounted" },
+      "30": { "attack_with": "Ranged", "reason": "Giant Melee and Elemental Flying" },
+      "31": { "attack_with": "Ranged or Melee", "reason": "Giant Ranged and Elemental Melee" },
+      "32": { "attack_with": "Melee", "reason": "Dragon Flying and Elemental Melee" },
+      "33": { "attack_with": "Melee", "reason": "Dragon Flying and Elemental Melee" },
+      "34": { "attack_with": "Melee", "reason": "Elemental and Beast Melee composition" },
+      "35": { "attack_with": "Ranged", "reason": "Elemental Ranged with high vs. Melee" },
+      "36": { "attack_with": "Ranged", "reason": "Heavy Melee with vs. Mounted bonus" },
+      "37": { "attack_with": "Mounted", "reason": "Heavy Ranged with vs. Flying bonus" },
+      "38": { "attack_with": "Mounted", "reason": "Heavy Mounted with vs. Ranged bonus" },
+      "40": { "attack_with": "Mounted", "reason": "Heavy Flying with vs. Melee bonus" },
+      "41": { "attack_with": "Melee or Ranged", "reason": "Balanced composition" },
+      "42": { "attack_with": "Mounted", "reason": "Heavy Ranged with vs. Flying bonus" },
+      "43": { "attack_with": "Mounted", "reason": "Heavy Mounted with vs. Ranged bonus" }
+    }
+  }
+}
