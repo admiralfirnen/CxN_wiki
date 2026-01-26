@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Calculator Guide - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/wiki-article.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    
+    <div class="container">
+        <article class="wiki-article">
+            <header class="article-header">
+                <h1 class="article-title">Stack Calculator Guide</h1>
+                <div class="article-meta">
+                    <span>📍 Location: Tools → Stack Calculator</span>
+                    <span>📅 Last Updated: January 2026</span>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <p>
+                    The <strong>Stack Calculator</strong> helps you plan your march composition by calculating 
+                    the optimal number of troops to take for each unit type. It ensures your strongest troops 
+                    survive the longest while maximizing your available Leadership, Authority, and Dominance.
+                </p>
+
+                <div class="info-box tip">
+                    <div class="info-box-title">💡 Pro Tip</div>
+                    <p>Your settings are automatically saved! Come back anytime and your unit selections, limits, and preferences will be restored.</p>
+                </div>
+
+                <h2>Core Concepts</h2>
+
+                <h3>What is "Stacking"?</h3>
+                <p>
+                    In Total Battle, your march is divided into multiple <strong>stacks</strong> (usually 4). 
+                    Each stack fights independently, and enemies attack the stack with the <strong>lowest health first</strong>. 
+                    The goal of stacking is to ensure your <strong>weaker troops die before your stronger troops</strong>, 
+                    maximizing battle efficiency.
+                </p>
+
+                <h3>The Base Count Principle</h3>
+                <p>
+                    The <strong>Base Count</strong> is the number of your strongest (highest tier) troops per stack. 
+                    All other troop quantities are calculated as multiples of this number to balance health across 
+                    your army composition.
+                </p>
+
+                <div class="info-box">
+                    <div class="info-box-title">ℹ️ Example</div>
+                    <p>
+                        If your Base Count is 50 and you're taking Tier 9 Punishers and Tier 7 Heavy Halberdiers:
+                    </p>
+                    <ul>
+                        <li><strong>Punishers (T9):</strong> 50 per stack (base count)</li>
+                        <li><strong>Heavy Halberdiers (T7):</strong> ~162 per stack (scaled up to match health)</li>
+                    </ul>
+                </div>
+
+                <h2>Understanding the Three Limits</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👑</div>
+                        <div class="feature-title">Leadership</div>
+                        <div class="feature-description">
+                            Used by <strong>Guardsmen</strong> and <strong>Specialists</strong> (trained troops). 
+                            Your total Leadership depends on your Hero/Captain and whether you're using a Dragon.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚜️</div>
+                        <div class="feature-title">Authority</div>
+                        <div class="feature-description">
+                            Used by <strong>Mercenaries</strong> (hired units). 
+                            Authority limits are typically much lower than Leadership.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <div class="feature-title">Dominance</div>
+                        <div class="feature-description">
+                            Used by <strong>Monsters</strong> (trained creatures). 
+                            Monsters have the highest stats but require Dominance to deploy.
+                        </div>
+                    </div>
+                </div>
+
+                <h2>How to Use the Calculator</h2>
+
+                <div class="how-to-steps">
+                    <div class="how-to-step">
+                        <div class="step-number-circle">1</div>
+                        <div class="step-content-box">
+                            <h4>Select Your Units</h4>
+                            <p>Click on the unit types you want to include in your march. Units are organized into collapsible categories: Guardsmen, Specialists, Mercenaries, and Monsters. Each shows Ranged, Melee, Mounted, and Flying subcategories.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-to-step">
+                        <div class="step-number-circle">2</div>
+                        <div class="step-content-box">
+                            <h4>Enter Your Limits</h4>
+                            <p>Input your available Leadership, Authority, and Dominance. You can find these on the troop selection screen in-game. The calculator will show real-time usage and warn you if you exceed limits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-to-step">
+                        <div class="step-number-circle">3</div>
+                        <div class="step-content-box">
+                            <h4>Set Base Count</h4>
+                            <p>Enter your desired Base Count (default is 50), or click "Find Optimal" to automatically calculate the best base count that fits within your limits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="how-to-step">
+                        <div class="step-number-circle">4</div>
+                        <div class="step-content-box">
+                            <h4>Generate Battle Plan</h4>
+                            <p>Click the button to see your complete march composition, including per-stack breakdowns and total troop counts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>The Calculation Explained</h2>
+
+                <h3>Stack Size Formula</h3>
+                <p>
+                    The calculator uses a <strong>tier-based multiplier</strong> to determine how many of each unit type 
+                    you need per stack:
+                </p>
+
+                <div class="formula-box">
+                    <code>Stack Size = Base Count × (1.8 ^ (9 - Unit Tier))</code>
+                </div>
+
+                <p>Where:</p>
+                <ul>
+                    <li><strong>Base Count</strong> = Your input value (e.g., 50)</li>
+                    <li><strong>1.8</strong> = The scaling multiplier per tier difference</li>
+                    <li><strong>9</strong> = The highest tier (reference point)</li>
+                    <li><strong>Unit Tier</strong> = The tier of the specific unit (1-9)</li>
+                </ul>
+
+                <h3>Example Calculations</h3>
+                <p>With a Base Count of 50:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Unit Tier</th>
+                            <th>Tier Difference (9 - Tier)</th>
+                            <th>Multiplier (1.8^diff)</th>
+                            <th>Stack Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tier 9 (e.g., Purifier II)</td>
+                            <td>0</td>
+                            <td>1.0</td>
+                            <td><strong>50</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tier 8 (e.g., Purifier I)</td>
+                            <td>1</td>
+                            <td>1.8</td>
+                            <td><strong>90</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tier 7 (e.g., Heavy Arbalester VII)</td>
+                            <td>2</td>
+                            <td>3.24</td>
+                            <td><strong>162</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tier 6 (e.g., Heavy Arbalester VI)</td>
+                            <td>3</td>
+                            <td>5.83</td>
+                            <td><strong>292</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tier 5 (e.g., Archer V)</td>
+                            <td>4</td>
+                            <td>10.50</td>
+                            <td><strong>525</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Limit Usage Formula</h3>
+                <p>
+                    For each selected unit, the limit cost is calculated as:
+                </p>
+
+                <div class="formula-box">
+                    <code>Limit Used = Unit's Limit Cost × Stack Size × Number of Stacks</code>
+                </div>
+
+                <p>
+                    The calculator sums this for all selected units to show your total Leadership, Authority, 
+                    and Dominance usage.
+                </p>
+
+                <h3>Find Optimal Base Count</h3>
+                <p>
+                    When you click "Find Optimal", the calculator uses a <strong>binary search algorithm</strong> 
+                    to find the largest Base Count that keeps all three limits (Leadership, Authority, Dominance) 
+                    at or below your specified maximums.
+                </p>
+
+                <h2>Additional Options</h2>
+
+                <h3>Enemy Stacks</h3>
+                <p>
+                    The number of stacks the enemy has (default: 4). This multiplies your per-stack counts 
+                    to give you the total troops needed for the march.
+                </p>
+
+                <h3>Specialist Adjustment</h3>
+                <p>
+                    Extra specialists to add per stack so they get targeted (and killed) first. 
+                    Since Guardsmen are generally stronger against monsters, you want Specialists 
+                    to absorb damage before your Guardsmen.
+                </p>
+
+                <h3>Revival Cost Reduction</h3>
+                <p>
+                    Your Temple's revival cost reduction (ranges from 1.04 at level 1 to 5.91 at level 45). 
+                    This is noted for reference but does not currently affect calculations.
+                </p>
+
+                <h2>Important Considerations</h2>
+
+                <div class="info-box warning">
+                    <div class="info-box-title">⚠️ What to Watch Out For</div>
+                    <ul>
+                        <li><strong>Estimates Only:</strong> The 1.8x multiplier is an approximation. Actual optimal ratios depend on exact health values which vary by unit.</li>
+                        <li><strong>No Hero/Captain Bonuses:</strong> The calculator does not account for Hero or Captain bonuses that might affect troop stats.</li>
+                        <li><strong>Static Unit Data:</strong> Unit strength and health values are based on base stats and may differ from your actual in-game values with research and equipment.</li>
+                        <li><strong>Combat Mechanics:</strong> Real battle outcomes depend on many factors including attack order, critical hits, and enemy composition.</li>
+                    </ul>
+                </div>
+
+                <div class="info-box tip">
+                    <div class="info-box-title">💡 Best Practices</div>
+                    <ul>
+                        <li>Start with your highest tier units and work down – they have the best stats per leadership cost.</li>
+                        <li>Use the "Find Optimal" button to maximize your troop capacity.</li>
+                        <li>Always verify the generated counts look reasonable before deploying in-game.</li>
+                        <li>Consider bringing slightly fewer troops than calculated to leave room for reinforcements or emergency adjustments.</li>
+                    </ul>
+                </div>
+
+                <h2>Unit Categories Explained</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-title">Guardsmen</div>
+                        <div class="feature-description">
+                            Your main trained troops. Higher strength and health than Specialists. 
+                            Best for sustained combat, especially against monsters. Uses Leadership.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚔️</div>
+                        <div class="feature-title">Specialists</div>
+                        <div class="feature-description">
+                            Elite but fragile troops. Lower stats than Guardsmen at the same tier. 
+                            Useful as "meat shields" to protect Guardsmen. Uses Leadership.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <div class="feature-title">Mercenaries</div>
+                        <div class="feature-description">
+                            Hired units with high stats. Limited by Authority rather than Leadership. 
+                            Great for supplementing your army when Leadership is maxed.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🐉</div>
+                        <div class="feature-title">Monsters</div>
+                        <div class="feature-description">
+                            Trained creatures with the highest stats. Limited by Dominance. 
+                            Excellent damage dealers but require significant investment to train.
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Reading the Battle Plan</h2>
+
+                <h3>Summary Cards</h3>
+                <p>After generating a battle plan, you'll see summary statistics:</p>
+                <ul>
+                    <li><strong>Total Troops:</strong> The total number of troops across all stacks</li>
+                    <li><strong>Total Strength:</strong> Combined attack power of your entire march</li>
+                    <li><strong>Total Health:</strong> Combined health pool of your entire march</li>
+                    <li><strong>Stacks:</strong> Number of stacks (based on Enemy Stacks setting)</li>
+                    <li><strong>Base Count:</strong> Your base count value</li>
+                </ul>
+
+                <h3>Stack Breakdown</h3>
+                <p>
+                    Shows each stack with the exact number of each unit type. All stacks are identical 
+                    in this calculator's output.
+                </p>
+
+                <h3>Troops Table</h3>
+                <p>
+                    A detailed table showing:
+                </p>
+                <ul>
+                    <li><strong>Per Stack:</strong> How many of each unit to put in each stack</li>
+                    <li><strong>Total:</strong> Total count across all stacks (Per Stack × Number of Stacks)</li>
+                    <li><strong>Strength:</strong> Total attack power contribution from this unit type</li>
+                    <li><strong>Health:</strong> Total health contribution from this unit type</li>
+                </ul>
+
+                <h3>Copy to Clipboard</h3>
+                <p>
+                    Use the "Copy to Clipboard" button to export your battle plan as text for sharing 
+                    with clanmates or saving for reference.
+                </p>
+
+                <div class="related-links">
+                    <h3>Related Tools & Guides</h3>
+                    <div class="related-grid">
+                        <a href="../tools/stack-calculator.html" class="related-link">
+                            <span class="related-link-icon">📊</span>
+                            <span>Open Stack Calculator</span>
+                        </a>
+                        <a href="../tools/monster-calculator.html" class="related-link">
+                            <span class="related-link-icon">🐉</span>
+                            <span>Monster Calculator</span>
+                        </a>
+                        <a href="monster-calculator-guide.html" class="related-link">
+                            <span class="related-link-icon">📖</span>
+                            <span>Monster Calculator Guide</span>
+                        </a>
+                        <a href="../strategy/index.html" class="related-link">
+                            <span class="related-link-icon">⚔️</span>
+                            <span>Strategy Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+
+    <style>
+        /* Formula box styling */
+        .formula-box {
+            background: rgba(212, 165, 116, 0.1);
+            border: 2px solid var(--color-border-gold);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .formula-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            background: none;
+            padding: 0;
+        }
+        
+        /* Data table styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+        }
+        
+        .data-table th {
+            background: rgba(212, 165, 116, 0.15);
+            color: var(--color-gold);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+        
+        .data-table tbody tr:hover {
+            background: rgba(212, 165, 116, 0.05);
+        }
+        
+        .data-table td:last-child {
+            font-weight: 600;
+            color: var(--color-gold);
+        }
+    </style>
+</body>
+</html>

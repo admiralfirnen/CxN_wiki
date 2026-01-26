@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy Research Costs - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/academy-research.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Academy Research Costs</h1>
+            <p class="calculator-subtitle">View Valor Point costs for all Academy research</p>
+        </div>
+
+        <div class="academy-research-wrapper">
+            <!-- Filter Panel -->
+            <div class="calculator-section filter-panel">
+                <h2 class="section-title">Filters</h2>
+                
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Research Category</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Search Research</label>
+                        <input type="text" id="research-search" class="filter-input" placeholder="Type to search...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-summary" id="results-summary">
+                <span id="results-count">Loading...</span>
+            </div>
+
+            <!-- Research Groups Container -->
+            <div id="research-container" class="research-container">
+                <div class="loading-message">Loading research data...</div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/academy-research.js"></script>
+</body>
+</html>

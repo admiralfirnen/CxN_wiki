@@ -5,6 +5,7 @@ let monsterData = {
     normal_monsters: null,
     rare_monsters: null,
     strongholds: null,
+    citadels: null,
     heroics: null,
     lookup: null,
     troops: null
@@ -32,10 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Load all JSON data files
 async function loadAllData() {
     try {
-        const [normalMonsters, rareMonsters, strongholds, heroics, lookup, troops] = await Promise.all([
+        const [normalMonsters, rareMonsters, strongholds, citadels, heroics, lookup, troops] = await Promise.all([
             fetch('../data/normal_monsters.json').then(r => r.json()),
             fetch('../data/rare_monsters.json').then(r => r.json()),
             fetch('../data/strongholds.json').then(r => r.json()),
+            fetch('../data/citadels.json').then(r => r.json()),
             fetch('../data/heroics.json').then(r => r.json()),
             fetch('../data/monster_lookup.json').then(r => r.json()),
             fetch('../data/troop_data.json').then(r => r.json())
@@ -44,6 +46,7 @@ async function loadAllData() {
         monsterData.normal_monsters = normalMonsters;
         monsterData.rare_monsters = rareMonsters;
         monsterData.strongholds = strongholds;
+        monsterData.citadels = citadels;
         monsterData.heroics = heroics;
         monsterData.lookup = lookup;
         monsterData.troops = troops;
@@ -177,6 +180,10 @@ function performLookup() {
             data = findCursedStronghold(level);
             quickLookup = monsterData.lookup.quick_lookup.cursed_strongholds[level];
             break;
+        case 'citadels':
+            data = findCitadel(level);
+            quickLookup = monsterData.lookup.quick_lookup.citadels?.[level];
+            break;
         case 'heroics':
             data = findHeroic(level);
             quickLookup = monsterData.lookup.quick_lookup.heroics[level];
@@ -234,6 +241,12 @@ function findCursedStronghold(level) {
     return monsterData.strongholds.cursed_strongholds.find(s => s.level === level);
 }
 
+// Find citadel data
+function findCitadel(level) {
+    if (!monsterData.citadels) return null;
+    return monsterData.citadels.citadels.find(c => c.level === level);
+}
+
 // Find heroic data
 function findHeroic(level) {
     if (!monsterData.heroics) return null;
@@ -248,6 +261,8 @@ function displayResults(data, quickLookup, enemyType, level, monsterName) {
         titleEl.textContent = `${monsterName} - Level ${level}`;
     } else if (enemyType === 'cursed_strongholds') {
         titleEl.textContent = `Cursed Stronghold - Level ${level}`;
+    } else if (enemyType === 'citadels') {
+        titleEl.textContent = `Elven Citadel - Level ${level}`;
     } else {
         titleEl.textContent = `${capitalizeFirst(enemyType.replace('_', ' '))} - Level ${level}`;
     }
@@ -266,6 +281,9 @@ function displayResults(data, quickLookup, enemyType, level, monsterName) {
     
     // Display rewards if available
     displayRewards(data, enemyType);
+    
+    // Display citadel-specific info if applicable
+    displayCitadelInfo(data, enemyType);
     
     // Display enemy composition
     displayTroops(data, enemyType);
@@ -317,6 +335,82 @@ function createRewardItem(icon, label, value) {
             <span class="reward-value">${value}</span>
         </div>
     `;
+}
+
+// Display citadel-specific information
+function displayCitadelInfo(data, enemyType) {
+    const citadelInfoBox = document.getElementById('citadel-info-box');
+    
+    if (enemyType !== 'citadels' || !data.catapults_required) {
+        if (citadelInfoBox) citadelInfoBox.style.display = 'none';
+        return;
+    }
+    
+    if (citadelInfoBox) {
+        citadelInfoBox.style.display = 'block';
+        
+        const catapultInfo = data.catapults_required;
+        const troopInfo = data.recommended_troops;
+        const tips = data.strategy_tips || [];
+        const generalTips = monsterData.citadels?.general_tips || {};
+        
+        let html = `
+            <div class="citadel-requirements">
+                <div class="citadel-req-item siege-req">
+                    <span class="req-icon">🏰</span>
+                    <div class="req-details">
+                        <span class="req-title">Catapults Required</span>
+                        <span class="req-value">~${formatNumber(catapultInfo.quantity)} Tier ${catapultInfo.tier}</span>
+                        <span class="req-note">${catapultInfo.notes || ''}</span>
+                    </div>
+                </div>
+                <div class="citadel-req-item troop-req">
+                    <span class="req-icon">${getTroopIcon(troopInfo.type)}</span>
+                    <div class="req-details">
+                        <span class="req-title">Recommended Troops</span>
+                        <span class="req-value">${troopInfo.type} - ${troopInfo.quantity}</span>
+                        <span class="req-note">${troopInfo.notes || ''}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        if (tips.length > 0) {
+            html += `
+                <div class="citadel-tips">
+                    <h4>💡 Level-Specific Tips</h4>
+                    <ul class="tips-list">
+                        ${tips.map(tip => `<li>${tip}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+        
+        // Add general citadel tips
+        if (generalTips.catapult_importance) {
+            html += `
+                <div class="citadel-general-tips">
+                    <h4>🔥 Catapult Importance</h4>
+                    <ul class="tips-list warning">
+                        ${generalTips.catapult_importance.map(tip => `<li>${tip}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+        
+        if (generalTips.attack_preparation) {
+            html += `
+                <div class="citadel-general-tips">
+                    <h4>📌 Before You Attack</h4>
+                    <ul class="tips-list">
+                        ${generalTips.attack_preparation.map(tip => `<li>${tip}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+        
+        citadelInfoBox.innerHTML = html;
+    }
 }
 
 // Display troops

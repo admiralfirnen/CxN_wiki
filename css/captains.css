@@ -1,0 +1,655 @@
+/* Captains Cheat Sheet Styles */
+
+/* Header Section */
+.captains-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.captains-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Selector Section */
+.selector-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.selector-title {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selector-title .icon {
+    font-size: 1.5rem;
+}
+
+.selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.selector-label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.captain-select {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.captain-select:hover {
+    border-color: var(--accent-color);
+}
+
+.captain-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+    color: var(--text-color);
+}
+
+.tab-btn.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.tab-btn .tab-icon {
+    margin-right: 8px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Captain Card */
+.captain-info-panel {
+    display: none;
+}
+
+.captain-info-panel.visible {
+    display: block;
+}
+
+.captain-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.captain-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.captain-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.captain-header-info {
+    flex: 1;
+}
+
+.captain-name {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.captain-tagline {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.captain-tier {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.captain-tier.essential {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.captain-tier.valuable {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.captain-tier.situational {
+    background: rgba(234, 179, 8, 0.2);
+    color: #eab308;
+}
+
+.captain-tier.starter {
+    background: rgba(156, 163, 175, 0.2);
+    color: #9ca3af;
+}
+
+/* Captain Stats Grid */
+.captain-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.stat-box-title {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.stat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stat-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.stat-list li:last-child {
+    border-bottom: none;
+}
+
+.stat-list li .bullet {
+    color: var(--accent-color);
+}
+
+.stat-list.strengths li .bullet {
+    color: #22c55e;
+}
+
+.stat-list.weaknesses li .bullet {
+    color: #ef4444;
+}
+
+/* Equipment Recommendation */
+.equipment-section {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.equipment-title {
+    font-weight: 600;
+    color: #a78bfa;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.equipment-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.equipment-tag {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Unlock Requirements */
+.unlock-section {
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.unlock-title {
+    font-weight: 600;
+    color: #fbbf24;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.unlock-cost {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* Activity Grid */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.activity-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.activity-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+}
+
+.activity-card.selected {
+    border-color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.activity-icon {
+    font-size: 2rem;
+}
+
+.activity-name {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.activity-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.recommended-captains {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.recommended-title {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.captain-recommendation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.captain-recommendation:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rec-avatar {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.rec-info {
+    flex: 1;
+}
+
+.rec-name {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.rec-reason {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.rec-rank {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.rec-rank.best {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.rec-rank.good {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.rec-rank.viable {
+    background: rgba(156, 163, 175, 0.2);
+    color: #9ca3af;
+}
+
+/* Leveling Tips Section */
+.tips-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.tips-title {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tip-card {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.tip-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tip-icon {
+    font-size: 1.5rem;
+}
+
+.tip-title {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.tip-content {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Quick Reference Table */
+.quick-ref-section {
+    margin-top: 30px;
+}
+
+.quick-ref-title {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captain-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.captain-table th,
+.captain-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.captain-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.captain-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.captain-table tr:last-child td {
+    border-bottom: none;
+}
+
+.captain-table .captain-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captain-table .mini-avatar {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.use-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.use-tag.pve {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.use-tag.pvp {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.use-tag.both {
+    background: rgba(139, 92, 246, 0.2);
+    color: #a78bfa;
+}
+
+.use-tag.harvest {
+    background: rgba(234, 179, 8, 0.2);
+    color: #fbbf24;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .captain-card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .captain-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .captain-name {
+        font-size: 1.5rem;
+    }
+    
+    .captain-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .captain-table {
+        font-size: 0.85rem;
+    }
+    
+    .captain-table th,
+    .captain-table td {
+        padding: 10px 12px;
+    }
+    
+    .selector-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Info callout */
+.info-callout {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.info-callout.tip {
+    background: rgba(34, 197, 94, 0.1);
+    border-left-color: #22c55e;
+}
+
+.info-callout.warning {
+    background: rgba(234, 179, 8, 0.1);
+    border-left-color: #eab308;
+}
+
+.info-callout-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-callout-content {
+    color: var(--text-muted);
+    line-height: 1.6;
+}

@@ -1,0 +1,272 @@
+{
+  "guardsmen": {
+    "label": "Guardsmen",
+    "description": "Core troops that require Leadership",
+    "resourceType": "leadership",
+    "categories": {
+      "ranged": {
+        "label": "Ranged",
+        "icon": "🏹",
+        "units": [
+          { "id": "purifier_2", "name": "Purifier II", "tier": 9, "leadership": 90, "strength": 2880, "health": 8640 },
+          { "id": "purifier_1", "name": "Purifier I", "tier": 8, "leadership": 80, "strength": 2400, "health": 7200 },
+          { "id": "heavy_arbalester_7", "name": "Heavy Arbalester VII", "tier": 7, "leadership": 70, "strength": 1920, "health": 5760 },
+          { "id": "heavy_arbalester_6", "name": "Heavy Arbalester VI", "tier": 6, "leadership": 60, "strength": 1440, "health": 4320 },
+          { "id": "archer_5", "name": "Archer V", "tier": 5, "leadership": 50, "strength": 1080, "health": 3240 },
+          { "id": "archer_4", "name": "Archer IV", "tier": 4, "leadership": 40, "strength": 720, "health": 2160 },
+          { "id": "archer_3", "name": "Archer III", "tier": 3, "leadership": 30, "strength": 480, "health": 1440 },
+          { "id": "archer_2", "name": "Archer II", "tier": 2, "leadership": 20, "strength": 270, "health": 810 },
+          { "id": "archer_1", "name": "Archer I", "tier": 1, "leadership": 10, "strength": 150, "health": 450 }
+        ]
+      },
+      "melee": {
+        "label": "Melee",
+        "icon": "⚔️",
+        "units": [
+          { "id": "punisher_2", "name": "Punisher II", "tier": 9, "leadership": 90, "strength": 2880, "health": 8640 },
+          { "id": "punisher_1", "name": "Punisher I", "tier": 8, "leadership": 80, "strength": 2400, "health": 7200 },
+          { "id": "heavy_halberdier_7", "name": "Heavy Halberdier VII", "tier": 7, "leadership": 70, "strength": 1920, "health": 5760 },
+          { "id": "heavy_halberdier_6", "name": "Heavy Halberdier VI", "tier": 6, "leadership": 60, "strength": 1440, "health": 4320 },
+          { "id": "spearman_5", "name": "Spearman V", "tier": 5, "leadership": 50, "strength": 1080, "health": 3240 },
+          { "id": "spearman_4", "name": "Spearman IV", "tier": 4, "leadership": 40, "strength": 720, "health": 2160 },
+          { "id": "spearman_3", "name": "Spearman III", "tier": 3, "leadership": 30, "strength": 480, "health": 1440 },
+          { "id": "spearman_2", "name": "Spearman II", "tier": 2, "leadership": 20, "strength": 270, "health": 810 },
+          { "id": "spearman_1", "name": "Spearman I", "tier": 1, "leadership": 10, "strength": 150, "health": 450 }
+        ]
+      },
+      "mounted": {
+        "label": "Mounted",
+        "icon": "🐴",
+        "units": [
+          { "id": "smiter_2", "name": "Smiter II", "tier": 9, "leadership": 90, "strength": 2880, "health": 8640 },
+          { "id": "smiter_1", "name": "Smiter I", "tier": 8, "leadership": 80, "strength": 2400, "health": 7200 },
+          { "id": "mounted_knight_7", "name": "Mounted Knight VII", "tier": 7, "leadership": 70, "strength": 1920, "health": 5760 },
+          { "id": "mounted_knight_6", "name": "Mounted Knight VI", "tier": 6, "leadership": 60, "strength": 1440, "health": 4320 },
+          { "id": "rider_5", "name": "Rider V", "tier": 5, "leadership": 50, "strength": 1080, "health": 3240 },
+          { "id": "rider_4", "name": "Rider IV", "tier": 4, "leadership": 40, "strength": 720, "health": 2160 },
+          { "id": "rider_3", "name": "Rider III", "tier": 3, "leadership": 30, "strength": 480, "health": 1440 },
+          { "id": "rider_2", "name": "Rider II", "tier": 2, "leadership": 20, "strength": 270, "health": 810 },
+          { "id": "rider_1", "name": "Rider I", "tier": 1, "leadership": 10, "strength": 150, "health": 450 }
+        ]
+      },
+      "flying": {
+        "label": "Flying",
+        "icon": "🦅",
+        "units": [
+          { "id": "corax_2", "name": "Corax II", "tier": 9, "leadership": 90, "strength": 2880, "health": 8640 },
+          { "id": "corax_1", "name": "Corax I", "tier": 8, "leadership": 80, "strength": 2400, "health": 7200 },
+          { "id": "battle_griffin_7", "name": "Battle Griffin VII", "tier": 7, "leadership": 70, "strength": 1920, "health": 5760 },
+          { "id": "battle_griffin_6", "name": "Battle Griffin VI", "tier": 6, "leadership": 60, "strength": 1440, "health": 4320 },
+          { "id": "battle_griffin_5", "name": "Battle Griffin V", "tier": 5, "leadership": 50, "strength": 1080, "health": 3240 }
+        ]
+      }
+    }
+  },
+  "specialists": {
+    "label": "Specialists",
+    "description": "Elite troops that require Leadership",
+    "resourceType": "leadership",
+    "categories": {
+      "ranged": {
+        "label": "Ranged",
+        "icon": "🏹",
+        "units": [
+          { "id": "legitimist_2", "name": "Legitimist II", "tier": 9, "leadership": 90, "strength": 1440, "health": 4320 },
+          { "id": "legitimist_1", "name": "Legitimist I", "tier": 8, "leadership": 80, "strength": 1200, "health": 3600 },
+          { "id": "deadshot_7", "name": "Deadshot VII", "tier": 7, "leadership": 70, "strength": 960, "health": 2880 },
+          { "id": "deadshot_6", "name": "Deadshot VI", "tier": 6, "leadership": 60, "strength": 720, "health": 2160 },
+          { "id": "deadshot_5", "name": "Deadshot V", "tier": 5, "leadership": 50, "strength": 540, "health": 1620 }
+        ]
+      },
+      "melee": {
+        "label": "Melee",
+        "icon": "⚔️",
+        "units": [
+          { "id": "duelist_2", "name": "Duelist II", "tier": 9, "leadership": 90, "strength": 1440, "health": 4320 },
+          { "id": "duelist_1", "name": "Duelist I", "tier": 8, "leadership": 80, "strength": 1200, "health": 3600 },
+          { "id": "heavy_knight_7", "name": "Heavy Knight VII", "tier": 7, "leadership": 70, "strength": 960, "health": 2880 },
+          { "id": "heavy_knight_6", "name": "Heavy Knight VI", "tier": 6, "leadership": 60, "strength": 720, "health": 2160 },
+          { "id": "swordsman_5", "name": "Swordsman V", "tier": 5, "leadership": 50, "strength": 540, "health": 1620 },
+          { "id": "swordsman_4", "name": "Swordsman IV", "tier": 4, "leadership": 40, "strength": 360, "health": 1080 },
+          { "id": "swordsman_3", "name": "Swordsman III", "tier": 3, "leadership": 30, "strength": 240, "health": 720 },
+          { "id": "swordsman_2", "name": "Swordsman II", "tier": 2, "leadership": 20, "strength": 135, "health": 405 },
+          { "id": "swordsman_1", "name": "Swordsman I", "tier": 1, "leadership": 10, "strength": 75, "health": 225 }
+        ]
+      },
+      "mounted": {
+        "label": "Mounted",
+        "icon": "🐴",
+        "units": [
+          { "id": "whitemane_2", "name": "Whitemane II", "tier": 9, "leadership": 90, "strength": 1440, "health": 4320 },
+          { "id": "whitemane_1", "name": "Whitemane I", "tier": 8, "leadership": 80, "strength": 1200, "health": 3600 },
+          { "id": "lion_rider_7", "name": "Lion Rider VII", "tier": 7, "leadership": 70, "strength": 960, "health": 2880 },
+          { "id": "lion_rider_6", "name": "Lion Rider VI", "tier": 6, "leadership": 60, "strength": 720, "health": 2160 },
+          { "id": "lion_rider_5", "name": "Lion Rider V", "tier": 5, "leadership": 50, "strength": 540, "health": 1620 }
+        ]
+      },
+      "flying": {
+        "label": "Flying",
+        "icon": "🦅",
+        "units": [
+          { "id": "royal_lion_2", "name": "Royal Lion II", "tier": 9, "leadership": 90, "strength": 1440, "health": 4320 },
+          { "id": "royal_lion_1", "name": "Royal Lion I", "tier": 8, "leadership": 80, "strength": 1200, "health": 3600 },
+          { "id": "vulture_7", "name": "Vulture VII", "tier": 7, "leadership": 70, "strength": 960, "health": 2880 },
+          { "id": "vulture_6", "name": "Vulture VI", "tier": 6, "leadership": 60, "strength": 720, "health": 2160 },
+          { "id": "vulture_5", "name": "Vulture V", "tier": 5, "leadership": 50, "strength": 540, "health": 1620 }
+        ]
+      }
+    }
+  },
+  "mercenaries": {
+    "label": "Mercenaries",
+    "description": "Hired units that require Authority",
+    "resourceType": "authority",
+    "categories": {
+      "tier2": {
+        "label": "Mercenaries II",
+        "icon": "⭐⭐",
+        "units": [
+          { "id": "wyvern", "name": "Wyvern", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "flying" },
+          { "id": "warden", "name": "Warden", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "eternal_cannoneer", "name": "Eternal Cannoneer", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "ranged" },
+          { "id": "demonic_salamander", "name": "Demonic Salamander", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "mounted" },
+          { "id": "warregal", "name": "Warregal", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "mounted" },
+          { "id": "jago", "name": "Jago", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "superior_epic_monster_hunter", "name": "Superior Epic Monster Hunter", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "mounted" },
+          { "id": "elder_bounty_hunter", "name": "Elder Bounty Hunter", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "ranged" },
+          { "id": "quicksand", "name": "Quicksand", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "galloper", "name": "Galloper", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "mounted" },
+          { "id": "highlander", "name": "Highlander", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "slavic_warrior", "name": "Slavic Warrior", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "pounder", "name": "Pounder", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" },
+          { "id": "scarface", "name": "Scarface", "tier": 9, "authority": 90, "strength": 3456, "health": 10368, "type": "melee" }
+        ]
+      },
+      "tier7": {
+        "label": "Mercenaries VII",
+        "icon": "⭐",
+        "units": [
+          { "id": "lightning_lord", "name": "Lightning Lord", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "flying" },
+          { "id": "sea_lord", "name": "Sea Lord", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "melee" },
+          { "id": "sphynx_7", "name": "Sphynx", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "flying" },
+          { "id": "shedu", "name": "Shedu", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "flying" },
+          { "id": "jungle_king", "name": "Jungle King", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "melee" },
+          { "id": "chariot_7", "name": "Chariot", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "mounted" },
+          { "id": "rhino_rider_7", "name": "Rhino Rider", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "mounted" },
+          { "id": "epic_monster_hunter_7", "name": "Epic Monster Hunter VII", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "mounted" },
+          { "id": "legionary_7", "name": "Legionary", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "melee" },
+          { "id": "arbalester_7", "name": "Arbalester", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "ranged" },
+          { "id": "knight_7", "name": "Knight VII", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "mounted" },
+          { "id": "trailseeker_7", "name": "Trailseeker", "tier": 7, "authority": 70, "strength": 2304, "health": 6912, "type": "ranged" }
+        ]
+      },
+      "tier6": {
+        "label": "Mercenaries VI",
+        "icon": "⭐",
+        "units": [
+          { "id": "ent", "name": "Ent", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "melee" },
+          { "id": "death_chariot", "name": "Death Chariot", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "sphynx_6", "name": "Sphynx", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "flying" },
+          { "id": "chariot_6", "name": "Chariot", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "rhino_rider_6", "name": "Rhino Rider", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "epic_monster_hunter_6", "name": "Epic Monster Hunter VI", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "bounty_hunter_6", "name": "Bounty Hunter VI", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "ranged" },
+          { "id": "combat_anteater_6", "name": "Combat Anteater VI", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "chitinous_defender_6", "name": "Chitinous Defender VI", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "melee" },
+          { "id": "legionary_6", "name": "Legionary", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "melee" },
+          { "id": "arbalester_6", "name": "Arbalester", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "ranged" },
+          { "id": "knight_6", "name": "Knight VI", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "mounted" },
+          { "id": "trailseeker_6", "name": "Trailseeker", "tier": 6, "authority": 60, "strength": 1728, "health": 5184, "type": "ranged" }
+        ]
+      },
+      "tier5": {
+        "label": "Mercenaries V",
+        "icon": "⭐",
+        "units": [
+          { "id": "cyclops", "name": "Cyclops", "tier": 5, "authority": 50, "strength": 1296, "health": 3888, "type": "melee" },
+          { "id": "bear", "name": "Bear", "tier": 5, "authority": 50, "strength": 1296, "health": 3888, "type": "melee" },
+          { "id": "gargoyle", "name": "Gargoyle", "tier": 5, "authority": 50, "strength": 1296, "health": 3888, "type": "flying" },
+          { "id": "swift_marksman", "name": "Swift Marksman", "tier": 5, "authority": 50, "strength": 1296, "health": 3888, "type": "ranged" },
+          { "id": "epic_monster_hunter_5", "name": "Epic Monster Hunter V", "tier": 5, "authority": 50, "strength": 1296, "health": 3888, "type": "mounted" }
+        ]
+      }
+    }
+  },
+  "monsters": {
+    "label": "Monsters",
+    "description": "Trained monsters that require Dominance",
+    "resourceType": "dominance",
+    "categories": {
+      "tier9": {
+        "label": "Monsters IX",
+        "icon": "🐉",
+        "units": [
+          { "id": "kraken_2", "name": "Kraken II", "tier": 9, "dominance": 90, "strength": 4032, "health": 12096, "type": "melee" },
+          { "id": "fire_phoenix_2", "name": "Fire Phoenix II", "tier": 9, "dominance": 90, "strength": 4032, "health": 12096, "type": "flying" },
+          { "id": "devastator_2", "name": "Devastator II", "tier": 9, "dominance": 90, "strength": 4032, "health": 12096, "type": "mounted" },
+          { "id": "trickster_2", "name": "Trickster II", "tier": 9, "dominance": 90, "strength": 4032, "health": 12096, "type": "ranged" }
+        ]
+      },
+      "tier8": {
+        "label": "Monsters VIII",
+        "icon": "🐉",
+        "units": [
+          { "id": "kraken_1", "name": "Kraken I", "tier": 8, "dominance": 80, "strength": 3360, "health": 10080, "type": "melee" },
+          { "id": "fire_phoenix_1", "name": "Fire Phoenix I", "tier": 8, "dominance": 80, "strength": 3360, "health": 10080, "type": "flying" },
+          { "id": "devastator_1", "name": "Devastator I", "tier": 8, "dominance": 80, "strength": 3360, "health": 10080, "type": "mounted" },
+          { "id": "trickster_1", "name": "Trickster I", "tier": 8, "dominance": 80, "strength": 3360, "health": 10080, "type": "ranged" }
+        ]
+      },
+      "tier7": {
+        "label": "Monsters VII",
+        "icon": "🐉",
+        "units": [
+          { "id": "wind_lord", "name": "Wind Lord", "tier": 7, "dominance": 70, "strength": 2688, "health": 8064, "type": "flying" },
+          { "id": "black_dragon", "name": "Black Dragon", "tier": 7, "dominance": 70, "strength": 2688, "health": 8064, "type": "flying" },
+          { "id": "destructive_colossus", "name": "Destructive Colossus", "tier": 7, "dominance": 70, "strength": 2688, "health": 8064, "type": "melee" },
+          { "id": "ancient_terror", "name": "Ancient Terror", "tier": 7, "dominance": 70, "strength": 2688, "health": 8064, "type": "ranged" }
+        ]
+      },
+      "tier6": {
+        "label": "Monsters VI",
+        "icon": "🐉",
+        "units": [
+          { "id": "ruby_golem", "name": "Ruby Golem", "tier": 6, "dominance": 60, "strength": 2016, "health": 6048, "type": "melee" },
+          { "id": "jungle_destroyer", "name": "Jungle Destroyer", "tier": 6, "dominance": 60, "strength": 2016, "health": 6048, "type": "melee" },
+          { "id": "crystal_dragon", "name": "Crystal Dragon", "tier": 6, "dominance": 60, "strength": 2016, "health": 6048, "type": "flying" },
+          { "id": "troll_rider", "name": "Troll Rider", "tier": 6, "dominance": 60, "strength": 2016, "health": 6048, "type": "mounted" }
+        ]
+      },
+      "tier5": {
+        "label": "Monsters V",
+        "icon": "🐉",
+        "units": [
+          { "id": "ettin", "name": "Ettin", "tier": 5, "dominance": 50, "strength": 1512, "health": 4536, "type": "melee" },
+          { "id": "fearsome_manticore", "name": "Fearsome Manticore", "tier": 5, "dominance": 50, "strength": 1512, "health": 4536, "type": "flying" },
+          { "id": "flaming_centaur", "name": "Flaming Centaur", "tier": 5, "dominance": 50, "strength": 1512, "health": 4536, "type": "mounted" },
+          { "id": "desert_vanquisher", "name": "Desert Vanquisher", "tier": 5, "dominance": 50, "strength": 1512, "health": 4536, "type": "ranged" }
+        ]
+      },
+      "tier4": {
+        "label": "Monsters IV",
+        "icon": "🐉",
+        "units": [
+          { "id": "ice_phoenix", "name": "Ice Phoenix", "tier": 4, "dominance": 40, "strength": 1008, "health": 3024, "type": "flying" },
+          { "id": "magic_dragon", "name": "Magic Dragon", "tier": 4, "dominance": 40, "strength": 1008, "health": 3024, "type": "flying" },
+          { "id": "many_armed_guardian", "name": "Many-Armed Guardian", "tier": 4, "dominance": 40, "strength": 1008, "health": 3024, "type": "melee" },
+          { "id": "gorgon_medusa", "name": "Gorgon Medusa", "tier": 4, "dominance": 40, "strength": 1008, "health": 3024, "type": "ranged" }
+        ]
+      },
+      "tier3": {
+        "label": "Monsters III",
+        "icon": "🐉",
+        "units": [
+          { "id": "stone_gargoyle", "name": "Stone Gargoyle", "tier": 3, "dominance": 30, "strength": 672, "health": 2016, "type": "flying" },
+          { "id": "emerald_dragon", "name": "Emerald Dragon", "tier": 3, "dominance": 30, "strength": 672, "health": 2016, "type": "flying" },
+          { "id": "battle_boar", "name": "Battle Boar", "tier": 3, "dominance": 30, "strength": 672, "health": 2016, "type": "mounted" },
+          { "id": "water_elemental", "name": "Water Elemental", "tier": 3, "dominance": 30, "strength": 672, "health": 2016, "type": "melee" }
+        ]
+      }
+    }
+  }
+}
