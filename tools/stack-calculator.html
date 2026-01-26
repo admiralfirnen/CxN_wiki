@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Calculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/stack-calculator.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Stack Calculator</h1>
+            <p class="calculator-subtitle">Optimize your march composition for maximum efficiency</p>
+        </div>
+
+        <div class="stack-calculator-wrapper">
+            <!-- Step 1: Unit Selection -->
+            <div class="calculator-section">
+                <div class="section-header">
+                    <span class="step-number">1</span>
+                    <h2 class="section-title">Unit Selection</h2>
+                </div>
+                <p class="section-description">Select the unit types you want to include in your march. Click a unit to toggle selection.</p>
+                
+                <div class="unit-selection-container" id="unit-selection">
+                    <!-- Guardsmen -->
+                    <div class="unit-group" data-group="guardsmen">
+                        <div class="group-header" onclick="toggleGroup('guardsmen')">
+                            <span class="group-icon">🛡️</span>
+                            <span class="group-name">Guardsmen</span>
+                            <span class="group-count" id="guardsmen-count">0 selected</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="group-content" id="guardsmen-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Specialists -->
+                    <div class="unit-group" data-group="specialists">
+                        <div class="group-header" onclick="toggleGroup('specialists')">
+                            <span class="group-icon">⚔️</span>
+                            <span class="group-name">Specialists</span>
+                            <span class="group-count" id="specialists-count">0 selected</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="group-content" id="specialists-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Mercenaries -->
+                    <div class="unit-group" data-group="mercenaries">
+                        <div class="group-header" onclick="toggleGroup('mercenaries')">
+                            <span class="group-icon">💎</span>
+                            <span class="group-name">Mercenaries</span>
+                            <span class="group-count" id="mercenaries-count">0 selected</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="group-content" id="mercenaries-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Monsters -->
+                    <div class="unit-group" data-group="monsters">
+                        <div class="group-header" onclick="toggleGroup('monsters')">
+                            <span class="group-icon">🐉</span>
+                            <span class="group-name">Monsters</span>
+                            <span class="group-count" id="monsters-count">0 selected</span>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="group-content" id="monsters-content">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selection-actions">
+                    <button class="action-button secondary" onclick="clearSelection()">
+                        <span class="btn-icon">🗑️</span> Clear Selection
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Army Limits -->
+            <div class="calculator-section">
+                <div class="section-header">
+                    <span class="step-number">2</span>
+                    <h2 class="section-title">Army Size & Limits</h2>
+                </div>
+                <p class="section-description">Enter your available limits and base count. Leadership is for troops, Authority for mercenaries, and Dominance for monsters.</p>
+                
+                <div class="limits-grid">
+                    <div class="limit-card">
+                        <div class="limit-header">
+                            <span class="limit-icon">👑</span>
+                            <span class="limit-name">Leadership</span>
+                        </div>
+                        <div class="limit-values">
+                            <span class="limit-used" id="leadership-used">0</span>
+                            <span class="limit-separator">of</span>
+                            <input type="number" id="leadership-limit" class="limit-input" value="0" min="0" step="1000">
+                        </div>
+                        <div class="limit-bar">
+                            <div class="limit-fill" id="leadership-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="limit-card">
+                        <div class="limit-header">
+                            <span class="limit-icon">⚜️</span>
+                            <span class="limit-name">Authority</span>
+                        </div>
+                        <div class="limit-values">
+                            <span class="limit-used" id="authority-used">0</span>
+                            <span class="limit-separator">of</span>
+                            <input type="number" id="authority-limit" class="limit-input" value="0" min="0" step="1000">
+                        </div>
+                        <div class="limit-bar">
+                            <div class="limit-fill" id="authority-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="limit-card">
+                        <div class="limit-header">
+                            <span class="limit-icon">🔥</span>
+                            <span class="limit-name">Dominance</span>
+                        </div>
+                        <div class="limit-values">
+                            <span class="limit-used" id="dominance-used">0</span>
+                            <span class="limit-separator">of</span>
+                            <input type="number" id="dominance-limit" class="limit-input" value="0" min="0" step="1000">
+                        </div>
+                        <div class="limit-bar">
+                            <div class="limit-fill" id="dominance-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="base-count-section">
+                    <div class="base-count-header">
+                        <span class="base-count-label">Base Count</span>
+                        <span class="base-count-info" title="The size of your smallest, strongest stack. Other stacks will be calculated as multiples of this.">ⓘ</span>
+                    </div>
+                    <p class="base-count-description">This is the size of your smallest, strongest stack (usually highest tier guardsmen). Other squad sizes are calculated from this value.</p>
+                    <div class="base-count-input-group">
+                        <input type="number" id="base-count" class="base-count-input" value="50" min="1" max="10000">
+                        <button class="action-button" id="find-base-btn" onclick="findOptimalBase()" disabled>
+                            <span class="btn-icon">🔍</span> Find Optimal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Additional Options -->
+            <div class="calculator-section collapsible" id="options-section">
+                <div class="section-header clickable" onclick="toggleSection('options-section')">
+                    <span class="step-number">3</span>
+                    <h2 class="section-title">Additional Options</h2>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                <div class="section-content">
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <label class="option-label">Enemy Stacks</label>
+                            <p class="option-description">How many stacks does the enemy have?</p>
+                            <input type="number" id="enemy-stacks" class="option-input" value="4" min="1" max="8">
+                        </div>
+
+                        <div class="option-card">
+                            <label class="option-label">Specialist Adjustment</label>
+                            <p class="option-description">Extra specialists per stack (to die first).</p>
+                            <input type="number" id="specialist-adjustment" class="option-input" value="10" min="0" max="100">
+                        </div>
+
+                        <div class="option-card">
+                            <label class="option-label">Revival Cost Reduction</label>
+                            <p class="option-description">From Temple (1.04 to 5.91).</p>
+                            <input type="number" id="revival-reduction" class="option-input" value="1.00" min="1.00" max="6.00" step="0.01">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Battle Plan -->
+            <div class="generate-section">
+                <button class="generate-button" id="generate-btn" onclick="generateBattlePlan()" disabled>
+                    <span class="btn-icon">⚔️</span> Generate Battle Plan
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="calculator-section results-section" id="results-section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📋 Battle Plan</h2>
+                </div>
+                
+                <div class="results-summary" id="results-summary">
+                    <!-- Summary cards populated by JS -->
+                </div>
+
+                <div class="stack-breakdown" id="stack-breakdown">
+                    <h3 class="subsection-title">Stack Breakdown</h3>
+                    <div class="stacks-container" id="stacks-container">
+                        <!-- Stack cards populated by JS -->
+                    </div>
+                </div>
+
+                <div class="troop-list" id="troop-list">
+                    <h3 class="subsection-title">Troops to Take</h3>
+                    <table class="troops-table" id="troops-table">
+                        <thead>
+                            <tr>
+                                <th>Unit</th>
+                                <th>Per Stack</th>
+                                <th>Total</th>
+                                <th>Strength</th>
+                                <th>Health</th>
+                            </tr>
+                        </thead>
+                        <tbody id="troops-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="results-actions">
+                    <button class="action-button secondary" onclick="copyBattlePlan()">
+                        <span class="btn-icon">📋</span> Copy to Clipboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/stack-calculator.js"></script>
+</body>
+</html>
