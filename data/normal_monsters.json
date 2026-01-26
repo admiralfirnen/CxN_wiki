@@ -1,0 +1,3048 @@
+{
+  "normal_monsters": [
+    {
+      "level": 1,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 28,
+          "health": 84,
+          "count": 93,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 140,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "name": "Cursed Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 56,
+          "health": 168,
+          "count": 110,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 330,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 500,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted or Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 210,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted or Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 330,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted or Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 330,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 510,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 2300,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 1900,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 1200,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 28,
+          "health": 84,
+          "count": 1500,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 91,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 2800,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 1200,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 56,
+          "health": 168,
+          "count": 1100,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 550,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Demon",
+          "strength": 28,
+          "health": 84,
+          "count": 3400,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Demon",
+          "strength": 50,
+          "health": 150,
+          "count": 4500,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 110,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 380,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 1200,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 1500,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 5100,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 370,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 7700,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 1400,
+          "bonuses": [
+            { "vs": "Flying", "bonus": 50 },
+            { "vs": "Melee", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 9400,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 850,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "name": "Cursed Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 2400,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 2400,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 850,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 3300,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 620,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 2900,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 2700,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 2700,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "name": "Inferno Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 260,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 640,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 1100,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 710,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 4600,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 26000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 4200,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 2400,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 1500,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 20000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 640,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 17000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 2600,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 29000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 2500,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 1100,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 8100,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 45000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 4100,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 9700,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 4500,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 28000,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 13000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 13000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 16000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 12000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 4400,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 17000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 7200,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 44000,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 21,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 3200,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 15000,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 21000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 110000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 25000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 8100,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 1900,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 4400,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 11000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 120000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 22,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 3700,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 28,
+          "health": 84,
+          "count": 140000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 33000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 34000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 30000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 270,
+          "health": 810,
+          "count": 17000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 3800,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 42000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 3100,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 110000,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 23,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 8100,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 28,
+          "health": 84,
+          "count": 140000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 5800,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 290000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 5300,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 56,
+          "health": 168,
+          "count": 130000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 6000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 240000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "name": "Inferno Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 5000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 310000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 24,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 14000,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 9200,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 9200,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 35000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 8400,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 77000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 9400,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 110000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 5000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 280000,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 9700,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 96000,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 14000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 53000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 13000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 49000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 15000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 18000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 8300,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 5300,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 26,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 15000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 14000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 20000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 1000000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 19000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 56,
+          "health": 168,
+          "count": 460000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 22000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 860000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 11000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 7400,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        }
+      ]
+    },
+    {
+      "level": 27,
+      "name": "Undead Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 51000,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 34000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 30000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 1500000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 28000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 260000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 32000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 350000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 26000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 50,
+          "health": 150,
+          "count": 900000,
+          "bonuses": [{ "vs": "Melee", "bonus": 30 }]
+        }
+      ]
+    },
+    {
+      "level": 28,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 33000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 330000,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 45000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 41000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 160000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 47000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 58000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 24000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 92000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 29,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 49000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 44000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 66000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 250000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 61000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 560000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 70000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 780000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Inferno Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 56000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 3500000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 30,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 73000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 65000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 89000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 150,
+          "health": 450,
+          "count": 820000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 60 },
+            { "vs": "Siege", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 84000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 770000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 98000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 1100000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 53000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 33000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 31,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 110000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 1000000,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 120000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 450000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 110000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 420000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 130000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 160000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "name": "Inferno Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 97000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 720,
+          "health": 2160,
+          "count": 240000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 32,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 140000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 720,
+          "health": 2160,
+          "count": 190000,
+          "bonuses": [{ "vs": "Melee", "bonus": 50 }]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 160000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 7600000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 150000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "strength": 56,
+          "health": 168,
+          "count": 3600000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 15 }]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 170000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Melee",
+          "strength": 28,
+          "health": 84,
+          "count": 6800000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 10 }]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 92000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 58000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 33,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 180000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 160000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 210000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 780000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 190000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 150,
+          "health": 450,
+          "count": 1800000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 230000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 2500000,
+          "bonuses": [{ "vs": "Melee", "bonus": 35 }]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 120000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 76000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 34,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 240000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 100,
+          "health": 300,
+          "count": 2400000,
+          "bonuses": [{ "vs": "Melee", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Barbarian Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 3200,
+          "health": 9600,
+          "count": 270000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 60 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 360,
+          "health": 1080,
+          "count": 1000000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 45 },
+            { "vs": "Flying", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 3200,
+          "health": 9600,
+          "count": 260000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Beast",
+          "strength": 360,
+          "health": 1080,
+          "count": 970000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Elf Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 2600,
+          "health": 7800,
+          "count": 300000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 50 },
+            { "vs": "Siege", "bonus": 20 }
+          ]
+        },
+        {
+          "type": "Ranged",
+          "strength": 900,
+          "health": 2700,
+          "count": 370000,
+          "bonuses": [{ "vs": "Melee", "bonus": 25 }]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 6500,
+          "health": 19500,
+          "count": 140000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 4100,
+          "health": 12300,
+          "count": 96000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 50 }]
+        }
+      ]
+    },
+    {
+      "level": 35,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 2300,
+          "health": 6900,
+          "count": 320000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 45 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 1100,
+          "health": 3300,
+          "count": 290000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 40 }]
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 11000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 4700,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee or Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count": 7800,
+          "bonuses": [{ "vs": "Mounted", "bonus": 65 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 240000,
+          "health": 720000,
+          "count": 1900,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 36,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 8100,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 7500,
+          "bonuses": [{ "vs": "Ranged", "bonus": 60 }]
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "name": "Cursed Squad",
+      "recommended_attack": "Mounted or Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 9500,
+          "bonuses": [{ "vs": "Ranged", "bonus": 75 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 7000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 8100,
+          "bonuses": [{ "vs": "Flying", "bonus": 75 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 240000,
+          "health": 720000,
+          "count": 2900,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 90000,
+          "health": 280000,
+          "count": 15000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 1000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 37,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 9700,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 11000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 60 }]
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count": 17000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 65 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count": 39000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 65 }]
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 170000,
+          "health": 510000,
+          "count": 12000,
+          "bonuses": [{ "vs": "Flying", "bonus": 60 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 20000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 38,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 18000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 4700,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 60 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 39,
+      "name": "Cursed Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 24000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 320000,
+          "health": 960000,
+          "count": 3500,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 39,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted or Ranged",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 90000,
+          "health": 280000,
+          "count": 33000,
+          "bonuses": [{ "vs": "Melee", "bonus": 70 }]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Elemental",
+          "strength": 560000,
+          "health": 1680000,
+          "count": 2300,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 80 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 39,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 22000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Beast",
+          "strength": 19000,
+          "health": 57000,
+          "count": 73000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 70 },
+            { "vs": "Elementals", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 21000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 75 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 320000,
+          "health": 960000,
+          "count": 5300,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 50 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 18000,
+          "bonuses": [{ "vs": "Flying", "bonus": 75 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 73000,
+          "health": 219000,
+          "count": 21000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 55 },
+            { "vs": "Dragons", "bonus": 45 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 40,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 170000,
+          "health": 510000,
+          "count": 26000,
+          "bonuses": [{ "vs": "Flying", "bonus": 60 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 44000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 55000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 29000,
+          "health": 87000,
+          "count": 85000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 55 }]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count": 39000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 65 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 12000,
+          "bonuses": [{ "vs": "Flying", "bonus": 75 }]
+        }
+      ]
+    },
+    {
+      "level": 41,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 41000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 70000,
+          "health": 210000,
+          "count": 31000,
+          "bonuses": [
+            { "vs": "Dragons", "bonus": 40 },
+            { "vs": "Double dmg chance", "bonus": 20 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 45000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 75 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 33000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Elf Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 200000,
+          "health": 600000,
+          "count": 39000,
+          "bonuses": [{ "vs": "Flying", "bonus": 75 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 27000,
+          "health": 81000,
+          "count": 120000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 65 }]
+        }
+      ]
+    },
+    {
+      "level": 42,
+      "name": "Undead Squad",
+      "recommended_attack": "Ranged",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 48000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Ranged",
+          "subtype": "Giant",
+          "strength": 200000,
+          "health": 600000,
+          "count": 15000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 60 },
+            { "vs": "Beasts", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Elf Squad",
+      "recommended_attack": "Ranged or Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 140000,
+          "health": 410000,
+          "count": 76000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 65 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Dragon",
+          "strength": 240000,
+          "health": 720000,
+          "count": 19000,
+          "bonuses": [
+            { "vs": "Mounted", "bonus": 60 },
+            { "vs": "Giants", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Inferno Squad",
+      "recommended_attack": "Ranged or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 170000,
+          "health": 510000,
+          "count": 53000,
+          "bonuses": [{ "vs": "Flying", "bonus": 60 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 88000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 43,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Flying",
+          "strength": 120000,
+          "health": 360000,
+          "count": 81000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 75000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 60 }]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 100000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        },
+        {
+          "type": "Melee",
+          "subtype": "Elemental",
+          "strength": 110000,
+          "health": 330000,
+          "count": 45000,
+          "bonuses": [
+            { "vs": "Ranged", "bonus": 65 },
+            { "vs": "Dragons", "bonus": 50 }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 44,
+      "name": "Undead Squad",
+      "recommended_attack": "Melee",
+      "troops": [
+        {
+          "type": "Melee",
+          "strength": 150000,
+          "health": 450000,
+          "count": 87000,
+          "bonuses": [{ "vs": "Mounted", "bonus": 70 }]
+        },
+        {
+          "type": "Mounted",
+          "strength": 57000,
+          "health": 171000,
+          "count": 100000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 60 }]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Cursed Squad",
+      "recommended_attack": "Melee or Mounted",
+      "troops": [
+        {
+          "type": "Mounted",
+          "strength": 180000,
+          "health": 550000,
+          "count": 82000,
+          "bonuses": [{ "vs": "Ranged", "bonus": 75 }]
+        },
+        {
+          "type": "Ranged",
+          "strength": 110000,
+          "health": 320000,
+          "count": 60000,
+          "bonuses": [{ "vs": "Flying", "bonus": 70 }]
+        }
+      ]
+    },
+    {
+      "level": 45,
+      "name": "Inferno Squad",
+      "recommended_attack": "Mounted or Ranged",
+      "troops": [
+        {
+          "type": "Ranged",
+          "strength": 170000,
+          "health": 510000,
+          "count": 98000,
+          "bonuses": [{ "vs": "Flying", "bonus": 60 }]
+        },
+        {
+          "type": "Flying",
+          "subtype": "Elemental",
+          "strength": 44000,
+          "health": 132000,
+          "count": 160000,
+          "bonuses": [
+            { "vs": "Melee", "bonus": 70 },
+            { "vs": "Dragons", "bonus": 40 }
+          ]
+        }
+      ]
+    }
+  ]
+}

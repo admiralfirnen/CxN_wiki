@@ -1,0 +1,21 @@
+{
+  "copyright": {
+    "holder": "CxN Clan Wiki",
+    "startYear": 2026,
+    "suffix": "Total Battle Strategy Resource"
+  },
+  "branding": {
+    "logo": "assets/branding/cxn-clan-icon.jpg",
+    "logoAlt": "CxN Clan Icon"
+  },
+  "navigation": [
+    { "href": "about/index.html", "text": "About", "id": "about" },
+    { "href": "wiki/index.html", "text": "Wiki", "id": "wiki" },
+    { "href": "strategy/index.html", "text": "Strategy", "id": "strategy" },
+    { "href": "faq/index.html", "text": "FAQ", "id": "faq" },
+    { "href": "announcements/index.html", "text": "Announcements", "id": "announcements" },
+    { "href": "tools/index.html", "text": "Tools", "id": "tools" },
+    { "href": "roe/index.html", "text": "ROE", "id": "roe" },
+    { "href": "trophy-room/index.html", "text": "Trophy Room", "id": "trophy-room" }
+  ]
+}

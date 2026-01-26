@@ -7,42 +7,8 @@
     <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
-    <!-- Navigation Menu -->
-    <nav class="nav-container">
-        <div class="nav-wrapper">
-            <div class="nav-logo">
-                <a href="index.html" class="logo-link">
-                    <img src="assets/CxN_clan_icon.jpg" alt="CxN Clan Icon" class="header-logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="about/index.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="wiki/index.html" class="nav-link">Wiki</a>
-                </li>
-                <li class="nav-item">
-                    <a href="strategy/index.html" class="nav-link">Strategy</a>
-                </li>
-                <li class="nav-item">
-                    <a href="faq/index.html" class="nav-link">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="announcements/index.html" class="nav-link">Announcements</a>
-                </li>
-                <li class="nav-item">
-                    <a href="tools/index.html" class="nav-link">Tools</a>
-                </li>
-                <li class="nav-item">
-                    <a href="roe/index.html" class="nav-link">ROE</a>
-                </li>
-                <li class="nav-item">
-                    <a href="trophy-room/index.html" class="nav-link">Trophy Room</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation Menu (injected by nav.js) -->
+    <nav id="main-nav"></nav>
 
     <!-- Main Container -->
     <div class="container">
@@ -112,9 +78,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p class="footer-text">CxN Clan Wiki &copy; 2026 | Total Battle Strategy Resource</p>
-    </footer>
+    <!-- Footer (injected by nav.js) -->
+    <footer id="main-footer"></footer>
+
+    <!-- Shared navigation script -->
+    <script src="js/nav.js"></script>
 </body>
 </html>

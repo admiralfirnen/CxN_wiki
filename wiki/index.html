@@ -5,33 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
 </head>
 <body>
-    <nav class="nav-container">
-        <div class="nav-wrapper">
-            <div class="nav-logo">
-                <a href="../index.html" class="logo-link">
-                    <img src="../assets/CxN_clan_icon.jpg" alt="CxN Clan Icon" class="header-logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="../about/index.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="index.html" class="nav-link active">Wiki</a></li>
-                <li class="nav-item"><a href="../strategy/index.html" class="nav-link">Strategy</a></li>
-                <li class="nav-item"><a href="../faq/index.html" class="nav-link">FAQ</a></li>
-                <li class="nav-item"><a href="../announcements/index.html" class="nav-link">Announcements</a></li>
-                <li class="nav-item"><a href="../tools/index.html" class="nav-link">Tools</a></li>
-                <li class="nav-item"><a href="../roe/index.html" class="nav-link">ROE</a></li>
-                <li class="nav-item"><a href="../trophy-room/index.html" class="nav-link">Trophy Room</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav id="main-nav"></nav>
     <div class="container">
         <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 40px;">Wiki</h1>
         
         <div class="strategy-grid">
+            <a href="monster-calculator-guide.html" class="strategy-tile">
+                <img src="../assets/tiles/monster-calculator-tile.jpg" alt="Monster Calculator Guide" class="tile-image">
+                <div class="tile-overlay">
+                    <h3 class="tile-title">Monster Calculator Guide</h3>
+                </div>
+            </a>
+
             <a href="billy-irish-fan-fiction.html" class="strategy-tile billy-irish-tile">
-                <img src="../assets/Billy Irish Fan Fiction_tile.jpeg" alt="Billy Irish's Spicy Fan Fiction" class="tile-image">
+                <img src="../assets/tiles/billy-irish-fan-fiction-tile.jpeg" alt="Billy Irish's Spicy Fan Fiction" class="tile-image">
                 <div class="tile-overlay">
                     <h3 class="tile-title">Billy Irish's Spicy Fan Fiction</h3>
                     <span class="handcuff-icon">🔗</span>
@@ -39,8 +29,7 @@
             </a>
         </div>
     </div>
-    <footer class="footer">
-        <p class="footer-text">CxN Clan Wiki &copy; 2026 | Total Battle Strategy Resource</p>
-    </footer>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

@@ -205,5 +205,79 @@
         }
       ]
     }
-  ]
+  ],
+  "combat_troops": {
+    "Melee": {
+      "name": "Spearmen",
+      "icon": "⚔️",
+      "tiers": {
+        "1": { "strength": 50, "health": 150 },
+        "2": { "strength": 90, "health": 270 },
+        "3": { "strength": 160, "health": 480 },
+        "4": { "strength": 290, "health": 870 },
+        "5": { "strength": 520, "health": 1560 },
+        "6": { "strength": 940, "health": 2820 },
+        "7": { "strength": 1700, "health": 5100 }
+      }
+    },
+    "Ranged": {
+      "name": "Archers",
+      "icon": "🏹",
+      "tiers": {
+        "1": { "strength": 50, "health": 150 },
+        "2": { "strength": 90, "health": 270 },
+        "3": { "strength": 160, "health": 480 },
+        "4": { "strength": 290, "health": 870 },
+        "5": { "strength": 520, "health": 1560 },
+        "6": { "strength": 940, "health": 2820 },
+        "7": { "strength": 1700, "health": 5100 }
+      }
+    },
+    "Mounted": {
+      "name": "Riders",
+      "icon": "🐴",
+      "tiers": {
+        "1": { "strength": 100, "health": 300 },
+        "2": { "strength": 180, "health": 540 },
+        "3": { "strength": 320, "health": 960 },
+        "4": { "strength": 580, "health": 1740 },
+        "5": { "strength": 1040, "health": 3120 },
+        "6": { "strength": 1880, "health": 5640 },
+        "7": { "strength": 3400, "health": 10200 }
+      }
+    },
+    "Flying": {
+      "name": "Flying Units",
+      "icon": "🦅",
+      "tiers": {
+        "3": { "strength": 320, "health": 960 },
+        "4": { "strength": 580, "health": 1740 },
+        "5": { "strength": 1040, "health": 3120 },
+        "6": { "strength": 1880, "health": 5640 },
+        "7": { "strength": 3400, "health": 10200 }
+      }
+    },
+    "Siege": {
+      "name": "Catapults",
+      "icon": "🏰",
+      "tiers": {
+        "1": { "strength": 250, "health": 750 },
+        "2": { "strength": 450, "health": 1350 },
+        "3": { "strength": 810, "health": 2430 },
+        "4": { "strength": 1460, "health": 4380 },
+        "5": { "strength": 2630, "health": 7890 },
+        "6": { "strength": 4730, "health": 14190 },
+        "7": { "strength": 8510, "health": 25530 }
+      }
+    },
+    "Warregals": {
+      "name": "Warregals",
+      "icon": "🐺",
+      "tiers": {
+        "1": { "strength": 15000, "health": 45000 },
+        "2": { "strength": 27000, "health": 81000 },
+        "3": { "strength": 48600, "health": 145800 }
+      }
+    }
+  }
 }
