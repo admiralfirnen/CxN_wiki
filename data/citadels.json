@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Elven Citadel data for CxN Wiki Monster Battle Calculator",
+    "last_updated": "2026-01-25",
+    "notes": "Community-based recommendations - actual requirements vary based on troop bonuses, captain gear, and tech"
+  },
+  "citadels": [
+    {
+      "level": 10,
+      "name": "Elven Citadel",
+      "recommended_attack": "Ranged (Archers)",
+      "catapults_required": {
+        "tier": 2,
+        "quantity": 200,
+        "notes": "~200 Tier II catapults minimum"
+      },
+      "recommended_troops": {
+        "type": "Ranged",
+        "quantity": 2000,
+        "notes": "Archers and flying units deal damage safely from behind siege"
+      },
+      "strategy_tips": [
+        "Use ranged/flying troops - they hit from behind your siege output",
+        "Avoid melee troops at this level if possible",
+        "Elven citadels have heavy walls and ranged/heavy units"
+      ],
+      "total_wall_health": 50000,
+      "total_monster_health": 100000,
+      "troops": [
+        {
+          "type": "Ranged",
+          "subtype": "Elven Archers",
+          "health": 500,
+          "strength": 400,
+          "count": 200
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "name": "Elven Citadel",
+      "recommended_attack": "Mounted (Riders)",
+      "catapults_required": {
+        "tier": 3,
+        "quantity": 450,
+        "notes": "~450 Tier III catapults minimum"
+      },
+      "recommended_troops": {
+        "type": "Mounted",
+        "quantity": "mixed mounted forces",
+        "notes": "Riders/horse units perform better at this tier"
+      },
+      "strategy_tips": [
+        "Mounted troops are fast with balanced offense and health",
+        "Better synergy with siege bursts at this level",
+        "Citadel defenses hit harder - mounted troops handle this well"
+      ],
+      "total_wall_health": 150000,
+      "total_monster_health": 300000,
+      "troops": [
+        {
+          "type": "Mounted",
+          "subtype": "Elven Riders",
+          "health": 800,
+          "strength": 600,
+          "count": 375
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "name": "Elven Citadel",
+      "recommended_attack": "Melee (Infantry)",
+      "catapults_required": {
+        "tier": 4,
+        "quantity": 800,
+        "notes": "~800 Tier IV catapults minimum"
+      },
+      "recommended_troops": {
+        "type": "Melee",
+        "quantity": "large melee force",
+        "notes": "Heavy, high-health troops (infantry, swordsmen) recommended"
+      },
+      "strategy_tips": [
+        "Melee troops absorb more hits and synergize with wall-breaking",
+        "Bring Griffins or flyers for extra damage and survivability",
+        "High levels need sustained tankiness"
+      ],
+      "total_wall_health": 400000,
+      "total_monster_health": 800000,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elven Guards",
+          "health": 1200,
+          "strength": 800,
+          "count": 667
+        }
+      ]
+    },
+    {
+      "level": 25,
+      "name": "Elven Citadel",
+      "recommended_attack": "Melee (Heavy Infantry)",
+      "catapults_required": {
+        "tier": 5,
+        "quantity": 3200,
+        "notes": "~3,200 Tier V catapults minimum"
+      },
+      "recommended_troops": {
+        "type": "Melee",
+        "quantity": "very large melee army",
+        "notes": "Requires large army and strong siege support"
+      },
+      "strategy_tips": [
+        "Melee troops synergize with wall-breaking after catapults break through",
+        "Bring Griffins or flyers for extra damage and survivability",
+        "This level requires massive siege and army investment"
+      ],
+      "total_wall_health": 1000000,
+      "total_monster_health": 2000000,
+      "troops": [
+        {
+          "type": "Melee",
+          "subtype": "Elven Elite Guards",
+          "health": 2000,
+          "strength": 1500,
+          "count": 1000
+        }
+      ]
+    }
+  ],
+  "general_tips": {
+    "catapult_importance": [
+      "Citadels have very high wall health - catapults are ESSENTIAL to break the wall",
+      "Without enough siege, your troops hit the wall repeatedly and lose massively before damaging interior units",
+      "Stack catapults first before worrying about troop composition",
+      "As citadel level increases, wall HP rises sharply requiring exponentially more catapults"
+    ],
+    "troop_tips": [
+      "Don't mix too many troop types - focus on one type effective for that tier",
+      "Check your captain's bonuses - monster/citadel bonuses help a ton",
+      "Sometimes more lower-tier catapults are better than fewer higher-tier ones if march capacity is limited"
+    ],
+    "attack_preparation": [
+      "Bring enough catapults FIRST - if you can't break the wall quickly, your army dies",
+      "Use matching troops for the recommended type at each level",
+      "Higher tier catapults vs quantity: balance based on your march capacity"
+    ]
+  },
+  "level_summary": {
+    "10": "~200 Catapults Tier II + Ranged focus",
+    "15": "~450 Catapults Tier III + Mounted focus", 
+    "20": "Catapults Tier IV + Melee focus",
+    "25": "Catapults Tier V + Melee + large army"
+  }
+}

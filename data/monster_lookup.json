@@ -50,6 +50,12 @@
       "name": "Heroics",
       "description": "Heroic battles with wave-based encounters",
       "available_levels": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43]
+    },
+    {
+      "id": "citadels",
+      "name": "Citadels",
+      "description": "Elven Citadels requiring siege and specific troop compositions",
+      "available_levels": [10, 15, 20, 25]
     }
   ],
   "troop_counter_guide": {
@@ -242,6 +248,24 @@
       "41": { "attack_with": "Melee or Ranged", "reason": "Balanced composition" },
       "42": { "attack_with": "Mounted", "reason": "Heavy Ranged with vs. Flying bonus" },
       "43": { "attack_with": "Mounted", "reason": "Heavy Mounted with vs. Ranged bonus" }
+    },
+    "citadels": {
+      "10": {
+        "attack_with": "Ranged (Archers)",
+        "strategy": "~200 Tier II Catapults + 2,000+ Ranged troops. Archers and flying units hit safely from behind siege."
+      },
+      "15": {
+        "attack_with": "Mounted (Riders)",
+        "strategy": "~450 Tier III Catapults + mixed mounted forces. Mounted troops are fast with good siege synergy."
+      },
+      "20": {
+        "attack_with": "Melee (Infantry)",
+        "strategy": "~800 Tier IV Catapults + large melee force. Heavy infantry recommended for sustained tankiness."
+      },
+      "25": {
+        "attack_with": "Melee (Heavy Infantry)",
+        "strategy": "~3,200 Tier V Catapults + very large melee army. Requires massive siege and army investment."
+      }
     }
   }
 }

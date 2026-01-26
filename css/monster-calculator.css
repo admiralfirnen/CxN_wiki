@@ -756,3 +756,137 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Citadel Info Box Styles */
+.citadel-info-box {
+    background: linear-gradient(135deg, 
+        rgba(139, 69, 19, 0.2) 0%, 
+        rgba(160, 82, 45, 0.1) 100%);
+    border: 2px solid rgba(205, 133, 63, 0.4);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.citadel-info-box .subsection-title {
+    color: #daa520;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.citadel-requirements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.citadel-req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.citadel-req-item .req-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.citadel-req-item .req-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.citadel-req-item .req-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.citadel-req-item .req-value {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--color-gold);
+    font-weight: 700;
+}
+
+.citadel-req-item .req-note {
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+    line-height: 1.4;
+}
+
+.citadel-req-item.siege-req {
+    border-left: 4px solid #cd853f;
+}
+
+.citadel-req-item.troop-req {
+    border-left: 4px solid #4169e1;
+}
+
+.citadel-tips,
+.citadel-general-tips {
+    margin-bottom: 20px;
+}
+
+.citadel-tips h4,
+.citadel-general-tips h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tips-list li {
+    position: relative;
+    padding: 10px 15px 10px 30px;
+    margin-bottom: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-border);
+}
+
+.tips-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 10px;
+    color: #4caf50;
+}
+
+.tips-list.warning li {
+    border-left-color: #ff9800;
+    background: rgba(255, 152, 0, 0.1);
+}
+
+.tips-list.warning li::before {
+    content: '⚠️';
+    left: 8px;
+}
+
+/* Mobile responsive for citadel box */
+@media (max-width: 768px) {
+    .citadel-requirements {
+        grid-template-columns: 1fr;
+    }
+    
+    .citadel-req-item .req-value {
+        font-size: 1.2rem;
+    }
+}
