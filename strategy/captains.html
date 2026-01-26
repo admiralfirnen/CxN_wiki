@@ -3,18 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Captains Strategy - CxN Clan</title>
+    <title>Captains Cheat Sheet - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/captains.css">
 </head>
 <body>
     <nav id="main-nav"></nav>
+    
     <div class="container">
-        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Captains</h1>
-        <div class="welcome-section">
-            <p class="welcome-text">Captains strategy content coming soon...</p>
+        <div class="captains-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Captains Cheat Sheet</h1>
+            <p class="captains-subtitle">Master your Captains - know their strengths, weaknesses, and when to use them</p>
         </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="captain-lookup">
+                <span class="tab-icon">👤</span> Captain Lookup
+            </button>
+            <button class="tab-btn" data-tab="activity-lookup">
+                <span class="tab-icon">🎯</span> Best Captain for Activity
+            </button>
+            <button class="tab-btn" data-tab="quick-ref">
+                <span class="tab-icon">📋</span> Quick Reference
+            </button>
+            <button class="tab-btn" data-tab="leveling">
+                <span class="tab-icon">📈</span> Leveling Tips
+            </button>
+        </div>
+
+        <!-- Tab 1: Captain Lookup -->
+        <div class="tab-content active" id="tab-captain-lookup">
+            <div class="selector-section">
+                <h2 class="selector-title">
+                    <span class="icon">👤</span> Select a Captain
+                </h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Choose a captain to view their strengths, weaknesses, best equipment, and recommended uses.
+                </p>
+                <div class="selector-grid">
+                    <div class="selector-group">
+                        <label class="selector-label">Captain</label>
+                        <select id="captain-select" class="captain-select">
+                            <option value="">-- Select a Captain --</option>
+                            <option value="tengel">🏃 Captain Tengel (Starter)</option>
+                            <option value="aydae">🏹 Captain Aydae (Guardsmen)</option>
+                            <option value="logos">⚔️ Captain Logos (Swordsmen)</option>
+                            <option value="brann">🔧 Captain Brann (Siege)</option>
+                            <option value="doria">📜 Captain Doria (VP Bonus)</option>
+                            <option value="ingrid">🐉 Captain Ingrid (Monsters)</option>
+                            <option value="dustan">🏆 Captain Dustan (CP Bonus)</option>
+                            <option value="carter">🗝️ Captain Carter (Crypts)</option>
+                            <option value="stror">📦 Captain Stror (Gathering)</option>
+                            <option value="proscope">🔍 Captain Proscope (Scouts)</option>
+                            <option value="yehosung">🗡️ Captain Ye Ho-Sung (Melee)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Captain Info Panel -->
+            <div id="captain-info-panel" class="captain-info-panel">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Tab 2: Activity Lookup -->
+        <div class="tab-content" id="tab-activity-lookup">
+            <div class="selector-section">
+                <h2 class="selector-title">
+                    <span class="icon">🎯</span> What Are You Doing?
+                </h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Select an activity or event to see which captains are best suited for it.
+                </p>
+                <div class="selector-grid">
+                    <div class="selector-group">
+                        <label class="selector-label">Activity / Event</label>
+                        <select id="activity-select" class="captain-select">
+                            <option value="">-- Select an Activity --</option>
+                            <optgroup label="PvE Activities">
+                                <option value="monsters">👹 Monster Hunting</option>
+                                <option value="heroics">⚔️ Heroic Monsters</option>
+                                <option value="strongholds">🏰 Strongholds</option>
+                                <option value="crypts">🗝️ Crypt Exploration</option>
+                                <option value="gathering">🌾 Resource Gathering</option>
+                                <option value="vp_farming">📜 VP Farming</option>
+                            </optgroup>
+                            <optgroup label="PvP Activities">
+                                <option value="pvp">⚔️ General PvP Combat</option>
+                                <option value="kvk">🌍 Kingdom vs Kingdom (KvK)</option>
+                                <option value="cot">👑 Clash of Thrones (CoT)</option>
+                                <option value="cp_farming">🏆 CP Farming / CP-Swap</option>
+                                <option value="defending">🛡️ City Defense</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="leveling">📈 Captain Leveling</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Results Panel -->
+            <div id="activity-results-panel" style="display: none;">
+                <!-- Populated by JavaScript -->
+            </div>
+
+            <!-- Activity Cards Grid -->
+            <h3 style="color: var(--accent-color); margin: 30px 0 20px 0;">Or click an activity below:</h3>
+            <div class="activity-grid">
+                <div class="activity-card" data-activity="monsters">
+                    <div class="activity-header">
+                        <span class="activity-icon">👹</span>
+                        <span class="activity-name">Monster Hunting</span>
+                    </div>
+                    <div class="activity-description">Killing monsters on the map for VP and experience.</div>
+                </div>
+                <div class="activity-card" data-activity="heroics">
+                    <div class="activity-header">
+                        <span class="activity-icon">⚔️</span>
+                        <span class="activity-name">Heroic Monsters</span>
+                    </div>
+                    <div class="activity-description">Clan reinforcement attacks on Heroic Monsters.</div>
+                </div>
+                <div class="activity-card" data-activity="pvp">
+                    <div class="activity-header">
+                        <span class="activity-icon">🗡️</span>
+                        <span class="activity-name">PvP Combat</span>
+                    </div>
+                    <div class="activity-description">Attacking other players during events or warfare.</div>
+                </div>
+                <div class="activity-card" data-activity="kvk">
+                    <div class="activity-header">
+                        <span class="activity-icon">🌍</span>
+                        <span class="activity-name">KvK Events</span>
+                    </div>
+                    <div class="activity-description">Cross-kingdom warfare with special portals.</div>
+                </div>
+                <div class="activity-card" data-activity="strongholds">
+                    <div class="activity-header">
+                        <span class="activity-icon">🏰</span>
+                        <span class="activity-name">Strongholds</span>
+                    </div>
+                    <div class="activity-description">Taking down Strongholds for keys and chests.</div>
+                </div>
+                <div class="activity-card" data-activity="crypts">
+                    <div class="activity-header">
+                        <span class="activity-icon">🗝️</span>
+                        <span class="activity-name">Crypt Exploration</span>
+                    </div>
+                    <div class="activity-description">Exploring crypts for equipment materials.</div>
+                </div>
+                <div class="activity-card" data-activity="gathering">
+                    <div class="activity-header">
+                        <span class="activity-icon">🌾</span>
+                        <span class="activity-name">Resource Gathering</span>
+                    </div>
+                    <div class="activity-description">Harvesting resources on the world map.</div>
+                </div>
+                <div class="activity-card" data-activity="defending">
+                    <div class="activity-header">
+                        <span class="activity-icon">🛡️</span>
+                        <span class="activity-name">City Defense</span>
+                    </div>
+                    <div class="activity-description">Defending your city against enemy attacks.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Quick Reference -->
+        <div class="tab-content" id="tab-quick-ref">
+            <div class="quick-ref-section">
+                <h2 class="quick-ref-title">
+                    <span>📋</span> All Captains Quick Reference
+                </h2>
+                
+                <div class="info-callout tip" style="margin-bottom: 25px;">
+                    <div class="info-callout-title">
+                        <span>💡</span> Pro Tip: Captain Levels
+                    </div>
+                    <div class="info-callout-content">
+                        Keep your Captains 5+ levels higher than your Hero. This makes you much stronger when an enemy player attacks you. When attacking with your Hero and ALL 3 Captains together, you can muster a greater army than most players at your level.
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="captain-table">
+                        <thead>
+                            <tr>
+                                <th>Captain</th>
+                                <th>Specialty</th>
+                                <th>Best For</th>
+                                <th>Equipment</th>
+                                <th>Unlock Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody id="captain-table-body">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Equipment Guide -->
+            <div class="tips-section" style="margin-top: 30px;">
+                <h2 class="tips-title">
+                    <span>🛡️</span> Equipment Guide
+                </h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">⚔️</span>
+                            <span class="tip-title">Guardsmen Courage</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Strength and Health of Guardsmen (Archers, Spearmen, Riders). Use for PvE and PvP combat.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🗡️</span>
+                            <span class="tip-title">Specialist Mastery</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Strength and Health of Specialists (Swordsmen, Scouts). Only use in PvP with Swordsmen in army.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🔧</span>
+                            <span class="tip-title">Skilful Engineer</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Siege Engines (Catapults). Only for PvP and Strongholds when using Catapults.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🏃</span>
+                            <span class="tip-title">Swift Wayfarer</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Gathering Speed, March Speed, and Carry Capacity. ONLY for Captains - Hero doesn't farm.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🗝️</span>
+                            <span class="tip-title">Tomb Raider</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Crypt Exploration efficiency, Tar Capacity, and Tar production. ONLY for Captains.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🏛️</span>
+                            <span class="tip-title">Honored Governor</span>
+                        </div>
+                        <div class="tip-content">
+                            Boost Resource Production, Construction Speed, Research Speed. ONLY for Hero during peace-time.
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--accent-color); margin: 30px 0 15px 0;">Unique Equipment Sets</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">💎</span>
+                            <span class="tip-title">Emerald Guardian</span>
+                        </div>
+                        <div class="tip-content">Boost Melee (Spearmen, Swordsmen, some monsters) Strength and Health.</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🏹</span>
+                            <span class="tip-title">Sagittarius Fury</span>
+                        </div>
+                        <div class="tip-content">Boost Ranged (Archers, some monsters) Strength and Health.</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🐴</span>
+                            <span class="tip-title">Steppes Enslaver</span>
+                        </div>
+                        <div class="tip-content">Boost Mounted (Riders, some monsters) Strength and Health.</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🦅</span>
+                            <span class="tip-title">Path of the Skybreaker</span>
+                        </div>
+                        <div class="tip-content">Boost Flying (some monsters) Strength and Health.</div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">👁️</span>
+                            <span class="tip-title">Omniscience</span>
+                        </div>
+                        <div class="tip-content">Boost Crypt Exploration and March Speed. Great for Epic crypts.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Leveling Tips -->
+        <div class="tab-content" id="tab-leveling">
+            <div class="tips-section">
+                <h2 class="tips-title">
+                    <span>📈</span> How to Level Up Your Captains
+                </h2>
+                
+                <div class="info-callout warning" style="margin-bottom: 25px;">
+                    <div class="info-callout-title">
+                        <span>⚠️</span> Important: Captains Before Hero
+                    </div>
+                    <div class="info-callout-content">
+                        Get your Captains up in level FIRST – then your Hero. You want to have your captains 5 or more levels higher than your Hero. This makes you much stronger when an enemy player hits you.
+                    </div>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🔬</span>
+                            <span class="tip-title">Academy Research Method</span>
+                        </div>
+                        <div class="tip-content">
+                            Whenever you Research something in your Academy, you get Experience and Valor Points. Take your large Captains off your Hero and put in the smaller Captains. When you activate the bonus by pressing the Green ! at the bottom of your screen, your smaller Captains will get the Experience and VP bonus. <strong>This is the easiest way to level up captains.</strong>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">⚔️</span>
+                            <span class="tip-title">Heroic Monster Runs</span>
+                        </div>
+                        <div class="tip-content">
+                            If you are in a Clan where players run Heroic Monsters down (like during Ruthless Slaughter event), take your smaller Captains with you on these runs to get <strong>FREE Experience</strong> and <strong>FREE VP</strong>.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">💀</span>
+                            <span class="tip-title">Epic Monster (Doomsday)</span>
+                        </div>
+                        <div class="tip-content">
+                            Hit the Epic Monster during the Doomsday event. It gives plenty of Experience. Recommended: at least T4 Guardsmen. The Epic Monster can <strong>ONLY be hit by your Captains</strong>, one at a time.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-header">
+                            <span class="tip-icon">🎯</span>
+                            <span class="tip-title">General Leveling</span>
+                        </div>
+                        <div class="tip-content">
+                            Kill monsters on the map, hunt crypts, and maybe even kill a few players with your smaller Captains. When leveling in Crypts, use the Tomb Raider set or Omniscience set (great for Epic crypts).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero/Captain Level Guidelines -->
+            <div class="tips-section">
+                <h2 class="tips-title">
+                    <span>📊</span> City vs Hero/Captain Level Guidelines
+                </h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    Follow this guideline to keep your Hero and Captains at appropriate levels for your city:
+                </p>
+                <div style="overflow-x: auto;">
+                    <table class="captain-table">
+                        <thead>
+                            <tr>
+                                <th>Town Level</th>
+                                <th>Hero/Captain Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Level 1-9</td><td>Level 1-15</td></tr>
+                            <tr><td>Level 10-14</td><td>Level 16-30</td></tr>
+                            <tr><td>Level 15-19</td><td>Level 31-40</td></tr>
+                            <tr><td>Level 20-24</td><td>Level 41-80</td></tr>
+                            <tr><td>Level 25-29</td><td>Level 81-130</td></tr>
+                            <tr><td>Level 30-34</td><td>Level 130-160</td></tr>
+                            <tr><td>Level 35-39</td><td>Level 160-190</td></tr>
+                            <tr><td>Level 40-44</td><td>Level 190-250</td></tr>
+                            <tr><td>Level 45</td><td>Level 250+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
+
     <footer id="main-footer"></footer>
     <script src="../js/nav.js"></script>
+    <script src="../js/captains.js"></script>
 </body>
 </html>
