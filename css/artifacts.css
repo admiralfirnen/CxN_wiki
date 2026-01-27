@@ -1,0 +1,284 @@
+/* Artifacts strategy page */
+
+.artifacts-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.artifacts-intro p {
+    margin-bottom: 1rem;
+}
+
+.artifacts-intro p:last-child {
+    margin-bottom: 0;
+}
+
+/* Artifact data table */
+.artifact-table-wrap {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 12px;
+    border: 2px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.artifact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: var(--gradient-stone);
+}
+
+.artifact-table th,
+.artifact-table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    vertical-align: middle;
+}
+
+.artifact-table th {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: var(--color-gold);
+    background: rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+}
+
+.artifact-table td {
+    border-bottom-color: rgba(212, 165, 116, 0.15);
+}
+
+.artifact-table tbody tr:hover {
+    background: rgba(212, 165, 116, 0.06);
+}
+
+.artifact-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Image column: 112px image + 2px margin each side (15% of former 12px) = 116px */
+.artifact-table th:first-child,
+.artifact-table td:first-child {
+    width: 116px;
+    min-width: 116px;
+    max-width: 116px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.artifact-table .artifact-img-cell {
+    background: rgba(0, 0, 0, 0.2);
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.artifact-table .artifact-img-placeholder {
+    display: block;
+    width: 112px;
+    height: 112px;
+    margin: 0 auto;
+    background: rgba(212, 165, 116, 0.1);
+    border: 1px dashed rgba(212, 165, 116, 0.35);
+    border-radius: 8px;
+}
+
+.artifact-table .artifact-img-cell img {
+    display: block;
+    width: 112px;
+    height: 112px;
+    margin: 2px auto;
+    object-fit: contain;
+    cursor: pointer;
+    /* Center fully opaque; outer 15% from each edge fades to 100% transparent at the border */
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image:
+        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: 0 0, 0 0;
+    mask-position: 0 0, 0 0;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-composite: add, destination-in;
+    mask-composite: add, intersect;
+}
+
+/* Application sections */
+.artifacts-section {
+    margin: 2.5rem 0;
+}
+
+.artifacts-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.artifacts-section p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin-bottom: 0.85rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.artifacts-section p:last-child {
+    margin-bottom: 0;
+}
+
+.artifacts-section ul {
+    margin: 0.75rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.artifacts-section ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.artifacts-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.artifacts-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(212, 165, 116, 0.08);
+    border-left: 4px solid var(--color-border-gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--color-text-dim);
+}
+
+/* Artifact lightbox (full-size view) */
+.artifact-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.85);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.25s ease, opacity 0.25s ease;
+}
+
+.artifact-lightbox.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.artifact-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+.artifact-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 2px solid var(--color-border-gold);
+    border-radius: 50%;
+    background: var(--color-secondary);
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.artifact-lightbox-close:hover {
+    background: var(--color-gold);
+    color: var(--color-primary);
+}
+
+.artifact-lightbox-img-wrap {
+    position: relative;
+    z-index: 5;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 0 60px rgba(212, 165, 116, 0.3), 0 0 0 2px var(--color-border-gold);
+    border-radius: 12px;
+}
+
+.artifact-lightbox-img {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .artifact-table {
+        font-size: 0.85rem;
+    }
+
+    .artifact-table th,
+    .artifact-table td {
+        padding: 0.65rem 0.6rem;
+    }
+
+    /* Image column: 112px image + 2px margin each side */
+    .artifact-table th:first-child,
+    .artifact-table td:first-child {
+        width: 116px;
+        min-width: 116px;
+        max-width: 116px;
+        padding-left: 2px;
+        padding-right: 2px;
+        font-size: 0.7rem;
+    }
+
+    .artifact-table .artifact-img-cell {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .artifact-table .artifact-img-placeholder {
+        width: 112px;
+        height: 112px;
+    }
+
+    .artifact-table .artifact-img-cell img {
+        width: 112px;
+        height: 112px;
+        margin: 2px auto;
+    }
+}

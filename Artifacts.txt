@@ -1,6 +1,6 @@
 Artifacts:
 
-Artifacts do not wear down like equipment does. Artifacts have might of their own. Unlike what you may have heard, artifacts do not 'belong' to specific captains!! They should be used where the need best suits them. You should be swapping them around to best suit the situation. Artifacts can be improved in two ways, artifact level and star level. Artifact level increases the power only. Star level increases the power and also gives random new powers when each star is complete. New bonus power can then be locked, unlocked, and swapped in and out to further customize the artifact. I will only cover the base powers here. 
+Artifacts do not wear down like equipment does. Artifacts have might of their own. Unlike what you may have heard, artifacts do not 'belong' to specific captains!! They should be used where the need best suits them. You should be swapping them around to best suit the situation. Artifacts can be improved in two ways, artifact level and star level. Artifact level increases the power only. Star level increases the power and also gives random new powers when each star is complete. New bonus power can then be locked, unlocked, and swapped in and out to further customize the artifact. I will only cover the base powers here. When limited numbers of puzzle pieces are had, consider using pieces to upgrade to FULL stars and then using pieces to swap for yellow/orange bonuses. Alternating back and forth between full stars and getting yellow/orange bonusses for maximum efficiency with puzzle pieces. 
 
 Name, Nickname, Primary Level Power, Secondary Level Power, Primary Star Power, Secondary Star Power
 --------------------------------------------------------------------------------------------------------------
@@ -27,12 +27,37 @@ Shadow Dagger, Dagger Artifact, Scout Strength, Scout Health, Scout Strength, Sc
 
 Applications for PvP and KvK
 
-Applications for Heroics
 
-Applications for Epics
+-- Applications for Heroics (three captains) --
+First artifact on strongest captain should always be troop matched to Heroic. So, for example, if you are going against a lvl18 Heroic, you need the Horse artifact. If you are going against a lvl32 Heroic, you need the Pin artifact. 
+Second and third artifact should always be the highest STRENGTH boost combination of Crown, Heart, Flask, Fan, or Belt. The only exception to this is if the captains involved in the raid already have some absurd strength boost that overshadows the artifacts, in which case, you might want to swap one of those artifacts out for the Medallion in some rare cases for maximum efficiency. 
 
-Applications for Crypt Exploration
+-- Applications for Epics (single Captain) -- 
+Best option: Lantern Artifact
+Second Best: highest strength boost of Heart, Crown, Belt
+Third Best: highest strength boost of Flask, Fan
+Notable Option: If you want to stack like crazy, you can use the Jar and build a very large bonus round
 
-Applications for RSS Harvesting within Kingdom
+-- Applications for Epics (three captain) --
+Best possible combination is Lantern, Heart, Belt
+Without that combination, logical best combination is sum total boost to total strength and increased leadership with balanced health metrics. In this case, buffing health of one unit type actually hurts the attack. 
 
-Applications for RSS Harvesting in other Kingdoms
+-- Applications for Crypt Exploration --
+Best: Torch
+Second Best: Drum
+
+--RSS Harvesting within Kingdom (single captain) --
+Axe Artifact (Stror)
+
+-- RSS Harvesting in other Kingdoms (combination of three captains) --
+If Using Portal:
+Axe Artifact
+Pin Artifact
+Crown or Heart or Flask or Fan or Belt (depending on level, stars, and bonus powers)
+
+If marching:
+Axe
+Drum
+Pin 
+
+NOTE: If you are taking the resources to march all the way to another kingdom for RSS, you should be using a only maximum leadership full of spearmen to gather an already destroyed target. These artifact optimizations are designed around a coordinated attack where the leader is optimized to take out the target and subsequent attacks are designed for maximum RSS gather. Combination Attack and RSS approach is not efficient and would not use this combination of artifacts. 
