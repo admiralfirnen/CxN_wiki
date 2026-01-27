@@ -1,0 +1,210 @@
+/* About Page - Clan profile, hierarchy, and badges */
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-hero .clan-name {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Clan stats strip */
+.clan-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem 2.5rem;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+    background: var(--gradient-stone);
+    border: 2px solid var(--color-border-gold);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.clan-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.clan-stat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+}
+
+.clan-stat-value {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-gold);
+}
+
+.clan-stat-value.formatted {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Hierarchy section */
+.hierarchy-section {
+    margin-bottom: 2.5rem;
+}
+
+.hierarchy-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hierarchy-title.leader { border-bottom-color: var(--color-gold); }
+.hierarchy-title.superiors { border-bottom-color: rgba(212, 165, 116, 0.8); }
+.hierarchy-title.officers { border-bottom-color: rgba(212, 165, 116, 0.6); }
+.hierarchy-title.veterans { border-bottom-color: rgba(212, 165, 116, 0.4); }
+.hierarchy-title.soldiers { border-bottom-color: rgba(212, 165, 116, 0.3); }
+
+.members-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+}
+
+.member-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    background: rgba(212, 165, 116, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    transition: all 0.25s ease;
+}
+
+.member-tag:hover {
+    background: rgba(212, 165, 116, 0.18);
+    border-color: rgba(212, 165, 116, 0.5);
+}
+
+/* Badge icon + tooltip */
+.member-tag.has-badge {
+    position: relative;
+    cursor: help;
+}
+
+.member-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--gradient-gold);
+    color: var(--color-primary);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.member-tag .badge-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: var(--color-primary);
+    color: var(--color-gold);
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--color-border-gold);
+    z-index: 20;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+.member-tag .badge-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--color-border-gold);
+}
+
+.member-tag:hover .badge-tooltip,
+.member-tag:focus .badge-tooltip,
+.member-tag.badge-open .badge-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px);
+}
+
+.member-tag.has-badge:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+/* Multiple badges: show as comma-separated in tooltip */
+.badge-tooltip {
+    white-space: normal;
+    max-width: 220px;
+    text-align: center;
+}
+
+/* Capital location as its own stat block if needed */
+.clan-capital {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .clan-stats {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .clan-stat {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hierarchy-title {
+        font-size: 1.15rem;
+    }
+
+    .member-tag {
+        font-size: 0.9rem;
+    }
+}

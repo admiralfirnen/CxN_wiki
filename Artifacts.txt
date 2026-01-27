@@ -1,0 +1,38 @@
+Artifacts:
+
+Artifacts do not wear down like equipment does. Artifacts have might of their own. Unlike what you may have heard, artifacts do not 'belong' to specific captains!! They should be used where the need best suits them. You should be swapping them around to best suit the situation. Artifacts can be improved in two ways, artifact level and star level. Artifact level increases the power only. Star level increases the power and also gives random new powers when each star is complete. New bonus power can then be locked, unlocked, and swapped in and out to further customize the artifact. I will only cover the base powers here. 
+
+Name, Nickname, Primary Level Power, Secondary Level Power, Primary Star Power, Secondary Star Power
+--------------------------------------------------------------------------------------------------------------
+Knight of Dalarna, Horse Artifact, Mounted Unit Health, Mounted Unit Strength, Mounted Unit Health, Mounted Unit Strength
+Medallion of Unity, Medallion Artifact, Guardsman Health, xx, Guardsman Health, xx
+Fan of the Five Winds, Fan Artifact, Guardsman Strength, xx, Guardsman Strength, xx
+Thunder Drum, Drum Artifact, March Speed, xx, March Speed, xx
+Mythril Pickaxe, Axe Artifact, RSS Gathering, Army Carrying Capacity, RSS Gathering, Army Carrying Capacity
+Source Flask, Flask Artifact, Guardsman Strength, Guardsman Health, Guardsman Strength, Guardsman Health
+Warden's Quiver, Quiver Artifact, Ranged Unit's Strength, Ranged Unit's Health, Ranged Unit's Strength, Ranged Unit's Health
+Technobomb, Grenade Artifact, Engineer Corp Strength, Engineer Corp Health, Engineer Corp Strength, Engineer Corp Health
+Valkyrie Diadem, Flying Mask Artifact, Flying Unit Health, Flying Unit Strength, Flying Unit Health, Flying Unit Strength
+Griffinwing Mask, Monster Mask Artifact, Monster Health, Monster Strength, Monster Health, Monster Strength
+Heart of the Forest, Heart Artifact, Army Strength, xx, Army Strength, xx
+Forest Crown, Crown Artifact, Army Strength PvP, Army Strength and Health, Army Strength PvP, Army Strength and Health
+Ghostflame Lantern, Lantern Artifact, Strength of army against Epic, xx, Strength of army against epic, xx
+Ifrit Lord's Belt, Belt Artifact, Army Health, Army Strength, Army Health, Army Strength
+Torch of Olympus, Torch Artifact, Crypt Exploration Efficiency, xx, Crypt Exploration Efficiency, xx
+Zeus' Lightning, Lightning Jar Artifact, Leadership, Dominance, Double Damage, Authority
+Chronoglyph, Hourglass Artifact, Troop Training Speed, Food Production, Troop Training Speed, Food Production
+Ruby Broach, Pin Artifact, Melee Unit Strength, Melee Unit Health, Melee Unit Strength, Melee Unit Health
+Philosopher's Stone, Stone Artifact, Specialist Strength, Specialist Health, Specialist Strength, Specialist Health
+Shadow Dagger, Dagger Artifact, Scout Strength, Scout Health, Scout Strength, Scout Health
+
+Applications for PvP and KvK
+
+Applications for Heroics
+
+Applications for Epics
+
+Applications for Crypt Exploration
+
+Applications for RSS Harvesting within Kingdom
+
+Applications for RSS Harvesting in other Kingdoms
