@@ -855,42 +855,6 @@ body::before {
         0 0 30px rgba(212, 165, 116, 0.8);
 }
 
-.handcuff-icon {
-    display: inline-block;
-    font-size: 2.5rem;
-    margin-left: 15px;
-    filter: drop-shadow(0 0 8px rgba(255, 192, 203, 0.8));
-    animation: handcuff-bounce 2s ease-in-out infinite;
-    transform-origin: center;
-}
-
-@keyframes handcuff-bounce {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        filter: drop-shadow(0 0 8px rgba(255, 192, 203, 0.8));
-    }
-    25% {
-        transform: translateY(-5px) rotate(-5deg);
-        filter: drop-shadow(0 0 12px rgba(255, 192, 203, 1));
-    }
-    75% {
-        transform: translateY(-5px) rotate(5deg);
-        filter: drop-shadow(0 0 12px rgba(255, 192, 203, 1));
-    }
-}
-
-.billy-irish-tile .tile-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.billy-irish-tile .tile-title {
-    margin: 0;
-}
-
 @media (max-width: 768px) {
     .strategy-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
