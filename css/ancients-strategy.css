@@ -1,0 +1,220 @@
+/* Ancients' Treasure & Rise of the Ancients strategy pages */
+
+/* Golden-framed images (match site style) */
+.gold-framed-wrap {
+    margin: 2rem auto;
+    max-width: 560px;
+    text-align: center;
+}
+
+.gold-framed-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 4px solid var(--color-border-gold);
+    border-style: double;
+    box-shadow:
+        0 0 30px rgba(212, 165, 116, 0.5),
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    object-fit: contain;
+    background: var(--color-secondary);
+}
+
+.gold-framed-wrap + .ancients-intro,
+.gold-framed-wrap + .ancients-section-title {
+    margin-top: 2rem;
+}
+
+/* Event flow (steps with gold-framed images) */
+.ancients-flow {
+    margin: 2.5rem 0;
+}
+
+.ancients-flow-item {
+    margin: 2.5rem 0;
+    padding: 0;
+    border: none;
+}
+
+.ancients-flow-item:first-child {
+    margin-top: 0;
+}
+
+.ancients-flow-caption {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    text-align: center;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.ancients-flow-caption strong {
+    color: var(--color-gold);
+}
+
+.ancients-flow-caption a {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+.ancients-flow-caption a:hover {
+    color: var(--color-gold-light);
+}
+
+.ancients-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.ancients-section {
+    margin: 2.5rem 0;
+}
+
+.ancients-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.ancients-section ul {
+    margin: 0.75rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.ancients-section ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.ancients-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.ancients-section p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.ancients-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tables - match site style */
+.ancients-table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    border: 2px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.ancients-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: var(--gradient-stone);
+}
+
+.ancients-table th,
+.ancients-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.ancients-table th {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: var(--color-gold);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.ancients-table td {
+    border-bottom-color: rgba(212, 165, 116, 0.15);
+}
+
+.ancients-table tbody tr:hover {
+    background: rgba(212, 165, 116, 0.06);
+}
+
+.ancients-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ancients-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.ancients-coin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: nowrap;
+}
+
+.ancients-table th .ancients-coin {
+    justify-content: flex-end;
+}
+
+.ancients-coin-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .gold-framed-wrap {
+        max-width: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .ancients-flow-item {
+        margin: 2rem 0;
+    }
+
+    .ancients-flow-caption {
+        font-size: 0.98rem;
+        padding: 0 0.5rem;
+    }
+
+    .ancients-table {
+        font-size: 0.85rem;
+    }
+
+    .ancients-table th,
+    .ancients-table td {
+        padding: 0.6rem 0.65rem;
+    }
+}
