@@ -42,12 +42,43 @@
     --shadow-castle: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.9);
     --shadow-gold: 0 0 20px rgba(212, 165, 116, 0.4);
+    
+    /* Link colors - glowing metallic cobalt blue (readable on dark backgrounds) */
+    --color-link: #5b9eff;
+    --color-link-visited: #7eb3ff;
+    --color-link-hover: #a8d4ff;
+    --color-link-active: #4a8ae8;
+    --shadow-link-glow: 0 0 10px rgba(91, 158, 255, 0.7), 0 0 4px rgba(91, 158, 255, 0.5);
+    --shadow-link-glow-hover: 0 0 16px rgba(91, 158, 255, 0.9), 0 0 8px rgba(168, 212, 255, 0.6);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Global hyperlink styles - glowing metallic cobalt blue */
+a:not(.nav-link):not(.logo-link):not(.strategy-tile) {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-shadow: var(--shadow-link-glow);
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+a:not(.nav-link):not(.logo-link):not(.strategy-tile):visited {
+    color: var(--color-link-visited);
+}
+a:not(.nav-link):not(.logo-link):not(.strategy-tile):hover {
+    color: var(--color-link-hover);
+    text-shadow: var(--shadow-link-glow-hover);
+}
+a:not(.nav-link):not(.logo-link):not(.strategy-tile):focus {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+}
+a:not(.nav-link):not(.logo-link):not(.strategy-tile):active {
+    color: var(--color-link-active);
 }
 
 body {

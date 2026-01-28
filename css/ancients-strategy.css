@@ -62,12 +62,14 @@
 }
 
 .ancients-flow-caption a {
-    color: var(--color-gold);
+    color: var(--color-link);
     text-decoration: underline;
+    text-shadow: var(--shadow-link-glow);
 }
 
 .ancients-flow-caption a:hover {
-    color: var(--color-gold-light);
+    color: var(--color-link-hover);
+    text-shadow: var(--shadow-link-glow-hover);
 }
 
 .ancients-intro {
