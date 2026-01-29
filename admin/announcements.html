@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Announcements - CxN Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <div class="admin-header">
+            <h1 class="clan-name" style="font-size: 2.5rem;">Manage Announcements</h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </div>
+        
+        <div class="admin-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <h3>Admin Menu</h3>
+                <nav class="admin-nav">
+                    <a href="dashboard.html" class="admin-nav-link">Dashboard</a>
+                    <a href="announcements.html" class="admin-nav-link active">Announcements</a>
+                    <a href="about.html" class="admin-nav-link">Update About</a>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="admin-content">
+                <!-- Status Message -->
+                <div id="status-message" class="status-message"></div>
+                
+                <!-- New Announcement Section -->
+                <section class="panel-section">
+                    <h2>Post New Announcement</h2>
+                    <form id="new-announcement-form" class="announcement-form">
+                        <textarea 
+                            id="announcement-content" 
+                            placeholder="Write your announcement here... (plain text only)"
+                            required
+                        ></textarea>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="announcement-author">Author Name</label>
+                                <input 
+                                    type="text" 
+                                    id="announcement-author" 
+                                    placeholder="Your name (default: Admin)"
+                                >
+                            </div>
+                            <button type="submit" class="post-btn">Post Announcement</button>
+                        </div>
+                    </form>
+                </section>
+                
+                <!-- Existing Announcements Section -->
+                <section class="panel-section">
+                    <h2>Existing Announcements</h2>
+                    <div id="announcements-list" class="announcements-list">
+                        <!-- Announcements will be loaded here -->
+                        <div class="empty-state">Loading announcements...</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CxNAdmin.initAnnouncementsPage();
+        });
+    </script>
+</body>
+</html>

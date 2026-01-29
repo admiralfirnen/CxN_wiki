@@ -22,7 +22,7 @@
         const path = window.location.pathname;
         
         // Check if we're in a subdirectory by looking for known section paths
-        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'roe', 'trophy-room'];
+        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'roe', 'trophy-room', 'admin'];
         for (const section of sections) {
             if (path.includes('/' + section + '/')) {
                 return '../';
@@ -124,7 +124,8 @@
                 { href: 'announcements/index.html', text: 'Announcements', id: 'announcements' },
                 { href: 'tools/index.html', text: 'Tools', id: 'tools' },
                 { href: 'roe/index.html', text: 'ROE', id: 'roe' },
-                { href: 'trophy-room/index.html', text: 'Trophy Room', id: 'trophy-room' }
+                { href: 'trophy-room/index.html', text: 'Trophy Room', id: 'trophy-room' },
+                { href: 'admin/index.html', text: 'Admin', id: 'admin' }
             ],
             copyright: {
                 holder: 'CxN Clan Wiki',

@@ -160,9 +160,9 @@ function findUnitById(unitId, groupKey) {
     const [, actualId] = unitId.split(`${groupKey}_`);
     const groupData = stackData[groupKey];
     
-    for (const category of Object.values(groupData.categories)) {
+    for (const [categoryKey, category] of Object.entries(groupData.categories)) {
         const unit = category.units.find(u => u.id === actualId);
-        if (unit) return unit;
+        if (unit) return { ...unit, category: categoryKey };
     }
     return null;
 }
@@ -471,26 +471,88 @@ function renderResults(unitStacks, summary) {
     
     stacksContainer.innerHTML = stacksHtml;
 
-    // Troops table
+    // Troops table - grouped by troop type and sorted by strength, then health ascending
     const tbody = document.getElementById('troops-tbody');
     let tableHtml = '';
     
+    // Define group order and labels
+    const groupOrder = ['guardsmen', 'specialists', 'monsters', 'mercenaries'];
+    const groupLabels = {
+        guardsmen: 'Guardsmen',
+        specialists: 'Specialists',
+        monsters: 'Monsters',
+        mercenaries: 'Mercenaries'
+    };
+    const groupIcons = {
+        guardsmen: '🛡️',
+        specialists: '⚔️',
+        monsters: '🐉',
+        mercenaries: '💎'
+    };
+    
+    // Group units by troop type
+    const groupedUnits = {};
     unitStacks.forEach(unit => {
-        const typeIcon = getTypeIcon(unit.type || unit.groupKey);
+        const group = unit.groupKey;
+        if (!groupedUnits[group]) {
+            groupedUnits[group] = [];
+        }
+        groupedUnits[group].push(unit);
+    });
+    
+    // Helper function to extract base troop type from name (e.g., "Archer III" -> "Archer")
+    const getBaseTroopType = (name) => {
+        // Remove tier suffixes like " I", " II", " III", " IV", " V", " VI", " VII", " 1", " 2", etc.
+        return name.replace(/\s+(I{1,3}|IV|VI{0,2}|V|[1-9])$/i, '').trim();
+    };
+    
+    // Sort each group by base troop type name, then by tier ascending
+    Object.keys(groupedUnits).forEach(group => {
+        groupedUnits[group].sort((a, b) => {
+            // First sort by base troop type name
+            const typeA = getBaseTroopType(a.name);
+            const typeB = getBaseTroopType(b.name);
+            if (typeA !== typeB) {
+                return typeA.localeCompare(typeB);
+            }
+            // Then by tier ascending (I, II, III, etc.)
+            return a.tier - b.tier;
+        });
+    });
+    
+    // Render groups in specified order
+    groupOrder.forEach(groupKey => {
+        const units = groupedUnits[groupKey];
+        if (!units || units.length === 0) return; // Skip empty groups
+        
+        // Add group header row
         tableHtml += `
-            <tr>
-                <td>
-                    <div class="unit-name-cell">
-                        <span class="unit-type-icon">${typeIcon}</span>
-                        <span>${unit.name}</span>
-                    </div>
+            <tr class="troop-group-header">
+                <td colspan="5">
+                    <span class="group-icon">${groupIcons[groupKey]}</span>
+                    <span class="group-label">${groupLabels[groupKey]}</span>
                 </td>
-                <td>${formatNumber(unit.stackSize)}</td>
-                <td>${formatNumber(unit.total)}</td>
-                <td>${formatNumber(unit.strength)}</td>
-                <td>${formatNumber(unit.health)}</td>
             </tr>
         `;
+        
+        // Add units in this group
+        units.forEach(unit => {
+            const typeIcon = getTypeIcon(unit.type || unit.groupKey);
+            tableHtml += `
+                <tr>
+                    <td>
+                        <div class="unit-name-cell">
+                            <span class="unit-type-icon">${typeIcon}</span>
+                            <span>${unit.name}</span>
+                        </div>
+                    </td>
+                    <td>${formatNumber(unit.stackSize)}</td>
+                    <td>${formatNumber(unit.total)}</td>
+                    <td>${formatNumber(unit.strength)}</td>
+                    <td>${formatNumber(unit.health)}</td>
+                </tr>
+            `;
+        });
     });
 
     // Add totals row

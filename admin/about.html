@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update About - CxN Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <div class="admin-header">
+            <h1 class="clan-name" style="font-size: 2.5rem;">Update About Page</h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </div>
+        
+        <div class="admin-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <h3>Admin Menu</h3>
+                <nav class="admin-nav">
+                    <a href="dashboard.html" class="admin-nav-link">Dashboard</a>
+                    <a href="announcements.html" class="admin-nav-link">Announcements</a>
+                    <a href="about.html" class="admin-nav-link active">Update About</a>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="admin-content">
+                <!-- Status Message -->
+                <div id="status-message" class="status-message"></div>
+                
+                <!-- Clan Stats Section -->
+                <section class="panel-section">
+                    <h2>Clan Statistics</h2>
+                    <p style="color: var(--color-text-dim); margin-bottom: 20px;">
+                        Update the Wealth and Might values displayed on the About page.
+                    </p>
+                    <form id="stats-form" class="stats-form">
+                        <div class="stats-form-row">
+                            <div class="form-group">
+                                <label for="stat-might">Might</label>
+                                <input 
+                                    type="text" 
+                                    id="stat-might" 
+                                    placeholder="e.g., 1047097604"
+                                    pattern="[0-9,]*"
+                                >
+                                <div class="current-value">Current: <strong id="current-might">Loading...</strong></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="stat-wealth">Wealth</label>
+                                <input 
+                                    type="text" 
+                                    id="stat-wealth" 
+                                    placeholder="e.g., 78277614"
+                                    pattern="[0-9,]*"
+                                >
+                                <div class="current-value">Current: <strong id="current-wealth">Loading...</strong></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="save-stats-btn">Save Changes</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CxNAdmin.initAboutPage();
+        });
+    </script>
+</body>
+</html>
