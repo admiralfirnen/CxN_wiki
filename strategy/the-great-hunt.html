@@ -5,352 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Great Hunt Strategy - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/wiki-article.css">
-    <style>
-        /* Page-specific enhancements */
-        .highlight-box {
-            background: rgba(212, 165, 116, 0.1);
-            border: 2px solid rgba(212, 165, 116, 0.3);
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin: 24px 0;
-        }
-        .highlight-box.important {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: rgba(239, 68, 68, 0.4);
-        }
-        .highlight-box.success {
-            background: rgba(34, 197, 94, 0.1);
-            border-color: rgba(34, 197, 94, 0.4);
-        }
-        .ratio-display {
-            font-size: 1.5rem;
-            color: var(--color-gold);
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            padding: 16px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            margin: 16px 0;
-        }
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        @media (max-width: 600px) {
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-        }
-        .do-box, .dont-box {
-            padding: 16px 20px;
-            border-radius: 8px;
-        }
-        .do-box {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-        .dont-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-        .do-box h4, .dont-box h4 {
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-        .checklist {
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 12px;
-            padding: 24px 28px;
-            margin-top: 20px;
-        }
-        .checklist li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .checklist li:last-child {
-            border-bottom: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/roe.css">
 </head>
 <body>
     <nav id="main-nav"></nav>
     <div class="container">
-        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 20px;">🏹 The Great Hunt</h1>
-        <p class="welcome-text" style="text-align: center; margin-bottom: 50px; font-size: 1.15rem;">
-            Official CxN clan strategy for <em>The Great Hunt</em> event in <strong>Total Battle</strong>.<br>
-            Follow these guidelines to maximize clan points while minimizing troop losses.
-        </p>
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">The Great Hunt</h1>
 
-        <div class="wiki-article">
+        <article class="strategy-entry">
+            <div class="entry-content">
+                <p class="roe-intro">Official CxN clan strategy for <em>The Great Hunt</em> event in <strong>Total Battle</strong>. Follow these guidelines to maximize clan points while minimizing troop losses.</p>
 
-            <!-- Event Overview -->
-            <section class="wiki-section">
-                <h2>🛡️ Event Overview</h2>
-                <p><strong>The Great Hunt</strong> is a <strong>clan-based tournament</strong> where players complete <strong>monster kill contracts</strong> to earn points for the clan leaderboard.</p>
-                
-                <h3>🔑 Key Mechanics</h3>
-                <ul>
-                    <li>Each player starts with <strong>10 contracts</strong></li>
-                    <li>Contracts vary by <strong>difficulty</strong> (Easy, Medium, Hard, Expert*)</li>
-                    <li>Any monster squad that matches the contract description counts</li>
-                    <li>Higher difficulty = more points</li>
-                    <li>Clan ranking is based on <strong>total points earned</strong></li>
-                </ul>
-                
-                <p class="wiki-note">⚠️ <em>Expert difficulty is unlocked by manually increasing contract difficulty</em></p>
-            </section>
-
-            <!-- Clan Bonus Window -->
-            <section class="wiki-section">
-                <h2>🕑 Clan Bonus Window</h2>
-                <div class="highlight-box important">
-                    <strong style="font-size: 1.1rem;">⚡ THIS IS THE MOST IMPORTANT SECTION</strong>
+                <h2 class="roe-section-title">Event Overview</h2>
+                <div class="roe-section">
+                    <p><strong>The Great Hunt</strong> is a <strong>clan-based tournament</strong> where players complete <strong>monster kill contracts</strong> to earn points for the clan leaderboard.</p>
+                    <h3 class="roe-subsection-title">Key Mechanics</h3>
+                    <ul>
+                        <li>Each player starts with <strong>10 contracts</strong></li>
+                        <li>Contracts vary by <strong>difficulty</strong> (Easy, Medium, Hard, Expert*)</li>
+                        <li>Any monster squad that matches the contract description counts</li>
+                        <li>Higher difficulty = more points</li>
+                        <li>Clan ranking is based on <strong>total points earned</strong></li>
+                    </ul>
+                    <p class="roe-callout"><em>Expert difficulty is unlocked by manually increasing contract difficulty.</em></p>
                 </div>
-                
-                <h3>🔥 2-Hour Clan Bonus</h3>
-                <ul>
-                    <li>The clan can activate <strong>one 2-hour bonus window</strong></li>
-                    <li>During this time: <strong>All contract points are DOUBLED</strong></li>
-                    <li>The exact activation time will be <strong>announced by leadership</strong></li>
-                </ul>
 
-                <h3>✅ Strategy</h3>
-                <ul>
-                    <li><strong>Save as many contracts as possible</strong></li>
-                    <li>Hunt <strong>primarily during the bonus window</strong></li>
-                    <li>Plan buffs, troops, and revives ahead of time</li>
-                </ul>
-            </section>
-
-            <!-- Contracts & Refresh Strategy -->
-            <section class="wiki-section">
-                <h2>🔄 Contracts &amp; Refresh Strategy</h2>
-                
-                <h3>♻️ Free Refreshes</h3>
-                <ul>
-                    <li>Each player receives <strong>3 FREE refreshes</strong></li>
-                    <li>A refresh replaces your <strong>entire list of contracts</strong></li>
-                </ul>
-
-                <h3>💰 Paid Refreshes</h3>
-                <ul>
-                    <li>Additional refreshes can be purchased with <strong>gold</strong></li>
-                    <li>Recommended for competitive players or strong armies</li>
-                </ul>
-
-                <h3>✅ Clan Rules</h3>
-                <ul>
-                    <li>✔ <strong>Use all 3 free refreshes</strong></li>
-                    <li>✔ Add paid refreshes <em>if you can afford them</em></li>
-                    <li>❌ Do NOT struggle with bad or impossible contracts</li>
-                </ul>
-
-                <h3>🔁 Refresh vs Overextending</h3>
-                <div class="two-column">
-                    <div class="do-box">
-                        <h4>✔ DO THIS</h4>
-                        <p>Refresh and complete a <strong>full new contract list</strong></p>
-                    </div>
-                    <div class="dont-box">
-                        <h4>❌ NOT THIS</h4>
-                        <p>Complete a single contract at <strong>80–100% losses</strong></p>
-                    </div>
+                <h2 class="roe-section-title">Clan Bonus Window</h2>
+                <div class="roe-section">
+                    <p class="roe-callout">THIS IS THE MOST IMPORTANT SECTION</p>
+                    <h3 class="roe-subsection-title">2-Hour Clan Bonus</h3>
+                    <ul>
+                        <li>The clan can activate <strong>one 2-hour bonus window</strong></li>
+                        <li>During this time: <strong>All contract points are DOUBLED</strong></li>
+                        <li>The exact activation time will be <strong>announced by leadership</strong></li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Strategy</h3>
+                    <ul>
+                        <li><strong>Save as many contracts as possible</strong></li>
+                        <li>Hunt <strong>primarily during the bonus window</strong></li>
+                        <li>Plan buffs, troops, and revives ahead of time</li>
+                    </ul>
                 </div>
-                <p>High-loss hits destroy long-term efficiency and progress.</p>
-            </section>
 
-            <!-- Contract Difficulty & Optimization -->
-            <section class="wiki-section">
-                <h2>⚔️ Contract Difficulty &amp; Optimization</h2>
-                
-                <h3>📈 Rolling &amp; Scaling Difficulty</h3>
-                <ul>
-                    <li>Automatically roll <strong>Easy contracts upward</strong></li>
-                    <li>Target a loss range of <strong>20–37%</strong>
-                        <ul>
-                            <li><strong>0–4% losses are NOT optimal</strong> unless already at Hard</li>
-                        </ul>
-                    </li>
-                    <li>Once you can comfortably handle Hard:
-                        <ul>
-                            <li>✔ Roll <strong>all contracts to Expert</strong></li>
-                        </ul>
-                    </li>
-                </ul>
+                <h2 class="roe-section-title">Contracts &amp; Refresh Strategy</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Free Refreshes</h3>
+                    <ul>
+                        <li>Each player receives <strong>3 FREE refreshes</strong></li>
+                        <li>A refresh replaces your <strong>entire list of contracts</strong></li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Paid Refreshes</h3>
+                    <ul>
+                        <li>Additional refreshes can be purchased with <strong>gold</strong></li>
+                        <li>Recommended for competitive players or strong armies</li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Clan Rules</h3>
+                    <ul>
+                        <li><strong>Use all 3 free refreshes</strong></li>
+                        <li>Add paid refreshes <em>if you can afford them</em></li>
+                        <li>Do NOT struggle with bad or impossible contracts</li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Refresh vs Overextending</h3>
+                    <p><strong>Do this:</strong> Refresh and complete a <strong>full new contract list</strong>.</p>
+                    <p><strong>Not this:</strong> Complete a single contract at <strong>80–100% losses</strong>. High-loss hits destroy long-term efficiency and progress.</p>
+                </div>
 
-                <h3>🎯 Difficulty Rule of Thumb</h3>
-                <div class="highlight-box">
-                    <ul style="margin: 0;">
+                <h2 class="roe-section-title">Contract Difficulty &amp; Optimization</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Rolling &amp; Scaling Difficulty</h3>
+                    <ul>
+                        <li>Automatically roll <strong>Easy contracts upward</strong></li>
+                        <li>Target a loss range of <strong>20–37%</strong>
+                            <ul>
+                                <li><strong>0–4% losses are NOT optimal</strong> unless already at Hard</li>
+                            </ul>
+                        </li>
+                        <li>Once you can comfortably handle Hard: roll <strong>all contracts to Expert</strong></li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Difficulty Rule of Thumb</h3>
+                    <ul>
                         <li>Losses too low → contracts too easy → <strong>wasted potential</strong></li>
                         <li>Losses too high → inefficient → <strong>refresh instead</strong></li>
                     </ul>
                 </div>
-            </section>
 
-            <!-- Contract Testing Order -->
-            <section class="wiki-section">
-                <h2>🧪 Contract Testing Order</h2>
-                
-                <h3>🧠 Top-Down Testing</h3>
-                <ul>
-                    <li>Always <strong>test contracts from the TOP of the list first</strong></li>
-                    <li>Goal: Complete <strong>the entire list without reviving</strong></li>
-                    <li>Adjust difficulty early if needed before committing troops</li>
-                </ul>
-            </section>
+                <h2 class="roe-section-title">Contract Testing Order</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Top-Down Testing</h3>
+                    <ul>
+                        <li>Always <strong>test contracts from the TOP of the list first</strong></li>
+                        <li>Goal: Complete <strong>the entire list without reviving</strong></li>
+                        <li>Adjust difficulty early if needed before committing troops</li>
+                    </ul>
+                </div>
 
-            <!-- Troop Management -->
-            <section class="wiki-section">
-                <h2>🪖 Troop Management &amp; Loss Control</h2>
-                
-                <h3>⚠️ Loss Threshold</h3>
-                <div class="highlight-box">
-                    <ul style="margin: 0;">
+                <h2 class="roe-section-title">Troop Management &amp; Loss Control</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Loss Threshold</h3>
+                    <ul>
                         <li><strong>Do NOT overextend</strong></li>
                         <li>Keep estimated troop losses <strong>≤ 37%</strong></li>
                         <li>High losses cost more than they gain in points</li>
                     </ul>
                 </div>
-            </section>
 
-            <!-- Monster Matchups & Army Composition -->
-            <section class="wiki-section">
-                <h2>🧩 Monster Matchups &amp; Army Composition</h2>
-                
-                <h3>🐲 Counter the Monster Type</h3>
-                <ul>
-                    <li>Always review <strong>monster strengths</strong></li>
-                    <li>Send troop types the monsters are <strong>NOT strong against</strong></li>
-                </ul>
+                <h2 class="roe-section-title">Monster Matchups &amp; Army Composition</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Counter the Monster Type</h3>
+                    <ul>
+                        <li>Always review <strong>monster strengths</strong></li>
+                        <li>Send troop types the monsters are <strong>NOT strong against</strong></li>
+                    </ul>
+                    <h3 class="roe-subsection-title">Optimal Army Stack Setup</h3>
+                    <p><strong>Use this formation:</strong></p>
+                    <ul>
+                        <li><strong>ONE LARGE stack</strong> of the optimal troop type</li>
+                        <li>Followed by <strong>many medium stacks</strong> of the SAME troop type</li>
+                        <li>Add monsters / mercenaries</li>
+                    </ul>
+                    <p><strong>Goal:</strong> Burst damage to <strong>wipe monsters before the next attack round</strong>. This significantly reduces losses when done correctly.</p>
+                </div>
 
-                <h3>🧱 Optimal Army Stack Setup</h3>
-                <div class="highlight-box success">
-                    <p style="margin-bottom: 12px;"><strong>Use this formation:</strong></p>
-                    <ul style="margin: 0;">
-                        <li>🟦 <strong>ONE LARGE stack</strong> of the optimal troop type</li>
-                        <li>🟩 Followed by <strong>many medium stacks</strong> of the SAME troop type</li>
-                        <li>➕ Add monsters / mercenaries</li>
+                <h2 class="roe-section-title">Hero, Captain &amp; Dragon Optimization</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Hero-to-Captain Ratio</h3>
+                    <p class="roe-callout"><strong>VERY IMPORTANT</strong> – This ratio determines your efficiency.</p>
+                    <p>Optimal ratio for The Great Hunt: <strong>2.5 : 1</strong> or <strong>3 : 1</strong> (Hero : Captain).</p>
+                    <h3 class="roe-subsection-title">What the Ratio Means</h3>
+                    <ul>
+                        <li><strong>Lower than 2.5:1</strong> → Contracts are too hard</li>
+                        <li><strong>Higher than 3:1</strong> → You lose the ability to use the Dragon for bonus leadership</li>
                     </ul>
                 </div>
-                <p><strong>Goal:</strong> Burst damage to <strong>wipe monsters before the next attack round</strong></p>
-                <p>This significantly reduces losses when done correctly.</p>
-            </section>
 
-            <!-- Hero, Captain & Dragon Optimization -->
-            <section class="wiki-section">
-                <h2>🏅 Hero, Captain &amp; Dragon Optimization</h2>
-                
-                <h3>📊 Hero-to-Captain Ratio</h3>
-                <p class="wiki-note">⚠️ <strong>VERY IMPORTANT</strong> – This ratio determines your efficiency!</p>
-                
-                <p>Optimal ratio for The Great Hunt:</p>
-                <div class="ratio-display">
-                    <strong>2.5 : 1</strong> &nbsp;or&nbsp; <strong>3 : 1</strong><br>
-                    <span style="font-size: 1rem; color: var(--color-text-dim);">(Hero : Captain)</span>
+                <h2 class="roe-section-title">Dragon Usage Rules</h2>
+                <div class="roe-section">
+                    <h3 class="roe-subsection-title">Dragon Is NOT Automatic</h3>
+                    <p>ONLY use the Dragon if it <strong>reduces loss percentage</strong>.</p>
+                    <h3 class="roe-subsection-title">How to Check</h3>
+                    <ol style="list-style: decimal; margin-left: 1.5rem; color: var(--color-text);">
+                        <li>Select the Dragon by default</li>
+                        <li>Remove the Dragon</li>
+                        <li>Compare loss percentage:
+                            <ul>
+                                <li>If it <strong>does NOT change</strong> → leave Dragon home</li>
+                                <li>If it <strong>does decrease losses</strong> → use Dragon</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p class="roe-callout">Dragon uses are limited over a long contract run. Spend them wisely.</p>
                 </div>
 
-                <h4>What the Ratio Means</h4>
-                <ul>
-                    <li>❌ <strong>Lower than 2.5:1</strong> → Contracts are too hard</li>
-                    <li>❌ <strong>Higher than 3:1</strong> → You lose the ability to use the Dragon for bonus leadership</li>
-                </ul>
-            </section>
+                <h2 class="roe-section-title">Buffs &amp; Boosts</h2>
+                <div class="roe-section">
+                    <p><strong>Strongly Recommended</strong> – Before hunting, activate personal buffs if available:</p>
+                    <h3 class="roe-subsection-title">Recommended Buffs</h3>
+                    <ul>
+                        <li>Army Strength</li>
+                        <li>Army Health</li>
+                        <li>Valor Points</li>
+                        <li>Any applicable combat boosts</li>
+                    </ul>
+                    <p>Buffs dramatically improve efficiency during the clan bonus window.</p>
+                </div>
 
-            <!-- Dragon Usage Rules -->
-            <section class="wiki-section">
-                <h2>🐉 Dragon Usage Rules</h2>
-                
-                <h3>🚨 Dragon Is NOT Automatic</h3>
-                <p>ONLY use the Dragon if it:</p>
-                <ul>
-                    <li>✅ <strong>Reduces loss percentage</strong></li>
-                </ul>
-
-                <h3>🧠 How to Check</h3>
-                <ol>
-                    <li>Select the Dragon by default</li>
-                    <li>Remove the Dragon</li>
-                    <li>Compare loss percentage:
-                        <ul>
-                            <li>If it <strong>does NOT change</strong> → leave Dragon home</li>
-                            <li>If it <strong>does decrease losses</strong> → use Dragon</li>
-                        </ul>
-                    </li>
-                </ol>
-                
-                <p class="wiki-note">⚠️ Dragon uses are limited over a long contract run. Spend them wisely.</p>
-            </section>
-
-            <!-- Buffs & Boosts -->
-            <section class="wiki-section">
-                <h2>📊 Buffs &amp; Boosts</h2>
-                <p><strong>Strongly Recommended</strong> – Before hunting, activate personal buffs if available:</p>
-                
-                <h3>💪 Recommended Buffs</h3>
-                <ul>
-                    <li>⚔️ Army Strength</li>
-                    <li>🛡️ Army Health</li>
-                    <li>🏅 Valor Points</li>
-                    <li>🎖️ Any applicable combat boosts</li>
-                </ul>
-                <p>Buffs dramatically improve efficiency during the clan bonus window.</p>
-            </section>
-
-            <!-- Rare Contracts -->
-            <section class="wiki-section">
-                <h2>🚫 Rare Contracts (Optional)</h2>
-                <ul>
-                    <li>Some players <strong>opt out of Rare contracts</strong></li>
-                    <li>Reason: Avoid unintentionally leveling their Hero</li>
-                    <li>This is <strong>optional and player preference</strong></li>
-                </ul>
-            </section>
-
-            <!-- What NOT To Do -->
-            <section class="wiki-section">
-                <h2>❌ What NOT To Do</h2>
-                <div class="dont-box" style="margin-top: 16px;">
-                    <ul style="margin: 0;">
-                        <li>❌ Do NOT rely on reinforcements (they don't count)</li>
-                        <li>❌ Do NOT force impossible contracts</li>
-                        <li>❌ Do NOT ignore the clan bonus window</li>
-                        <li>❌ Do NOT burn troops for single high-loss hits</li>
-                        <li>❌ Do NOT waste Dragon uses without loss reduction</li>
+                <h2 class="roe-section-title">Rare Contracts (Optional)</h2>
+                <div class="roe-section">
+                    <ul>
+                        <li>Some players <strong>opt out of Rare contracts</strong></li>
+                        <li>Reason: Avoid unintentionally leveling their Hero</li>
+                        <li>This is <strong>optional and player preference</strong></li>
                     </ul>
                 </div>
-            </section>
 
-            <!-- Checklist Summary -->
-            <section class="wiki-section">
-                <h2>✅ Clan Checklist Summary</h2>
-                <div class="checklist">
-                    <ul style="list-style: none; margin-left: 0; padding-left: 0;">
-                        <li>✔ Hunt during the <strong>2-hour clan bonus</strong></li>
-                        <li>✔ Use <strong>all 3 free refreshes</strong></li>
-                        <li>✔ Refresh instead of taking <strong>80–100% loss hits</strong></li>
-                        <li>✔ Roll contracts to hit <strong>20–37% losses</strong></li>
-                        <li>✔ Test contracts <strong>top-down</strong></li>
-                        <li>✔ Counter monster strengths with proper troop types</li>
-                        <li>✔ Optimize <strong>Hero : Captain = 2.5–3 : 1</strong></li>
-                        <li>✔ Use Dragon <strong>only if losses decrease</strong></li>
-                        <li>✔ Activate buffs before hunting</li>
+                <h2 class="roe-section-title">What NOT To Do</h2>
+                <div class="roe-section">
+                    <ul>
+                        <li>Do NOT rely on reinforcements (they don't count)</li>
+                        <li>Do NOT force impossible contracts</li>
+                        <li>Do NOT ignore the clan bonus window</li>
+                        <li>Do NOT burn troops for single high-loss hits</li>
+                        <li>Do NOT waste Dragon uses without loss reduction</li>
                     </ul>
                 </div>
-            </section>
 
-            <!-- Final Note -->
-            <section class="wiki-section" style="border-bottom: none; text-align: center;">
-                <h2>🏆 Final Note</h2>
-                <p style="font-size: 1.1rem;"><em>The Great Hunt</em> rewards <strong>discipline, optimization, and timing</strong>, not reckless force.</p>
-                <p style="font-size: 1.1rem;">Follow this strategy and our clan will consistently outperform stronger but less organized clans.</p>
-                
-                <p style="font-size: 2rem; margin-top: 40px;">Good hunting! 🐲🔥</p>
-            </section>
+                <h2 class="roe-section-title">Clan Checklist Summary</h2>
+                <div class="roe-section">
+                    <ul>
+                        <li>Hunt during the <strong>2-hour clan bonus</strong></li>
+                        <li>Use <strong>all 3 free refreshes</strong></li>
+                        <li>Refresh instead of taking <strong>80–100% loss hits</strong></li>
+                        <li>Roll contracts to hit <strong>20–37% losses</strong></li>
+                        <li>Test contracts <strong>top-down</strong></li>
+                        <li>Counter monster strengths with proper troop types</li>
+                        <li>Optimize <strong>Hero : Captain = 2.5–3 : 1</strong></li>
+                        <li>Use Dragon <strong>only if losses decrease</strong></li>
+                        <li>Activate buffs before hunting</li>
+                    </ul>
+                </div>
 
-        </div>
+                <h2 class="roe-section-title">Final Note</h2>
+                <div class="roe-section">
+                    <p><em>The Great Hunt</em> rewards <strong>discipline, optimization, and timing</strong>, not reckless force.</p>
+                    <p>Follow this strategy and our clan will consistently outperform stronger but less organized clans.</p>
+                    <p style="margin-top: 1.5rem;"><strong>Good hunting!</strong></p>
+                </div>
+            </div>
+        </article>
     </div>
     <footer id="main-footer"></footer>
     <script src="../js/nav.js"></script>

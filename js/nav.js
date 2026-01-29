@@ -113,12 +113,11 @@
     function initWithDefaults(basePath) {
         const defaultConfig = {
             branding: {
-                logo: 'assets/branding/cxn-clan-icon.jpg',
+                logo: 'assets/branding/cxn_clan_icon_photorealistic.png',
                 logoAlt: 'CxN Clan Icon'
             },
             navigation: [
                 { href: 'about/index.html', text: 'About', id: 'about' },
-                { href: 'wiki/index.html', text: 'Wiki', id: 'wiki' },
                 { href: 'strategy/index.html', text: 'Strategy', id: 'strategy' },
                 { href: 'faq/index.html', text: 'FAQ', id: 'faq' },
                 { href: 'announcements/index.html', text: 'Announcements', id: 'announcements' },
