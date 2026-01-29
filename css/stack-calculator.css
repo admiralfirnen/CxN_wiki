@@ -683,6 +683,26 @@
     font-size: 1rem;
 }
 
+/* Troop Group Header Rows */
+.troops-table .troop-group-header td {
+    background: rgba(212, 165, 116, 0.15);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: var(--color-gold);
+    font-size: 1.05rem;
+    padding: 10px 15px;
+    border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+}
+
+.troops-table .troop-group-header .group-icon {
+    font-size: 1.1rem;
+    margin-right: 8px;
+}
+
+.troops-table .troop-group-header .group-label {
+    vertical-align: middle;
+}
+
 /* Results Actions */
 .results-actions {
     display: flex;

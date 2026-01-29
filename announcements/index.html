@@ -5,29 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcements - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/announcements.css?v=1">
+    <link rel="stylesheet" href="../css/announcements.css?v=2">
 </head>
 <body>
     <nav id="main-nav"></nav>
     <div class="container">
         <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Announcements</h1>
         <section class="welcome-section announcements-wrap">
-            <div class="announcements-feed" aria-label="Clan announcements feed">
-                <article class="announcement" aria-label="Announcement by Nico">
-                    <div class="announcement-meta">
-                        <div class="announcement-meta-line">2026/01/28 00:50 <span class="announcement-clan">[CxN]</span> Nico MAJORJOHNSON95</div>
-                    </div>
-
-                    <div class="announcement-body">
-                        <p>WORD TO YOUR MOTHER BROTHER. So check it, we have our selfs here a wiki CxN. This will set us apart from the average clans during our growth especially during KvK. Now you CxN members have tools and information neatly organized to help you proceed on and grow.</p>
-                        <p>WELCOME TO THE MATRIX NEO. Now which pill will you choose. Use the CxN wiki provided or go back to your old life in total battle.</p>
-                        <p class="announcement-signature">-Nico t(-_-t)</p>
-                    </div>
-                </article>
+            <div id="announcements-feed" class="announcements-feed" aria-label="Clan announcements feed">
+                <!-- Announcements will be loaded dynamically -->
+                <div class="loading-state" style="text-align: center; color: var(--color-text-dim); padding: 40px;">
+                    Loading announcements...
+                </div>
             </div>
         </section>
     </div>
     <footer id="main-footer"></footer>
     <script src="../js/nav.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        (function() {
+            'use strict';
+            
+            const ANNOUNCEMENTS_KEY = 'cxn_announcements';
+            
+            /**
+             * Get announcements from localStorage
+             */
+            function getAnnouncements() {
+                try {
+                    const data = localStorage.getItem(ANNOUNCEMENTS_KEY);
+                    return data ? JSON.parse(data) : null;
+                } catch (e) {
+                    console.error('Error loading announcements:', e);
+                    return null;
+                }
+            }
+            
+            /**
+             * Load announcements from JSON file (fallback/initial data)
+             */
+            async function loadAnnouncementsFromFile() {
+                try {
+                    const basePath = window.CxNWiki ? window.CxNWiki.getBasePath() : '../';
+                    const response = await fetch(basePath + 'data/announcements.json');
+                    if (!response.ok) throw new Error('Failed to load');
+                    return await response.json();
+                } catch (e) {
+                    console.error('Error loading announcements file:', e);
+                    return [];
+                }
+            }
+            
+            /**
+             * Format date for display
+             */
+            function formatDate(timestamp) {
+                const date = new Date(timestamp);
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                return `${year}/${month}/${day} ${hours}:${minutes}`;
+            }
+            
+            /**
+             * Escape HTML to prevent XSS
+             */
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            /**
+             * Convert plain text to HTML paragraphs
+             */
+            function textToHtml(text) {
+                // Split by double newlines for paragraphs
+                const paragraphs = text.split(/\n\n+/);
+                return paragraphs.map(p => {
+                    // Check if it looks like a signature (starts with -)
+                    const trimmed = p.trim();
+                    if (trimmed.startsWith('-') && trimmed.length < 50) {
+                        return `<p class="announcement-signature">${escapeHtml(trimmed)}</p>`;
+                    }
+                    // Replace single newlines with <br> within paragraphs
+                    return `<p>${escapeHtml(trimmed).replace(/\n/g, '<br>')}</p>`;
+                }).join('\n                        ');
+            }
+            
+            /**
+             * Render announcements to the page
+             */
+            function renderAnnouncements(announcements) {
+                const feed = document.getElementById('announcements-feed');
+                if (!feed) return;
+                
+                if (!announcements || announcements.length === 0) {
+                    feed.innerHTML = '<div class="empty-state" style="text-align: center; color: var(--color-text-dim); padding: 40px;">No announcements yet.</div>';
+                    return;
+                }
+                
+                // Sort by timestamp descending (newest first)
+                const sorted = [...announcements].sort((a, b) => b.timestamp - a.timestamp);
+                
+                feed.innerHTML = sorted.map(announcement => `
+                <article class="announcement" aria-label="Announcement by ${escapeHtml(announcement.author)}">
+                    <div class="announcement-meta">
+                        <div class="announcement-meta-line">${formatDate(announcement.timestamp)} <span class="announcement-clan">[CxN]</span> ${escapeHtml(announcement.author)}</div>
+                    </div>
+                    <div class="announcement-body">
+                        ${textToHtml(announcement.content)}
+                    </div>
+                </article>
+                `).join('\n                ');
+            }
+            
+            /**
+             * Initialize announcements page
+             */
+            async function init() {
+                // First check localStorage for announcements
+                let announcements = getAnnouncements();
+                
+                // If no localStorage data, load from file and seed localStorage
+                if (!announcements || announcements.length === 0) {
+                    announcements = await loadAnnouncementsFromFile();
+                    if (announcements.length > 0) {
+                        localStorage.setItem(ANNOUNCEMENTS_KEY, JSON.stringify(announcements));
+                    }
+                }
+                
+                renderAnnouncements(announcements);
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
 </body>
 </html>
