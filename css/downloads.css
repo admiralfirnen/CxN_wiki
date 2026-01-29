@@ -1,0 +1,116 @@
+/* Downloads page - gallery with download buttons */
+
+.downloads-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.downloads-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 2rem;
+}
+
+.download-card {
+    background: var(--gradient-stone);
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.download-card:hover {
+    border-color: rgba(212, 165, 116, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 165, 116, 0.15);
+}
+
+.download-card-preview {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    display: block;
+}
+
+.download-card-preview.file-icon {
+    padding: 2rem;
+    background: rgba(212, 165, 116, 0.08);
+    font-size: 4rem;
+    line-height: 1;
+    text-align: center;
+    color: var(--color-gold);
+}
+
+.download-card-body {
+    padding: 1rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.download-card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.download-card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: rgba(212, 165, 116, 0.15);
+    border: 2px solid var(--color-border-gold);
+    border-radius: 8px;
+    color: var(--color-gold);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background: rgba(212, 165, 116, 0.3);
+    border-color: var(--color-gold-light);
+    color: var(--color-gold-light);
+}
+
+.downloads-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--color-text-dim);
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border: 2px dashed rgba(212, 165, 116, 0.25);
+}
+
+@media (max-width: 768px) {
+    .downloads-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

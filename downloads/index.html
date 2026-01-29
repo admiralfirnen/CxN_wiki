@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/downloads.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Downloads</h1>
+
+        <article class="strategy-entry">
+            <div class="entry-content">
+                <p class="downloads-intro">View and download images, files, and resources. Click <strong>Download</strong> on any item to save it to your device.</p>
+
+                <div id="downloads-gallery" class="downloads-gallery"></div>
+            </div>
+        </article>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script>
+        (function() {
+            const gallery = document.getElementById('downloads-gallery');
+            if (!gallery) return;
+
+            const basePath = document.querySelector('script[src*="nav.js"]') ? (window.CxNWiki && window.CxNWiki.getBasePath ? window.CxNWiki.getBasePath() : '../') : '../';
+            const dataPath = basePath + 'data/downloads.json';
+
+            fetch(dataPath)
+                .then(function(r) { return r.ok ? r.json() : []; })
+                .catch(function() { return []; })
+                .then(function(items) {
+                    if (!items || items.length === 0) {
+                        gallery.innerHTML = '<p class="downloads-empty">No downloads yet. Add entries to <code>data/downloads.json</code> to show files and images here.</p>';
+                        return;
+                    }
+                    gallery.innerHTML = items.map(function(item) {
+                        var title = item.title || 'Download';
+                        var filePath = item.file || '#';
+                        var file = filePath.indexOf('../') === 0 || filePath.indexOf('http') === 0 ? filePath : basePath + filePath;
+                        var thumbPath = item.thumbnail != null ? item.thumbnail : (isImageFile(filePath) ? filePath : null);
+                        var thumb = thumbPath ? (thumbPath.indexOf('../') === 0 || thumbPath.indexOf('http') === 0 ? thumbPath : basePath + thumbPath) : null;
+                        var desc = item.description || '';
+                        var isImg = thumb && isImageFile(filePath);
+                        var preview = isImg
+                            ? '<img src="' + thumb + '" alt="" class="download-card-preview" loading="lazy">'
+                            : '<div class="download-card-preview file-icon" aria-hidden="true">&#128196;</div>';
+                        return '<div class="download-card">' +
+                            preview +
+                            '<div class="download-card-body">' +
+                            '<h3 class="download-card-title">' + escapeHtml(title) + '</h3>' +
+                            (desc ? '<p class="download-card-desc">' + escapeHtml(desc) + '</p>' : '') +
+                            '<a href="' + file + '" download class="download-btn">Download</a>' +
+                            '</div></div>';
+                    }).join('');
+                });
+
+            function isImageFile(path) {
+                if (!path) return false;
+                var p = path.toLowerCase();
+                return /\.(jpe?g|png|gif|webp|svg|bmp)(\?|$)/i.test(p);
+            }
+            function escapeHtml(s) {
+                var div = document.createElement('div');
+                div.textContent = s;
+                return div.innerHTML;
+            }
+        })();
+    </script>
+</body>
+</html>

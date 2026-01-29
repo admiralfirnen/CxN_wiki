@@ -11,11 +11,10 @@
   "navigation": [
     { "href": "about/index.html", "text": "About", "id": "about" },
     { "href": "strategy/index.html", "text": "Strategy", "id": "strategy" },
-    { "href": "faq/index.html", "text": "FAQ", "id": "faq" },
     { "href": "announcements/index.html", "text": "Announcements", "id": "announcements" },
     { "href": "tools/index.html", "text": "Tools", "id": "tools" },
+    { "href": "downloads/index.html", "text": "Downloads", "id": "downloads" },
     { "href": "roe/index.html", "text": "ROE", "id": "roe" },
-    { "href": "trophy-room/index.html", "text": "Trophy Room", "id": "trophy-room" },
-    { "href": "admin/index.html", "text": "Admin", "id": "admin" }
+    { "href": "trophy-room/index.html", "text": "Trophy Room", "id": "trophy-room" }
   ]
 }

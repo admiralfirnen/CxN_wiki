@@ -676,6 +676,17 @@ body::before {
     font-size: 0.9rem;
 }
 
+.footer-admin-link {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 0.9rem;
+}
+
+.footer-admin-link:hover {
+    color: var(--color-link-hover);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-wrapper {

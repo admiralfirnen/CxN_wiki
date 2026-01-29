@@ -22,7 +22,7 @@
         const path = window.location.pathname;
         
         // Check if we're in a subdirectory by looking for known section paths
-        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'roe', 'trophy-room', 'admin'];
+        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'downloads', 'roe', 'trophy-room', 'admin'];
         for (const section of sections) {
             if (path.includes('/' + section + '/')) {
                 return '../';
@@ -64,14 +64,14 @@
     </div>`;
     }
 
-    // Generate footer HTML
-    function generateFooterHTML(config) {
+    // Generate footer HTML (basePath for Admin link)
+    function generateFooterHTML(basePath, config) {
         const currentYear = new Date().getFullYear();
         const yearDisplay = config.copyright.startYear === currentYear 
             ? currentYear 
             : `${config.copyright.startYear}-${currentYear}`;
         return `
-    <p class="footer-text">${config.copyright.holder} &copy; ${yearDisplay} | ${config.copyright.suffix}</p>`;
+    <p class="footer-text">${config.copyright.holder} &copy; ${yearDisplay} | ${config.copyright.suffix} | <a href="${basePath}admin/index.html" class="footer-admin-link">Admin</a></p>`;
     }
 
     // Load site configuration and initialize
@@ -105,7 +105,7 @@
         const footerContainer = document.getElementById('main-footer');
         if (footerContainer) {
             footerContainer.className = 'footer';
-            footerContainer.innerHTML = generateFooterHTML(config);
+            footerContainer.innerHTML = generateFooterHTML(basePath, config);
         }
     }
 
@@ -119,12 +119,11 @@
             navigation: [
                 { href: 'about/index.html', text: 'About', id: 'about' },
                 { href: 'strategy/index.html', text: 'Strategy', id: 'strategy' },
-                { href: 'faq/index.html', text: 'FAQ', id: 'faq' },
                 { href: 'announcements/index.html', text: 'Announcements', id: 'announcements' },
                 { href: 'tools/index.html', text: 'Tools', id: 'tools' },
+                { href: 'downloads/index.html', text: 'Downloads', id: 'downloads' },
                 { href: 'roe/index.html', text: 'ROE', id: 'roe' },
-                { href: 'trophy-room/index.html', text: 'Trophy Room', id: 'trophy-room' },
-                { href: 'admin/index.html', text: 'Admin', id: 'admin' }
+                { href: 'trophy-room/index.html', text: 'Trophy Room', id: 'trophy-room' }
             ],
             copyright: {
                 holder: 'CxN Clan Wiki',
