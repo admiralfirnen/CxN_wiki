@@ -7,6 +7,134 @@
     padding: 20px 0;
 }
 
+/* Wiki Sections - Main content blocks */
+.wiki-section {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+}
+
+.wiki-section:last-of-type {
+    border-bottom: none;
+}
+
+/* Main Section Headings (h2) */
+.wiki-article h2,
+.wiki-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    margin: 0 0 24px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+    text-shadow: var(--shadow-text), 0 0 20px rgba(212, 165, 116, 0.3);
+}
+
+/* Sub-Section Headings (h3) */
+.wiki-article h3,
+.wiki-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    color: var(--color-gold-light);
+    margin: 28px 0 16px 0;
+    text-shadow: var(--shadow-text);
+}
+
+.wiki-section h3:first-of-type {
+    margin-top: 0;
+}
+
+/* Minor Headings (h4) */
+.wiki-article h4,
+.wiki-section h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 20px 0 12px 0;
+    font-weight: 600;
+}
+
+/* Paragraphs */
+.wiki-article p,
+.wiki-section p {
+    margin-bottom: 16px;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+/* Lists */
+.wiki-article ul,
+.wiki-article ol,
+.wiki-section ul,
+.wiki-section ol {
+    margin: 16px 0 20px 24px;
+    line-height: 1.8;
+}
+
+.wiki-article li,
+.wiki-section li {
+    margin-bottom: 10px;
+    padding-left: 8px;
+}
+
+/* Nested lists */
+.wiki-article ul ul,
+.wiki-article ol ul,
+.wiki-section ul ul,
+.wiki-section ol ul {
+    margin: 10px 0 10px 20px;
+}
+
+.wiki-article ul ul li,
+.wiki-section ul ul li {
+    margin-bottom: 6px;
+}
+
+/* Ordered lists */
+.wiki-article ol,
+.wiki-section ol {
+    counter-reset: item;
+    list-style: none;
+}
+
+.wiki-article ol > li,
+.wiki-section ol > li {
+    counter-increment: item;
+    position: relative;
+}
+
+.wiki-article ol > li::before,
+.wiki-section ol > li::before {
+    content: counter(item) ".";
+    color: var(--color-gold);
+    font-weight: 600;
+    position: absolute;
+    left: -28px;
+}
+
+/* Note/Warning callouts */
+.wiki-note {
+    background: rgba(234, 179, 8, 0.1);
+    border-left: 4px solid #eab308;
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+}
+
+/* Emphasis styling */
+.wiki-article strong,
+.wiki-section strong {
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.wiki-article em,
+.wiki-section em {
+    color: var(--color-gold-light);
+    font-style: italic;
+}
+
 /* Article Header */
 .article-header {
     margin-bottom: 30px;

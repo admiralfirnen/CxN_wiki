@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <div class="admin-header">
+            <h1 class="clan-name" style="font-size: 2.5rem;">Admin Dashboard</h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </div>
+        
+        <div class="admin-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <h3>Admin Menu</h3>
+                <nav class="admin-nav">
+                    <a href="dashboard.html" class="admin-nav-link active">Dashboard</a>
+                    <a href="announcements.html" class="admin-nav-link">Announcements</a>
+                    <a href="about.html" class="admin-nav-link">Update About</a>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="admin-content">
+                <div class="panel-section">
+                    <div class="admin-welcome">
+                        <h2>Welcome to CxN Admin</h2>
+                        <p>Select a function from the menu on the left to manage your wiki content.</p>
+                        
+                        <div class="admin-quick-links">
+                            <a href="announcements.html" class="admin-quick-link">
+                                <span class="icon">📢</span>
+                                <span class="label">Announcements</span>
+                            </a>
+                            <a href="about.html" class="admin-quick-link">
+                                <span class="icon">📊</span>
+                                <span class="label">Update About</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CxNAdmin.initAdminPage();
+        });
+    </script>
+</body>
+</html>

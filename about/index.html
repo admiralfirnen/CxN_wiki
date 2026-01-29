@@ -18,13 +18,13 @@
             <div class="clan-stat">
                 <div>
                     <span class="clan-stat-label">Might</span>
-                    <div class="clan-stat-value formatted">1,047,097,604</div>
+                    <div id="stat-might" class="clan-stat-value formatted">Loading...</div>
                 </div>
             </div>
             <div class="clan-stat">
                 <div>
                     <span class="clan-stat-label">Wealth</span>
-                    <div class="clan-stat-value formatted">78,277,614</div>
+                    <div id="stat-wealth" class="clan-stat-value formatted">Loading...</div>
                 </div>
             </div>
             <div class="clan-stat">
@@ -206,6 +206,65 @@
                 });
             }
         });
+    </script>
+    <script>
+        // Load clan stats dynamically
+        (function() {
+            'use strict';
+            
+            const STATS_KEY = 'cxn_clan_stats';
+            
+            function formatNumber(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+            
+            function getStats() {
+                try {
+                    const data = localStorage.getItem(STATS_KEY);
+                    return data ? JSON.parse(data) : null;
+                } catch (e) {
+                    return null;
+                }
+            }
+            
+            async function loadStatsFromFile() {
+                try {
+                    const response = await fetch('../data/clan_stats.json');
+                    if (!response.ok) throw new Error('Failed to load');
+                    return await response.json();
+                } catch (e) {
+                    console.error('Error loading clan stats:', e);
+                    return { might: 0, wealth: 0 };
+                }
+            }
+            
+            async function init() {
+                let stats = getStats();
+                
+                if (!stats) {
+                    stats = await loadStatsFromFile();
+                    if (stats) {
+                        localStorage.setItem(STATS_KEY, JSON.stringify(stats));
+                    }
+                }
+                
+                const mightEl = document.getElementById('stat-might');
+                const wealthEl = document.getElementById('stat-wealth');
+                
+                if (mightEl && stats.might) {
+                    mightEl.textContent = formatNumber(stats.might);
+                }
+                if (wealthEl && stats.wealth) {
+                    wealthEl.textContent = formatNumber(stats.wealth);
+                }
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>
