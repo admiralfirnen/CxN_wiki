@@ -1,0 +1,150 @@
+Kingdom 277 Rules of Engagement (ROE)
+
+These Rules of Engagement define how players and clans must interact
+within Kingdom 277. They are based on historical Palace rules and Senate
+voting. Acceptance of ROE implies acceptance of Court authority and
+enforcement including enforcement by Royal Guard
+
+------------------------------------------------------------------------
+
+1.  ROE Protection
+
+1.1 Protected Players and Clans - ROE protects players who belong to
+clans that explicitly state in their clan description that they follow
+K277 ROE. - Clanless players and non-ROE clans are NOT protected (except where provisioned by IKFPA) -
+Non-ROE players and clans above 100,000 might may be attacked at any time, including outside
+Clash of Thrones (CoT).
+
+1.2 ROE Council and Senate - The Council consists of the Top 100 players
+from the previous CoT round. - Members include clan leaders, clan
+members, Palace officials, and Royal Guard (RG). - New ROE amendments
+may be proposed and voted on by the Senate upon request by the King.
+
+------------------------------------------------------------------------
+
+2.  Taxes and Kingdom Contributions
+
+2.1 Gold Ingots - Gold Ingots stored in a city’s Capitol contribute to
+kingdom-wide bonuses. - All players are required to pay taxes to support
+kingdom growth. - Gold Ingots do not benefit individual cities — taxes
+benefit the entire kingdom.
+
+2.2 Royal Guard (RG) Royal Guard responsibilities include: - Scanning
+the kingdom map - Organizing players into training groups - Monitoring
+DM/WS chat and resolving false claims - Enforcing tax collection if a
+player/clan is unresponsive after 24 hours
+
+2.3 Ingot Tax Levels Level 1–19: 10,000 Ingots Level 20–29: 25,000
+Ingots Level 30–39: 45,000 Ingots Level 40+: 80,000 Ingots
+
+------------------------------------------------------------------------
+
+3.  Resources
+
+3.1 Dragon Mounds (DM) & Wellspring Ruins (WS) - 1 DM and 1 WS per
+player per 24 hours - Registration is REQUIRED before marching (K277DM /
+K277WS chat) - If not claimed within 15 minutes, a new registrant may
+claim it - Unregistered or incorrect claims will be cleared by Royal
+Guard - DM/WS inside clan territory require no registration
+
+IMPORTANT: No Gold Rush or Silver Rush unless authorized by Palace.
+
+3.2 Attacks on DM/WS — Strike System Strike 1: 2M Silver + 2 Silver per
+CP earned Strike 2: 3M Silver + 5 Silver per CP earned Strike 3:
+Outlawed; banned from DM/WS until Court approves appeal
+
+3.3 Resources in Clan Territory (RSS) - ALL RSS inside clan territory
+belong to the clan - Unauthorized players may be forcefully removed
+without compensation
+
+3.4 Wild Resources First come, first served
+
+3.5 Player-Made Resources - Only the creator may use player-made RSS -
+Applies inside or outside clan territory
+
+3.6 Player-Made Events Belong to the clan that created them or nearest
+clan if outside territory
+
+3.7 Monsters, Epics, Arenas, Citadels, Crypts - Not considered RSS -
+Rare crypts opened by key belong to the player who opens them
+
+------------------------------------------------------------------------
+
+4.  Portals (Integrated Amendment)
+
+Memorial portals are ALWAYS off limits
+
+4.1 Portals During Peacetime - Epic and DM/WS portals off limits unless
+proven hostile - Clan territory portals ALWAYS off limits
+
+4.2 Portals During Clash of Thrones (CoT) - Clan portals off limits -
+All others are valid PvP targets
+
+4.3 Wrongfully Closed Portal Compensation 10M Silver per portal
+
+4.4 Hostile Portal Rules - Hostile portals may be destroyed ONLY with
+proof - Attacks on non-ROE players do NOT count as hostile
+
+------------------------------------------------------------------------
+
+5.  Court, Violations, and Outlaws
+
+5.1 Dispute Resolution Order 1. Player vs Player 2. Player vs Diplomat /
+Clan Leader 3. Diplomat vs Diplomat 4. Conflict Chat & Court
+
+Non-ROE players cannot file cases.
+
+5.2 Court Authority - Judges appointed by King and Chancellor - Appeals
+allowed within 24 hours - Rulings remain active during appeals
+
+5.3 Outlaw Status Causes: - ROE violations or refusal to pay
+compensation - Harassment or hostile acts - Illegal clan building
+attacks - Severe violations
+
+Consequences: - Loss of ROE protection - Open to attack - Clans
+sheltering outlaws risk outlaw status
+
+5.4 Players Below 100K Might - Attacks on sub-100K players are ALWAYS
+prohibited - During CoT, sub-100K may fight only among themselves -
+Third violation = OUTLAW
+
+5.5 Clan Buildings - Attacks ALWAYS prohibited - Any attack = IMMEDIATE
+OUTLAW
+
+------------------------------------------------------------------------
+
+6.  Compensation Chart
+
+6.1 Unit Losses Captains: 2,000 Silver per level Heroes: 3,000 Silver
+per level
+
+Guards & Soldiers: G1/S1: 50 G2/S2: 80 G3/S3: 110 G4/S4: 140 G5/S5: 200
+G6/S6: 300 G7/S7: 400 G8/S8: 800 G9/S9: 1,000 G10/S10: 2,000
+
+Engineers: E1: 3,000 E2: 5,000 E3: 8,000 E4: 12,000 E5: 20,000
+
+Monsters: M3: 2,600 M4: 4,800 M5: 7,000 M6: 9,600 M7: 14,000
+
+Mercenaries: 1,000 per unit
+
+Clan Buildings: Stronghold: 500,000 Main Stand: 1,000,000
+
+6.2 Resource Loss Compensation - 100,000 Silver per RSS type per battle
+report - Silver stolen = 1:1 replacement - Gold/Tar = 1,000 Silver per
+500 Gold/Tar - DM/WS uses Strike System - +25 Silver per CP earned
+
+Failure to pay may result in OUTLAW
+
+------------------------------------------------------------------------
+
+7.  Clash of Thrones (CoT) Rules
+
+-   Players below 100K cannot be attacked by players above 100K
+-   Clan buildings are ALWAYS off limits
+-   DM/WS registration rules remain active
+-   All portals OTHER THAN MEMORIAL PORTALS are valid targets. Memorial portals are always off limits
+-   Senate voting with Faron is FORBIDDEN
+
+------------------------------------------------------------------------
+
+In-Game K277 Reference "K277_ROE_READ_ONLY"

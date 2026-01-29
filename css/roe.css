@@ -1,0 +1,173 @@
+/* ROE (Rules of Engagement) page - Kingdom 277 */
+
+.roe-intro {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.roe-intro p {
+    margin-bottom: 1rem;
+}
+
+.roe-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.roe-section {
+    margin: 2.5rem 0;
+}
+
+.roe-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border-gold);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.roe-subsection-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-gold-light);
+    margin: 1.25rem 0 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.roe-section p,
+.roe-subsection p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-text);
+    margin-bottom: 0.85rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.roe-section p:last-child,
+.roe-subsection p:last-child {
+    margin-bottom: 0;
+}
+
+.roe-section ul,
+.roe-subsection ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.roe-section ul li,
+.roe-subsection ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.roe-section ul li::before,
+.roe-subsection ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.roe-callout {
+    margin: 1.25rem 0;
+    padding: 1rem 1.25rem;
+    background: rgba(212, 165, 116, 0.1);
+    border-left: 4px solid var(--color-border-gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.75;
+    color: var(--color-gold-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.roe-callout.imminent {
+    background: rgba(139, 38, 53, 0.15);
+    border-left-color: var(--color-burgundy);
+    color: var(--color-text);
+}
+
+.roe-table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.roe-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: var(--gradient-stone);
+}
+
+.roe-table th,
+.roe-table td {
+    padding: 0.65rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+    color: var(--color-text);
+    vertical-align: middle;
+}
+
+.roe-table th {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: var(--color-gold);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.roe-table tbody tr:hover {
+    background: rgba(212, 165, 116, 0.06);
+}
+
+.roe-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.roe-reference {
+    margin-top: 2.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.roe-reference strong {
+    color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+    .roe-section-title {
+        font-size: 1.3rem;
+    }
+
+    .roe-subsection-title {
+        font-size: 1.05rem;
+    }
+
+    .roe-table {
+        font-size: 0.88rem;
+    }
+
+    .roe-table th,
+    .roe-table td {
+        padding: 0.5rem 0.75rem;
+    }
+}
