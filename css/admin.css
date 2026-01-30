@@ -651,3 +651,387 @@
     font-family: 'Cinzel', serif;
     font-size: 1rem;
 }
+
+/* ==========================================
+   CLAN MEMBERS MANAGEMENT STYLES
+   ========================================== */
+
+/* Member Form */
+.member-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.member-form .form-group select {
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    background: rgba(25, 45, 50, 0.8);
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-form .form-group select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.3);
+}
+
+.member-form .form-group select option {
+    background: #1a2f35;
+    color: var(--color-text);
+}
+
+/* Members Filter */
+.members-filter {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.member-search-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    background: rgba(25, 45, 50, 0.8);
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    border-radius: 8px;
+    color: var(--color-text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-search-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.3);
+}
+
+.member-search-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.rank-filter-select {
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    background: rgba(25, 45, 50, 0.8);
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.rank-filter-select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.rank-filter-select option {
+    background: #1a2f35;
+    color: var(--color-text);
+}
+
+/* Members Admin Container */
+.members-admin-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Rank Group */
+.rank-group {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.rank-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(212, 165, 116, 0.08);
+    border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+}
+
+.rank-group-title {
+    color: var(--color-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: var(--shadow-text);
+    margin: 0;
+}
+
+.rank-group-title.leader { color: #ffd700; }
+.rank-group-title.superiors { color: #c084fc; }
+.rank-group-title.officers { color: #60a5fa; }
+.rank-group-title.veterans { color: #4ade80; }
+.rank-group-title.soldiers { color: var(--color-gold-light); }
+
+.rank-group-count {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.rank-group-members {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Member Item */
+.member-admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.member-admin-item:hover {
+    border-color: rgba(212, 165, 116, 0.35);
+    background: rgba(212, 165, 116, 0.05);
+}
+
+.member-admin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.member-admin-name {
+    color: var(--color-text);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.member-admin-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.member-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(212, 165, 116, 0.15);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: var(--color-gold-light);
+}
+
+.member-badge .badge-star {
+    color: var(--color-gold);
+    font-size: 0.7rem;
+}
+
+.member-badge .remove-badge {
+    margin-left: 4px;
+    color: rgba(255, 107, 107, 0.8);
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.member-badge .remove-badge:hover {
+    color: #ff6b6b;
+}
+
+.member-admin-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.member-admin-actions button {
+    padding: 6px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.member-admin-actions .edit-btn {
+    color: var(--color-primary);
+    background: var(--gradient-brass);
+}
+
+.member-admin-actions .delete-btn {
+    color: var(--color-text);
+    background: var(--gradient-burgundy);
+}
+
+.member-admin-actions button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a2f35 0%, #0d1a1f 100%);
+    border: 2px solid rgba(212, 165, 116, 0.4);
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+    color: var(--color-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    text-shadow: var(--shadow-text), var(--shadow-gold);
+}
+
+.modal-content .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group label {
+    display: block;
+    color: var(--color-gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-shadow: var(--shadow-text);
+}
+
+.modal-content .form-group input,
+.modal-content .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    background: rgba(25, 45, 50, 0.8);
+    border: 2px solid rgba(212, 165, 116, 0.3);
+    border-radius: 8px;
+    color: var(--color-text);
+}
+
+.modal-content .form-group input:focus,
+.modal-content .form-group select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.3);
+}
+
+.modal-content .form-group select option {
+    background: #1a2f35;
+    color: var(--color-text);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-actions .save-btn {
+    color: var(--color-primary);
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.modal-actions .cancel-btn {
+    color: var(--color-text);
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.modal-actions button:hover {
+    transform: translateY(-2px);
+}
+
+/* Empty rank group */
+.rank-group-empty {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Responsive adjustments for members admin */
+@media (max-width: 768px) {
+    .members-filter {
+        flex-direction: column;
+    }
+
+    .rank-filter-select {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .member-admin-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .member-admin-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
