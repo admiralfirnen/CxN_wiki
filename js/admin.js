@@ -3,21 +3,21 @@
  * 
  * Handles authentication and announcements management.
  * 
- * SECURITY NOTE: This uses obfuscated credentials for a shared admin account.
- * This is NOT secure for sensitive data - it's designed for a collaborative
- * wiki where multiple trusted users share access.
+ * SECURITY NOTE: This uses SHA-256 hashed credentials for a shared admin account.
+ * While more secure than plain text, client-side authentication has inherent
+ * limitations. This is designed for a collaborative wiki where multiple 
+ * trusted users share access.
  */
 
 (function() {
     'use strict';
 
-    // Obfuscated credentials (ROT13 + Base64 encoded)
-    // This is intentionally NOT secure cryptography - just obscured from casual viewing
+    // Hashed credentials - password is stored as SHA-256 hash
+    // The actual password is NOT stored in this file
     const AUTH_DATA = {
-        // 'admin' encoded
-        u: 'bnF6dmE=',
-        // 'ppxsucks' encoded  
-        p: 'Y2NrZmhweGY='
+        username: 'admin',
+        // SHA-256 hash of the password (not reversible)
+        passwordHash: '20ac3ce9514025543ad5723e09256a83657fd69b680a0e7f51c8e7f8cb07e2ec'
     };
 
     // Session key for localStorage
@@ -46,42 +46,23 @@
     const RANK_ORDER = ['leader', 'superiors', 'officers', 'veterans', 'soldiers'];
 
     /**
-     * Simple decode function (reverse of encoding)
-     * ROT13 + Base64
+     * Compute SHA-256 hash of a string
+     * Uses the Web Crypto API for secure hashing
      */
-    function decode(encoded) {
-        // Base64 decode
-        const decoded = atob(encoded);
-        // ROT13 decode
-        return decoded.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode(
-                (c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26
-            );
-        });
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
     }
 
     /**
-     * Encode function for reference (used to generate the encoded values above)
-     * ROT13 + Base64
+     * Validate credentials using SHA-256 hash comparison
      */
-    function encode(plain) {
-        // ROT13 encode
-        const rot13 = plain.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode(
-                (c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26
-            );
-        });
-        // Base64 encode
-        return btoa(rot13);
-    }
-
-    /**
-     * Validate credentials
-     */
-    function validateCredentials(username, password) {
-        const validUser = decode(AUTH_DATA.u);
-        const validPass = decode(AUTH_DATA.p);
-        return username === validUser && password === validPass;
+    async function validateCredentials(username, password) {
+        const passwordHash = await sha256(password);
+        return username === AUTH_DATA.username && passwordHash === AUTH_DATA.passwordHash;
     }
 
     /**
@@ -126,14 +107,14 @@
     /**
      * Handle login form submission
      */
-    function handleLogin(event) {
+    async function handleLogin(event) {
         event.preventDefault();
         
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value;
         const errorEl = document.getElementById('login-error');
         
-        if (validateCredentials(username, password)) {
+        if (await validateCredentials(username, password)) {
             createSession();
             window.location.href = 'dashboard.html';
         } else {
