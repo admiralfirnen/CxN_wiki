@@ -69,8 +69,8 @@ function renderUnitSelection() {
                     <div class="units-grid">
             `;
             
-            // Sort units by strength (smallest to largest)
-            const sortedUnits = [...category.units].sort((a, b) => a.strength - b.strength);
+            // Sort units by tier descending (highest tier first)
+            const sortedUnits = [...category.units].sort((a, b) => b.tier - a.tier);
             
             sortedUnits.forEach(unit => {
                 const unitId = `${groupKey}_${unit.id}`;
@@ -364,12 +364,16 @@ function generateBattlePlan() {
     const baseCount = parseInt(document.getElementById('base-count').value) || 50;
     const enemyStacks = parseInt(document.getElementById('enemy-stacks').value) || 4;
     const specialistAdj = parseInt(document.getElementById('specialist-adjustment').value) || 10;
+    const revivalReduction = parseFloat(document.getElementById('revival-reduction').value) || 1.00;
 
     // Calculate stack sizes for each selected unit
     const unitStacks = [];
     let totalTroops = 0;
     let totalStrength = 0;
     let totalHealth = 0;
+    let totalLeadership = 0;
+    let totalAuthority = 0;
+    let totalDominance = 0;
 
     selectedUnits.forEach((unit, unitId) => {
         const stackSize = calculateStackSize(unit, baseCount);
@@ -389,105 +393,77 @@ function generateBattlePlan() {
         totalTroops += total;
         totalStrength += strength;
         totalHealth += health;
+        
+        // Sum up resource usage
+        if (unit.leadership) totalLeadership += unit.leadership * total;
+        if (unit.authority) totalAuthority += unit.authority * total;
+        if (unit.dominance) totalDominance += unit.dominance * total;
     });
 
     // Sort by tier (highest first)
     unitStacks.sort((a, b) => b.tier - a.tier);
 
-    // Render results
-    renderResults(unitStacks, {
+    // Render results in modal
+    renderBattlePlanModal(unitStacks, {
         totalTroops,
         totalStrength,
         totalHealth,
+        totalLeadership,
+        totalAuthority,
+        totalDominance,
         enemyStacks,
-        baseCount
+        baseCount,
+        revivalReduction
     });
 
-    // Show results section
-    const resultsSection = document.getElementById('results-section');
-    resultsSection.style.display = 'block';
-    resultsSection.scrollIntoView({ behavior: 'smooth' });
+    // Show modal
+    openBattlePlanModal();
 }
 
 /**
- * Render battle plan results
+ * Render battle plan in the modal
  */
-function renderResults(unitStacks, summary) {
-    // Summary cards
-    const summaryEl = document.getElementById('results-summary');
-    summaryEl.innerHTML = `
-        <div class="summary-card">
-            <span class="summary-value">${formatNumber(summary.totalTroops)}</span>
-            <span class="summary-label">Total Troops</span>
-        </div>
-        <div class="summary-card">
-            <span class="summary-value">${formatNumber(summary.totalStrength)}</span>
-            <span class="summary-label">Total Strength</span>
-        </div>
-        <div class="summary-card">
-            <span class="summary-value">${formatNumber(summary.totalHealth)}</span>
-            <span class="summary-label">Total Health</span>
-        </div>
-        <div class="summary-card">
-            <span class="summary-value">${summary.enemyStacks}</span>
-            <span class="summary-label">Stacks</span>
-        </div>
-        <div class="summary-card">
-            <span class="summary-value">${summary.baseCount}</span>
-            <span class="summary-label">Base Count</span>
-        </div>
-    `;
-
-    // Stack breakdown
-    const stacksContainer = document.getElementById('stacks-container');
-    let stacksHtml = '';
+function renderBattlePlanModal(unitStacks, summary) {
+    // Calculate power score (simplified estimate)
+    const powerScore = Math.round(summary.totalStrength / 2300);
     
-    for (let i = 1; i <= summary.enemyStacks; i++) {
-        const stackTotal = unitStacks.reduce((sum, u) => sum + u.stackSize, 0);
-        
-        stacksHtml += `
-            <div class="stack-card">
-                <div class="stack-header">
-                    <span class="stack-number">Stack ${i}</span>
-                    <span class="stack-total">${formatNumber(stackTotal)} troops</span>
-                </div>
-                <div class="stack-units">
-        `;
-        
-        unitStacks.forEach(unit => {
-            stacksHtml += `
-                <div class="stack-unit">
-                    <span class="stack-unit-name">${unit.name}</span>
-                    <span class="stack-unit-count">${formatNumber(unit.stackSize)}</span>
-                </div>
-            `;
-        });
-        
-        stacksHtml += `
-                </div>
-            </div>
-        `;
-    }
+    // Calculate revival cost (gold) - simplified estimate
+    const baseRevivalCost = summary.totalTroops * 4; // base cost per troop
+    const revivalCost = Math.round(baseRevivalCost / summary.revivalReduction);
     
-    stacksContainer.innerHTML = stacksHtml;
+    // Update stat values
+    document.getElementById('stat-power').textContent = formatNumber(powerScore);
+    document.getElementById('stat-strength').textContent = formatLargeNumber(summary.totalStrength);
+    document.getElementById('stat-leadership').textContent = formatLargeNumber(summary.totalLeadership);
+    document.getElementById('stat-authority').textContent = formatNumber(summary.totalAuthority);
+    document.getElementById('stat-dominance').textContent = formatNumber(summary.totalDominance);
+    document.getElementById('stat-revival').textContent = formatLargeNumber(revivalCost);
+    
+    // Calculate rounds and hits (simplified estimates based on stacks)
+    const rounds = Math.ceil(summary.enemyStacks / 2);
+    const yourHitsMin = Math.floor(summary.enemyStacks * 4.5);
+    const yourHitsMax = summary.enemyStacks * 6;
+    const enemyHits = summary.enemyStacks * 3;
+    const totalHitsMin = yourHitsMin + enemyHits;
+    const totalHitsMax = yourHitsMax + enemyHits;
+    const rolePercent = ((yourHitsMin + yourHitsMax) / 2 / (totalHitsMin + totalHitsMax) * 100).toFixed(1);
+    
+    document.getElementById('stat-rounds').textContent = rounds;
+    document.getElementById('stat-your-hits').textContent = `${yourHitsMin} - ${yourHitsMax}`;
+    document.getElementById('stat-enemy-hits').textContent = enemyHits;
+    document.getElementById('stat-total-hits').textContent = `${totalHitsMin} - ${totalHitsMax}`;
+    document.getElementById('stat-role').textContent = `~${rolePercent}%`;
 
-    // Troops table - grouped by troop type and sorted by strength, then health ascending
-    const tbody = document.getElementById('troops-tbody');
-    let tableHtml = '';
+    // Build army list grouped by troop type
+    const armyListEl = document.getElementById('army-list');
     
     // Define group order and labels
-    const groupOrder = ['guardsmen', 'specialists', 'monsters', 'mercenaries'];
+    const groupOrder = ['mercenaries', 'monsters', 'guardsmen', 'specialists'];
     const groupLabels = {
-        guardsmen: 'Guardsmen',
+        guardsmen: 'Normal Troops',
         specialists: 'Specialists',
         monsters: 'Monsters',
         mercenaries: 'Mercenaries'
-    };
-    const groupIcons = {
-        guardsmen: '🛡️',
-        specialists: '⚔️',
-        monsters: '🐉',
-        mercenaries: '💎'
     };
     
     // Group units by troop type
@@ -500,73 +476,154 @@ function renderResults(unitStacks, summary) {
         groupedUnits[group].push(unit);
     });
     
-    // Helper function to extract base troop type from name (e.g., "Archer III" -> "Archer")
+    // Helper function to extract base troop type from name
     const getBaseTroopType = (name) => {
-        // Remove tier suffixes like " I", " II", " III", " IV", " V", " VI", " VII", " 1", " 2", etc.
         return name.replace(/\s+(I{1,3}|IV|VI{0,2}|V|[1-9])$/i, '').trim();
     };
     
-    // Sort each group by base troop type name, then by tier ascending
+    // Sort each group by base troop type name, then by tier descending (highest tier first)
     Object.keys(groupedUnits).forEach(group => {
         groupedUnits[group].sort((a, b) => {
-            // First sort by base troop type name
             const typeA = getBaseTroopType(a.name);
             const typeB = getBaseTroopType(b.name);
             if (typeA !== typeB) {
                 return typeA.localeCompare(typeB);
             }
-            // Then by tier ascending (I, II, III, etc.)
-            return a.tier - b.tier;
+            return b.tier - a.tier; // Higher tier first within same type
         });
     });
     
-    // Render groups in specified order
+    // Build HTML for army list
+    let armyHtml = '';
+    
     groupOrder.forEach(groupKey => {
         const units = groupedUnits[groupKey];
-        if (!units || units.length === 0) return; // Skip empty groups
+        if (!units || units.length === 0) return;
         
-        // Add group header row
-        tableHtml += `
-            <tr class="troop-group-header">
-                <td colspan="5">
-                    <span class="group-icon">${groupIcons[groupKey]}</span>
-                    <span class="group-label">${groupLabels[groupKey]}</span>
-                </td>
-            </tr>
+        armyHtml += `
+            <div class="army-group">
+                <h4 class="army-group-title">${groupLabels[groupKey]}</h4>
         `;
         
-        // Add units in this group
         units.forEach(unit => {
-            const typeIcon = getTypeIcon(unit.type || unit.groupKey);
-            tableHtml += `
-                <tr>
-                    <td>
-                        <div class="unit-name-cell">
-                            <span class="unit-type-icon">${typeIcon}</span>
-                            <span>${unit.name}</span>
+            const tierClass = getTierClass(groupKey);
+            const tierLabel = getTierLabel(unit.tier, groupKey);
+            
+            // Calculate per-unit stats
+            const unitHealth = formatNumber(unit.health / unit.total * unit.total);
+            const unitStrength = formatNumber(unit.strength / unit.total * unit.total);
+            
+            // Get the resource type and value for this unit
+            let resourceLabel = '';
+            let resourceValue = '';
+            if (unit.leadership) {
+                resourceLabel = 'Leadership';
+                resourceValue = formatNumber(unit.leadership);
+            } else if (unit.authority) {
+                resourceLabel = 'Authority';
+                resourceValue = formatNumber(unit.authority);
+            } else if (unit.dominance) {
+                resourceLabel = 'Dominance';
+                resourceValue = formatNumber(unit.dominance);
+            }
+            
+            armyHtml += `
+                <div class="army-unit">
+                    <div class="army-unit-info">
+                        <div class="army-unit-name">
+                            ${unit.name}
+                            <span class="army-unit-tier ${tierClass}">${tierLabel}</span>
                         </div>
-                    </td>
-                    <td>${formatNumber(unit.stackSize)}</td>
-                    <td>${formatNumber(unit.total)}</td>
-                    <td>${formatNumber(unit.strength)}</td>
-                    <td>${formatNumber(unit.health)}</td>
-                </tr>
+                        <div class="army-unit-stats">
+                            Health: ${formatNumber(unit.health)}&nbsp;&nbsp;Strength: ${formatNumber(unit.strength)}&nbsp;&nbsp;${resourceLabel}: ${resourceValue}
+                        </div>
+                    </div>
+                    <div class="army-unit-count">${formatNumber(unit.total)}</div>
+                </div>
             `;
         });
+        
+        armyHtml += `</div>`;
     });
-
-    // Add totals row
-    tableHtml += `
-        <tr style="font-weight: bold; background: rgba(212, 165, 116, 0.15);">
-            <td>Total</td>
-            <td>-</td>
-            <td>${formatNumber(summary.totalTroops)}</td>
-            <td>${formatNumber(summary.totalStrength)}</td>
-            <td>${formatNumber(summary.totalHealth)}</td>
-        </tr>
-    `;
     
-    tbody.innerHTML = tableHtml;
+    armyListEl.innerHTML = armyHtml;
+}
+
+/**
+ * Get tier class for styling
+ */
+function getTierClass(groupKey) {
+    const classes = {
+        guardsmen: 'tier-guardsmen',
+        specialists: 'tier-specialist',
+        mercenaries: 'tier-mercenary',
+        monsters: 'tier-monster'
+    };
+    return classes[groupKey] || 'tier-guardsmen';
+}
+
+/**
+ * Get tier label
+ */
+function getTierLabel(tier, groupKey) {
+    if (groupKey === 'mercenaries' || groupKey === 'monsters') {
+        return `T${tier}`;
+    }
+    // For guardsmen and specialists, use tier number with G prefix
+    return `G${tier}`;
+}
+
+/**
+ * Format large numbers with K, M suffixes
+ */
+function formatLargeNumber(num) {
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'k';
+    }
+    return formatNumber(num);
+}
+
+/**
+ * Open the battle plan modal
+ */
+function openBattlePlanModal() {
+    const modal = document.getElementById('battle-plan-modal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Close the battle plan modal
+ */
+function closeBattlePlanModal() {
+    const modal = document.getElementById('battle-plan-modal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('battle-plan-modal');
+    if (e.target === modal) {
+        closeBattlePlanModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeBattlePlanModal();
+    }
+});
+
+/**
+ * Render battle plan results (legacy - keeping for compatibility)
+ */
+function renderResults(unitStacks, summary) {
+    renderBattlePlanModal(unitStacks, summary);
+    openBattlePlanModal();
 }
 
 /**

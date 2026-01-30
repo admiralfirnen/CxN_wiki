@@ -1,0 +1,112 @@
+{
+  "leader": [
+    {
+      "name": "Nico MAJORJOHNSON95",
+      "badges": ["Clan Leader", "Clan Diplomat"]
+    }
+  ],
+  "superiors": [
+    {
+      "name": "Phoenix",
+      "badges": ["Tournament Coordinator"]
+    },
+    {
+      "name": "Billy Irish",
+      "badges": ["Chat Mediator", "Lead Recruiter"]
+    },
+    {
+      "name": "NERO",
+      "badges": []
+    },
+    {
+      "name": "Mave",
+      "badges": ["Co-Recruiter"]
+    },
+    {
+      "name": "Goramar",
+      "badges": ["Clan Raid Coordinator", "Lead Recruiter"]
+    },
+    {
+      "name": "RoseyxMini",
+      "badges": ["Clan Diplomat"]
+    }
+  ],
+  "officers": [
+    { "name": "Mazurr", "badges": [] },
+    { "name": "Goll", "badges": ["CoT Coordinator"] },
+    { "name": "KINGPIN", "badges": [] },
+    { "name": "Darloting", "badges": [] },
+    { "name": "ANKOU", "badges": ["Co-Recruiter"] },
+    { "name": "joro", "badges": [] },
+    { "name": "Bludbringer", "badges": [] },
+    { "name": "Beanara", "badges": [] },
+    { "name": "Tyler Durden", "badges": [] },
+    { "name": "Eydaen", "badges": [] },
+    { "name": "Akinobar", "badges": [] },
+    { "name": "Mebar", "badges": [] },
+    { "name": "Aeglinil", "badges": [] },
+    { "name": "Gagis", "badges": [] },
+    { "name": "Gunnelbrand", "badges": [] },
+    { "name": "Markimus", "badges": [] },
+    { "name": "Argolejl", "badges": [] },
+    { "name": "Thonrad", "badges": [] },
+    { "name": "Malann", "badges": [] },
+    { "name": "Levictus", "badges": [] },
+    { "name": "Cazurrin", "badges": [] },
+    { "name": "Gumby", "badges": [] },
+    { "name": "JaviviAstur", "badges": [] },
+    { "name": "Nizragore", "badges": [] },
+    { "name": "Ragekiller", "badges": [] },
+    { "name": "AdmiralFirnen", "badges": [] },
+    { "name": "RainDog", "badges": [] },
+    { "name": "SHAKDA", "badges": [] },
+    { "name": "Cameron of Lochaber", "badges": [] },
+    { "name": "Ildriilas", "badges": [] },
+    { "name": "victory", "badges": [] },
+    { "name": "Sir Zohran", "badges": [] },
+    { "name": "Mini Lil Egg", "badges": ["Clan Mascot"] }
+  ],
+  "veterans": [
+    { "name": "Alpshudor", "badges": [] },
+    { "name": "Gromitgirl", "badges": [] },
+    { "name": "Keleve", "badges": [] },
+    { "name": "Tedi1982", "badges": [] },
+    { "name": "Jos of Oz", "badges": [] },
+    { "name": "Mikajar", "badges": [] },
+    { "name": "Gova", "badges": [] },
+    { "name": "Kerodor", "badges": [] },
+    { "name": "Chazz", "badges": [] },
+    { "name": "Galbin", "badges": [] },
+    { "name": "Nimvening", "badges": [] },
+    { "name": "Tanos", "badges": [] },
+    { "name": "alghorabi", "badges": [] },
+    { "name": "Kelerne", "badges": [] },
+    { "name": "Rail", "badges": [] },
+    { "name": "Allegra", "badges": [] },
+    { "name": "Konstantin", "badges": [] },
+    { "name": "Nantrius", "badges": [] },
+    { "name": "Dein", "badges": [] },
+    { "name": "CintiHu", "badges": [] },
+    { "name": "Princess", "badges": [] },
+    { "name": "Paraoan Alicia", "badges": [] },
+    { "name": "Cogamand", "badges": [] },
+    { "name": "Kakazahn", "badges": [] },
+    { "name": "Melinad", "badges": [] },
+    { "name": "Kem", "badges": [] },
+    { "name": "SAXON", "badges": [] },
+    { "name": "Fotius", "badges": [] },
+    { "name": "Eldriilas", "badges": [] },
+    { "name": "Sedtis", "badges": [] },
+    { "name": "Lordisen", "badges": [] },
+    { "name": "Rarin", "badges": [] },
+    { "name": "Glelinin", "badges": [] },
+    { "name": "Rurin", "badges": [] },
+    { "name": "Dabei", "badges": [] },
+    { "name": "hesoyam", "badges": [] }
+  ],
+  "soldiers": [
+    { "name": "Khuzar", "badges": [] },
+    { "name": "Marafad", "badges": [] },
+    { "name": "Lindis", "badges": [] }
+  ]
+}
