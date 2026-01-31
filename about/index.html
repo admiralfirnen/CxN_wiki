@@ -30,6 +30,12 @@
             </div>
             <div class="clan-stat">
                 <div>
+                    <span class="clan-stat-label">Members</span>
+                    <div id="stat-members" class="clan-stat-value formatted">Loading...</div>
+                </div>
+            </div>
+            <div class="clan-stat">
+                <div>
                     <span class="clan-stat-label">Kingdom</span>
                     <div class="clan-stat-value">277</div>
                 </div>
@@ -75,14 +81,14 @@
     <script src="../js/auth.js"></script>
     <script src="../js/nav.js"></script>
     <script>
-        // Load clan members from JSON and render them
+        // Load clan members from JSON and render them, and update member count stat
         (function() {
             'use strict';
-            
+
             function createMemberTag(member) {
                 const span = document.createElement('span');
                 const hasBadges = member.badges && member.badges.length > 0;
-                
+
                 if (hasBadges) {
                     span.className = 'member-tag has-badge';
                     span.setAttribute('tabindex', '0');
@@ -95,20 +101,20 @@
                     span.className = 'member-tag';
                     span.textContent = member.name;
                 }
-                
+
                 return span;
             }
-            
+
             function renderMembers(members, containerId) {
                 const container = document.getElementById(containerId);
                 if (!container || !members) return;
-                
+
                 container.innerHTML = '';
                 members.forEach(member => {
                     container.appendChild(createMemberTag(member));
                 });
             }
-            
+
             function setupBadgeToggles() {
                 document.querySelectorAll('.member-tag.has-badge').forEach(function (el) {
                     el.addEventListener('click', function (e) {
@@ -125,13 +131,24 @@
                     });
                 });
             }
-            
+
+            function getTotalMemberCount(data) {
+                if (!data) return 0;
+                let total = 0;
+                ['leader', 'superiors', 'officers', 'veterans', 'soldiers'].forEach(rank => {
+                    if (Array.isArray(data[rank])) {
+                        total += data[rank].length;
+                    }
+                });
+                return total;
+            }
+
             async function loadClanMembers() {
                 try {
                     // First try to load from localStorage (admin-managed data)
                     const MEMBERS_KEY = 'cxn_clan_members';
                     let data = null;
-                    
+
                     try {
                         const stored = localStorage.getItem(MEMBERS_KEY);
                         if (stored) {
@@ -140,34 +157,41 @@
                     } catch (e) {
                         console.log('No localStorage data, falling back to file');
                     }
-                    
+
                     // Fall back to JSON file if no localStorage data
                     if (!data) {
                         const response = await fetch('../data/clan_members.json');
                         if (!response.ok) throw new Error('Failed to load clan members');
                         data = await response.json();
                     }
-                    
+
                     renderMembers(data.leader, 'members-leader');
                     renderMembers(data.superiors, 'members-superiors');
                     renderMembers(data.officers, 'members-officers');
                     renderMembers(data.veterans, 'members-veterans');
                     renderMembers(data.soldiers, 'members-soldiers');
-                    
+
+                    // Update member count stat
+                    const statMembers = document.getElementById('stat-members');
+                    if (statMembers) {
+                        const total = getTotalMemberCount(data);
+                        statMembers.textContent = `${total}/80`;
+                    }
+
                     // Setup badge toggles after rendering
                     setupBadgeToggles();
                 } catch (e) {
                     console.error('Error loading clan members:', e);
                 }
             }
-            
+
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', loadClanMembers);
             } else {
                 loadClanMembers();
             }
         })();
-        
+
         // Close badge tooltips when clicking outside
         document.addEventListener('click', function (e) {
             if (!e.target.closest('.member-tag.has-badge')) {

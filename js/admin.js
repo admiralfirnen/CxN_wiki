@@ -690,8 +690,24 @@
             return;
         }
 
+        // Calculate total member count (all ranks)
+        let totalCount = 0;
+        RANK_ORDER.forEach(rank => {
+            if (Array.isArray(members[rank])) {
+                totalCount += members[rank].length;
+            }
+        });
+
         const searchLower = searchTerm.toLowerCase();
         let html = '';
+
+        // Add header with total count, right-aligned
+        html += `
+            <div class="members-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 style="margin: 0; font-size: 2rem;">Clan Members</h2>
+                <span class="total-members-count" style="font-size: 1.1rem; color: #888; text-align: right;">Total: <strong>${totalCount}</strong></span>
+            </div>
+        `;
 
         RANK_ORDER.forEach(rank => {
             // Skip if filtering by rank and doesn't match
