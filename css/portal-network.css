@@ -110,7 +110,35 @@
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: auto;
+    cursor: default;
+}
+
+.portal-network-map-wrap #portalCanvas.portal-clickable {
+    cursor: pointer;
+}
+
+.portal-tooltip {
+    position: fixed;
+    z-index: 100;
+    padding: 0.5rem 0.75rem;
+    background: rgba(20, 30, 35, 0.98);
+    border: 2px solid var(--color-border-gold);
+    border-radius: 8px;
+    color: var(--color-gold);
+    font-family: ui-monospace, 'Consolas', monospace;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.portal-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .portal-network-calc-btn {

@@ -4,6 +4,7 @@ const canvas = document.getElementById('mapCanvas');
     const portalCtx = portalCanvas.getContext('2d');
     const statusDiv = document.getElementById('status');
     const calcBtn = document.getElementById('calcBtn');
+    const tooltipEl = document.getElementById('portal-tooltip');
     
     let img = new Image();
     let portalIcon = new Image();
@@ -289,3 +290,96 @@ const canvas = document.getElementById('mapCanvas');
             return `<span>${i + 1}. [X: ${xStr}, Y: ${yStr}]</span>`;
         }).join('');
     }
+
+    // --- 6. PORTAL TOOLTIP & CLICK-TO-COPY ---
+    const PORTAL_HIT_RADIUS = 45;
+
+    function getCanvasCoords(ev) {
+        const el = ev.currentTarget;
+        const rect = el.getBoundingClientRect();
+        const scaleX = el.width / rect.width;
+        const scaleY = el.height / rect.height;
+        return {
+            x: (ev.clientX - rect.left) * scaleX,
+            y: (ev.clientY - rect.top) * scaleY
+        };
+    }
+
+    function formatPortalLocation(normX, normY) {
+        const xStr = String(Math.min(1000, Math.max(0, normX))).padStart(3, '0');
+        const yStr = String(Math.min(1000, Math.max(0, normY))).padStart(3, '0');
+        return `[K:277 X:${xStr} Y:${yStr}]`;
+    }
+
+    function findPortalAt(cx, cy) {
+        if (!currentPortals.length) return null;
+        const w = canvas.width;
+        const h = canvas.height;
+        let best = null;
+        let bestD = PORTAL_HIT_RADIUS * PORTAL_HIT_RADIUS;
+        for (let i = 0; i < currentPortals.length; i++) {
+            const p = currentPortals[i];
+            const d = (p.x - cx) ** 2 + (p.y - cy) ** 2;
+            if (d < bestD) {
+                bestD = d;
+                const normX = Math.round((p.x / w) * 1000);
+                const normY = Math.round((p.y / h) * 1000);
+                best = { portal: p, index: i, normX, normY };
+            }
+        }
+        return best;
+    }
+
+    function showTooltip(text, portalCanvasX, portalCanvasY) {
+        if (!tooltipEl) return;
+        tooltipEl.textContent = text;
+        tooltipEl.classList.add('visible');
+        tooltipEl.setAttribute('aria-hidden', 'false');
+        const rect = portalCanvas.getBoundingClientRect();
+        const scaleX = rect.width / portalCanvas.width;
+        const scaleY = rect.height / portalCanvas.height;
+        const clientX = rect.left + portalCanvasX * scaleX;
+        const clientY = rect.top + portalCanvasY * scaleY;
+        tooltipEl.style.left = clientX + 'px';
+        tooltipEl.style.top = (clientY - 8) + 'px';
+        tooltipEl.style.transform = 'translate(-50%, -100%)';
+        portalCanvas.classList.add('portal-clickable');
+    }
+
+    function hideTooltip() {
+        if (!tooltipEl) return;
+        tooltipEl.classList.remove('visible');
+        tooltipEl.setAttribute('aria-hidden', 'true');
+        portalCanvas.classList.remove('portal-clickable');
+    }
+
+    portalCanvas.addEventListener('mousemove', (ev) => {
+        const { x: cx, y: cy } = getCanvasCoords(ev);
+        const hit = findPortalAt(cx, cy);
+        if (hit) {
+            const text = formatPortalLocation(hit.normX, hit.normY);
+            showTooltip(text, hit.portal.x, hit.portal.y);
+        } else {
+            hideTooltip();
+        }
+    });
+
+    portalCanvas.addEventListener('mouseleave', () => {
+        hideTooltip();
+    });
+
+    portalCanvas.addEventListener('click', (ev) => {
+        const { x: cx, y: cy } = getCanvasCoords(ev);
+        const hit = findPortalAt(cx, cy);
+        if (!hit) return;
+        const text = formatPortalLocation(hit.normX, hit.normY);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                if (tooltipEl) {
+                    tooltipEl.textContent = text + ' — Copied!';
+                }
+            }).catch(() => {});
+        } else {
+            if (tooltipEl) tooltipEl.textContent = text;
+        }
+    });
