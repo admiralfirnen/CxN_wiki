@@ -117,16 +117,16 @@
 /* Group Content */
 .group-content {
     padding: 15px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-/* Category within group */
+/* Category within group (now a column) */
 .unit-category {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
 }
 
 .category-header {
@@ -134,42 +134,42 @@
     align-items: center;
     gap: 8px;
     font-size: 0.95rem;
-    color: var(--color-text-dim);
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+    color: var(--color-text);
+    font-weight: 600;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.3);
 }
 
 .category-icon {
-    font-size: 1rem;
+    display: none;
 }
 
-/* Unit Checkboxes Grid */
+/* Unit Checkboxes - vertical list */
 .units-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .unit-checkbox {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    padding: 6px 4px;
+    background: transparent;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid transparent;
+    border: none;
 }
 
 .unit-checkbox:hover {
     background: rgba(212, 165, 116, 0.1);
-    border-color: rgba(212, 165, 116, 0.3);
 }
 
 .unit-checkbox.selected {
-    background: rgba(212, 165, 116, 0.2);
-    border-color: var(--color-gold);
+    background: rgba(212, 165, 116, 0.15);
 }
 
 .unit-checkbox input[type="checkbox"] {
@@ -211,10 +211,7 @@
 }
 
 .unit-checkbox .unit-tier {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    margin-left: auto;
-    flex-shrink: 0;
+    display: none;
 }
 
 /* Selection Actions */
@@ -733,7 +730,251 @@
     opacity: 1;
 }
 
+/* Battle Plan Modal */
+.battle-plan-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.battle-plan-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.battle-plan-modal-content {
+    background: #ffffff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Modal Header */
+.battle-plan-header {
+    background: #1e90ff;
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.battle-plan-title {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.battle-plan-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.battle-plan-close:hover {
+    opacity: 1;
+}
+
+/* Modal Body */
+.battle-plan-body {
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: #4ade80;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+}
+
+.stat-value {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Your Army Section */
+.your-army-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.your-army-title {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Army List */
+.army-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.army-group {
+    margin-bottom: 16px;
+}
+
+.army-group:last-child {
+    margin-bottom: 0;
+}
+
+.army-group-title {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+}
+
+.army-unit {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.army-unit:last-child {
+    border-bottom: none;
+}
+
+.army-unit-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.army-unit-name {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.army-unit-tier {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    background: #8b5cf6;
+    border-radius: 4px;
+    padding: 2px 6px;
+    min-width: 20px;
+}
+
+.army-unit-tier.tier-guardsmen {
+    background: #22c55e;
+}
+
+.army-unit-tier.tier-specialist {
+    background: #f97316;
+}
+
+.army-unit-tier.tier-mercenary {
+    background: #8b5cf6;
+}
+
+.army-unit-tier.tier-monster {
+    background: #ef4444;
+}
+
+.army-unit-stats {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+.army-unit-count {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    text-align: right;
+}
+
+/* Modal Footer */
+.battle-plan-footer {
+    padding: 16px 20px;
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.battle-plan-close-btn {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    background: #4b5563;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.battle-plan-close-btn:hover {
+    background: #374151;
+}
+
 /* Responsive Design */
+@media (max-width: 992px) {
+    .group-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .stack-calculator-wrapper {
         padding: 0 10px;
@@ -756,8 +997,8 @@
         width: 100%;
     }
 
-    .units-grid {
-        grid-template-columns: 1fr;
+    .group-content {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .generate-button {
@@ -781,6 +1022,57 @@
     .troops-table td {
         padding: 8px 10px;
     }
+
+    /* Battle Plan Modal responsive */
+    .battle-plan-modal {
+        padding: 10px;
+    }
+
+    .battle-plan-modal-content {
+        margin: 10px auto;
+        max-width: 100%;
+    }
+
+    .battle-plan-header {
+        padding: 16px 20px;
+    }
+
+    .battle-plan-title {
+        font-size: 1.3rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px 12px;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .your-army-title {
+        font-size: 1.25rem;
+    }
+
+    .army-group-title {
+        font-size: 1.1rem;
+    }
+
+    .army-unit-name {
+        font-size: 0.9rem;
+    }
+
+    .army-unit-stats {
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -792,11 +1084,35 @@
         font-size: 1rem;
     }
 
+    .group-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
     .unit-checkbox {
-        padding: 6px 10px;
+        padding: 4px 2px;
     }
 
     .unit-checkbox .unit-name {
         font-size: 0.85rem;
+    }
+
+    /* Battle Plan Modal small screen */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .army-unit {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .army-unit-count {
+        text-align: left;
+        font-weight: 600;
     }
 }

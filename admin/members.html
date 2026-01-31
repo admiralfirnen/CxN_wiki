@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Members - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <div class="admin-header">
+            <h1 class="clan-name" style="font-size: 2.5rem;">Manage Members</h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </div>
+        
+        <div class="admin-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <h3>Admin Menu</h3>
+                <nav class="admin-nav">
+                    <a href="dashboard.html" class="admin-nav-link">Dashboard</a>
+                    <a href="announcements.html" class="admin-nav-link">Announcements</a>
+                    <a href="about.html" class="admin-nav-link">Update About</a>
+                    <a href="members.html" class="admin-nav-link active">Manage Members</a>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="admin-content">
+                <div id="status-message" class="status-message"></div>
+                
+                <!-- Add New Member Section -->
+                <div class="panel-section">
+                    <h2>Add New Member</h2>
+                    <form id="add-member-form" class="member-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="member-name">Member Name</label>
+                                <input type="text" id="member-name" name="member-name" placeholder="Enter member name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="member-rank">Rank</label>
+                                <select id="member-rank" name="member-rank" required>
+                                    <option value="soldiers">Soldier</option>
+                                    <option value="veterans">Veteran</option>
+                                    <option value="officers">Officer</option>
+                                    <option value="superiors">Superior</option>
+                                    <option value="leader">Leader</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="member-badges">Badges (comma-separated)</label>
+                            <input type="text" id="member-badges" name="member-badges" placeholder="e.g., Clan Diplomat, Lead Recruiter">
+                        </div>
+                        <button type="submit" class="post-btn">Add Member</button>
+                    </form>
+                </div>
+
+                <!-- Members List Section -->
+                <div class="panel-section">
+                    <h2>Clan Members</h2>
+                    
+                    <!-- Search and Filter -->
+                    <div class="members-filter">
+                        <input type="text" id="member-search" placeholder="Search members..." class="member-search-input">
+                        <select id="rank-filter" class="rank-filter-select">
+                            <option value="all">All Ranks</option>
+                            <option value="leader">Leader</option>
+                            <option value="superiors">Superiors</option>
+                            <option value="officers">Officers</option>
+                            <option value="veterans">Veterans</option>
+                            <option value="soldiers">Soldiers</option>
+                        </select>
+                    </div>
+
+                    <!-- Members by Rank -->
+                    <div id="members-container" class="members-admin-container">
+                        <div class="loading-state">Loading members...</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Member Modal -->
+    <div id="edit-member-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Edit Member</h3>
+            <form id="edit-member-form">
+                <input type="hidden" id="edit-member-id">
+                <input type="hidden" id="edit-member-original-rank">
+                <div class="form-group">
+                    <label for="edit-member-name">Member Name</label>
+                    <input type="text" id="edit-member-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-member-rank">Rank</label>
+                    <select id="edit-member-rank" required>
+                        <option value="soldiers">Soldier</option>
+                        <option value="veterans">Veteran</option>
+                        <option value="officers">Officer</option>
+                        <option value="superiors">Superior</option>
+                        <option value="leader">Leader</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-member-badges">Badges (comma-separated)</label>
+                    <input type="text" id="edit-member-badges" placeholder="e.g., Clan Diplomat, Lead Recruiter">
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="save-btn">Save Changes</button>
+                    <button type="button" class="cancel-btn" onclick="CxNAdmin.closeEditModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CxNAdmin.initMembersPage();
+        });
+    </script>
+</body>
+</html>

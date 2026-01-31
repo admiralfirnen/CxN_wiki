@@ -194,45 +194,79 @@
                 </button>
             </div>
 
-            <!-- Results Section -->
-            <div class="calculator-section results-section" id="results-section" style="display: none;">
-                <div class="section-header">
-                    <h2 class="section-title">📋 Battle Plan</h2>
-                </div>
-                
-                <div class="results-summary" id="results-summary">
-                    <!-- Summary cards populated by JS -->
-                </div>
-
-                <div class="stack-breakdown" id="stack-breakdown">
-                    <h3 class="subsection-title">Stack Breakdown</h3>
-                    <div class="stacks-container" id="stacks-container">
-                        <!-- Stack cards populated by JS -->
+            <!-- Battle Plan Modal -->
+            <div class="battle-plan-modal" id="battle-plan-modal">
+                <div class="battle-plan-modal-content">
+                    <div class="battle-plan-header">
+                        <h2 class="battle-plan-title">Battle Plan</h2>
+                        <button class="battle-plan-close" onclick="closeBattlePlanModal()">&times;</button>
                     </div>
-                </div>
+                    
+                    <div class="battle-plan-body">
+                        <!-- Stats Grid -->
+                        <div class="stats-grid" id="stats-grid">
+                            <!-- Row 1 -->
+                            <div class="stat-card">
+                                <span class="stat-label">Power score</span>
+                                <span class="stat-value" id="stat-power">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Strength</span>
+                                <span class="stat-value" id="stat-strength">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Leadership</span>
+                                <span class="stat-value" id="stat-leadership">0</span>
+                            </div>
+                            <!-- Row 2 -->
+                            <div class="stat-card">
+                                <span class="stat-label">Authority</span>
+                                <span class="stat-value" id="stat-authority">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Dominance</span>
+                                <span class="stat-value" id="stat-dominance">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Revival cost (g)</span>
+                                <span class="stat-value" id="stat-revival">0</span>
+                            </div>
+                            <!-- Row 3 -->
+                            <div class="stat-card">
+                                <span class="stat-label">Rounds</span>
+                                <span class="stat-value" id="stat-rounds">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Your hits</span>
+                                <span class="stat-value" id="stat-your-hits">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Enemy hits</span>
+                                <span class="stat-value" id="stat-enemy-hits">0</span>
+                            </div>
+                            <!-- Row 4 -->
+                            <div class="stat-card">
+                                <span class="stat-label">Total hits</span>
+                                <span class="stat-value" id="stat-total-hits">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Your role</span>
+                                <span class="stat-value" id="stat-role">~0%</span>
+                            </div>
+                        </div>
 
-                <div class="troop-list" id="troop-list">
-                    <h3 class="subsection-title">Troops to Take</h3>
-                    <table class="troops-table" id="troops-table">
-                        <thead>
-                            <tr>
-                                <th>Unit</th>
-                                <th>Per Stack</th>
-                                <th>Total</th>
-                                <th>Strength</th>
-                                <th>Health</th>
-                            </tr>
-                        </thead>
-                        <tbody id="troops-tbody">
-                            <!-- Populated by JS -->
-                        </tbody>
-                    </table>
-                </div>
+                        <!-- Your Army Section -->
+                        <div class="your-army-section">
+                            <h3 class="your-army-title">Your Army</h3>
+                            <div class="army-list" id="army-list">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="results-actions">
-                    <button class="action-button secondary" onclick="copyBattlePlan()">
-                        <span class="btn-icon">📋</span> Copy to Clipboard
-                    </button>
+                    <div class="battle-plan-footer">
+                        <button class="battle-plan-close-btn" onclick="closeBattlePlanModal()">Close</button>
+                    </div>
                 </div>
             </div>
         </div>

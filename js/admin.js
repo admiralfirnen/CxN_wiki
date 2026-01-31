@@ -3,21 +3,21 @@
  * 
  * Handles authentication and announcements management.
  * 
- * SECURITY NOTE: This uses obfuscated credentials for a shared admin account.
- * This is NOT secure for sensitive data - it's designed for a collaborative
- * wiki where multiple trusted users share access.
+ * SECURITY NOTE: This uses SHA-256 hashed credentials for a shared admin account.
+ * While more secure than plain text, client-side authentication has inherent
+ * limitations. This is designed for a collaborative wiki where multiple 
+ * trusted users share access.
  */
 
 (function() {
     'use strict';
 
-    // Obfuscated credentials (ROT13 + Base64 encoded)
-    // This is intentionally NOT secure cryptography - just obscured from casual viewing
+    // Hashed credentials - password is stored as SHA-256 hash
+    // The actual password is NOT stored in this file
     const AUTH_DATA = {
-        // 'admin' encoded
-        u: 'bnF6dmE=',
-        // 'ppxsucks' encoded  
-        p: 'Y2NrZmhweGY='
+        username: 'admin',
+        // SHA-256 hash of the password (not reversible)
+        passwordHash: '20ac3ce9514025543ad5723e09256a83657fd69b680a0e7f51c8e7f8cb07e2ec'
     };
 
     // Session key for localStorage
@@ -30,43 +30,39 @@
     // Clan stats storage key for localStorage
     const STATS_KEY = 'cxn_clan_stats';
 
+    // Clan members storage key for localStorage
+    const MEMBERS_KEY = 'cxn_clan_members';
+
+    // Rank display names
+    const RANK_NAMES = {
+        leader: 'Leader',
+        superiors: 'Superiors',
+        officers: 'Officers',
+        veterans: 'Veterans',
+        soldiers: 'Soldiers'
+    };
+
+    // Rank order for display
+    const RANK_ORDER = ['leader', 'superiors', 'officers', 'veterans', 'soldiers'];
+
     /**
-     * Simple decode function (reverse of encoding)
-     * ROT13 + Base64
+     * Compute SHA-256 hash of a string
+     * Uses the Web Crypto API for secure hashing
      */
-    function decode(encoded) {
-        // Base64 decode
-        const decoded = atob(encoded);
-        // ROT13 decode
-        return decoded.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode(
-                (c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26
-            );
-        });
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
     }
 
     /**
-     * Encode function for reference (used to generate the encoded values above)
-     * ROT13 + Base64
+     * Validate credentials using SHA-256 hash comparison
      */
-    function encode(plain) {
-        // ROT13 encode
-        const rot13 = plain.replace(/[a-zA-Z]/g, function(c) {
-            return String.fromCharCode(
-                (c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26
-            );
-        });
-        // Base64 encode
-        return btoa(rot13);
-    }
-
-    /**
-     * Validate credentials
-     */
-    function validateCredentials(username, password) {
-        const validUser = decode(AUTH_DATA.u);
-        const validPass = decode(AUTH_DATA.p);
-        return username === validUser && password === validPass;
+    async function validateCredentials(username, password) {
+        const passwordHash = await sha256(password);
+        return username === AUTH_DATA.username && passwordHash === AUTH_DATA.passwordHash;
     }
 
     /**
@@ -111,14 +107,14 @@
     /**
      * Handle login form submission
      */
-    function handleLogin(event) {
+    async function handleLogin(event) {
         event.preventDefault();
         
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value;
         const errorEl = document.getElementById('login-error');
         
-        if (validateCredentials(username, password)) {
+        if (await validateCredentials(username, password)) {
             createSession();
             window.location.href = 'dashboard.html';
         } else {
@@ -558,12 +554,423 @@
         return announcements.sort((a, b) => b.timestamp - a.timestamp);
     }
 
+    // ==========================================
+    // CLAN MEMBERS MANAGEMENT
+    // ==========================================
+
+    /**
+     * Get clan members from localStorage
+     */
+    function getMembers() {
+        try {
+            const data = localStorage.getItem(MEMBERS_KEY);
+            return data ? JSON.parse(data) : null;
+        } catch (e) {
+            console.error('Error loading members:', e);
+            return null;
+        }
+    }
+
+    /**
+     * Save clan members to localStorage
+     */
+    function saveMembers(members) {
+        localStorage.setItem(MEMBERS_KEY, JSON.stringify(members));
+    }
+
+    /**
+     * Load members from JSON file (fallback/initial data)
+     */
+    async function loadMembersFromFile() {
+        try {
+            const response = await fetch('../data/clan_members.json');
+            if (!response.ok) throw new Error('Failed to load');
+            return await response.json();
+        } catch (e) {
+            console.error('Error loading members file:', e);
+            return {
+                leader: [],
+                superiors: [],
+                officers: [],
+                veterans: [],
+                soldiers: []
+            };
+        }
+    }
+
+    /**
+     * Generate unique ID for members
+     */
+    function generateMemberId() {
+        return 'm_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+    }
+
+    /**
+     * Add a new member
+     */
+    function addMember(name, rank, badges) {
+        const members = getMembers();
+        if (!members || !members[rank]) return false;
+
+        const newMember = {
+            id: generateMemberId(),
+            name: name.trim(),
+            badges: badges
+        };
+
+        members[rank].push(newMember);
+        saveMembers(members);
+        return true;
+    }
+
+    /**
+     * Update a member
+     */
+    function updateMember(memberId, originalRank, newName, newRank, newBadges) {
+        const members = getMembers();
+        if (!members) return false;
+
+        // Find and remove from original rank
+        const memberIndex = members[originalRank].findIndex(m => m.id === memberId);
+        if (memberIndex === -1) return false;
+
+        const member = members[originalRank][memberIndex];
+        member.name = newName.trim();
+        member.badges = newBadges;
+
+        // If rank changed, move to new rank
+        if (originalRank !== newRank) {
+            members[originalRank].splice(memberIndex, 1);
+            members[newRank].push(member);
+        }
+
+        saveMembers(members);
+        return true;
+    }
+
+    /**
+     * Delete a member
+     */
+    function deleteMember(memberId, rank) {
+        const members = getMembers();
+        if (!members || !members[rank]) return false;
+
+        const index = members[rank].findIndex(m => m.id === memberId);
+        if (index === -1) return false;
+
+        members[rank].splice(index, 1);
+        saveMembers(members);
+        return true;
+    }
+
+    /**
+     * Remove a badge from a member
+     */
+    function removeBadgeFromMember(memberId, rank, badgeIndex) {
+        const members = getMembers();
+        if (!members || !members[rank]) return false;
+
+        const member = members[rank].find(m => m.id === memberId);
+        if (!member || !member.badges) return false;
+
+        member.badges.splice(badgeIndex, 1);
+        saveMembers(members);
+        return true;
+    }
+
+    /**
+     * Render members list in admin panel
+     */
+    function renderMembersList(filterRank = 'all', searchTerm = '') {
+        const container = document.getElementById('members-container');
+        if (!container) return;
+
+        const members = getMembers();
+        if (!members) {
+            container.innerHTML = '<div class="loading-state">No members data available.</div>';
+            return;
+        }
+
+        const searchLower = searchTerm.toLowerCase();
+        let html = '';
+
+        RANK_ORDER.forEach(rank => {
+            // Skip if filtering by rank and doesn't match
+            if (filterRank !== 'all' && filterRank !== rank) return;
+
+            let rankMembers = members[rank] || [];
+
+            // Filter by search term
+            if (searchTerm) {
+                rankMembers = rankMembers.filter(m => 
+                    m.name.toLowerCase().includes(searchLower) ||
+                    (m.badges && m.badges.some(b => b.toLowerCase().includes(searchLower)))
+                );
+            }
+
+            // Skip empty groups when searching
+            if (searchTerm && rankMembers.length === 0) return;
+
+            html += `
+                <div class="rank-group" data-rank="${rank}">
+                    <div class="rank-group-header">
+                        <h4 class="rank-group-title ${rank}">${RANK_NAMES[rank]}</h4>
+                        <span class="rank-group-count">${rankMembers.length} member${rankMembers.length !== 1 ? 's' : ''}</span>
+                    </div>
+                    <div class="rank-group-members">
+            `;
+
+            if (rankMembers.length === 0) {
+                html += `<div class="rank-group-empty">No members in this rank</div>`;
+            } else {
+                rankMembers.forEach(member => {
+                    const badgesHtml = member.badges && member.badges.length > 0
+                        ? member.badges.map((badge, idx) => `
+                            <span class="member-badge">
+                                <span class="badge-star">★</span>
+                                ${escapeHtml(badge)}
+                                <span class="remove-badge" onclick="CxNAdmin.removeBadge('${member.id}', '${rank}', ${idx})" title="Remove badge">×</span>
+                            </span>
+                        `).join('')
+                        : '';
+
+                    html += `
+                        <div class="member-admin-item" data-id="${member.id}" data-rank="${rank}">
+                            <div class="member-admin-info">
+                                <span class="member-admin-name">${escapeHtml(member.name)}</span>
+                                ${badgesHtml ? `<div class="member-admin-badges">${badgesHtml}</div>` : ''}
+                            </div>
+                            <div class="member-admin-actions">
+                                <button class="edit-btn" onclick="CxNAdmin.editMember('${member.id}', '${rank}')">Edit</button>
+                                <button class="delete-btn" onclick="CxNAdmin.confirmDeleteMember('${member.id}', '${rank}')">Delete</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            html += `
+                    </div>
+                </div>
+            `;
+        });
+
+        if (!html) {
+            html = '<div class="loading-state">No members found matching your search.</div>';
+        }
+
+        container.innerHTML = html;
+    }
+
+    /**
+     * Handle add member form submission
+     */
+    function handleAddMember(event) {
+        event.preventDefault();
+
+        const nameEl = document.getElementById('member-name');
+        const rankEl = document.getElementById('member-rank');
+        const badgesEl = document.getElementById('member-badges');
+
+        const name = nameEl.value.trim();
+        const rank = rankEl.value;
+        const badgesStr = badgesEl.value.trim();
+        const badges = badgesStr ? badgesStr.split(',').map(b => b.trim()).filter(b => b) : [];
+
+        if (!name) {
+            showStatus('Please enter a member name', 'error');
+            return;
+        }
+
+        if (addMember(name, rank, badges)) {
+            showStatus(`${name} added to ${RANK_NAMES[rank]}!`, 'success');
+            nameEl.value = '';
+            badgesEl.value = '';
+            renderMembersList(
+                document.getElementById('rank-filter').value,
+                document.getElementById('member-search').value
+            );
+        } else {
+            showStatus('Failed to add member', 'error');
+        }
+    }
+
+    /**
+     * Open edit member modal
+     */
+    function editMemberUI(memberId, rank) {
+        const members = getMembers();
+        if (!members || !members[rank]) return;
+
+        const member = members[rank].find(m => m.id === memberId);
+        if (!member) return;
+
+        document.getElementById('edit-member-id').value = memberId;
+        document.getElementById('edit-member-original-rank').value = rank;
+        document.getElementById('edit-member-name').value = member.name;
+        document.getElementById('edit-member-rank').value = rank;
+        document.getElementById('edit-member-badges').value = member.badges ? member.badges.join(', ') : '';
+
+        document.getElementById('edit-member-modal').style.display = 'flex';
+    }
+
+    /**
+     * Close edit member modal
+     */
+    function closeEditModal() {
+        document.getElementById('edit-member-modal').style.display = 'none';
+    }
+
+    /**
+     * Handle edit member form submission
+     */
+    function handleEditMember(event) {
+        event.preventDefault();
+
+        const memberId = document.getElementById('edit-member-id').value;
+        const originalRank = document.getElementById('edit-member-original-rank').value;
+        const newName = document.getElementById('edit-member-name').value.trim();
+        const newRank = document.getElementById('edit-member-rank').value;
+        const badgesStr = document.getElementById('edit-member-badges').value.trim();
+        const newBadges = badgesStr ? badgesStr.split(',').map(b => b.trim()).filter(b => b) : [];
+
+        if (!newName) {
+            showStatus('Please enter a member name', 'error');
+            return;
+        }
+
+        if (updateMember(memberId, originalRank, newName, newRank, newBadges)) {
+            showStatus('Member updated successfully!', 'success');
+            closeEditModal();
+            renderMembersList(
+                document.getElementById('rank-filter').value,
+                document.getElementById('member-search').value
+            );
+        } else {
+            showStatus('Failed to update member', 'error');
+        }
+    }
+
+    /**
+     * Confirm and delete member
+     */
+    function confirmDeleteMember(memberId, rank) {
+        const members = getMembers();
+        if (!members || !members[rank]) return;
+
+        const member = members[rank].find(m => m.id === memberId);
+        if (!member) return;
+
+        if (confirm(`Are you sure you want to remove ${member.name} from the clan?`)) {
+            if (deleteMember(memberId, rank)) {
+                showStatus(`${member.name} has been removed`, 'success');
+                renderMembersList(
+                    document.getElementById('rank-filter').value,
+                    document.getElementById('member-search').value
+                );
+            } else {
+                showStatus('Failed to delete member', 'error');
+            }
+        }
+    }
+
+    /**
+     * Remove a badge from a member (auto-save)
+     */
+    function removeBadge(memberId, rank, badgeIndex) {
+        if (removeBadgeFromMember(memberId, rank, badgeIndex)) {
+            showStatus('Badge removed', 'success');
+            renderMembersList(
+                document.getElementById('rank-filter').value,
+                document.getElementById('member-search').value
+            );
+        } else {
+            showStatus('Failed to remove badge', 'error');
+        }
+    }
+
+    /**
+     * Initialize Members admin page
+     */
+    async function initMembersPage() {
+        // Check authentication
+        if (!isAuthenticated()) {
+            window.location.href = 'index.html';
+            return;
+        }
+
+        // Setup logout button
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', logout);
+        }
+
+        // Load members data
+        let members = getMembers();
+        if (!members) {
+            members = await loadMembersFromFile();
+            // Ensure all members have IDs
+            RANK_ORDER.forEach(rank => {
+                if (members[rank]) {
+                    members[rank] = members[rank].map(m => ({
+                        id: m.id || generateMemberId(),
+                        name: m.name,
+                        badges: m.badges || []
+                    }));
+                }
+            });
+            saveMembers(members);
+        }
+
+        // Render members list
+        renderMembersList();
+
+        // Setup add member form
+        const addForm = document.getElementById('add-member-form');
+        if (addForm) {
+            addForm.addEventListener('submit', handleAddMember);
+        }
+
+        // Setup edit member form
+        const editForm = document.getElementById('edit-member-form');
+        if (editForm) {
+            editForm.addEventListener('submit', handleEditMember);
+        }
+
+        // Setup search and filter
+        const searchInput = document.getElementById('member-search');
+        const rankFilter = document.getElementById('rank-filter');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                renderMembersList(rankFilter.value, searchInput.value);
+            });
+        }
+
+        if (rankFilter) {
+            rankFilter.addEventListener('change', () => {
+                renderMembersList(rankFilter.value, searchInput.value);
+            });
+        }
+
+        // Close modal on outside click
+        const modal = document.getElementById('edit-member-modal');
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeEditModal();
+                }
+            });
+        }
+    }
+
     // Expose public API
     window.CxNAdmin = {
         initLoginPage: initLoginPage,
         initAdminPage: initAdminPage,
         initAnnouncementsPage: initAnnouncementsPage,
         initAboutPage: initAboutPage,
+        initMembersPage: initMembersPage,
         isAuthenticated: isAuthenticated,
         logout: logout,
         editAnnouncement: editAnnouncementUI,
@@ -573,6 +980,12 @@
         getPublicAnnouncements: getPublicAnnouncements,
         formatDate: formatDate,
         formatNumber: formatNumber,
-        escapeHtml: escapeHtml
+        escapeHtml: escapeHtml,
+        // Members management
+        editMember: editMemberUI,
+        confirmDeleteMember: confirmDeleteMember,
+        closeEditModal: closeEditModal,
+        removeBadge: removeBadge,
+        getMembers: getMembers
     };
 })();
