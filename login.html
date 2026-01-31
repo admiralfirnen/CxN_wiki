@@ -24,25 +24,22 @@
             <!-- Login Form -->
             <div id="login-section">
                 <h2 class="auth-title">Member Login</h2>
-                <p class="auth-subtitle">Enter your clan name to access the wiki</p>
+                <p class="auth-subtitle">Enter your player name/alias to access the wiki</p>
                 
                 <form id="login-form" class="auth-form">
                     <div class="auth-form-group">
-                        <label for="member-name">Clan Name</label>
-                        <input type="text" id="member-name" name="member-name" 
-                               placeholder="Enter your clan name" 
-                               autocomplete="username" required>
+                        <label for="member-name">Player Name/Alias</label>
+                        <input type="text" id="member-name" name="member-name"
+                            placeholder="NICO MAJORJOHNSON95"
+                            autocomplete="username" required>
                     </div>
-                    
-                    <div class="auth-form-group" id="password-group">
+                    <div class="auth-form-group" id="password-group" style="display:none;">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" 
-                               placeholder="Enter your password" 
-                               autocomplete="current-password">
+                        <input type="password" id="password" name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password">
                     </div>
-                    
                     <div id="login-error" class="auth-error"></div>
-                    
                     <button type="submit" class="auth-btn" id="login-btn">Login</button>
                 </form>
             </div>
@@ -168,13 +165,34 @@
                 clearError(loginError);
 
                 const memberName = memberNameInput.value.trim();
+                const passwordGroup = document.getElementById('password-group');
                 const password = passwordInput.value;
 
                 if (!memberName) {
-                    showError(loginError, 'Please enter your clan name.');
+                    showError(loginError, 'Please enter your player name or alias.');
                     return;
                 }
 
+                // If password field is hidden, check if user exists first
+                if (passwordGroup.style.display === 'none') {
+                    // Check if user exists (case-insensitive)
+                    const member = await CxNAuth.findMember(memberName);
+                    if (!member) {
+                        showError(loginError, 'Member not found. Please enter your player name/alias as listed in the clan roster.');
+                        return;
+                    }
+                    // If password not set, show password setup
+                    if (!CxNAuth.hasPassword(member.name)) {
+                        showPasswordSetup(member.name, member.name);
+                        return;
+                    }
+                    // Show password field and focus
+                    passwordGroup.style.display = 'block';
+                    passwordInput.focus();
+                    return;
+                }
+
+                // If password field is visible, proceed with login
                 const result = await CxNAuth.handleLogin(memberName, password);
 
                 if (result.success) {
