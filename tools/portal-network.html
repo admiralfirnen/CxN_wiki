@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Network Calculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal-network.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Portal Network Calculator</h1>
+
+        <article class="strategy-entry">
+            <div class="entry-content">
+                <div class="portal-network-controls">
+                    <div class="input-group">
+                        <label for="portalCount">Portals</label>
+                        <input type="number" id="portalCount" value="5" min="1" max="50">
+                    </div>
+                    <button type="button" id="calcBtn" class="portal-network-calc-btn" disabled>Calculate Optimal Placement</button>
+                </div>
+
+                <div id="status">Loading map...</div>
+
+                <div class="portal-network-map-outer">
+                <div class="portal-network-map-wrap">
+                    <div id="canvas-wrapper">
+                        <canvas id="mapCanvas"></canvas>
+                        <canvas id="portalCanvas"></canvas>
+                    </div>
+                </div>
+                </div>
+
+                <div id="portal-coordinates-panel" class="portal-network-coordinates">
+                    <h3>Portal Coordinates</h3>
+                    <div id="portal-coordinates" class="coordinates-list"></div>
+                </div>
+
+                <p class="portal-network-intro">Calculates the most efficient fast-travel network for K277 using coastline detection, Constrained K-Means Clustering, Voronoi relaxation, and weighted reasoning. May have slight errors in positioning at very high portal count due to limitations in map scraping accuracy.</p>
+            </div>
+        </article>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/nav.js"></script>
+    <script src="../js/k277-map-data.js"></script>
+    <script src="../js/portal-network.js"></script>
+</body>
+</html>
