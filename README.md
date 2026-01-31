@@ -2,7 +2,45 @@
 
 A comprehensive wiki and resource hub for the CxN clan in Total Battle. This static site runs locally and provides strategy guides, tools, announcements, and game reference materials for clan members.
 
-## 🚀 Quick Start
+## � Authentication
+
+The site is password-protected for clan members only.
+
+### How Authentication Works
+
+1. **Member Verification**: Only users listed in `data/clan_members.json` can access the site
+2. **First-Time Login**: New members enter their clan name and set their own password
+3. **Returning Login**: Members enter their clan name and password
+4. **Session Duration**: 7 days before requiring re-login
+5. **Password Storage**: Passwords are SHA-256 hashed and stored in browser localStorage
+
+### For Members
+
+- Use your **exact clan name** (case-insensitive) to log in
+- First time logging in? Just enter your name and you'll be prompted to create a password
+- Forgot your password? Ask an admin to reset it
+
+### For Admins
+
+**Reset a member's password:**
+1. Open browser console on the site (F12 → Console)
+2. Run: `CxNAuth.resetMemberPassword('MemberName')`
+3. Member will be prompted to set a new password on next login
+
+**Add a new member:**
+1. Add them to `data/clan_members.json` under the appropriate rank
+2. They can set their password on first login
+
+**Remove a member:**
+1. Remove them from `data/clan_members.json`
+2. Their active session will be invalidated on next page load
+
+**Generate a password hash (for admin accounts):**
+```bash
+node -e "const crypto = require('crypto'); console.log(crypto.createHash('sha256').update('YOUR_PASSWORD').digest('hex'));"
+```
+
+## �🚀 Quick Start
 
 ### Running Locally
 
@@ -41,15 +79,18 @@ CxN_wiki/
 │
 ├── css/                    # Stylesheets
 │   ├── style.css           # Main site styles
+│   ├── auth.css            # Authentication/login styles
 │   ├── calculator.css      # Calculator tool styles
 │   └── trophy-room.css     # Trophy room styles
 │
 ├── js/                     # JavaScript
+│   ├── auth.js             # Site authentication module
 │   ├── nav.js              # Shared navigation component
 │   ├── basic-calculator.js
 │   └── compensation-calculator.js
 │
 ├── data/                   # JSON data files
+│   ├── clan_members.json   # Clan member roster (controls login access)
 │   └── troop_data.json     # Troop statistics
 │
 ├── templates/              # HTML templates for new pages
@@ -99,14 +140,21 @@ Edit `site.json` and add to the `navigation` array:
 
 ### Using the Shared Navigation
 
-The `nav.js` script automatically injects the navigation and footer (reading from `site.json`). Just include:
+The `nav.js` script automatically injects the navigation and footer (reading from `site.json`) and handles authentication. Include both `auth.js` and `nav.js`:
 
 ```html
+<link rel="stylesheet" href="css/auth.css">
+<!-- ... other CSS ... -->
+
 <nav id="main-nav"></nav>
 <!-- your content -->
 <footer id="main-footer"></footer>
-<script src="js/nav.js"></script>  <!-- or ../js/nav.js in subdirectories -->
+
+<script src="js/auth.js"></script>
+<script src="js/nav.js"></script>  <!-- or ../js/auth.js and ../js/nav.js in subdirectories -->
 ```
+
+**Important**: `auth.js` must be loaded before `nav.js` for authentication to work.
 
 ## 🎨 Styling
 

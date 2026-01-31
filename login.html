@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CxN Clan Wiki</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <!-- Minimal Nav for Login Page -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/branding/cxn_clan_icon_photorealistic.png" alt="CxN Clan Icon" class="header-logo">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="auth-container">
+            <!-- Login Form -->
+            <div id="login-section">
+                <h2 class="auth-title">Member Login</h2>
+                <p class="auth-subtitle">Enter your clan name to access the wiki</p>
+                
+                <form id="login-form" class="auth-form">
+                    <div class="auth-form-group">
+                        <label for="member-name">Clan Name</label>
+                        <input type="text" id="member-name" name="member-name" 
+                               placeholder="Enter your clan name" 
+                               autocomplete="username" required>
+                    </div>
+                    
+                    <div class="auth-form-group" id="password-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" 
+                               placeholder="Enter your password" 
+                               autocomplete="current-password">
+                    </div>
+                    
+                    <div id="login-error" class="auth-error"></div>
+                    
+                    <button type="submit" class="auth-btn" id="login-btn">Login</button>
+                </form>
+            </div>
+
+            <!-- Password Setup Section (shown for new users) -->
+            <div id="password-setup-section" class="password-setup">
+                <div class="password-setup-header">
+                    <h3>Welcome, <span id="welcome-name" class="welcome-name"></span>!</h3>
+                    <p>This is your first login. Please create a password to secure your account.</p>
+                </div>
+                
+                <form id="password-setup-form" class="auth-form">
+                    <input type="hidden" id="setup-member-name">
+                    
+                    <div class="auth-form-group">
+                        <label for="new-password">Create Password</label>
+                        <input type="password" id="new-password" name="new-password" 
+                               placeholder="Create a password" 
+                               autocomplete="new-password" required minlength="6">
+                        <span class="password-requirements">Minimum 6 characters</span>
+                    </div>
+                    
+                    <div class="auth-form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" 
+                               placeholder="Confirm your password" 
+                               autocomplete="new-password" required>
+                        <span id="password-match" class="password-match"></span>
+                    </div>
+                    
+                    <div id="setup-error" class="auth-error"></div>
+                    
+                    <button type="submit" class="auth-btn" id="setup-btn">Set Password & Login</button>
+                    <button type="button" class="auth-btn-secondary" id="back-to-login">Back</button>
+                </form>
+            </div>
+
+            <!-- Loading State -->
+            <div id="auth-loading" class="auth-loading"></div>
+        </div>
+    </div>
+
+    <footer class="footer-container">
+        <p class="footer-text">CxN Clan Wiki &copy; 2026 | Total Battle Strategy Resource</p>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if already authenticated
+            if (CxNAuth.isAuthenticatedSync()) {
+                const redirect = CxNAuth.getRedirectPath();
+                window.location.href = redirect;
+                return;
+            }
+
+            // Elements
+            const loginSection = document.getElementById('login-section');
+            const passwordSetupSection = document.getElementById('password-setup-section');
+            const loginForm = document.getElementById('login-form');
+            const passwordSetupForm = document.getElementById('password-setup-form');
+            const loginError = document.getElementById('login-error');
+            const setupError = document.getElementById('setup-error');
+            const memberNameInput = document.getElementById('member-name');
+            const passwordInput = document.getElementById('password');
+            const passwordGroup = document.getElementById('password-group');
+            const newPasswordInput = document.getElementById('new-password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const passwordMatch = document.getElementById('password-match');
+            const welcomeName = document.getElementById('welcome-name');
+            const setupMemberName = document.getElementById('setup-member-name');
+            const backToLogin = document.getElementById('back-to-login');
+
+            // Show error message
+            function showError(element, message) {
+                element.textContent = message;
+                element.classList.add('show');
+                setTimeout(() => element.classList.remove('show'), 5000);
+            }
+
+            // Clear error
+            function clearError(element) {
+                element.classList.remove('show');
+            }
+
+            // Show password setup section
+            function showPasswordSetup(memberName, displayName) {
+                loginSection.style.display = 'none';
+                passwordSetupSection.classList.add('show');
+                welcomeName.textContent = displayName;
+                setupMemberName.value = memberName;
+                newPasswordInput.focus();
+            }
+
+            // Show login section
+            function showLogin() {
+                passwordSetupSection.classList.remove('show');
+                loginSection.style.display = 'block';
+                clearError(setupError);
+                memberNameInput.focus();
+            }
+
+            // Check password match
+            function checkPasswordMatch() {
+                const newPass = newPasswordInput.value;
+                const confirmPass = confirmPasswordInput.value;
+                
+                if (confirmPass.length === 0) {
+                    passwordMatch.textContent = '';
+                    passwordMatch.className = 'password-match';
+                } else if (newPass === confirmPass) {
+                    passwordMatch.textContent = '✓ Passwords match';
+                    passwordMatch.className = 'password-match match';
+                } else {
+                    passwordMatch.textContent = '✗ Passwords do not match';
+                    passwordMatch.className = 'password-match no-match';
+                }
+            }
+
+            // Handle login form submission
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                clearError(loginError);
+
+                const memberName = memberNameInput.value.trim();
+                const password = passwordInput.value;
+
+                if (!memberName) {
+                    showError(loginError, 'Please enter your clan name.');
+                    return;
+                }
+
+                const result = await CxNAuth.handleLogin(memberName, password);
+
+                if (result.success) {
+                    // Redirect to intended page or home
+                    const redirect = CxNAuth.getRedirectPath();
+                    window.location.href = redirect;
+                } else if (result.needsPassword) {
+                    // First-time user, show password setup
+                    showPasswordSetup(result.memberName, result.displayName);
+                } else {
+                    showError(loginError, result.error);
+                }
+            });
+
+            // Handle password setup form submission
+            passwordSetupForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                clearError(setupError);
+
+                const memberName = setupMemberName.value;
+                const newPassword = newPasswordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+
+                if (newPassword.length < 6) {
+                    showError(setupError, 'Password must be at least 6 characters.');
+                    return;
+                }
+
+                if (newPassword !== confirmPassword) {
+                    showError(setupError, 'Passwords do not match.');
+                    return;
+                }
+
+                const result = await CxNAuth.handleLogin(memberName, newPassword, true);
+
+                if (result.success) {
+                    // Redirect to intended page or home
+                    const redirect = CxNAuth.getRedirectPath();
+                    window.location.href = redirect;
+                } else {
+                    showError(setupError, result.error);
+                }
+            });
+
+            // Back to login button
+            backToLogin.addEventListener('click', showLogin);
+
+            // Password match check
+            confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+            newPasswordInput.addEventListener('input', checkPasswordMatch);
+
+            // Focus member name input
+            memberNameInput.focus();
+        });
+    </script>
+</body>
+</html>

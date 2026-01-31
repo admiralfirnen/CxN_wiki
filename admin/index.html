@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - CxN Clan</title>
+    <title>Admin - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
     <nav id="main-nav"></nav>
     <div class="container">
-        <div class="login-container">
-            <h2 class="login-title">Admin Login</h2>
-            <form id="login-form" class="login-form">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter username" autocomplete="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter password" autocomplete="current-password" required>
-                </div>
-                <div id="login-error" class="login-error"></div>
-                <button type="submit" class="login-btn">Login</button>
-            </form>
+        <!-- Access Denied Message (shown if not admin) -->
+        <div id="access-denied" class="login-container" style="display: none;">
+            <h2 class="login-title">Access Denied</h2>
+            <p style="text-align: center; color: var(--color-text); margin-bottom: 20px;">
+                You do not have permission to access the Admin area.
+            </p>
+            <p style="text-align: center; color: var(--color-text-muted); font-size: 0.9rem;">
+                Only members with Site Admin privileges can access this section.
+            </p>
+            <a href="../index.html" class="login-btn" style="display: block; text-align: center; text-decoration: none; margin-top: 20px;">Return to Home</a>
+        </div>
+        
+        <!-- Loading state while checking -->
+        <div id="admin-loading" class="login-container">
+            <h2 class="login-title">Checking Access...</h2>
+            <div class="auth-loading show"></div>
         </div>
     </div>
     <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/admin.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            CxNAdmin.initLoginPage();
+            CxNAdmin.initAdminIndex();
         });
     </script>
 </body>

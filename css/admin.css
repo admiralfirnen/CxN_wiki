@@ -458,6 +458,12 @@
     color: #ff6b6b;
 }
 
+.status-message.info {
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    color: #60a5fa;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .admin-layout {
@@ -997,6 +1003,72 @@
 .rank-group-empty {
     padding: 20px;
     text-align: center;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Password Reset Section in Modal */
+.password-reset-section {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.reset-password-btn {
+    padding: 10px 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #fff;
+    background: linear-gradient(180deg, #e67e22 0%, #d35400 100%);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reset-password-btn:hover {
+    background: linear-gradient(180deg, #f39c12 0%, #e67e22 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+}
+
+.password-reset-hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Site Admin Checkbox Section in Modal */
+.site-admin-section {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.site-admin-section .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.site-admin-section input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-gold);
+    cursor: pointer;
+}
+
+.site-admin-hint {
+    display: block;
+    margin-top: 8px;
+    margin-left: 28px;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
     font-style: italic;
 }
