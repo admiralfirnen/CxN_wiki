@@ -6,7 +6,8 @@
     <title>Page Title - CxN Clan</title>
     <!-- For root-level pages, use this path -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- For pages in subdirectories, use: href="../css/style.css" -->
+    <link rel="stylesheet" href="css/auth.css">
+    <!-- For pages in subdirectories, use: href="../css/style.css" and href="../css/auth.css" -->
 </head>
 <body>
     <!-- Navigation: Just add this empty nav with id="main-nav" -->
@@ -29,10 +30,13 @@
     <!-- The nav.js script will populate it automatically -->
     <footer id="main-footer"></footer>
 
-    <!-- Include the shared navigation script -->
+    <!-- Include authentication and navigation scripts -->
+    <!-- Auth must be loaded before nav for authentication to work -->
     <!-- For root-level pages: -->
+    <script src="js/auth.js"></script>
     <script src="js/nav.js"></script>
     <!-- For pages in subdirectories: -->
+    <!-- <script src="../js/auth.js"></script> -->
     <!-- <script src="../js/nav.js"></script> -->
 </body>
 </html>

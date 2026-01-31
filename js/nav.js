@@ -9,6 +9,10 @@
  * Usage: Include this script in every page and add placeholder elements:
  *   <nav id="main-nav"></nav>
  *   <footer id="main-footer"></footer>
+ * 
+ * Authentication: This script now checks for authentication via CxNAuth module.
+ * Pages that don't require authentication should not include this script or
+ * handle authentication separately.
  */
 
 (function() {
@@ -16,6 +20,17 @@
 
     // Site configuration (loaded from site.json)
     let siteConfig = null;
+
+    // Pages that don't require authentication (relative paths)
+    const PUBLIC_PAGES = [
+        '/login.html'
+    ];
+
+    // Check if current page is public (no auth required)
+    function isPublicPage() {
+        const path = window.location.pathname.toLowerCase();
+        return PUBLIC_PAGES.some(page => path.endsWith(page));
+    }
 
     // Determine the base path based on current page location
     function getBasePath() {
@@ -42,14 +57,24 @@
         return null;
     }
 
-    // Generate navigation HTML
-    function generateNavHTML(basePath, config) {
+    // Generate navigation HTML (with optional user info for authenticated users)
+    function generateNavHTML(basePath, config, session) {
         const activePage = getActivePage(config.navigation);
         
         const navLinksHTML = config.navigation.map(item => {
             const isActive = item.id === activePage ? ' active' : '';
             return `<li class="nav-item"><a href="${basePath}${item.href}" class="nav-link${isActive}">${item.text}</a></li>`;
         }).join('\n                ');
+
+        // Add user info and logout if authenticated
+        let userInfoHTML = '';
+        if (session && session.displayName) {
+            userInfoHTML = `
+        <div class="nav-user-info">
+            <span class="nav-user-name">${escapeHtml(session.displayName)}</span>
+            <button class="nav-logout-btn" onclick="CxNAuth.logout()">Logout</button>
+        </div>`;
+        }
 
         return `
     <div class="nav-wrapper">
@@ -61,7 +86,15 @@
         <ul class="nav-menu">
             ${navLinksHTML}
         </ul>
+        ${userInfoHTML}
     </div>`;
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     // Generate footer HTML (basePath for Admin link)
@@ -77,6 +110,27 @@
     // Load site configuration and initialize
     async function loadConfigAndInit() {
         const basePath = getBasePath();
+        
+        // Check authentication first (unless on public page)
+        if (!isPublicPage()) {
+            // Check if CxNAuth is available
+            if (typeof CxNAuth !== 'undefined') {
+                const authenticated = await CxNAuth.isAuthenticated();
+                if (!authenticated) {
+                    // Store the intended destination for redirect after login
+                    const currentPath = window.location.pathname + window.location.search;
+                    sessionStorage.setItem('cxn_redirect_after_login', currentPath);
+                    window.location.href = basePath + 'login.html';
+                    return;
+                }
+            } else {
+                // CxNAuth not loaded - redirect to login
+                // This ensures auth.js must be loaded before nav.js on protected pages
+                console.warn('CxNAuth not available, redirecting to login');
+                window.location.href = basePath + 'login.html';
+                return;
+            }
+        }
         
         try {
             const response = await fetch(basePath + 'site.json');
@@ -94,11 +148,14 @@
 
     // Initialize with loaded configuration
     function init(basePath, config) {
+        // Get session for user info display
+        const session = (typeof CxNAuth !== 'undefined') ? CxNAuth.getSession() : null;
+        
         // Inject navigation
         const navContainer = document.getElementById('main-nav');
         if (navContainer) {
             navContainer.className = 'nav-container';
-            navContainer.innerHTML = generateNavHTML(basePath, config);
+            navContainer.innerHTML = generateNavHTML(basePath, config, session);
         }
 
         // Inject footer
@@ -137,7 +194,8 @@
     // Expose config getter for other scripts
     window.CxNWiki = {
         getConfig: () => siteConfig,
-        getBasePath: getBasePath
+        getBasePath: getBasePath,
+        isPublicPage: isPublicPage
     };
 
     // Run when DOM is ready

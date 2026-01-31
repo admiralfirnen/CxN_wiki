@@ -1,28 +1,17 @@
 /**
  * CxN Wiki - Admin Module
  * 
- * Handles authentication and announcements management.
+ * Handles admin area access and announcements management.
  * 
- * SECURITY NOTE: This uses SHA-256 hashed credentials for a shared admin account.
- * While more secure than plain text, client-side authentication has inherent
- * limitations. This is designed for a collaborative wiki where multiple 
- * trusted users share access.
+ * SECURITY NOTE: Admin access is now controlled via the "isAdmin" flag on member records.
+ * Members with isAdmin: true can access the admin area after logging in via the site auth.
  */
 
 (function() {
     'use strict';
 
-    // Hashed credentials - password is stored as SHA-256 hash
-    // The actual password is NOT stored in this file
-    const AUTH_DATA = {
-        username: 'admin',
-        // SHA-256 hash of the password (not reversible)
-        passwordHash: '20ac3ce9514025543ad5723e09256a83657fd69b680a0e7f51c8e7f8cb07e2ec'
-    };
-
-    // Session key for localStorage
-    const SESSION_KEY = 'cxn_admin_session';
-    const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+    // Site Admin badge name (auto-managed)
+    const SITE_ADMIN_BADGE = 'Site Admin';
 
     // Announcements storage key for localStorage
     const ANNOUNCEMENTS_KEY = 'cxn_announcements';
@@ -46,85 +35,76 @@
     const RANK_ORDER = ['leader', 'superiors', 'officers', 'veterans', 'soldiers'];
 
     /**
-     * Compute SHA-256 hash of a string
-     * Uses the Web Crypto API for secure hashing
+     * Check if the currently logged-in user is a Site Admin
+     * Looks up the user in the members data and checks the isAdmin flag
      */
-    async function sha256(message) {
-        const msgBuffer = new TextEncoder().encode(message);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        return hashHex;
-    }
+    async function isUserSiteAdmin() {
+        // Must be logged in via site auth first
+        if (typeof CxNAuth === 'undefined') return false;
 
-    /**
-     * Validate credentials using SHA-256 hash comparison
-     */
-    async function validateCredentials(username, password) {
-        const passwordHash = await sha256(password);
-        return username === AUTH_DATA.username && passwordHash === AUTH_DATA.passwordHash;
-    }
+        const session = CxNAuth.getSession();
+        if (!session || !session.memberName) return false;
 
-    /**
-     * Create a session token
-     */
-    function createSession() {
-        const session = {
-            token: btoa(Date.now() + '_' + Math.random().toString(36).substr(2)),
-            expires: Date.now() + SESSION_DURATION
-        };
-        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-        return session;
-    }
-
-    /**
-     * Check if user is authenticated
-     */
-    function isAuthenticated() {
-        try {
-            const sessionData = localStorage.getItem(SESSION_KEY);
-            if (!sessionData) return false;
-            
-            const session = JSON.parse(sessionData);
-            if (Date.now() > session.expires) {
-                localStorage.removeItem(SESSION_KEY);
-                return false;
-            }
-            return true;
-        } catch (e) {
-            return false;
+        // Always fetch the latest members file for admin check
+        let members = await loadMembersFromFile();
+        if (members) {
+            saveMembers(members); // Optionally update cache
+        } else {
+            members = getMembers(); // fallback to cache if fetch fails
         }
+        if (!members) return false;
+
+        const normalizedName = session.memberName.toLowerCase().trim();
+
+        for (const rank of RANK_ORDER) {
+            if (members[rank]) {
+                const member = members[rank].find(m =>
+                    (m.name && m.name.toLowerCase().trim() === normalizedName)
+                );
+                if (member && member.isAdmin === true) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
-     * Logout - clear session
+     * Synchronous check if user is site admin (checks cached session)
+     * For quick UI checks - use isUserSiteAdmin() for authoritative check
+     */
+    function isUserSiteAdminSync() {
+        if (typeof CxNAuth === 'undefined') return false;
+        
+        const session = CxNAuth.getSession();
+        if (!session || !session.memberName) return false;
+
+        const members = getMembers();
+        if (!members) return false;
+
+        const normalizedName = session.memberName.toLowerCase().trim();
+        
+        for (const rank of RANK_ORDER) {
+            if (members[rank]) {
+                const member = members[rank].find(m => 
+                    m.name.toLowerCase().trim() === normalizedName
+                );
+                if (member && member.isAdmin === true) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Logout from admin - redirect to home and use site logout
      */
     function logout() {
-        localStorage.removeItem(SESSION_KEY);
-        window.location.href = 'index.html';
-    }
-
-    /**
-     * Handle login form submission
-     */
-    async function handleLogin(event) {
-        event.preventDefault();
-        
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value;
-        const errorEl = document.getElementById('login-error');
-        
-        if (await validateCredentials(username, password)) {
-            createSession();
-            window.location.href = 'dashboard.html';
+        if (typeof CxNAuth !== 'undefined') {
+            CxNAuth.logout();
         } else {
-            errorEl.textContent = 'Invalid username or password';
-            errorEl.classList.add('show');
-            
-            // Clear error after 3 seconds
-            setTimeout(() => {
-                errorEl.classList.remove('show');
-            }, 3000);
+            window.location.href = '../index.html';
         }
     }
 
@@ -360,27 +340,32 @@
     }
 
     /**
-     * Initialize login page
+     * Initialize admin index page - check if user is site admin
      */
-    function initLoginPage() {
-        // If already authenticated, redirect to dashboard
-        if (isAuthenticated()) {
-            window.location.href = 'dashboard.html';
-            return;
-        }
+    async function initAdminIndex() {
+        const loadingEl = document.getElementById('admin-loading');
+        const deniedEl = document.getElementById('access-denied');
 
-        const form = document.getElementById('login-form');
-        if (form) {
-            form.addEventListener('submit', handleLogin);
+        // Check if user is a site admin
+        const isAdmin = await isUserSiteAdmin();
+        
+        if (isAdmin) {
+            // Redirect to dashboard
+            window.location.href = 'dashboard.html';
+        } else {
+            // Show access denied
+            if (loadingEl) loadingEl.style.display = 'none';
+            if (deniedEl) deniedEl.style.display = 'block';
         }
     }
 
     /**
      * Initialize generic admin page (dashboard, etc.)
      */
-    function initAdminPage() {
-        // Check authentication
-        if (!isAuthenticated()) {
+    async function initAdminPage() {
+        // Check if user is a site admin
+        const isAdmin = await isUserSiteAdmin();
+        if (!isAdmin) {
             window.location.href = 'index.html';
             return;
         }
@@ -395,9 +380,10 @@
     /**
      * Initialize announcements admin page
      */
-    function initAnnouncementsPage() {
-        // Check authentication
-        if (!isAuthenticated()) {
+    async function initAnnouncementsPage() {
+        // Check if user is a site admin
+        const isAdmin = await isUserSiteAdmin();
+        if (!isAdmin) {
             window.location.href = 'index.html';
             return;
         }
@@ -506,8 +492,9 @@
      * Initialize About admin page
      */
     async function initAboutPage() {
-        // Check authentication
-        if (!isAuthenticated()) {
+        // Check if user is a site admin
+        const isAdmin = await isUserSiteAdmin();
+        if (!isAdmin) {
             window.location.href = 'index.html';
             return;
         }
@@ -583,7 +570,8 @@
      */
     async function loadMembersFromFile() {
         try {
-            const response = await fetch('../data/clan_members.json');
+            // Add cache-busting to ensure fresh data
+            const response = await fetch('../data/clan_members.json?t=' + Date.now());
             if (!response.ok) throw new Error('Failed to load');
             return await response.json();
         } catch (e) {
@@ -611,7 +599,7 @@
     function addMember(name, rank, badges) {
         const members = getMembers();
         if (!members || !members[rank]) return false;
-
+        const member = members[rank].find(m => (m.id ? m.id === memberId : m.name === memberId));
         const newMember = {
             id: generateMemberId(),
             name: name.trim(),
@@ -626,7 +614,7 @@
     /**
      * Update a member
      */
-    function updateMember(memberId, originalRank, newName, newRank, newBadges) {
+    function updateMember(memberId, originalRank, newName, newRank, newBadges, isAdmin = false) {
         const members = getMembers();
         if (!members) return false;
 
@@ -636,6 +624,17 @@
 
         const member = members[originalRank][memberIndex];
         member.name = newName.trim();
+        member.isAdmin = isAdmin;
+        
+        // Handle Site Admin badge based on isAdmin flag
+        // Remove any existing Site Admin badge first
+        newBadges = newBadges.filter(b => b !== SITE_ADMIN_BADGE);
+        
+        // Add Site Admin badge if isAdmin is true
+        if (isAdmin) {
+            newBadges.unshift(SITE_ADMIN_BADGE); // Add at beginning
+        }
+        
         member.badges = newBadges;
 
         // If rank changed, move to new rank
@@ -742,7 +741,7 @@
                             </div>
                             <div class="member-admin-actions">
                                 <button class="edit-btn" onclick="CxNAdmin.editMember('${member.id}', '${rank}')">Edit</button>
-                                <button class="delete-btn" onclick="CxNAdmin.confirmDeleteMember('${member.id}', '${rank}')">Delete</button>
+                                <button class="delete-btn" onclick="CxNAdmin.confirmDeleteMember('${member.id ? member.id : member.name}', '${rank}')">Delete</button>
                             </div>
                         </div>
                     `;
@@ -810,6 +809,12 @@
         document.getElementById('edit-member-name').value = member.name;
         document.getElementById('edit-member-rank').value = rank;
         document.getElementById('edit-member-badges').value = member.badges ? member.badges.join(', ') : '';
+        
+        // Set the Site Admin checkbox
+        const adminCheckbox = document.getElementById('edit-member-admin');
+        if (adminCheckbox) {
+            adminCheckbox.checked = member.isAdmin || false;
+        }
 
         document.getElementById('edit-member-modal').style.display = 'flex';
     }
@@ -819,6 +824,46 @@
      */
     function closeEditModal() {
         document.getElementById('edit-member-modal').style.display = 'none';
+    }
+
+    /**
+     * Reset a member's password (admin function)
+     * Called from the edit member modal
+     */
+    function resetMemberPasswordUI() {
+        const memberName = document.getElementById('edit-member-name').value.trim();
+        
+        if (!memberName) {
+            showStatus('No member selected', 'error');
+            return;
+        }
+
+        // Confirm the action
+        if (!confirm(`Are you sure you want to reset the password for "${memberName}"?\n\nThey will be prompted to create a new password on their next login.`)) {
+            return;
+        }
+
+        // Check if CxNAuth is available
+        if (typeof CxNAuth === 'undefined' || typeof CxNAuth.resetMemberPassword !== 'function') {
+            showStatus('Authentication module not available', 'error');
+            return;
+        }
+
+        // Check if member has a password set
+        if (!CxNAuth.hasPassword(memberName)) {
+            showStatus(`${memberName} has not set a password yet`, 'info');
+            return;
+        }
+
+        // Reset the password
+        const result = CxNAuth.resetMemberPassword(memberName);
+        
+        if (result) {
+            showStatus(`Password reset for ${memberName}. They will set a new password on next login.`, 'success');
+            closeEditModal();
+        } else {
+            showStatus(`Failed to reset password for ${memberName}`, 'error');
+        }
     }
 
     /**
@@ -833,13 +878,17 @@
         const newRank = document.getElementById('edit-member-rank').value;
         const badgesStr = document.getElementById('edit-member-badges').value.trim();
         const newBadges = badgesStr ? badgesStr.split(',').map(b => b.trim()).filter(b => b) : [];
+        
+        // Get Site Admin checkbox value
+        const adminCheckbox = document.getElementById('edit-member-admin');
+        const isAdmin = adminCheckbox ? adminCheckbox.checked : false;
 
         if (!newName) {
             showStatus('Please enter a member name', 'error');
             return;
         }
 
-        if (updateMember(memberId, originalRank, newName, newRank, newBadges)) {
+        if (updateMember(memberId, originalRank, newName, newRank, newBadges, isAdmin)) {
             showStatus('Member updated successfully!', 'success');
             closeEditModal();
             renderMembersList(
@@ -893,8 +942,9 @@
      * Initialize Members admin page
      */
     async function initMembersPage() {
-        // Check authentication
-        if (!isAuthenticated()) {
+        // Check if user is a site admin
+        const isAdmin = await isUserSiteAdmin();
+        if (!isAdmin) {
             window.location.href = 'index.html';
             return;
         }
@@ -915,7 +965,8 @@
                     members[rank] = members[rank].map(m => ({
                         id: m.id || generateMemberId(),
                         name: m.name,
-                        badges: m.badges || []
+                        badges: m.badges || [],
+                        isAdmin: m.isAdmin || false
                     }));
                 }
             });
@@ -966,12 +1017,13 @@
 
     // Expose public API
     window.CxNAdmin = {
-        initLoginPage: initLoginPage,
+        initAdminIndex: initAdminIndex,
         initAdminPage: initAdminPage,
         initAnnouncementsPage: initAnnouncementsPage,
         initAboutPage: initAboutPage,
         initMembersPage: initMembersPage,
-        isAuthenticated: isAuthenticated,
+        isUserSiteAdmin: isUserSiteAdmin,
+        isUserSiteAdminSync: isUserSiteAdminSync,
         logout: logout,
         editAnnouncement: editAnnouncementUI,
         deleteAnnouncement: confirmDelete,
@@ -985,6 +1037,7 @@
         editMember: editMemberUI,
         confirmDeleteMember: confirmDeleteMember,
         closeEditModal: closeEditModal,
+        resetMemberPassword: resetMemberPasswordUI,
         removeBadge: removeBadge,
         getMembers: getMembers
     };

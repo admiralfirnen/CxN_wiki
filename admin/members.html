@@ -6,6 +6,7 @@
     <title>Manage Members - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
     <nav id="main-nav"></nav>
@@ -110,6 +111,18 @@
                     <label for="edit-member-badges">Badges (comma-separated)</label>
                     <input type="text" id="edit-member-badges" placeholder="e.g., Clan Diplomat, Lead Recruiter">
                 </div>
+                <div class="form-group site-admin-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="edit-member-admin">
+                        <span class="checkbox-text">Site Admin</span>
+                    </label>
+                    <span class="site-admin-hint">Grants access to the Admin area</span>
+                </div>
+                <div class="form-group password-reset-section">
+                    <span class="section-label">Password Management</span>
+                    <button type="button" class="reset-password-btn" onclick="CxNAdmin.resetMemberPassword()">Reset Password</button>
+                    <span class="password-reset-hint">Member will be prompted to set a new password on next login</span>
+                </div>
                 <div class="modal-actions">
                     <button type="submit" class="save-btn">Save Changes</button>
                     <button type="button" class="cancel-btn" onclick="CxNAdmin.closeEditModal()">Cancel</button>
@@ -119,12 +132,16 @@
     </div>
 
     <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/admin.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            CxNAdmin.initMembersPage();
-        });
-    </script>
+        <script>
+            // Initialize the Members admin page logic after scripts load
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.CxNAdmin && typeof window.CxNAdmin.initMembersPage === 'function') {
+                    window.CxNAdmin.initMembersPage();
+                }
+            });
+        </script>
 </body>
 </html>
