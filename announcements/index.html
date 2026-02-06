@@ -127,20 +127,16 @@
             
             /**
              * Initialize announcements page
+             * Load from JSON file first so updates to the file always show up; sync to localStorage.
              */
             async function init() {
-                // First check localStorage for announcements
-                let announcements = getAnnouncements();
-                
-                // If no localStorage data, load from file and seed localStorage
-                if (!announcements || announcements.length === 0) {
-                    announcements = await loadAnnouncementsFromFile();
-                    if (announcements.length > 0) {
-                        localStorage.setItem(ANNOUNCEMENTS_KEY, JSON.stringify(announcements));
-                    }
+                let announcements = await loadAnnouncementsFromFile();
+                if (announcements && announcements.length > 0) {
+                    localStorage.setItem(ANNOUNCEMENTS_KEY, JSON.stringify(announcements));
+                } else {
+                    announcements = getAnnouncements();
                 }
-                
-                renderAnnouncements(announcements);
+                renderAnnouncements(announcements || []);
             }
             
             // Initialize when DOM is ready

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Maps - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/roe.css">
+    <link rel="stylesheet" href="../css/ancients-strategy.css">
+    <link rel="stylesheet" href="../css/kingdom-maps.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Kingdom Maps</h1>
+
+        <article class="strategy-entry">
+            <div class="entry-content">
+                <p class="roe-intro">Maps for each kingdom. <strong>Interactive pins are coming soon</strong>—clickable pins with help text are not yet implemented. If you would like to add a pin to a map, message <strong>AdmiralFirnen</strong> or <strong>RainDog</strong>.</p>
+                <div id="kingdom-maps-list"></div>
+            </div>
+        </article>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+        (function() {
+            const basePath = '../assets/kingdom_maps/';
+            const dataPath = '../data/kingdom_maps.json';
+            const container = document.getElementById('kingdom-maps-list');
+            if (!container) return;
+
+            fetch(dataPath)
+                .then(function(r) { return r.ok ? r.json() : []; })
+                .catch(function() { return []; })
+                .then(function(maps) {
+                    if (!maps || maps.length === 0) {
+                        container.innerHTML = '<p class="roe-section">No kingdom maps configured.</p>';
+                        return;
+                    }
+                    container.innerHTML = maps.map(function(m) {
+                        const src = basePath + m.file;
+                        const title = m.title || m.file.replace(/\.[^.]+$/, '');
+                        return (
+                            '<section class="roe-section kingdom-map-section" data-kingdom-id="' + (m.id || '') + '">' +
+                                '<h2 class="roe-section-title">' + title + '</h2>' +
+                                '<div class="gold-framed-wrap kingdom-map-wrap">' +
+                                    '<img class="gold-framed-image kingdom-map-image" src="' + src + '" alt="' + title + '">' +
+                                '</div>' +
+                            '</section>'
+                        );
+                    }).join('');
+                });
+        })();
+    </script>
+</body>
+</html>
