@@ -30,17 +30,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupEventListeners();
 });
 
+// Cache-busting helper for fresh data on each visit
+const CACHE_KEY = '_v=' + Date.now();
+function cacheBust(url) {
+    return url + (url.includes('?') ? '&' : '?') + CACHE_KEY;
+}
+
 // Load all JSON data files
 async function loadAllData() {
     try {
         const [normalMonsters, rareMonsters, strongholds, citadels, heroics, lookup, troops] = await Promise.all([
-            fetch('../data/normal_monsters.json').then(r => r.json()),
-            fetch('../data/rare_monsters.json').then(r => r.json()),
-            fetch('../data/strongholds.json').then(r => r.json()),
-            fetch('../data/citadels.json').then(r => r.json()),
-            fetch('../data/heroics.json').then(r => r.json()),
-            fetch('../data/monster_lookup.json').then(r => r.json()),
-            fetch('../data/troop_data.json').then(r => r.json())
+            fetch(cacheBust('../data/normal_monsters.json')).then(r => r.json()),
+            fetch(cacheBust('../data/rare_monsters.json')).then(r => r.json()),
+            fetch(cacheBust('../data/strongholds.json')).then(r => r.json()),
+            fetch(cacheBust('../data/citadels.json')).then(r => r.json()),
+            fetch(cacheBust('../data/heroics.json')).then(r => r.json()),
+            fetch(cacheBust('../data/monster_lookup.json')).then(r => r.json()),
+            fetch(cacheBust('../data/troop_data.json')).then(r => r.json())
         ]);
         
         monsterData.normal_monsters = normalMonsters;

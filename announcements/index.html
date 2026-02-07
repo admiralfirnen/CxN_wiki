@@ -50,7 +50,8 @@
             async function loadAnnouncementsFromFile() {
                 try {
                     const basePath = window.CxNWiki ? window.CxNWiki.getBasePath() : '../';
-                    const response = await fetch(basePath + 'data/announcements.json');
+                    const url = basePath + 'data/announcements.json';
+                    const response = await fetch(url + '?_v=' + Date.now());
                     if (!response.ok) throw new Error('Failed to load');
                     return await response.json();
                 } catch (e) {

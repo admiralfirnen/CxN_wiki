@@ -133,7 +133,9 @@
         }
         
         try {
-            const response = await fetch(basePath + 'site.json');
+            const url = basePath + 'site.json';
+            const cacheBustedUrl = url + (url.includes('?') ? '&' : '?') + '_v=' + Date.now();
+            const response = await fetch(cacheBustedUrl);
             if (!response.ok) {
                 throw new Error('Failed to load site.json');
             }

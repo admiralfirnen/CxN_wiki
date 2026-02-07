@@ -48,11 +48,18 @@
     }
 
     /**
+     * Add cache-busting parameter to URL
+     */
+    function cacheBust(url) {
+        return url + (url.includes('?') ? '&' : '?') + '_v=' + Date.now();
+    }
+
+    /**
      * Load research data from JSON file
      */
     async function loadResearchData() {
         try {
-            const response = await fetch('../data/academy_research.json');
+            const response = await fetch(cacheBust('../data/academy_research.json'));
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

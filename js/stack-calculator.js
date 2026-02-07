@@ -21,11 +21,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
+ * Add cache-busting parameter to URL
+ */
+function cacheBust(url) {
+    return url + (url.includes('?') ? '&' : '?') + '_v=' + Date.now();
+}
+
+/**
  * Load stack data from JSON file
  */
 async function loadStackData() {
     try {
-        const response = await fetch('../data/stack_data.json');
+        const response = await fetch(cacheBust('../data/stack_data.json'));
         stackData = await response.json();
     } catch (error) {
         console.error('Error loading stack data:', error);
