@@ -448,7 +448,8 @@
      */
     async function loadStatsFromFile() {
         try {
-            const response = await fetch('../data/clan_stats.json');
+            const url = '../data/clan_stats.json';
+            const response = await fetch(url + '?_v=' + Date.now());
             if (!response.ok) throw new Error('Failed to load');
             return await response.json();
         } catch (e) {

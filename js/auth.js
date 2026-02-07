@@ -65,6 +65,14 @@
     }
 
     /**
+     * Add cache-busting parameter to URL for fresh data on each visit
+     */
+    function cacheBust(url) {
+        const separator = url.includes('?') ? '&' : '?';
+        return `${url}${separator}_v=${Date.now()}`;
+    }
+
+    /**
      * Load clan members from JSON file
      */
     async function loadMembers() {
@@ -74,7 +82,7 @@
 
         const basePath = getBasePath();
         try {
-            const response = await fetch(basePath + 'data/clan_members.json');
+            const response = await fetch(cacheBust(basePath + 'data/clan_members.json'));
             if (!response.ok) {
                 throw new Error('Failed to load clan members');
             }
