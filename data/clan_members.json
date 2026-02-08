@@ -25,8 +25,8 @@
       "badges": []
     },
     {
-      "id": "mave",
-      "name": "Mave",
+      "id": "maeve",
+      "name": "Maeve",
       "badges": ["Co-Recruiter", "Diplomat"]
     },
     { 
@@ -109,7 +109,6 @@
     { "id": "princess", "name": "Princess", "badges": [] },
     { "id": "nightfall", "name": "Nightfall", "badges": [] },
     { "id": "nantrius", "name": "Nantrius", "badges": [] },
-    { "id": "khuzar", "name": "KHuzar", "badges": [] },  
     { "id": "sir-zohran", "name": "Sir Zohran", "badges": [] },
     { "id": "paraoan-alicia", "name": "Paraoan Alicia", "badges": [] },
     { "id": "eldriilas", "name": "Eldriilas", "badges": [] },
