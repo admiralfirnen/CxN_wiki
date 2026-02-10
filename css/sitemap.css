@@ -1,0 +1,207 @@
+/* Site Map Styles */
+
+/* Page header */
+.sitemap-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sitemap-hero .clan-name {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--color-gold);
+    text-shadow: var(--shadow-text), 0 0 30px rgba(212, 165, 116, 0.4);
+    margin-bottom: 12px;
+}
+
+.sitemap-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    color: var(--color-text-dim);
+    letter-spacing: 0.5px;
+}
+
+.sitemap-stats {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+/* Section Grid */
+.sitemap-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+/* Each site section */
+.sitemap-section {
+    background: var(--gradient-stone);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-castle);
+    transition: border-color 0.3s ease;
+}
+
+.sitemap-section:hover {
+    border-color: rgba(212, 165, 116, 0.4);
+}
+
+/* Section heading row with icon */
+.sitemap-section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid rgba(212, 165, 116, 0.25);
+}
+
+.sitemap-section-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.sitemap-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: var(--color-gold);
+    text-shadow: var(--shadow-text), 0 0 16px rgba(212, 165, 116, 0.25);
+    margin: 0;
+}
+
+.sitemap-section-title a {
+    color: var(--color-gold) !important;
+    text-decoration: none !important;
+    text-shadow: var(--shadow-text), 0 0 16px rgba(212, 165, 116, 0.25) !important;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.sitemap-section-title a:hover {
+    color: var(--color-gold-light) !important;
+    text-shadow: var(--shadow-text), 0 0 24px rgba(232, 197, 71, 0.5) !important;
+}
+
+/* Page entries within a section */
+.sitemap-pages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Individual page entry */
+.sitemap-page {
+    padding-left: 8px;
+}
+
+.sitemap-page-link {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Heading list under a page */
+.sitemap-headings {
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 0 0 0 20px;
+    border-left: 2px solid rgba(212, 165, 116, 0.15);
+}
+
+.sitemap-heading {
+    padding: 3px 0 3px 12px;
+    font-family: 'Crimson Text', serif;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    position: relative;
+}
+
+.sitemap-heading::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    opacity: 0.5;
+}
+
+/* Heading levels */
+.sitemap-heading[data-level="2"] {
+    font-size: 1.05rem;
+    color: var(--color-text-dim);
+}
+
+.sitemap-heading[data-level="3"] {
+    font-size: 0.95rem;
+    padding-left: 28px;
+    color: var(--color-text-muted);
+}
+
+.sitemap-heading[data-level="3"]::before {
+    left: 16px;
+    font-size: 0.85rem;
+}
+
+.sitemap-heading[data-level="4"] {
+    font-size: 0.9rem;
+    padding-left: 44px;
+    color: var(--color-text-muted);
+    opacity: 0.85;
+}
+
+.sitemap-heading[data-level="4"]::before {
+    left: 32px;
+    font-size: 0.8rem;
+}
+
+/* Divider between pages in same section */
+.sitemap-page + .sitemap-page {
+    padding-top: 18px;
+    border-top: 1px solid rgba(212, 165, 116, 0.08);
+}
+
+/* Toggle button for long heading lists */
+.sitemap-toggle {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 10px;
+    font-family: 'Crimson Text', serif;
+    font-size: 0.85rem;
+    color: var(--color-link);
+    background: none;
+    border: 1px solid rgba(91, 158, 255, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.sitemap-toggle:hover {
+    border-color: var(--color-link-hover);
+    color: var(--color-link-hover);
+    background: rgba(91, 158, 255, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sitemap-hero .clan-name {
+        font-size: 2.2rem;
+    }
+
+    .sitemap-section {
+        padding: 20px 18px;
+    }
+
+    .sitemap-section-title {
+        font-size: 1.3rem;
+    }
+
+    .sitemap-page-link {
+        font-size: 1.05rem;
+    }
+}

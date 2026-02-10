@@ -1,0 +1,27 @@
+{
+  "name": "cxn_wiki",
+  "version": "1.0.0",
+  "description": "A comprehensive wiki and resource hub for the CxN clan in Total Battle. This static site runs locally and provides strategy guides, tools, announcements, and game reference materials for clan members.",
+  "main": "serve.js",
+  "scripts": {
+    "index": "npx pagefind --site . --output-subdir pagefind --exclude-selectors \".auth-container, .admin-container, #login-section\"",
+    "serve": "node serve.js",
+    "build": "npx pagefind --site . --output-subdir pagefind --exclude-selectors \".auth-container, .admin-container, #login-section\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajgould124/CxN_wiki.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ajgould124/CxN_wiki/issues"
+  },
+  "homepage": "https://github.com/ajgould124/CxN_wiki#readme",
+  "devDependencies": {
+    "pagefind": "^1.4.0"
+  }
+}

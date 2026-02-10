@@ -1,0 +1,289 @@
+/* ─────────────────────────────────────────────────────────
+   CxN Wiki – Pagefind Search Theme Overrides
+   Matches the medieval Total Battle aesthetic used sitewide.
+   ───────────────────────────────────────────────────────── */
+
+/* ── Search trigger button in the nav bar ── */
+.nav-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 18px;
+    background: rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(212, 165, 116, 0.35);
+    border-radius: 6px;
+    color: var(--color-text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.nav-search-btn:hover {
+    color: var(--color-gold);
+    border-color: var(--color-border-gold);
+    background: rgba(212, 165, 116, 0.08);
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.25);
+}
+
+.nav-search-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.nav-search-kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 0.7rem;
+    font-family: 'Crimson Text', serif;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    border-radius: 3px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+/* ── Full-screen search overlay ── */
+.search-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(15, 31, 36, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10vh;
+    animation: searchFadeIn 0.2s ease;
+}
+
+.search-overlay.active {
+    display: flex;
+}
+
+@keyframes searchFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.search-overlay-inner {
+    width: 90%;
+    max-width: 680px;
+    position: relative;
+}
+
+.search-close-btn {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 4px 10px;
+    transition: color 0.2s ease;
+    font-family: 'Cinzel', serif;
+}
+
+.search-close-btn:hover {
+    color: var(--color-gold);
+}
+
+/* ── Pagefind UI overrides ── */
+
+/* Input wrapper */
+.pagefind-ui .pagefind-ui__search-input {
+    font-family: 'Crimson Text', serif !important;
+    font-size: 1.15rem !important;
+    color: var(--color-text) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    border: 2px solid rgba(212, 165, 116, 0.35) !important;
+    border-radius: 8px !important;
+    padding: 16px 20px 16px 48px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+    height: auto !important;
+}
+
+.pagefind-ui .pagefind-ui__search-input:focus {
+    border-color: var(--color-border-gold) !important;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 165, 116, 0.3) !important;
+    outline: none !important;
+}
+
+.pagefind-ui .pagefind-ui__search-input::placeholder {
+    color: var(--color-text-muted) !important;
+    font-style: italic !important;
+}
+
+/* Search clear button */
+.pagefind-ui .pagefind-ui__search-clear {
+    color: var(--color-text-muted) !important;
+    background: none !important;
+    border: 1px solid rgba(212, 165, 116, 0.25) !important;
+    border-radius: 4px !important;
+    padding: 4px 12px !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    position: static !important;
+    transform: none !important;
+    flex-shrink: 0 !important;
+}
+
+.pagefind-ui .pagefind-ui__search-clear:hover {
+    color: var(--color-gold) !important;
+    border-color: var(--color-gold) !important;
+}
+
+/* Results container */
+.pagefind-ui .pagefind-ui__results-area {
+    margin-top: 16px !important;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom scrollbar for results */
+.pagefind-ui .pagefind-ui__results-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pagefind-ui .pagefind-ui__results-area::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.pagefind-ui .pagefind-ui__results-area::-webkit-scrollbar-thumb {
+    background: var(--color-stone-light);
+    border-radius: 4px;
+}
+
+/* Individual result */
+.pagefind-ui .pagefind-ui__result {
+    padding: 18px 20px !important;
+    border: 1px solid rgba(212, 165, 116, 0.15) !important;
+    border-radius: 8px !important;
+    background: rgba(37, 74, 84, 0.4) !important;
+    margin-bottom: 10px !important;
+    transition: all 0.25s ease !important;
+}
+
+.pagefind-ui .pagefind-ui__result:hover {
+    border-color: rgba(212, 165, 116, 0.4) !important;
+    background: rgba(37, 74, 84, 0.6) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Result title link */
+.pagefind-ui .pagefind-ui__result-link {
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: var(--color-gold) !important;
+    text-decoration: none !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
+    transition: color 0.2s ease !important;
+}
+
+.pagefind-ui .pagefind-ui__result-link:hover {
+    color: var(--color-gold-light) !important;
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 12px rgba(212, 165, 116, 0.5) !important;
+}
+
+/* Result URL (breadcrumb) */
+.pagefind-ui .pagefind-ui__result-url {
+    color: var(--color-text-muted) !important;
+    font-size: 0.8rem !important;
+}
+
+/* Result excerpt / snippet */
+.pagefind-ui .pagefind-ui__result-excerpt {
+    color: var(--color-text-dim) !important;
+    font-family: 'Crimson Text', serif !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+}
+
+/* Highlight matching text */
+.pagefind-ui mark {
+    background: rgba(232, 197, 71, 0.25) !important;
+    color: var(--color-gold-light) !important;
+    border-radius: 2px !important;
+    padding: 0 2px !important;
+}
+
+/* Message (e.g., "No results found") */
+.pagefind-ui .pagefind-ui__message {
+    font-family: 'Crimson Text', serif !important;
+    color: var(--color-text-dim) !important;
+    font-size: 1rem !important;
+    padding: 12px 0 !important;
+}
+
+/* Result count / summary */
+.pagefind-ui .pagefind-ui__results-area .pagefind-ui__message {
+    font-style: italic;
+}
+
+/* "Load more" button */
+.pagefind-ui .pagefind-ui__button {
+    font-family: 'Cinzel', serif !important;
+    font-size: 0.9rem !important;
+    color: var(--color-text) !important;
+    background: rgba(212, 165, 116, 0.1) !important;
+    border: 2px solid rgba(212, 165, 116, 0.35) !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    margin-top: 10px !important;
+}
+
+.pagefind-ui .pagefind-ui__button:hover {
+    background: rgba(212, 165, 116, 0.2) !important;
+    border-color: var(--color-gold) !important;
+    color: var(--color-gold) !important;
+    box-shadow: 0 0 12px rgba(212, 165, 116, 0.25) !important;
+}
+
+/* Hide the default Pagefind logo/branding */
+.pagefind-ui .pagefind-ui__drawer {
+    /* already covered by our overlay approach */
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .nav-search-kbd {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-overlay {
+        padding-top: 5vh;
+    }
+
+    .search-overlay-inner {
+        width: 95%;
+    }
+
+    .pagefind-ui .pagefind-ui__search-input {
+        font-size: 1rem !important;
+        padding: 14px 16px 14px 44px !important;
+    }
+}

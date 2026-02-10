@@ -37,7 +37,7 @@
         const path = window.location.pathname;
         
         // Check if we're in a subdirectory by looking for known section paths
-        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'downloads', 'roe', 'trophy-room', 'admin'];
+        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'downloads', 'roe', 'trophy-room', 'sitemap', 'admin'];
         for (const section of sections) {
             if (path.includes('/' + section + '/')) {
                 return '../';
@@ -83,10 +83,23 @@
                 <img src="${basePath}${config.branding.logo}" alt="${config.branding.logoAlt}" class="header-logo">
             </a>
         </div>
-        <ul class="nav-menu">
-            ${navLinksHTML}
-        </ul>
-        ${userInfoHTML}
+        <button class="nav-hamburger" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="nav-body" id="nav-body">
+            <ul class="nav-menu">
+                ${navLinksHTML}
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-search-btn" id="search-btn" type="button" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <span class="nav-search-text">Search</span> <span class="nav-search-kbd">Ctrl K</span>
+                </button>
+                ${userInfoHTML}
+            </div>
+        </div>
     </div>`;
     }
 
@@ -166,6 +179,128 @@
             footerContainer.className = 'footer';
             footerContainer.innerHTML = generateFooterHTML(basePath, config);
         }
+
+        // Inject search overlay and initialize Pagefind
+        initSearch(basePath);
+
+        // Wire up hamburger menu toggle for mobile/tablet
+        const navToggle = document.getElementById('nav-toggle');
+        const navBody = document.getElementById('nav-body');
+        if (navToggle && navBody) {
+            navToggle.addEventListener('click', function() {
+                const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                navToggle.setAttribute('aria-expanded', String(!expanded));
+                navToggle.classList.toggle('active');
+                navBody.classList.toggle('active');
+            });
+            // Close mobile menu when a nav link is clicked
+            navBody.querySelectorAll('.nav-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.classList.remove('active');
+                    navBody.classList.remove('active');
+                });
+            });
+            // Close mobile menu when clicking outside the nav
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-container') && navBody.classList.contains('active')) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.classList.remove('active');
+                    navBody.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // ── Pagefind search integration ──
+    function initSearch(basePath) {
+        // Build and inject the search overlay into the DOM
+        const overlay = document.createElement('div');
+        overlay.id = 'search-overlay';
+        overlay.className = 'search-overlay';
+        overlay.innerHTML = `
+            <div class="search-overlay-inner">
+                <button class="search-close-btn" id="search-close" aria-label="Close search">&times; ESC</button>
+                <div id="pagefind-search"></div>
+            </div>`;
+        document.body.appendChild(overlay);
+
+        // Load Pagefind CSS
+        const pfCSS = document.createElement('link');
+        pfCSS.rel = 'stylesheet';
+        pfCSS.href = basePath + 'pagefind/pagefind-ui.css';
+        document.head.appendChild(pfCSS);
+
+        // Load our search theme overrides
+        const themeCSS = document.createElement('link');
+        themeCSS.rel = 'stylesheet';
+        themeCSS.href = basePath + 'css/search.css';
+        document.head.appendChild(themeCSS);
+
+        // Load Pagefind UI JS, then initialize
+        const pfScript = document.createElement('script');
+        pfScript.src = basePath + 'pagefind/pagefind-ui.js';
+        pfScript.onload = function() {
+            if (typeof PagefindUI !== 'undefined') {
+                // Don't pass bundlePath — Pagefind auto-detects it from
+                // the pagefind-ui.js script src, which works for any page depth.
+                new PagefindUI({
+                    element: '#pagefind-search',
+                    showSubResults: true,
+                    showImages: false,
+                    resetStyles: false
+                });
+            }
+        };
+        document.head.appendChild(pfScript);
+
+        // Wire up open / close behaviour
+        const openSearch = function() {
+            overlay.classList.add('active');
+            // Focus the Pagefind input after a tick (DOM paint)
+            setTimeout(function() {
+                const input = overlay.querySelector('.pagefind-ui__search-input');
+                if (input) input.focus();
+            }, 100);
+        };
+
+        const closeSearch = function() {
+            overlay.classList.remove('active');
+        };
+
+        // Search button in nav
+        var searchBtn = document.getElementById('search-btn');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', openSearch);
+        }
+
+        // Close button
+        var closeBtn = document.getElementById('search-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeSearch);
+        }
+
+        // Click on backdrop to close
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeSearch();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+K or Cmd+K to open
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                if (overlay.classList.contains('active')) {
+                    closeSearch();
+                } else {
+                    openSearch();
+                }
+            }
+            // Escape to close
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeSearch();
+            }
+        });
     }
 
     // Fallback initialization with hardcoded defaults
