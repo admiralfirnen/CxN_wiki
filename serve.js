@@ -15,6 +15,9 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.svg': 'image/svg+xml',
   '.woff2': 'font/woff2',
+  '.pf_meta': 'application/octet-stream',
+  '.pf_fragment': 'application/octet-stream',
+  '.pf_index': 'application/octet-stream',
 };
 
 const server = http.createServer((req, res) => {
@@ -28,6 +31,7 @@ const server = http.createServer((req, res) => {
     }
     const ext = path.extname(file);
     res.setHeader('Content-Type', MIME[ext] || 'application/octet-stream');
+    res.setHeader('Cache-Control', 'no-store');
     res.end(data);
   });
 });

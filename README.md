@@ -58,18 +58,81 @@ python -m http.server 8000
 # Then open http://localhost:8000
 ```
 
-**Option 3: Node.js**
+**Option 3: Node.js (built-in server)**
 ```bash
-npx serve
+node serve.js
+# Then open http://localhost:8080
 ```
+
+## 🔎 Site Search (Pagefind)
+
+The site uses [Pagefind](https://pagefind.app/) for client-side full-text search. Pagefind indexes all static HTML pages at build time and produces a small set of static files that power instant search in the browser — no server required.
+
+### Install & Build Steps
+
+**1. Install dependencies** (first time only):
+```bash
+npm install
+```
+This installs the Pagefind CLI as a dev dependency (defined in `package.json`).
+
+**2. Build the search index:**
+```bash
+# Using npm script
+npm run build
+
+# Or using the shell script directly
+chmod +x index-search.sh   # first time only (macOS/Linux)
+./index-search.sh
+```
+This scans every HTML page in the repo, extracts text content, and writes the search index to the `pagefind/` directory.
+
+**3. Commit and deploy:**
+```bash
+git add pagefind/
+git commit -m "Update search index"
+git push
+```
+The `pagefind/` folder must be committed so GitHub Pages can serve the index files.
+
+### When to Rebuild the Index
+
+Re-run `npm run build` whenever you:
+- Add, remove, or rename an HTML page
+- Make significant content changes to existing pages
+- Want search results to reflect the latest content
+
+### How It Works
+
+- **`nav.js`** injects a Search button into the navigation bar on every page
+- Clicking the button (or pressing **Ctrl+K** / **Cmd+K**) opens a full-screen search overlay
+- As you type, Pagefind fetches matching index fragments and displays results instantly
+- Press **Esc** or click outside the overlay to close it
+- The `css/search.css` file themes the Pagefind UI to match the site's medieval aesthetic
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `package.json` | Defines `pagefind` as a devDependency and build scripts |
+| `index-search.sh` | Shell script to build the search index |
+| `pagefind/` | Generated search index and Pagefind runtime (auto-created) |
+| `css/search.css` | Theme overrides for the Pagefind search UI |
+| `js/nav.js` | Injects the search button, overlay, and keyboard shortcuts |
 
 ## 📁 Project Structure
 
 ```
 CxN_wiki/
 ├── index.html              # Homepage
+├── package.json            # npm config & Pagefind devDependency
+├── index-search.sh         # Build script for Pagefind search index
+├── serve.js                # Local dev server (Node.js)
+├── site.json               # Site-wide configuration
 ├── .gitignore              # Git ignore rules
 ├── README.md               # This file
+│
+├── pagefind/               # Generated search index (commit for deploy)
 │
 ├── assets/                 # All images and media
 │   ├── branding/           # Clan logos, icons
@@ -80,6 +143,7 @@ CxN_wiki/
 ├── css/                    # Stylesheets
 │   ├── style.css           # Main site styles
 │   ├── auth.css            # Authentication/login styles
+│   ├── search.css          # Pagefind search UI theme overrides
 │   ├── calculator.css      # Calculator tool styles
 │   └── trophy-room.css     # Trophy room styles
 │

@@ -55,7 +55,7 @@
      */
     function getBasePath() {
         const path = window.location.pathname;
-        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'downloads', 'roe', 'trophy-room', 'admin'];
+        const sections = ['about', 'wiki', 'strategy', 'faq', 'announcements', 'tools', 'downloads', 'roe', 'trophy-room', 'sitemap', 'admin'];
         for (const section of sections) {
             if (path.includes('/' + section + '/')) {
                 return '../';
