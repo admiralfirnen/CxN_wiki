@@ -115,16 +115,14 @@
     { "id": "melinad", "name": "Melinad", "badges": [] },
     { "id": "saxon", "name": "SAXON", "badges": [] },
     { "id": "eldriilas", "name": "Eldriilas", "badges": [] }, 
-    { "id": "minililegg", "name": "Mini Lil Egg", "badges": [] },
     { "id": "paraoan-alicia", "name": "Paraoan Alicia", "badges": [] }
   ],
   "soldiers": [    
     { "id": "steelsinger", "name": "Steelsinger", "badges": [] },
-    { "id": "beanara", "name": "Beanara", "badges": [] },
+    { "id": "luchy", "name": "Luchy", "badges": [] },
     { "id": "vierka", "name": "Vierka", "badges": [] },
     { "id": "rurin", "name": "Rurin", "badges": [] }, 
     { "id": "lindis", "name": "Lindis", "badges": [] },    
-    { "id": "glelinil", "name": "Glelinil", "badges": [] },
     { "id": "hesoyam", "name": "hesoyam", "badges": [] }
   ]
 }
