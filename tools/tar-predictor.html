@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tar Predictor - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .tar-calculator-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--color-gold);
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-select, .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text);
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .form-select option {
+            background: var(--color-primary);
+            color: var(--color-text);
+        }
+
+        .analyze-button {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient-gold);
+            border: 2px solid var(--color-gold-dark);
+            border-radius: 8px;
+            color: var(--color-primary);
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .analyze-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.5);
+            background: var(--gradient-brass);
+        }
+
+        .analyze-button:active {
+            transform: translateY(0);
+        }
+
+        #results {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .results-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+        }
+
+        #resultsList {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--color-border);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(212, 165, 116, 0.2);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .level-text {
+            font-family: 'Cinzel', serif;
+            color: var(--color-text-dim);
+            font-size: 1.1rem;
+        }
+
+        .tar-text {
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(232, 197, 71, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    
+    <div class="container">
+        <div class="calculator-header">
+            <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Tar Predictor</h1>
+            <p class="calculator-subtitle">Predict tar requirements for crypt upgrades</p>
+        </div>
+
+        <div class="tar-calculator-wrapper">
+            <div class="calculator-section">
+                <h2 class="section-title">Crypt Configuration</h2>
+                
+                <div class="form-group">
+                    <label for="cryptType" class="form-label">Crypt Rarity:</label>
+                    <select id="cryptType" class="form-select" onchange="updateLevels()">
+                        <option value="common">Common Crypt</option>
+                        <option value="rare">Rare Crypt</option>
+                        <option value="epic">Epic Crypt</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="knownLevel" class="form-label">Known Level:</label>
+                    <select id="knownLevel" class="form-select"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="knownConsumption" class="form-label">Current Tar Consumption:</label>
+                    <input type="number" id="knownConsumption" class="form-input" step="0.01" placeholder="Enter amount (e.g. 138 or 3.03k)">
+                </div>
+
+                <button class="analyze-button" onclick="calculateTar()">Analyze Fluid</button>
+            </div>
+
+            <div id="results">
+                <div class="calculator-section">
+                    <h3 class="results-title">Predicted Required Tar</h3>
+                    <div id="resultsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
+
+<script>
+    // Normalized baseline data based on user input & exponential regression for missing values
+    const baseData = {
+        common: { 5: 138, 10: 690, 15: 3030, 20: 12500, 25: 43400 },
+        rare: { 10: 710, 15: 3120, 20: 11900, 25: 27600, 30: 93400 }, // Lvl 30 predicted via log-linear trend
+        epic: { 15: 3470, 20: 12500, 25: 32630, 30: 100000, 35: 306500 } // Lvl 30, 35 predicted via log-linear trend
+    };
+
+    function updateLevels() {
+        const type = document.getElementById('cryptType').value;
+        const levelSelect = document.getElementById('knownLevel');
+        levelSelect.innerHTML = '';
+        
+        Object.keys(baseData[type]).forEach(level => {
+            let option = document.createElement('option');
+            option.value = level;
+            option.textContent = "Level " + level;
+            levelSelect.appendChild(option);
+        });
+    }
+
+    function formatTar(value) {
+        if (value >= 1000) {
+            return (value / 1000).toFixed(2) + "k";
+        }
+        return Math.round(value).toString();
+    }
+
+    function calculateTar() {
+        const type = document.getElementById('cryptType').value;
+        const knownLevel = document.getElementById('knownLevel').value;
+        let rawInput = parseFloat(document.getElementById('knownConsumption').value);
+
+        if (isNaN(rawInput) || rawInput <= 0) {
+            alert("Please enter a valid fluid measurement.");
+            return;
+        }
+
+        // Handle the "k" abbreviation if the user typed 3.03 instead of 3030
+        let knownConsumption = rawInput;
+        // In the context of this data, any baseline over 1000 that the user inputs as < 100 is likely in 'k' notation.
+        if (rawInput < 100 && baseData[type][knownLevel] > 1000) {
+            knownConsumption = rawInput * 1000;
+        }
+
+        const baselineForKnown = baseData[type][knownLevel];
+        const userMultiplier = knownConsumption / baselineForKnown;
+
+        const resultsDiv = document.getElementById('results');
+        const resultsList = document.getElementById('resultsList');
+        resultsList.innerHTML = '';
+
+        Object.keys(baseData[type]).forEach(level => {
+            if (level !== knownLevel) {
+                const predictedBaseline = baseData[type][level];
+                const finalPrediction = predictedBaseline * userMultiplier;
+                
+                const item = document.createElement('div');
+                item.className = 'result-item';
+                item.innerHTML = `<span class="level-text">Level ${level}</span> <span class="tar-text">${formatTar(finalPrediction)}</span>`;
+                resultsList.appendChild(item);
+            }
+        });
+
+        resultsDiv.style.display = 'block';
+    }
+
+    // Initialize levels on load
+    updateLevels();
+</script>
+
+</body>
+</html>
