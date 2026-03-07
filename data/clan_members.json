@@ -7,18 +7,13 @@
     }
   ],
   "superiors": [
+    { "id": "speedbunnikula", "name": "Speed Bunnikula", "badges": [] },
+    { "id": "songofaruin", "name": "Song of a RUIN", "badges": [] },
     {
       "id": "phoenix",
       "name": "Phoenix",
       "badges": ["Site Admin", "Tournament Coordinator"],
       "isAdmin": true
-    },
-    { "id": "songofaruin", "name": "Song of a RUIN", "badges": [] },
-    { "id": "speedbunnikula", "name": "Speed Bunnikula", "badges": [] },
-    {
-      "id": "nero",
-      "name": "NERO",
-      "badges": []
     },
     {
       "id": "maeve",
@@ -26,16 +21,16 @@
       "badges": ["Co-Recruiter", "Diplomat"]
     },
     {
+      "id": "nero",
+      "name": "NERO",
+      "badges": []
+    },
+    {
       "id": "billy-irish",
       "name": "Billy Goat",
       "badges": ["Chat Mediator", "Lead Recruiter"]
     },
     { "id": "bludbringer", "name": "Bludbringer", "badges": [] },
-    {
-      "id": "roseyxmini",
-      "name": "RoseyxMini",
-      "badges": ["Clan Diplomat"]
-    },
     {
       "id": "goramar",
       "name": "Goramar",
@@ -53,71 +48,70 @@
     { "id": "ankou", "name": "ANKOU", "badges": ["Co-Recruiter"] },
     { "id": "kungen", "name": "Kungen", "badges": [] },
     { "id": "goll", "name": "Goll", "badges": ["CoT Coordinator"] },
-    { "id": "joro", "name": "joro", "badges": [] }, 
     { "id": "lalaton", "name": "Lalaton", "badges": [] },
     { "id": "delantrius", "name": "Delantrius", "badges": [] },
-    { "id": "mebar", "name": "Mebar", "badges": [] }, 
-    { "id": "jak", "name": "Jak", "badges": [] },
     { "id": "gunfire", "name": "GunFire", "badges": [] },
     { "id": "gromitgirl", "name": "Gromitgirl", "badges": [] },
+    { "id": "mebar", "name": "Mebar", "badges": [] }, 
+    { "id": "jak", "name": "Jak", "badges": [] },
     { "id": "tyler-durden", "name": "Tyler Durden", "badges": [] },
-    { "id": "levictus", "name": "Levictus", "badges": [] },
-    { "id": "akinobar", "name": "Akinobar", "badges": [] },   
+    { "id": "akinobar", "name": "Akinobar", "badges": [] },  
+    { "id": "celik", "name": "Celik", "badges": [] },
+    { "id": "steelsinger", "name": "Steelsinger", "badges": [] },
     { "id": "gagis", "name": "Gagis", "badges": [] },  
     { "id": "cazurrin", "name": "Cazurrin", "badges": [] },
-    { "id": "steelsinger", "name": "Steelsinger", "badges": [] },
-    { "id": "marafad", "name": "Marafad", "badges": [] },
     { 
       "id": "raindog",
       "name": "RainDog", 
       "badges": ["Site Admin"],
       "isAdmin": true 
     },
-    { "id": "thonrad", "name": "Thonrad", "badges": [] },
     { "id": "keleve", "name": "Keleve", "badges": [] },  
-    { "id": "shakda", "name": "SHAKDA", "badges": [] },
     { "id": "javiviastur", "name": "JaviviAstur", "badges": [] },
-    { "id": "ragekiller", "name": "Ragekiller", "badges": [] },
-    { "id": "gumby", "name": "Gumby", "badges": [] },
     { "id": "tedi1982", "name": "Tedi1982", "badges": [] },
+    { "id": "roseyxmini", "name": "RoseyxMini", "badges": [] },
+    { "id": "gumby", "name": "Gumby", "badges": [] },
+    { "id": "ragekiller", "name": "Ragekiller", "badges": [] },
     { "id": "nizragore", "name": "Nizragore", "badges": [] },
+    { "id": "hm", "name": "hm", "badges": [] }, 
+    { "id": "vierka", "name": "Vierka", "badges": [] },
     { "id": "ildriilas", "name": "Ildriilas", "badges": [] },
+    { "id": "aeglinil", "name": "Aeglinil", "badges": [] },
     { "id": "highlander", "name": "Highlander", "badges": [] },
-    { "id": "sirwar", "name": "SirWar", "badges": [] }
+    { "id": "sir-zohran", "name": "Sir Zohran", "badges": [] }
   ],
   "veterans": [
+    { "id": "joro", "name": "joro", "badges": [] },
     { "id": "faubar", "name": "Faubar", "badges": [] },
-    { "id": "celik", "name": "Celik", "badges": [] },
     { "id": "alpshudor", "name": "Alpshudor", "badges": [] }, 
-    { "id": "argolejl", "name": "Argolejl", "badges": [] },  
-    { "id": "nimvening", "name": "Nimvening", "badges": [] },
+    { "id": "marafad", "name": "Marafad", "badges": [] },
+    { "id": "thonrad", "name": "Thonrad", "badges": [] },
+    { "id": "shakda", "name": "SHAKDA", "badges": [] },
     { "id": "nightfall", "name": "Nightfall", "badges": [] },
-    { "id": "markimus", "name": "Markimus", "badges": [] }, 
+    { "id": "nimvening", "name": "Nimvening", "badges": [] },
+    { "id": "luchy", "name": "Luchy", "badges": [] }, 
     { "id": "kerodor", "name": "Kerodor", "badges": [] },
-    { "id": "kerarus", "name": "Kerarus", "badges": [] },    
-    { "id": "tanos", "name": "Tanos", "badges": [] },
+    { "id": "kerarus", "name": "Kerarus", "badges": [] },  
     { "id": "nantrius", "name": "Nantrius", "badges": [] },
-    { "id": "hm", "name": "hm", "badges": [] }, 
+    { "id": "tanos", "name": "Tanos", "badges": [] },
+    { "id": "markimus", "name": "Markimus", "badges": [] }, 
     { "id": "victory", "name": "victory", "badges": [] },  
     { "id": "zarakikenpachi", "name": "ZARAKI KENPACHI", "badges": [] },
     { "id": "kem", "name": "Kem", "badges": [] },
-    { "id": "aeglinil", "name": "Aeglinil", "badges": [] },
-    { "id": "vierka", "name": "Vierka", "badges": [] },
     { "id": "princess", "name": "Princess", "badges": [] },
-    { "id": "konstantin", "name": "Konstantin", "badges": [] },   
-    { "id": "chazz", "name": "Chazz", "badges": [] },  
+    { "id": "konstantin", "name": "Konstantin", "badges": [] },
+    { "id": "gova", "name": "Gova", "badges": [] },
     { "id": "khawajahamza", "name": "KhawaJa HamZa", "badges": [] },
-    { "id": "gova", "name": "Gova", "badges": [] }, 
+    { "id": "chazz", "name": "Chazz", "badges": [] },  
     { "id": "kelerne", "name": "Kelerne", "badges": [] }, 
     { "id": "melinad", "name": "Melinad", "badges": [] }, 
-    { "id": "sir-zohran", "name": "Sir Zohran", "badges": [] },
     { "id": "saxon", "name": "SAXON", "badges": [] },    
-    { "id": "eldriilas", "name": "Eldriilas", "badges": [] }
+    { "id": "sirwar", "name": "SirWar", "badges": [] },
+    { "id": "eldriilas", "name": "Eldriilas", "badges": [] },
+    { "id": "rurin", "name": "Rurin", "badges": [] }
   ],
   "soldiers": [    
-    { "id": "luchy", "name": "Luchy", "badges": [] }, 
     { "id": "lindis", "name": "Lindis", "badges": [] },       
-    { "id": "rurin", "name": "Rurin", "badges": [] },  
     { "id": "hesoyam", "name": "hesoyam", "badges": [] }
   ]
 }
