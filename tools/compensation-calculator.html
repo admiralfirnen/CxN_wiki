@@ -14,7 +14,7 @@
     <div class="container">
         <div class="calculator-header">
             <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Compensation Calculator</h1>
-            <p class="calculator-subtitle">Calculate fines for ROE violations based on troops killed</p>
+            <p class="calculator-subtitle">Calculate silver compensation from troop losses, clan incidents, and WS/DM gold (per kingdom ROE conversion rates)</p>
         </div>
 
         <div class="calculator-wrapper">
@@ -66,15 +66,29 @@
                 </div>
             </div>
 
-            <!-- Clan Buildings/Portals Section -->
+            <!-- Clan fort, capital, portals, walls & judges (0–10 each) -->
             <div class="calculator-section">
-                <h2 class="section-title">Clan Buildings/Portals</h2>
+                <h2 class="section-title">Fort, Capital, Portals, Walls &amp; Judges</h2>
+                <p class="calculator-section-hint">Each line uses a whole number from 0 to 10. Silver = count × rate shown.</p>
                 <div class="unit-grid" id="building-units">
                     <!-- Will be populated by JavaScript -->
                 </div>
                 <div class="section-total">
-                    <span class="total-label">Building Total:</span>
+                    <span class="total-label">Incident totals (silver):</span>
                     <span class="total-value" id="building-total">0</span>
+                </div>
+            </div>
+
+            <!-- WS/DM: gold (Tar) → silver -->
+            <div class="calculator-section">
+                <h2 class="section-title">WS / DM (Gold → Silver)</h2>
+                <p class="calculator-section-hint">Enter total <strong>gold</strong> (Tar). Conversion: <strong>500 gold = 1,000 silver</strong> (1 gold = 2 silver).</p>
+                <div class="unit-grid" id="wsdm-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">WS/DM (silver):</span>
+                    <span class="total-value" id="wsdm-total">0</span>
                 </div>
             </div>
 

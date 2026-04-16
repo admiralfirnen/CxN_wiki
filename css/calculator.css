@@ -39,6 +39,14 @@
         0 0 20px rgba(212, 165, 116, 0.2);
 }
 
+.calculator-section-hint {
+    font-size: 1rem;
+    color: var(--color-text-dim);
+    margin: -12px 0 20px 0;
+    line-height: 1.55;
+    max-width: 52rem;
+}
+
 .section-title {
     font-family: 'Cinzel', serif;
     font-size: 2rem;

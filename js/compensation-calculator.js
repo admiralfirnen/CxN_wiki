@@ -31,19 +31,29 @@ const calculatorData = {
     mercenaries: [
         { name: 'M5-M8', comp: 1000 }
     ],
+    // Integer count 0–10 each; silver per unit (ROE conversion chart)
     buildings: [
-        { name: 'Stronghold', comp: 500000 },
-        { name: 'Main', comp: 1000000 },
-        { name: 'Portal', comp: 100000 }
+        { name: 'Clan Fort', comp: 5_000_000 },
+        { name: 'Other clan buildings', comp: 3_000_000 },
+        { name: 'Clan Capital', comp: 10_000_000 },
+        { name: 'Portals', comp: 2_000_000 },
+        { name: 'Wall construction', comp: 200_000 },
+        { name: 'Judge', comp: 500_000 }
     ]
 };
+
+// 500 gold (Tar) = 1,000 silver → silver per gold = 2
+const WS_DM_SILVER_PER_GOLD = 2;
 
 // Create input field with slider and text input
 function createUnitInput(unitName, compRate, sectionId) {
     const inputId = `${sectionId}-${unitName.replace(/[^a-zA-Z0-9]/g, '-')}`;
-    // Slider max for visual control, but text input has no max for flexibility
-    const sliderMax = sectionId === 'building' ? 10 : 5000;
-    
+    const isLimitedIncident = sectionId === 'building';
+    const sliderMax = isLimitedIncident ? 10 : 5000;
+    const limitedAttrs = isLimitedIncident
+        ? 'max="10" class="number-input limited-int-input"'
+        : 'class="number-input"';
+
     const unitDiv = document.createElement('div');
     unitDiv.className = 'unit-row';
     unitDiv.innerHTML = `
@@ -59,7 +69,7 @@ function createUnitInput(unitName, compRate, sectionId) {
                    data-input-id="${inputId}">
             <div class="input-with-rate">
                 <input type="number" 
-                       class="number-input" 
+                       ${limitedAttrs}
                        id="${inputId}"
                        min="0" 
                        value="0" 
@@ -68,59 +78,89 @@ function createUnitInput(unitName, compRate, sectionId) {
                        data-comp="${compRate}"
                        tabindex="1"
                        placeholder="0">
-                <span class="comp-rate">x${compRate.toLocaleString()}</span>
+                <span class="comp-rate">×${compRate.toLocaleString()}</span>
             </div>
         </div>
         <div class="subtotal" id="${inputId}-subtotal">0</div>
     `;
-    
+
     return unitDiv;
+}
+
+/** WS/DM: integer gold (Tar); no slider; large values allowed */
+function createWsdmGoldInput() {
+    const inputId = 'wsdm-gold';
+    const unitDiv = document.createElement('div');
+    unitDiv.className = 'unit-row';
+    unitDiv.innerHTML = `
+        <label class="unit-label" for="${inputId}">Gold (Tar)</label>
+        <div class="input-group">
+            <div class="input-with-rate" style="flex: 1; justify-content: flex-start; margin-left: 0;">
+                <input type="number" 
+                       class="number-input" 
+                       id="${inputId}"
+                       min="0" 
+                       value="0" 
+                       step="1"
+                       data-comp="${WS_DM_SILVER_PER_GOLD}"
+                       tabindex="1"
+                       placeholder="0"
+                       aria-describedby="wsdm-rate-hint">
+                <span class="comp-rate" id="wsdm-rate-hint">×${WS_DM_SILVER_PER_GOLD} silver / gold</span>
+            </div>
+        </div>
+        <div class="subtotal" id="${inputId}-subtotal">0</div>
+    `;
+    return unitDiv;
+}
+
+function clampLimitedIntInputs(input) {
+    if (!input.classList.contains('limited-int-input')) return;
+    let q = parseInt(input.value, 10);
+    if (Number.isNaN(q)) return;
+    q = Math.max(0, Math.min(10, q));
+    if (parseInt(input.value, 10) !== q) {
+        input.value = q;
+    }
 }
 
 // Initialize calculator
 function initializeCalculator() {
-    // Guardsman Units
     const guardsmanContainer = document.getElementById('guardsman-units');
     calculatorData.guardsman.forEach(unit => {
         guardsmanContainer.appendChild(createUnitInput(unit.name, unit.comp, 'guardsman'));
     });
 
-    // Engineering Units
     const engineeringContainer = document.getElementById('engineering-units');
     calculatorData.engineering.forEach(unit => {
         engineeringContainer.appendChild(createUnitInput(unit.name, unit.comp, 'engineering'));
     });
 
-    // Monsters
     const monsterContainer = document.getElementById('monster-units');
     calculatorData.monsters.forEach(unit => {
         monsterContainer.appendChild(createUnitInput(unit.name, unit.comp, 'monster'));
     });
 
-    // Mercenaries
     const mercenaryContainer = document.getElementById('mercenary-units');
     calculatorData.mercenaries.forEach(unit => {
         mercenaryContainer.appendChild(createUnitInput(unit.name, unit.comp, 'mercenary'));
     });
 
-    // Buildings
     const buildingContainer = document.getElementById('building-units');
     calculatorData.buildings.forEach(unit => {
         buildingContainer.appendChild(createUnitInput(unit.name, unit.comp, 'building'));
     });
 
-    // Add event listeners
+    const wsdmContainer = document.getElementById('wsdm-units');
+    wsdmContainer.appendChild(createWsdmGoldInput());
+
     setupEventListeners();
-    
-    // Set up tab order
     setupTabOrder();
 }
 
-// Setup event listeners
 function setupEventListeners() {
-    // Slider to text input sync
     document.querySelectorAll('.slider-input').forEach(slider => {
-        slider.addEventListener('input', function() {
+        slider.addEventListener('input', function () {
             const inputId = this.getAttribute('data-input-id');
             const textInput = document.getElementById(inputId);
             textInput.value = this.value;
@@ -128,25 +168,25 @@ function setupEventListeners() {
         });
     });
 
-    // Text input to slider sync
     document.querySelectorAll('.number-input').forEach(input => {
-        // Auto-select value on focus for easy replacement
-        input.addEventListener('focus', function() {
+        input.addEventListener('focus', function () {
             this.select();
         });
 
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
+            clampLimitedIntInputs(this);
+
             const sliderId = this.getAttribute('data-slider-id');
-            const slider = document.getElementById(sliderId);
+            const slider = sliderId ? document.getElementById(sliderId) : null;
             if (slider) {
-                const value = Math.min(parseInt(this.value) || 0, parseInt(slider.max));
+                const value = Math.min(parseInt(this.value, 10) || 0, parseInt(slider.max, 10));
                 slider.value = value;
             }
+
             calculateSubtotal(this.id);
         });
 
-        // Allow Enter key to move to next field
-        input.addEventListener('keydown', function(e) {
+        input.addEventListener('keydown', function (e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 const inputs = Array.from(document.querySelectorAll('.number-input'));
@@ -159,80 +199,99 @@ function setupEventListeners() {
         });
     });
 
-    // Reset button
     document.getElementById('reset-button').addEventListener('click', resetCalculator);
 }
 
-// Calculate subtotal for a unit
 function calculateSubtotal(inputId) {
     const input = document.getElementById(inputId);
-    const qty = parseInt(input.value) || 0;
+    if (!input) return;
+
+    let qty = parseInt(input.value, 10) || 0;
+    if (input.classList.contains('limited-int-input')) {
+        qty = Math.max(0, Math.min(10, qty));
+    }
     const comp = parseFloat(input.getAttribute('data-comp')) || 0;
     const subtotal = qty * comp;
-    
+
     const subtotalElement = document.getElementById(`${inputId}-subtotal`);
     if (subtotalElement) {
         subtotalElement.textContent = subtotal.toLocaleString();
     }
-    
+
     updateSectionTotals();
     updateGrandTotal();
 }
 
-// Update section totals
 function updateSectionTotals() {
     const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'building'];
-    
+
     sections.forEach(section => {
         let total = 0;
         const inputs = document.querySelectorAll(`#${section}-units .number-input`);
         inputs.forEach(input => {
-            const qty = parseInt(input.value) || 0;
+            let qty = parseInt(input.value, 10) || 0;
+            if (input.classList.contains('limited-int-input')) {
+                qty = Math.max(0, Math.min(10, qty));
+            }
             const comp = parseFloat(input.getAttribute('data-comp')) || 0;
             total += qty * comp;
         });
-        
+
         const totalElement = document.getElementById(`${section}-total`);
         if (totalElement) {
             totalElement.textContent = total.toLocaleString();
         }
     });
+
+    const wsdmInput = document.querySelector('#wsdm-units .number-input');
+    const wsdmTotalEl = document.getElementById('wsdm-total');
+    if (wsdmInput && wsdmTotalEl) {
+        const g = parseInt(wsdmInput.value, 10) || 0;
+        const silver = g * WS_DM_SILVER_PER_GOLD;
+        wsdmTotalEl.textContent = silver.toLocaleString();
+    }
 }
 
-// Update grand total
 function updateGrandTotal() {
     let grandTotal = 0;
     const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'building'];
-    
+
     sections.forEach(section => {
         const totalElement = document.getElementById(`${section}-total`);
         if (totalElement) {
-            const sectionTotal = parseInt(totalElement.textContent.replace(/,/g, '')) || 0;
+            const sectionTotal = parseInt(totalElement.textContent.replace(/,/g, ''), 10) || 0;
             grandTotal += sectionTotal;
         }
     });
-    
+
+    const wsdmTotalEl = document.getElementById('wsdm-total');
+    if (wsdmTotalEl) {
+        grandTotal += parseInt(wsdmTotalEl.textContent.replace(/,/g, ''), 10) || 0;
+    }
+
     const grandTotalElement = document.getElementById('grand-total');
     if (grandTotalElement) {
         grandTotalElement.textContent = grandTotal.toLocaleString();
     }
 }
 
-// Reset calculator
 function resetCalculator() {
     document.querySelectorAll('.number-input').forEach(input => {
         input.value = 0;
         const sliderId = input.getAttribute('data-slider-id');
-        const slider = document.getElementById(sliderId);
-        if (slider) {
-            slider.value = 0;
+        if (sliderId) {
+            const slider = document.getElementById(sliderId);
+            if (slider) slider.value = 0;
         }
     });
-    
+
+    document.querySelectorAll('.calculator-wrapper .subtotal').forEach(el => {
+        el.textContent = '0';
+    });
+
     updateSectionTotals();
     updateGrandTotal();
-    
-    // Focus first input
+
     const firstInput = document.querySelector('.number-input');
     if (firstInput) {
         firstInput.focus();
@@ -240,7 +299,6 @@ function resetCalculator() {
     }
 }
 
-// Setup tab order for better navigation
 function setupTabOrder() {
     const inputs = Array.from(document.querySelectorAll('.number-input'));
     inputs.forEach((input, index) => {
@@ -248,5 +306,4 @@ function setupTabOrder() {
     });
 }
 
-// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', initializeCalculator);
