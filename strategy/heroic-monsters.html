@@ -6,11 +6,399 @@
     <title>Heroic Monsters - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .hm-page-intro {
+            font-size: 1.2rem;
+            color: var(--color-text-dim);
+            max-width: 52rem;
+            margin: 0 0 2rem 0;
+            line-height: 1.75;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hm-card {
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+
+        .hm-card h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--color-gold);
+            font-size: 1.65rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
+        }
+
+        .hm-card > p.hm-lead {
+            color: var(--color-text-dim);
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+
+        .hm-legend {
+            list-style: none;
+            margin: 0 0 1.25rem 0;
+            padding: 0.85rem 1.1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.75rem;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--color-stone-light);
+            border-radius: 10px;
+            font-size: 0.98rem;
+        }
+
+        .hm-legend li {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--color-text);
+        }
+
+        .hm-legend-sample {
+            font-family: ui-monospace, monospace;
+            font-weight: 700;
+            min-width: 1.5rem;
+            text-align: center;
+        }
+
+        .hm-legend-sample--strong {
+            color: #f5e6b8;
+            text-shadow: 0 0 8px rgba(212, 165, 116, 0.5);
+        }
+
+        .hm-legend-sample--alt {
+            color: #9ec9d4;
+        }
+
+        .hm-legend-sample--none {
+            color: var(--color-text-muted);
+        }
+
+        .hm-scroll {
+            overflow-x: auto;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem 0.35rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .hm-matrix {
+            width: 100%;
+            min-width: 36rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 1rem;
+            border: 2px solid var(--color-border-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .hm-matrix caption {
+            caption-side: bottom;
+            text-align: left;
+            padding-top: 0.75rem;
+            font-size: 0.92rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        .hm-matrix thead th {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(180deg, #2d4f5a 0%, #1f3a42 100%);
+            color: var(--color-gold-light);
+            padding: 0.7rem 0.5rem;
+            border-bottom: 2px solid var(--color-border-gold);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hm-matrix thead th:first-child {
+            width: 3.25rem;
+        }
+
+        .hm-matrix tbody th {
+            font-family: 'Cinzel', serif;
+            background: rgba(15, 31, 36, 0.9);
+            color: var(--color-gold);
+            padding: 0.55rem 0.4rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .hm-matrix td {
+            border-top: 1px solid rgba(212, 165, 116, 0.15);
+            vertical-align: middle;
+            text-align: center;
+            padding: 0.45rem 0.35rem;
+        }
+
+        .hm-matrix td.hm-notes {
+            text-align: left;
+            font-size: 0.88rem;
+            color: var(--color-text-dim);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            max-width: 22rem;
+            line-height: 1.45;
+        }
+
+        .hm-matrix tbody tr:nth-child(even) td:not(.hm-notes) {
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .hm-matrix tbody tr:nth-child(odd) td:not(.hm-notes) {
+            background: rgba(31, 58, 66, 0.25);
+        }
+
+        .hm-cell {
+            font-family: ui-monospace, 'Crimson Text', monospace;
+            font-weight: 700;
+            font-size: 1.15rem;
+            min-width: 3.1rem;
+        }
+
+        .hm-cell--none {
+            color: var(--color-text-muted);
+            opacity: 0.65;
+        }
+
+        .hm-cell--strong {
+            background: linear-gradient(160deg, #7a2030 0%, #5c1824 40%, #4a1520 100%);
+            color: #fff8e8;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+            box-shadow: inset 0 0 12px rgba(212, 165, 116, 0.12);
+        }
+
+        .hm-cell--combo {
+            background: linear-gradient(
+                135deg,
+                #6b1f2a 0%,
+                #5c1824 45%,
+                #1e3d47 45%,
+                #254a54 100%
+            );
+            padding: 0.35rem 0.25rem;
+        }
+
+        .hm-cell--combo .hm-glyph--strong {
+            color: #fff0d0;
+        }
+
+        .hm-cell--combo .hm-glyph--alt {
+            color: #b8dfe8;
+        }
+
+        .hm-prose {
+            font-size: 1.12rem;
+            line-height: 1.85;
+            color: var(--color-text);
+            margin-bottom: 1.25rem;
+        }
+
+        .hm-prose:last-child {
+            margin-bottom: 0;
+        }
+
+        .hm-type-icon {
+            font-size: 1.1rem;
+            margin-right: 0.2rem;
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+        }
+    </style>
 </head>
 <body>
     <nav id="main-nav"></nav>
     <div class="container">
-        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Heroic Monsters</h1>
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 16px;">Heroic Monsters</h1>
+        <p class="hm-page-intro">
+            Quick reference for which troop <strong>types</strong> work best at each heroic monster level. Use the chart with the notes column to avoid sending the wrong families into a fight.
+        </p>
+
+        <div class="content-card hm-card">
+            <h2>Troop type matrix (levels 32–16)</h2>
+            <p class="hm-lead">Each cell shows how that troop type ranks for that level. Combined symbols mean both a top pick and a workable alternate apply.</p>
+
+            <ul class="hm-legend">
+                <li><span class="hm-legend-sample hm-legend-sample--strong" aria-hidden="true">█</span> Strongly recommended</li>
+                <li><span class="hm-legend-sample hm-legend-sample--alt" aria-hidden="true">▒</span> Acceptable / alternate</li>
+                <li><span class="hm-legend-sample hm-legend-sample--none" aria-hidden="true">·</span> Not recommended / not listed</li>
+            </ul>
+
+            <div class="hm-scroll">
+                <table class="hm-matrix">
+                    <thead>
+                        <tr>
+                            <th scope="col">Lvl</th>
+                            <th scope="col"><span class="hm-type-icon" aria-hidden="true">🏹</span>Ranged</th>
+                            <th scope="col"><span class="hm-type-icon" aria-hidden="true">⚔️</span>Melee</th>
+                            <th scope="col"><span class="hm-type-icon" aria-hidden="true">🐎</span>Mounted</th>
+                            <th scope="col"><span class="hm-type-icon" aria-hidden="true">🦅</span>Flying</th>
+                            <th scope="col">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">32</th>
+                            <td class="hm-cell hm-cell--none" title="Not recommended">·</td>
+                            <td class="hm-cell hm-cell--strong" title="Strongly recommended">█</td>
+                            <td class="hm-cell hm-cell--none" title="Not recommended">·</td>
+                            <td class="hm-cell hm-cell--none" title="Not recommended">·</td>
+                            <td class="hm-notes">No Giants, Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">31</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Beasts, Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">30</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Beasts, Dragons</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">29</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Beasts, Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">28</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo" title="Strongly recommended and acceptable alternate"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo" title="Strongly recommended and acceptable alternate"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Beasts, Dragons, Giants</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">27</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Dragons, Giants</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">26</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Beasts, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">25</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong">█</td>
+                            <td class="hm-notes">No Beasts, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">24</th>
+                            <td class="hm-cell hm-cell--combo" title="Strongly recommended and acceptable alternate"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo" title="Strongly recommended and acceptable alternate"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-notes">Best of weaker options — Ranged or Mounted. No Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">23</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">22</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">21</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">20</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Beasts, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">19</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--strong" title="Strongly recommended">█</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-notes">Mounted focus. No Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">18</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Dragons, Elementals</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">No Dragons</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16</th>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--none">·</td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-cell hm-cell--combo"><span class="hm-glyph hm-glyph--strong">█</span><span class="hm-glyph hm-glyph--alt">▒</span></td>
+                            <td class="hm-notes">—</td>
+                        </tr>
+                    </tbody>
+                    <caption>Levels sorted high to low. Match troop and captain artifacts to the same types you bring.</caption>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-card hm-card">
+            <h2>Health, blocks, and march order</h2>
+            <p class="hm-prose">
+                Going after heroics is a <strong>health</strong> game: stack health boosts everywhere they apply. Run your Premium set to <strong>Great Marshal</strong>, use a <strong>health-focused captain</strong> that matches the troop types you send, equip a <strong>health-focused artifact</strong> aligned with those same types, and layer in your <strong>personal health bonus</strong> plus <strong>clan health bonus</strong> so the march can absorb return damage. Send <strong>large blocks</strong> of troops—big enough that each block can wipe enemy monster groups in <strong>one hit</strong> when possible, so you are not trading inefficient partial rounds.
+            </p>
+            <p class="hm-prose">
+                <strong>March order:</strong> when you expect to <strong>die</strong> (for example, against an Epic Monster), lead with your <strong>weakest</strong> troops so your best stacks survive longer. When you expect to <strong>win</strong> (for example, against Heroic Monsters), lead with your <strong>strongest</strong> troops in those large front blocks so the fight starts in your favor.
+            </p>
+        </div>
+
+        <div class="content-card hm-card">
+            <h2>Mercenaries and monsters</h2>
+            <p class="hm-prose">
+                The <strong>types</strong> called out in the chart apply to <strong>mercenaries and monsters</strong> as well as normal troops—you are matching type strengths to the encounter, not only city units. You can also send <strong>none-type</strong> mercs when you have them; good examples include <strong>Epic Monster Hunters</strong>, <strong>Elder Hunter</strong> (Easter Bunny mercs), and <strong>Elder Bounty Hunter</strong> (Great Hunt mercs). Mix those in when they fit your plan.
+            </p>
+        </div>
     </div>
     <footer id="main-footer"></footer>
     <script src="../js/auth.js"></script>
