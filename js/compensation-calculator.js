@@ -31,6 +31,13 @@ const calculatorData = {
     mercenaries: [
         { name: 'M5-M8', comp: 1000 }
     ],
+    // Integer levels; silver per level
+    heroCaptains: [
+        { name: 'Hero level', comp: 3_000 },
+        { name: 'Captain 1 level', comp: 2_000 },
+        { name: 'Captain 2 level', comp: 2_000 },
+        { name: 'Captain 3 level', comp: 2_000 }
+    ],
     // Integer count 0–10 each; silver per unit (ROE conversion chart)
     buildings: [
         { name: 'Clan Fort', comp: 5_000_000 },
@@ -146,6 +153,11 @@ function initializeCalculator() {
         mercenaryContainer.appendChild(createUnitInput(unit.name, unit.comp, 'mercenary'));
     });
 
+    const heroCaptainsContainer = document.getElementById('hero-captains-units');
+    calculatorData.heroCaptains.forEach(unit => {
+        heroCaptainsContainer.appendChild(createUnitInput(unit.name, unit.comp, 'hero-captains'));
+    });
+
     const buildingContainer = document.getElementById('building-units');
     calculatorData.buildings.forEach(unit => {
         buildingContainer.appendChild(createUnitInput(unit.name, unit.comp, 'building'));
@@ -223,7 +235,7 @@ function calculateSubtotal(inputId) {
 }
 
 function updateSectionTotals() {
-    const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'building'];
+    const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'hero-captains', 'building'];
 
     sections.forEach(section => {
         let total = 0;
@@ -254,7 +266,7 @@ function updateSectionTotals() {
 
 function updateGrandTotal() {
     let grandTotal = 0;
-    const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'building'];
+    const sections = ['guardsman', 'engineering', 'monster', 'mercenary', 'hero-captains', 'building'];
 
     sections.forEach(section => {
         const totalElement = document.getElementById(`${section}-total`);

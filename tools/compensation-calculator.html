@@ -14,7 +14,7 @@
     <div class="container">
         <div class="calculator-header">
             <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Compensation Calculator</h1>
-            <p class="calculator-subtitle">Calculate silver compensation from troop losses, clan incidents, and WS/DM gold (per kingdom ROE conversion rates)</p>
+            <p class="calculator-subtitle">Calculate silver compensation from troop losses, hero and captain levels, clan incidents, and WS/DM gold (per kingdom ROE conversion rates)</p>
         </div>
 
         <div class="calculator-wrapper">
@@ -63,6 +63,19 @@
                 <div class="section-total">
                     <span class="total-label">Mercenary Total:</span>
                     <span class="total-value" id="mercenary-total">0</span>
+                </div>
+            </div>
+
+            <!-- Hero & Captains (levels) -->
+            <div class="calculator-section">
+                <h2 class="section-title">Hero &amp; Captains</h2>
+                <p class="calculator-section-hint">Enter each <strong>level</strong> as a whole number. Hero: <strong>3,000 silver per hero level</strong>. Each captain slot: <strong>2,000 silver per captain level</strong> (up to three captains).</p>
+                <div class="unit-grid" id="hero-captains-units">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="section-total">
+                    <span class="total-label">Hero &amp; Captains (silver):</span>
+                    <span class="total-value" id="hero-captains-total">0</span>
                 </div>
             </div>
 
