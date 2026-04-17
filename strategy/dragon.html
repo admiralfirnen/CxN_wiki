@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .dragon-evolve-intro {
+            color: var(--color-text-dim);
+            font-size: 1.1rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+        .dragon-orbs-figure {
+            margin: 0 0 1.5rem 0;
+            text-align: center;
+        }
+        .dragon-orbs-figure img {
+            max-width: min(100%, 520px);
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--color-border-gold);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+        }
+        .dragon-orbs-caption {
+            margin-top: 0.65rem;
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+        .dragon-evolve-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -0.25rem;
+        }
+        .dragon-evolve-table {
+            width: 100%;
+            min-width: 20rem;
+            border-collapse: collapse;
+            font-size: 1.05rem;
+            border: 2px solid var(--color-border-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+        .dragon-evolve-table thead th {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(180deg, #2d4f5a 0%, #1f3a42 100%);
+            color: var(--color-gold-light);
+            padding: 0.65rem 0.75rem;
+            text-align: left;
+            border-bottom: 2px solid var(--color-border-gold);
+            font-size: 0.88rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .dragon-evolve-table tbody td {
+            padding: 0.55rem 0.75rem;
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            color: var(--color-text);
+        }
+        .dragon-evolve-table tbody tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.15);
+        }
+        .dragon-evolve-table tbody tr:nth-child(odd) {
+            background: rgba(31, 58, 66, 0.2);
+        }
+        .dragon-evolve-table .col-orbs {
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            color: var(--color-gold-light);
+        }
+        .dragon-evolve-table .col-orbs abbr {
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(212, 165, 116, 0.45);
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 24px;">Dragon</h1>
+
+        <div class="content-card" style="text-align: left; margin-bottom: 28px;">
+            <h2 class="card-title">Bonuses</h2>
+            <p class="card-description" style="margin-bottom: 0;">Dragon bonus content coming soon.</p>
+        </div>
+
+        <div class="content-card" style="text-align: left; margin-bottom: 28px;">
+            <h2 class="card-title">Feeding</h2>
+            <p class="card-description" style="margin-bottom: 0;">Dragon feeding content coming soon.</p>
+        </div>
+
+        <div class="content-card" style="text-align: left; margin-bottom: 28px;">
+            <h2 class="card-title">Evolving</h2>
+            <p class="dragon-evolve-intro">
+                Each evolution step consumes <strong>Dragon Orbs</strong>. Totals below are orbs required to move from the starting tier to the next. <strong>K</strong> means thousands (for example, 7.5K = 7,500).
+            </p>
+            <figure class="dragon-orbs-figure">
+                <img src="../assets/dragon_orbs.png" alt="Dragon Orb icons used in evolution" loading="lazy">
+                <figcaption class="dragon-orbs-caption">Dragon Orbs (in-game)</figcaption>
+            </figure>
+            <div class="dragon-evolve-wrap">
+                <table class="dragon-evolve-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Evolution</th>
+                            <th scope="col">Dragon Orbs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 → 2</td>
+                            <td class="col-orbs"><abbr title="3,000">3K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>2 → 3</td>
+                            <td class="col-orbs"><abbr title="7,500">7.5K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>3 → 4</td>
+                            <td class="col-orbs"><abbr title="22,000">22K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>4 → 5</td>
+                            <td class="col-orbs"><abbr title="52,000">52K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>5 → 6</td>
+                            <td class="col-orbs"><abbr title="75,000">75K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>6 → 7</td>
+                            <td class="col-orbs"><abbr title="220,000">220K</abbr></td>
+                        </tr>
+                        <tr>
+                            <td>7 → 8</td>
+                            <td class="col-orbs"><abbr title="600,000">600K</abbr></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>
