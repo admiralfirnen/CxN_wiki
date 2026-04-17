@@ -653,3 +653,136 @@
     color: var(--text-muted);
     line-height: 1.6;
 }
+
+/* Leveling & star upgrades (fragments + Immortal Essence) */
+.star-upgrade-section .star-upgrade-intro {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 18px;
+    max-width: 52rem;
+}
+
+.star-upgrade-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.star-upgrade-legend-divider {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.star-upgrade-deck {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.star-rarity-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.star-rarity-card__head {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.star-rarity-card--rare .star-rarity-card__head {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(15, 23, 42, 0.9));
+    border-bottom-color: rgba(59, 130, 246, 0.45);
+}
+
+.star-rarity-card--epic .star-rarity-card__head {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(59, 7, 100, 0.85));
+    border-bottom-color: rgba(168, 85, 247, 0.5);
+}
+
+.star-rarity-card--legendary .star-rarity-card__head {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.35), rgba(120, 53, 15, 0.75));
+    border-bottom-color: rgba(234, 179, 8, 0.45);
+}
+
+.star-rarity-card__title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f8fafc;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.star-rarity-card__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) auto auto;
+    gap: 0 10px;
+    padding: 4px 12px 12px;
+    font-size: 0.9rem;
+}
+
+.star-rarity-card__row {
+    display: contents;
+}
+
+.star-rarity-card__row > span {
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+}
+
+.star-rarity-card__row > span:nth-child(2),
+.star-rarity-card__row > span:nth-child(3) {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #e2e8f0;
+    text-align: right;
+}
+
+.star-rarity-card__row > span:nth-child(1) {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.star-rarity-card__row--head > span {
+    border-top: none;
+    padding-top: 10px;
+    padding-bottom: 4px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-color) !important;
+    font-weight: 700 !important;
+}
+
+.star-rarity-card__row--head > span:nth-child(2),
+.star-rarity-card__row--head > span:nth-child(3) {
+    color: var(--accent-color) !important;
+}
+
+.star-rarity-card__row--head + .star-rarity-card__row > span {
+    border-top: none;
+}
+
+.star-rarity-card abbr {
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(148, 163, 184, 0.5);
+    cursor: help;
+}
+
+@media (max-width: 900px) {
+    .star-upgrade-deck {
+        grid-template-columns: 1fr;
+    }
+}
