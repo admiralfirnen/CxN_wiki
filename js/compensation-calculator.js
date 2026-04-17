@@ -56,10 +56,16 @@ const WS_DM_SILVER_PER_GOLD = 2;
 function createUnitInput(unitName, compRate, sectionId) {
     const inputId = `${sectionId}-${unitName.replace(/[^a-zA-Z0-9]/g, '-')}`;
     const isLimitedIncident = sectionId === 'building';
-    const sliderMax = isLimitedIncident ? 10 : 5000;
-    const limitedAttrs = isLimitedIncident
-        ? 'max="10" class="number-input limited-int-input"'
-        : 'class="number-input"';
+    const isHeroCaptains = sectionId === 'hero-captains';
+    const sliderMax = isLimitedIncident ? 10 : isHeroCaptains ? 600 : 5000;
+    let limitedAttrs;
+    if (isLimitedIncident) {
+        limitedAttrs = 'max="10" class="number-input limited-int-input"';
+    } else if (isHeroCaptains) {
+        limitedAttrs = 'max="600" class="number-input"';
+    } else {
+        limitedAttrs = 'class="number-input"';
+    }
 
     const unitDiv = document.createElement('div');
     unitDiv.className = 'unit-row';
@@ -131,6 +137,19 @@ function clampLimitedIntInputs(input) {
     }
 }
 
+/** Hero/captain level fields: number input max matches slider (600) */
+function clampByNumberMax(input) {
+    if (!input.hasAttribute('max') || input.classList.contains('limited-int-input')) return;
+    const cap = parseInt(input.getAttribute('max'), 10);
+    if (Number.isNaN(cap)) return;
+    let q = parseInt(input.value, 10);
+    if (Number.isNaN(q)) return;
+    q = Math.max(0, Math.min(cap, q));
+    if (parseInt(input.value, 10) !== q) {
+        input.value = q;
+    }
+}
+
 // Initialize calculator
 function initializeCalculator() {
     const guardsmanContainer = document.getElementById('guardsman-units');
@@ -187,6 +206,7 @@ function setupEventListeners() {
 
         input.addEventListener('input', function () {
             clampLimitedIntInputs(this);
+            clampByNumberMax(this);
 
             const sliderId = this.getAttribute('data-slider-id');
             const slider = sliderId ? document.getElementById(sliderId) : null;
@@ -221,6 +241,9 @@ function calculateSubtotal(inputId) {
     let qty = parseInt(input.value, 10) || 0;
     if (input.classList.contains('limited-int-input')) {
         qty = Math.max(0, Math.min(10, qty));
+    } else if (input.hasAttribute('max') && input.getAttribute('max') !== '') {
+        const cap = parseInt(input.getAttribute('max'), 10);
+        if (!Number.isNaN(cap)) qty = Math.max(0, Math.min(cap, qty));
     }
     const comp = parseFloat(input.getAttribute('data-comp')) || 0;
     const subtotal = qty * comp;
@@ -244,6 +267,9 @@ function updateSectionTotals() {
             let qty = parseInt(input.value, 10) || 0;
             if (input.classList.contains('limited-int-input')) {
                 qty = Math.max(0, Math.min(10, qty));
+            } else if (input.hasAttribute('max') && input.getAttribute('max') !== '') {
+                const cap = parseInt(input.getAttribute('max'), 10);
+                if (!Number.isNaN(cap)) qty = Math.max(0, Math.min(cap, qty));
             }
             const comp = parseFloat(input.getAttribute('data-comp')) || 0;
             total += qty * comp;
