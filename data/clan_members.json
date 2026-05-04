@@ -20,11 +20,6 @@
       "name": "AdmiralFirnen",
       "badges": ["Math Nerd"]
     },
-    {
-      "id": "billy-irish",
-      "name": "Billy Goat",
-      "badges": ["Chat Mediator", "Lead Recruiter", "Emotional Support Animal"]
-    },
     { "id": "delantrius", "name": "Delantrius", "badges": [] },
     {
       "id": "goramar",
@@ -39,7 +34,6 @@
   ],
   "officers": [
     { "id": "mazurr", "name": "Mazurr", "badges": [] },
-    { "id": "maoqueen", "name": "MaoQueen", "badges": [] },
     { "id": "darloting", "name": "Darloting", "badges": [] },
     { "id": "kingpin", "name": "KINGPIN", "badges": [] },
     { "id": "eydaen", "name": "Eydaen", "badges": [] },
@@ -84,8 +78,9 @@
     
   ],
   "veterans": [
+    { "id": "sirrend3r", "name": "Sir Rend3r", "badges": [] },
+    { "id": "ladyaelunethia", "name": "Lady Aelunethia", "badges": [] },
     { "id": "marafad", "name": "Marafad", "badges": [] },
-    { "id": "NERO", "name": "NERO", "badges": [] },
     { "id": "alpshudor", "name": "Alpshudor", "badges": [] },
     { "id": "shakda", "name": "SHAKDA", "badges": [] },
     { "id": "nantrius", "name": "Nantrius", "badges": [] },
