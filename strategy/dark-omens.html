@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Omens Strategy - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0 25px 0;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-color);
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 215, 0, 0.14);
+            border-color: rgba(255, 215, 0, 0.45);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px 18px;
+            margin: 18px 0;
+        }
+
+        .info-card h2 {
+            margin-top: 0;
+        }
+
+        .gold-framed-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 18px 0 26px 0;
+        }
+
+        .gold-framed-image {
+            max-width: min(720px, 100%);
+            border-radius: 14px;
+            border: 2px solid rgba(255, 215, 0, 0.55);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .muted {
+            color: var(--text-muted);
+        }
+
+        .callout {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin: 16px 0;
+        }
+
+        .hit-order ol {
+            margin: 10px 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Dark Omens</h1>
+        <p class="muted" style="margin-bottom: 22px;">Tournament overview + CxN clan execution plan</p>
+
+        <div class="gold-framed-wrap">
+            <img class="gold-framed-image" src="../assets/tiles/dark_omens_tile.jpg" alt="Dark Omens" width="720" height="auto">
+        </div>
+
+        <div class="tab-navigation" role="tablist" aria-label="Dark Omens tabs">
+            <button class="tab-btn active" data-tab="general" role="tab" aria-controls="tab-general" aria-selected="true">
+                General Information
+            </button>
+            <button class="tab-btn" data-tab="clan-strategy" role="tab" aria-controls="tab-clan-strategy" aria-selected="false">
+                Clan strategy
+            </button>
+        </div>
+
+        <div class="tab-content active" id="tab-general" role="tabpanel" aria-label="General Information">
+            <div class="info-card">
+                <h2>What is Dark Omens?</h2>
+                <p>
+                    Dark Omens is a two-day Clan tournament where four Clans face off in the same division. Earn points, summon monsters,
+                    and suppress your rivals’ point production to climb the rankings.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>How to participate</h2>
+                <ul>
+                    <li>You must be in a <strong>player-created</strong> Clan that has a <strong>Clan Capital</strong> and <strong>55+ members with level 20+ Heroes</strong>.</li>
+                    <li>If you join an eligible Clan after the event starts, you can do missions and progress through the Battle Pass, but you cannot contribute Essence or summon/attack Dark Omen monsters.</li>
+                    <li>Only available in Kingdoms with Cross-kingdom interactions enabled.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h2>How to get Clan Rank Points</h2>
+                <p>
+                    Clans generate rank points automatically. Contribute <strong>Omen Essence</strong> to raise your <strong>Flame level</strong> and speed up rank point production.
+                </p>
+                <p>
+                    Essence contributions to the Clan Chalice are only available during scheduled time intervals. When an interval ends,
+                    ongoing production continues — only the ability to contribute is temporarily disabled.
+                </p>
+                <div class="callout">
+                    <strong>Essence contribution windows (7 total)</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Day 1 — +0h | 05:00–06:00 PM UTC</li>
+                        <li>Day 1 — +8h | 01:00–02:00 AM UTC</li>
+                        <li>Day 1 — +16h | 09:00–10:00 AM UTC</li>
+                        <li>Day 1 — +22h | 03:00–06:00 PM UTC</li>
+                        <li>Day 2 — +8h | 01:00–02:00 AM UTC</li>
+                        <li>Day 2 — +16h | 09:00–10:00 AM UTC</li>
+                        <li>Day 2 — +22h | 03:00–05:00 PM UTC</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>How to fight other Clans</h2>
+                <ul>
+                    <li>Summon Dark Omen monsters onto rival Clans’ Grounds using <strong>Spawn Cards</strong> (from daily missions).</li>
+                    <li>Monsters suppress point production (up to <strong>-95%</strong>) until defeated or they expire.</li>
+                    <li>The limit on Dark Omen monsters refreshes every hour from tournament launch.</li>
+                </ul>
+                <p class="muted" style="margin-top: 10px;">
+                    Suppression is capped at -95% — clans always produce points (just much slower).
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>Common questions (quick notes)</h2>
+                <ul>
+                    <li><strong>Spawn Cards</strong>: earned via daily missions by collecting Omen Sigils (from battles vs the Arcanomancer).</li>
+                    <li><strong>Dark Omen monster battles</strong>: reduced resurrection costs; irreversible losses disabled; equipment doesn’t break.</li>
+                    <li><strong>Fatigue</strong>: attacking Dark Omen monsters adds Fatigue Marks based on damage, reducing troop strength/health (encourages team play).</li>
+                    <li><strong>Matchmaking</strong>: based on clan might, member count, and the level of Guardsmen, Specialists, and Monsters.</li>
+                </ul>
+                <p class="muted" style="margin-top: 14px;">
+                    Source (reused/adapted): <a href="https://scorewarrior.helpshift.com/hc/en/3-total-battle/faq/1013-dark-omens/" target="_blank" rel="noopener">Dark Omens — Total Battle Help Center</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-clan-strategy" role="tabpanel" aria-label="Clan strategy">
+            <div class="info-card">
+                <h2>‘Sandbag + Max Burn’</h2>
+                <p>
+                    The basis of this strategy is to attract as many monsters for <strong>Spoils of Dread</strong> clan rewards as possible.
+                    So far there has never been an issue winning Omens outright, but rather maximizing total value.
+                </p>
+            </div>
+
+            <div class="info-card hit-order">
+                <h2>Hit order (honor system)</h2>
+                <p>
+                    If this is done properly and respected by <strong>ALL</strong> clan members, almost everyone should be able to get their Spoils of Dread chests.
+                    If people jump ahead in line, very few people may hit their goals and both individuals and the clan will suffer.
+                </p>
+                <ol>
+                    <li><strong>G3/G4/G5</strong> hit first. Once the red chest rewards are completed, no more hits on summoned monsters are allowed.</li>
+                    <li><strong>G6</strong> hit next. Once the red chest rewards are completed, no more hits on summoned monsters are allowed.</li>
+                    <li><strong>G7</strong> hit next. Once the red chest rewards are completed, no more hits on summoned monsters are allowed.</li>
+                    <li><strong>G8</strong>, same.</li>
+                    <li><strong>G9</strong>, same.</li>
+                </ol>
+            </div>
+
+            <div class="info-card">
+                <h2>Arcanomancer expectations</h2>
+                <p>
+                    All clan members are expected to attain maximum cards and essence from the Epic both days.
+                    From now on, the session leader will assume you have full essence and cards and simply check off your contributions after you have been called.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>Strategy overview (session-led)</h2>
+                <div class="callout">
+                    <strong>Do not</strong> play cards or contribute essence without session leader instruction.
+                </div>
+                <p>
+                    The session leader will call for all contributions directly. Taking actions early compromises the plan and reduces the number of monsters summoned against us.
+                </p>
+                <p>
+                    There are 7 Essence contribution windows. For the <strong>first four</strong>, the session leader attempts to stay slightly behind/even/slightly ahead of the leading opponent’s score.
+                    This focuses attention on us, resulting in more monsters summoned against us.
+                </p>
+                <p>
+                    The <strong>last three windows</strong> are the <strong>maximum burn</strong> where we push the Chalice to level 5 right away.
+                </p>
+                <ul>
+                    <li>Session leaders will ask which windows people will be active so everyone’s essence and cards can be used efficiently.</li>
+                    <li>If you can’t be on during a contribution window, tell session leaders so they can instruct you when to use cards.</li>
+                    <li>After the start of session 5, anyone who is very unsure of their schedule may summon or contribute essence at any time.</li>
+                </ul>
+                <p style="margin-top: 14px;">
+                    This is a clan event: follow session leader instructions and do not take actions with essence/cards without direct instruction.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+        (function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function setActiveTab(tabId) {
+                tabBtns.forEach(btn => {
+                    const isActive = btn.dataset.tab === tabId;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+
+                tabContents.forEach(content => {
+                    content.classList.toggle('active', content.id === `tab-${tabId}`);
+                });
+            }
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+            });
+        })();
+    </script>
+</body>
+</html>
+
