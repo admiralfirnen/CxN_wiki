@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiculator - CxN Clan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .kaiculator-credit {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: var(--gradient-stone);
+            border: 2px solid var(--color-border-gold);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.5), 0 0 16px rgba(212,165,116,0.15);
+        }
+
+        .kaiculator-credit-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            color: var(--color-text-dim);
+            line-height: 1.6;
+        }
+
+        .kaiculator-credit-text strong {
+            color: var(--color-gold);
+        }
+
+        .kaiculator-credit-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .kaiculator-open-btn {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            white-space: nowrap;
+        }
+
+        .kaiculator-open-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(212,165,116,0.5);
+            color: var(--color-primary);
+        }
+
+        .kaiculator-open-btn.secondary {
+            color: var(--color-gold);
+            background: transparent;
+            border: 1px solid var(--color-border-gold);
+        }
+
+        .kaiculator-open-btn.secondary:hover {
+            background: rgba(212,165,116,0.1);
+            color: var(--color-gold-light);
+        }
+
+        .kaiculator-frame-wrapper {
+            position: relative;
+            width: 100%;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.7), 0 0 20px rgba(212,165,116,0.1);
+            background: #fff;
+        }
+
+        .kaiculator-frame-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 7200px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .kaiculator-fallback {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--color-text-dim);
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            background: var(--gradient-stone);
+        }
+
+        .kaiculator-fallback a {
+            color: var(--color-link);
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+    <div class="container">
+        <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 10px;">Kaiculator</h1>
+        <p class="calculator-subtitle" style="text-align:center; margin-bottom: 28px;">Total Battle Stack Calculator</p>
+
+        <div class="kaiculator-credit">
+            <div class="kaiculator-credit-text">
+                🛡️ Created by <strong>Kai</strong> from <strong>[HoD]</strong> in K227 / Kaimono from [SOA] in K300.
+                All credit goes to Kai for building and maintaining this free tool for the Total Battle community.
+                <br>
+                <span style="font-size:0.95rem; opacity:0.8;">
+                    Support Kai: <a href="https://www.buymeacoffee.com/kaiconure" target="_blank" rel="noopener">Buy Me a Coffee</a>
+                    &nbsp;·&nbsp;
+                    <a href="https://discord.gg/cjQK68Bhxs" target="_blank" rel="noopener">Discord Support</a>
+                </span>
+            </div>
+            <div class="kaiculator-credit-actions">
+                <a href="https://kaiculator.kaikaiju.com/" target="_blank" rel="noopener" class="kaiculator-open-btn secondary">
+                    ↗ Open in New Tab
+                </a>
+            </div>
+        </div>
+
+        <div class="kaiculator-frame-wrapper">
+            <iframe
+                src="https://kaiculator.kaikaiju.com/"
+                title="Kaiculator – Total Battle Stack Calculator by Kai"
+                loading="lazy"
+                scrolling="no"
+                allowfullscreen
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads"
+            >
+                <div class="kaiculator-fallback">
+                    <p>Your browser does not support embedded frames.</p>
+                    <p><a href="https://kaiculator.kaikaiju.com/" target="_blank" rel="noopener">Open the Kaiculator directly →</a></p>
+                </div>
+            </iframe>
+        </div>
+
+    </div>
+    <footer id="main-footer"></footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>
