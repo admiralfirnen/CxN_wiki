@@ -23,11 +23,6 @@
     },
     { "id": "delantrius", "name": "Delantrius", "badges": [] },
     {
-      "id": "gor",
-      "name": "Gor",
-      "badges": ["Clan Raid Coordinator", "Lead Recruiter"]
-    },
-    {
       "id": "nico",
       "name": "Nico",
       "badges": ["Clan Leader", "Clan Diplomat"]
@@ -41,7 +36,6 @@
     { "id": "asta", "name": "Asta", "badges": [] },
     { "id": "danu", "name": "Danu", "badges": [] },
     { "id": "kingpin", "name": "KINGPIN", "badges": [] },
-    { "id": "spicytoothpaste", "name": "Spicy Toothpaste", "badges": [] },
     { "id": "mebar", "name": "Mebar", "badges": [] },
     { "id": "gollofaphoenix", "name": "Goll of a Phoenix", "badges": [] },
     { "id": "eydaen", "name": "Eydaen", "badges": [] },
@@ -105,7 +99,8 @@
     { "id": "lindis", "name": "Lindis", "badges": [] },
     { "id": "eyi", "name": "Eyi", "badges": [] },
     { "id": "saladin", "name": "Saladin", "badges": [] },
-    { "id": "cynnie", "name": "Cynnie", "badges": [] }
+    { "id": "cynnie", "name": "Cynnie", "badges": [] },
+    { "id"" "whabam", "name": "WhaBam", "badges": [] }
   ],
   "soldiers": [    
     { "id": "floki", "name": "Floki", "badges": [] },
