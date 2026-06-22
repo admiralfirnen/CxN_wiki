@@ -5,15 +5,323 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doomsday Strategy - CxN Clan</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/roe.css">
+    <link rel="stylesheet" href="../css/ancients-strategy.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <style>
+        .formula-box {
+            background: rgba(212, 165, 116, 0.1);
+            border: 2px solid var(--color-border-gold);
+            border-radius: 8px;
+            padding: 1.1rem 1.25rem;
+            margin: 1.25rem 0;
+            text-align: center;
+        }
+
+        .roe-section ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+            padding-left: 1.25rem;
+        }
+
+        .roe-section ol li {
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .formula-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 1.05rem;
+            color: var(--color-gold);
+            background: none;
+            padding: 0;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .chest-threshold-chart {
+            margin: 2rem 0;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: 2px solid var(--color-border);
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .chest-threshold-chart-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            margin: 0 0 1rem;
+            text-align: center;
+        }
+
+        .chest-threshold-bar {
+            display: flex;
+            width: 100%;
+            min-height: 3.25rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--color-border-gold);
+        }
+
+        .chest-threshold-segment {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.15rem;
+            padding: 0.5rem 0.25rem;
+            text-align: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.35);
+            background: linear-gradient(180deg, rgba(212, 165, 116, 0.22) 0%, rgba(212, 165, 116, 0.08) 100%);
+        }
+
+        .chest-threshold-segment:last-child {
+            border-right: none;
+        }
+
+        .chest-threshold-segment:nth-child(odd) {
+            background: linear-gradient(180deg, rgba(139, 38, 53, 0.28) 0%, rgba(139, 38, 53, 0.1) 100%);
+        }
+
+        .chest-threshold-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-gold-light);
+        }
+
+        .chest-threshold-value {
+            font-size: 0.72rem;
+            line-height: 1.3;
+            color: var(--color-text-dim);
+        }
+
+        .chest-threshold-scale {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.65rem;
+            font-size: 0.85rem;
+            color: var(--color-text-dim);
+        }
+
+        .chest-threshold-legend {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .chest-threshold-bar {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .chest-threshold-segment {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0.65rem 0.85rem;
+            }
+
+            .chest-threshold-segment:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav id="main-nav"></nav>
     <div class="container">
         <h1 class="clan-name" style="font-size: 3rem; margin-bottom: 30px;">Doomsday</h1>
-        <div class="welcome-section">
-            <p class="welcome-text">Doomsday strategy content coming soon...</p>
-        </div>
+
+        <article class="strategy-entry">
+            <div class="entry-content">
+                <p class="roe-intro">Educational guide on how <strong>Epic Monster chest drops</strong> work in <strong>Total Battle</strong>, with a detailed <em>Doomsday</em> example. Understanding this mechanic helps players and alliances coordinate attacks and maximize rewards.</p>
+
+                <div class="gold-framed-wrap">
+                    <img class="gold-framed-image" src="../assets/doomsday/doomsday-chest.png" alt="Doomsday Epic Monster chest reward" width="560" height="auto">
+                </div>
+                <p class="ancients-flow-caption"><strong>Doomsday chest</strong> — one of seven chest rewards dropped as the Epic Monster's points are reduced.</p>
+
+                <h2 class="roe-section-title">Overview</h2>
+                <div class="roe-section">
+                    <p>Many Epic Monsters in <strong>Total Battle</strong> use a <strong>Chest Drop</strong> mechanic. While each monster may have a different number of total points and available chests, the underlying system works the same for all of them.</p>
+                    <p>Understanding how chest drops are calculated allows players and alliances to coordinate attacks and maximize rewards.</p>
+                </div>
+
+                <h2 class="roe-section-title">How Chest Drops Work</h2>
+                <div class="roe-section">
+                    <p>Each Epic Monster has:</p>
+                    <ul>
+                        <li>A fixed number of <strong>Chest Drops</strong></li>
+                        <li>A fixed number of <strong>Monster Points</strong> (displayed when selecting the monster on the world map)</li>
+                    </ul>
+                    <p>To determine when a chest will drop:</p>
+                    <ol>
+                        <li>Identify the monster's total point value.</li>
+                        <li>Identify the number of available chests.</li>
+                        <li>Divide the total points by the number of chests.</li>
+                    </ol>
+                    <div class="formula-box">
+                        <code>Points Per Chest = Total Monster Points ÷ Number of Chests</code>
+                    </div>
+                    <p>A chest is awarded whenever an attack causes the monster's remaining points to cross one of these thresholds.</p>
+                    <p>In other words, chest drops occur at the <strong>lower end of each interval</strong>.</p>
+                </div>
+
+                <h2 class="roe-section-title">Doomsday Example</h2>
+                <div class="roe-section">
+                    <p>The <strong>Doomsday</strong> Epic Monster has:</p>
+                    <ul>
+                        <li><strong>50,000,000</strong> Doomsday Points</li>
+                        <li><strong>7</strong> Chests</li>
+                    </ul>
+
+                    <h3 class="roe-subsection-title">Step 1: Calculate Points Per Chest</h3>
+                    <div class="formula-box">
+                        <code>50,000,000 ÷ 7 = 7,142,857.14</code>
+                    </div>
+                    <p>Each chest interval is therefore approximately <strong>7.143 million points</strong>.</p>
+
+                    <h3 class="roe-subsection-title">Step 2: Determine Chest Thresholds</h3>
+                    <p>Chest drops occur when the monster's remaining points cross the following values:</p>
+
+                    <div class="ancients-table-wrap">
+                        <table class="ancients-table" aria-label="Doomsday chest drop thresholds">
+                            <thead>
+                                <tr>
+                                    <th>Chest</th>
+                                    <th class="num">Remaining Points Threshold</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="num">42.857M</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="num">35.714M</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="num">28.571M</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="num">21.428M</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="num">14.285M</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="num">7.142M</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="num">0 (Monster Defeated)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="chest-threshold-chart" aria-label="Visual chart of Doomsday chest drop intervals">
+                        <p class="chest-threshold-chart-title">Doomsday Point Intervals (50M total)</p>
+                        <div class="chest-threshold-bar">
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 1</span>
+                                <span class="chest-threshold-value">↓ 42.857M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 2</span>
+                                <span class="chest-threshold-value">↓ 35.714M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 3</span>
+                                <span class="chest-threshold-value">↓ 28.571M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 4</span>
+                                <span class="chest-threshold-value">↓ 21.428M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 5</span>
+                                <span class="chest-threshold-value">↓ 14.285M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 6</span>
+                                <span class="chest-threshold-value">↓ 7.142M</span>
+                            </div>
+                            <div class="chest-threshold-segment">
+                                <span class="chest-threshold-label">Chest 7</span>
+                                <span class="chest-threshold-value">↓ 0</span>
+                            </div>
+                        </div>
+                        <div class="chest-threshold-scale">
+                            <span>50M points</span>
+                            <span>0 (defeated)</span>
+                        </div>
+                        <p class="chest-threshold-legend">Each segment is ~7.143M points wide. A chest drops when remaining points cross the <strong>lower boundary</strong> of its segment.</p>
+                    </div>
+
+                    <h3 class="roe-subsection-title">Example</h3>
+                    <p>Suppose Doomsday currently has <strong>44M points remaining</strong>.</p>
+                    <p>An attack deals <strong>2M damage</strong>, reducing the monster to <strong>42M points remaining</strong>.</p>
+                    <p>Because the attack crossed the <strong>42.857M threshold</strong>, that attack receives the chest associated with that threshold.</p>
+                    <p class="roe-callout">The chest is awarded to the attack that causes the crossing, not necessarily the largest attack or the final attack.</p>
+                </div>
+
+                <h2 class="roe-section-title">General Calculation Method</h2>
+                <div class="roe-section">
+                    <p>For any Epic Monster with chest drops:</p>
+                    <div class="formula-box">
+                        <code>Threshold Interval = Total Points ÷ Number of Chests</code>
+                    </div>
+                    <p>Then calculate:</p>
+                    <div class="formula-box">
+                        <code>Threshold 1 = Total Points − Interval<br>
+Threshold 2 = Total Points − (2 × Interval)<br>
+Threshold 3 = Total Points − (3 × Interval)<br>
+…<br>
+Threshold N = 0</code>
+                    </div>
+                    <p>Whenever an attack causes the monster's remaining points to pass one of these thresholds, that attack earns the corresponding chest.</p>
+                </div>
+
+                <h2 class="roe-section-title">Practical Strategy</h2>
+                <div class="roe-section">
+                    <p>When coordinating alliance attacks:</p>
+                    <ul>
+                        <li>Calculate all chest thresholds before attacking.</li>
+                        <li>Track the monster's current remaining points.</li>
+                        <li>Estimate expected damage from each participant.</li>
+                        <li>Time attacks so desired players cross specific thresholds.</li>
+                        <li>Be especially careful near threshold values, as even a small attack can claim a chest.</li>
+                    </ul>
+                    <p>For high-value Epic Monsters, coordinated attacks can ensure that chest rewards are distributed intentionally rather than randomly.</p>
+                </div>
+
+                <h2 class="roe-section-title">Summary</h2>
+                <div class="roe-section">
+                    <p>The Chest Drop mechanic is based on evenly dividing an Epic Monster's total point value by its number of available chests.</p>
+                    <p>For any Epic Monster:</p>
+                    <div class="formula-box">
+                        <code>Chest Interval = Total Points ÷ Number of Chests</code>
+                    </div>
+                    <p>A chest is awarded whenever an attack causes the monster's remaining points to cross one of the resulting thresholds. Using this method, players can accurately predict chest drops and coordinate attacks to maximize alliance rewards.</p>
+                </div>
+            </div>
+        </article>
     </div>
     <footer id="main-footer"></footer>
     <script src="../js/auth.js"></script>
