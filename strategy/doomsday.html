@@ -41,7 +41,7 @@
         }
 
         .chest-threshold-chart {
-            margin: 2rem 0;
+            margin: 0 0 2.5rem;
             padding: 1.25rem;
             border-radius: 12px;
             border: 2px solid var(--color-border);
@@ -54,63 +54,107 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--color-gold);
-            margin: 0 0 1rem;
+            margin: 0 0 0.35rem;
             text-align: center;
         }
 
-        .chest-threshold-bar {
-            display: flex;
-            width: 100%;
-            min-height: 3.25rem;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--color-border-gold);
-        }
-
-        .chest-threshold-segment {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.15rem;
-            padding: 0.5rem 0.25rem;
-            text-align: center;
-            border-right: 1px solid rgba(0, 0, 0, 0.35);
-            background: linear-gradient(180deg, rgba(212, 165, 116, 0.22) 0%, rgba(212, 165, 116, 0.08) 100%);
-        }
-
-        .chest-threshold-segment:last-child {
-            border-right: none;
-        }
-
-        .chest-threshold-segment:nth-child(odd) {
-            background: linear-gradient(180deg, rgba(139, 38, 53, 0.28) 0%, rgba(139, 38, 53, 0.1) 100%);
-        }
-
-        .chest-threshold-label {
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-gold-light);
-        }
-
-        .chest-threshold-value {
-            font-size: 0.72rem;
-            line-height: 1.3;
+        .chest-threshold-chart-subtitle {
+            margin: 0 0 1.25rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
             color: var(--color-text-dim);
+            text-align: center;
         }
 
         .chest-threshold-scale {
             display: flex;
             justify-content: space-between;
-            margin-top: 0.65rem;
+            margin-bottom: 0.5rem;
             font-size: 0.85rem;
             color: var(--color-text-dim);
         }
 
+        .chest-interval-track {
+            display: flex;
+            width: 100%;
+            align-items: flex-start;
+        }
+
+        .chest-interval-segment {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .chest-interval-fill {
+            height: 1.35rem;
+            border-top: 2px solid var(--color-border-gold);
+            border-bottom: 2px solid var(--color-border-gold);
+            border-left: 2px solid var(--color-border-gold);
+            background: linear-gradient(180deg, rgba(212, 165, 116, 0.22) 0%, rgba(212, 165, 116, 0.08) 100%);
+        }
+
+        .chest-interval-segment:nth-child(odd) .chest-interval-fill {
+            background: linear-gradient(180deg, rgba(139, 38, 53, 0.28) 0%, rgba(139, 38, 53, 0.1) 100%);
+        }
+
+        .chest-interval-segment:last-child .chest-interval-fill {
+            border-right: 2px solid var(--color-border-gold);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .chest-interval-segment:first-child .chest-interval-fill {
+            border-radius: 6px 0 0 6px;
+        }
+
+        .chest-interval-boundary {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0.35rem;
+            transform: translateX(50%);
+            z-index: 1;
+        }
+
+        .chest-interval-segment:last-child .chest-interval-boundary {
+            transform: translateX(0);
+            align-self: flex-end;
+        }
+
+        .chest-drop-arrow {
+            font-size: 0.85rem;
+            line-height: 1;
+            color: var(--color-gold);
+            text-shadow: 0 0 8px rgba(212, 165, 116, 0.6);
+        }
+
+        .chest-drop-icon {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
+        }
+
+        .chest-drop-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--color-gold-light);
+            white-space: nowrap;
+        }
+
+        .chest-drop-threshold {
+            font-size: 0.65rem;
+            line-height: 1.2;
+            color: var(--color-text-dim);
+            white-space: nowrap;
+        }
+
         .chest-threshold-legend {
-            margin-top: 1rem;
+            margin-top: 2.75rem;
             font-size: 0.95rem;
             line-height: 1.7;
             color: var(--color-text);
@@ -118,21 +162,46 @@
         }
 
         @media (max-width: 768px) {
-            .chest-threshold-bar {
+            .chest-interval-track {
                 flex-direction: column;
-                min-height: auto;
+                gap: 0;
             }
 
-            .chest-threshold-segment {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+            .chest-interval-segment {
                 flex-direction: row;
-                justify-content: space-between;
-                padding: 0.65rem 0.85rem;
+                align-items: center;
+                gap: 0.75rem;
             }
 
-            .chest-threshold-segment:last-child {
-                border-bottom: none;
+            .chest-interval-fill {
+                flex: 1;
+                height: 1rem;
+                border-radius: 6px !important;
+                border: 2px solid var(--color-border-gold);
+            }
+
+            .chest-interval-boundary {
+                flex-shrink: 0;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.45rem;
+                margin-top: 0;
+                transform: none;
+                min-width: 7.5rem;
+            }
+
+            .chest-drop-arrow {
+                display: none;
+            }
+
+            .chest-drop-label,
+            .chest-drop-threshold {
+                white-space: normal;
+                text-align: left;
+            }
+
+            .chest-threshold-legend {
+                margin-top: 1.25rem;
             }
         }
     </style>
@@ -144,17 +213,90 @@
 
         <article class="strategy-entry">
             <div class="entry-content">
-                <p class="roe-intro">Educational guide on how <strong>Epic Monster chest drops</strong> work in <strong>Total Battle</strong>, with a detailed <em>Doomsday</em> example. Understanding this mechanic helps players and alliances coordinate attacks and maximize rewards.</p>
-
-                <div class="gold-framed-wrap">
-                    <img class="gold-framed-image" src="../assets/doomsday/doomsday-chest.png" alt="Doomsday Epic Monster chest reward" width="560" height="auto">
+                <div class="chest-threshold-chart" aria-label="Visual chart of Doomsday chest drop intervals">
+                    <p class="chest-threshold-chart-title">Doomsday Point Intervals</p>
+                    <p class="chest-threshold-chart-subtitle">As Doomsday's points fall from 50M toward 0, a chest drops each time remaining points cross the <strong>lower boundary</strong> of an interval (~7.143M wide).</p>
+                    <div class="chest-threshold-scale">
+                        <span>50M (full)</span>
+                        <span>0 (defeated)</span>
+                    </div>
+                    <div class="chest-interval-track">
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 1</span>
+                                <span class="chest-drop-threshold">42.857M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 2</span>
+                                <span class="chest-drop-threshold">35.714M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 3</span>
+                                <span class="chest-drop-threshold">28.571M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 4</span>
+                                <span class="chest-drop-threshold">21.428M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 5</span>
+                                <span class="chest-drop-threshold">14.285M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 6</span>
+                                <span class="chest-drop-threshold">7.142M</span>
+                            </div>
+                        </div>
+                        <div class="chest-interval-segment">
+                            <div class="chest-interval-fill" aria-hidden="true"></div>
+                            <div class="chest-interval-boundary">
+                                <span class="chest-drop-arrow" aria-hidden="true">▼</span>
+                                <img class="chest-drop-icon" src="../assets/doomsday/doomsday-chest.png" alt="" aria-hidden="true">
+                                <span class="chest-drop-label">Chest 7</span>
+                                <span class="chest-drop-threshold">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chest-threshold-legend">Each chest icon marks the exact drop point—the attack that pushes remaining points below that boundary earns the chest.</p>
                 </div>
-                <p class="ancients-flow-caption"><strong>Doomsday chest</strong> — one of seven chest rewards dropped as the Epic Monster's points are reduced.</p>
 
                 <h2 class="roe-section-title">Overview</h2>
                 <div class="roe-section">
-                    <p>Many Epic Monsters in <strong>Total Battle</strong> use a <strong>Chest Drop</strong> mechanic. While each monster may have a different number of total points and available chests, the underlying system works the same for all of them.</p>
-                    <p>Understanding how chest drops are calculated allows players and alliances to coordinate attacks and maximize rewards.</p>
+                    <p><strong>Doomsday</strong> is a kingdom Epic Monster with <strong>50,000,000 Doomsday Points</strong> and <strong>7 chest rewards</strong>. Like other Epic Monsters that use chest drops, those rewards are not random: they are tied to fixed point thresholds as the monster's health is reduced.</p>
+                    <p>Each chest is awarded to the attack that causes remaining points to cross the lower boundary of an interval. The seven intervals are equal in size—roughly <strong>7.143 million points</strong> each—so knowing where those boundaries fall lets your alliance plan who hits when and who claims each chest.</p>
+                    <p>The sections below walk through the chest drop formula, the exact Doomsday thresholds, and how to coordinate attacks around them.</p>
+                </div>
+
+                <div class="gold-framed-wrap">
+                    <img class="gold-framed-image" src="../assets/doomsday/doomsday-chest.png" alt="Doomsday Epic Monster chest reward" width="560" height="auto">
                 </div>
 
                 <h2 class="roe-section-title">How Chest Drops Work</h2>
@@ -233,45 +375,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-
-                    <div class="chest-threshold-chart" aria-label="Visual chart of Doomsday chest drop intervals">
-                        <p class="chest-threshold-chart-title">Doomsday Point Intervals (50M total)</p>
-                        <div class="chest-threshold-bar">
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 1</span>
-                                <span class="chest-threshold-value">↓ 42.857M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 2</span>
-                                <span class="chest-threshold-value">↓ 35.714M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 3</span>
-                                <span class="chest-threshold-value">↓ 28.571M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 4</span>
-                                <span class="chest-threshold-value">↓ 21.428M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 5</span>
-                                <span class="chest-threshold-value">↓ 14.285M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 6</span>
-                                <span class="chest-threshold-value">↓ 7.142M</span>
-                            </div>
-                            <div class="chest-threshold-segment">
-                                <span class="chest-threshold-label">Chest 7</span>
-                                <span class="chest-threshold-value">↓ 0</span>
-                            </div>
-                        </div>
-                        <div class="chest-threshold-scale">
-                            <span>50M points</span>
-                            <span>0 (defeated)</span>
-                        </div>
-                        <p class="chest-threshold-legend">Each segment is ~7.143M points wide. A chest drops when remaining points cross the <strong>lower boundary</strong> of its segment.</p>
                     </div>
 
                     <h3 class="roe-subsection-title">Example</h3>
